@@ -1,0 +1,20 @@
+{
+  "lastPushedDate": "2026-02-19",
+  "pushedBatches": [
+    {
+      "date": "2026-02-19",
+      "batchId": "2026-02-19-morning",
+      "count": 46,
+      "pushedAt": "2026-02-19T14:38:00Z"
+    },
+    {
+      "date": "2026-02-20",
+      "batchId": "2026-02-13-to-2026-02-19-catchup",
+      "count": 362,
+      "pushedAt": "2026-02-20T06:35:00Z",
+      "note": "DUPLICATE PUSH - includes questions already pushed on 2026-02-19"
+    }
+  ],
+  "totalPushed": 408,
+  "knownDuplicates": 228
+}
