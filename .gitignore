@@ -15,11 +15,13 @@ node_modules/
 # Temporary files
 /tmp/
 
+# Parthasarathi's working repo (for quick edits)
+repo/
+
 # Vyasa's working directories (cloned repos, draft files)
 vyasa/repo/
 vyasa/drafts/
 vyasa/app/
-vyasa/thelaunch-space-tweet-sized-landing-page/
 
 # Catch any future nested git repos in agent workspaces
 **/*/repo/
