@@ -57,6 +57,7 @@ Durable truths that don't change often.
 | 8:00 PM | Vyasa | Citation Enrichment #3 | sonnet | PR + #vyasa-blogs |
 | 9:00 PM | Valmiki | Ping Krishna | sonnet | #valmiki-content |
 | 10:00 AM Sat | Valmiki | Weekly Performance Review | sonnet | #valmiki-content |
+| 10:00 PM | Parthasarathi | Daily Context Backup | (isolated) | GitHub push + Krishna DM |
 
 ### Model Aliases
 | Alias | Model |
