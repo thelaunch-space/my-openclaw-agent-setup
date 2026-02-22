@@ -23,6 +23,8 @@ Blogs about founder decision-making, validation, growth.
 | # | Title | URL | Primary Keyword | Key Headings |
 |---|-------|-----|-----------------|--------------|
 | 3 | How to Validate Your Startup Idea as a Domain Expert | /blogs/founder-advice/validate-startup-idea-domain-expert | validate startup idea | Domain expertise advantage, Validation framework, Testing demand |
+| 6 | CRM for Small Service Businesses: Pick One Your Team Will Actually Use | /blogs/founder-advice/crm-for-small-service-business | CRM for small service business | Why teams abandon CRMs, 5-person inflection point, Adoption Pyramid, Three paths, What to track, Good enough test |
+| 7 | When to Stop Using Spreadsheets for Leads (And What to Build Instead) | /blogs/founder-advice/when-to-stop-using-spreadsheets-for-leads | spreadsheet for lead management | 3 signs spreadsheet is failing, CRM trap, Middle path custom system, Build vs buy math, Action plan |
 
 ### Cluster: AI Tools & Automation
 Blogs about AI products, automation, AI for non-technical founders.

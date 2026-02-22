@@ -1,13 +1,14 @@
 # Topic Category Diversity Tracker
 
-Last updated: 2026-02-20
+Last updated: 2026-02-21
 
 ## Categories and Current Count
 
 - **Founder-Phase:** 1 (Getting started, finding cofounders, building first MVP)
   - 2026-02-20: ChatGPT MVP deployment stuck
 - **Post-MVP:** 0 (Scaling, pivoting, when to rebuild, PMF signals)
-- **Distribution/GTM:** 0 (Finding customers, pricing, channels, outreach)
+- **Distribution/GTM:** 1 (Finding customers, pricing, channels, outreach)
+  - 2026-02-21: Product built no customers (distribution wall)
 - **Operations:** 1 (Managing teams, QA, tools, processes, automation)
   - 2026-02-19: Invoice automation for small business
 - **Vertical-Specific:** 0 (EdTech, HealthTech, Legal, Finance)

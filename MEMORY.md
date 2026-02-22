@@ -103,7 +103,7 @@ Learned how-tos from experience (not from docs).
 - **Verify after creation** - Check that `nextRunAtMs` is populated in state.
 - **Check before recreating** - Use `includeDisabled: true` to see all crons. Don't create duplicates.
 - **Update, don't recreate** - Use `cron action=update` to modify existing jobs.
-- **Isolated sessions need explicit Slack delivery** - `sessionTarget: "isolated"` sessions don't auto-route to Slack. Add `message action=send channel=slack target=<id>` to cron prompts.
+- **Isolated sessions need explicit Slack delivery** - `sessionTarget: "isolated"` sessions don't auto-route to Slack. The `delivery.mode: "announce"` mechanism fails for isolated sessions. Solution: Set `delivery.mode: "none"` and add explicit `message action=send channel=slack target=<channel_id>` instruction at the end of the cron prompt. Agents handle their own posting.
 - **Cron list needs longer timeout** - With 15 jobs, `cron action=list` takes 20-40s under load. Use `timeoutMs: 45000` when calling cron list. 30s is sometimes insufficient.
 
 ### Triggering Agents
@@ -177,6 +177,9 @@ Krishna's stated choices and patterns.
 ## Setup Log
 
 Chronological history of setup and changes.
+
+### 2026-02-20
+- **Slack delivery fix:** All 14 agent crons updated to use self-contained Slack delivery. Root cause: `delivery.mode: "announce"` was failing with "cron announce delivery failed" for isolated sessions. Fix: Changed all agent crons to `delivery.mode: "none"` and added explicit `message action=send` instructions in the cron prompt itself. Now agents post to Slack directly instead of relying on the delivery mechanism.
 
 ### 2026-02-19
 - **Security hardening:** Tailscale HTTPS access enabled (srv1331841.tail4447a0.ts.net), Docker port locked to localhost (127.0.0.1:41473), `allowInsecureAuth: false` enforced.
