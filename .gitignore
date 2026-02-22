@@ -14,3 +14,8 @@ node_modules/
 
 # Temporary files
 /tmp/
+
+# Vyasa's working directories (cloned repos, draft files)
+vyasa/repo/
+vyasa/drafts/
+vyasa/app/
