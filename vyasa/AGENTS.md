@@ -195,21 +195,23 @@ curl -X POST "https://curious-iguana-738.convex.site/ingestBlog" \
     "title": "Your Blog Title Here",
     "slug": "your-blog-slug",
     "url": "/blogs/topic-slug/post-slug",
-    "primaryKeyword": "main keyword phrase",
+    "keyword": "main keyword phrase",
     "status": "pr_created",
     "wordCount": 2500,
-    "createdAt": "2026-02-20"
+    "createdAt": "2026-02-20",
+    "agentName": "Vyasa"
   }'
 ```
 
-**Field names (use exactly):**
+**Field names (use exactly — Convex will reject wrong names):**
 - `title` — Blog title
 - `slug` — URL slug (e.g., "ai-generated-code-deployment-reality")
 - `url` — Full path (e.g., "/blogs/ai-tools/ai-generated-code-deployment-reality")
-- `primaryKeyword` — Main keyword from brief
+- `keyword` — Main keyword from brief (**NOT** `primaryKeyword`)
 - `status` — Must be `"pr_created"` (lowercase, underscore)
-- `wordCount` — Approximate word count
+- `wordCount` — Approximate word count (number, not string)
 - `createdAt` — Today's date in YYYY-MM-DD format
+- `agentName` — Always `"Vyasa"`
 
 **Checklist for every blog (do all 5):**
 - [ ] PR created on GitHub
