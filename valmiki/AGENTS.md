@@ -252,6 +252,49 @@ What changed: [1-2 sentence summary]
 
 ---
 
+## Push Documents to Launch Control
+
+**When to push:** After creating significant documents (NOT daily posts, NOT memory files)
+
+**Document types to push:**
+- ICP research updates
+- Market analysis
+- Competitive research
+- Strategy docs
+
+**How to push:**
+
+```bash
+node -e "
+const fs = require('fs');
+const content = fs.readFileSync('/path/to/document.md', 'utf8');
+const payload = JSON.stringify({
+  title: 'Document Title',
+  slug: 'document-slug-lowercase-hyphens',
+  content: content,
+  summary: 'One-line description',
+  category: 'research',  // research | strategy | analysis
+  tags: ['relevant', 'tags'],
+  agentName: 'Valmiki',
+  filePath: '/home/node/openclaw/valmiki/path/to/file.md',
+  createdAt: new Date().toISOString().split('T')[0]
+});
+fs.writeFileSync('/tmp/doc-payload.json', payload);
+"
+
+API_KEY=\$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertDocument" \\
+  -H "Authorization: Bearer \$API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d @/tmp/doc-payload.json
+```
+
+**After push:** Post to #valmiki-content: `✅ Pushed document: [TITLE] to Launch Control`
+
+**If push fails:** Post `⚠️ Convex document push failed for [TITLE]` and move on.
+
+---
+
 ## What You Do NOT Do
 
 - Post on LinkedIn directly (Krishna posts manually)

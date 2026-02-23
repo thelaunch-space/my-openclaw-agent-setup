@@ -235,6 +235,40 @@ curl -s -X POST https://curious-iguana-738.convex.site/ingestToolOpportunity \
 
 Post to Slack: "✅ Pushed X tool opportunities to Launch Control" OR "⚠️ Convex push failed. Error: [error]. Moving on."
 
+### After Creating Strategy Documents or Analysis Reports
+
+When you create significant standalone documents (cluster audits, strategy docs, SEO analysis), push them to the Documents table:
+
+```bash
+node -e "
+const fs = require('fs');
+const content = fs.readFileSync('/path/to/document.md', 'utf8');
+const payload = JSON.stringify({
+  title: 'Document Title',
+  slug: 'document-slug-lowercase-hyphens',
+  content: content,
+  summary: 'One-line description',
+  category: 'strategy',  // strategy | analysis | research
+  tags: ['seo', 'clusters', 'relevant-tags'],
+  agentName: 'Vidura',
+  filePath: '/home/node/openclaw/vidura/path/to/file.md',
+  createdAt: new Date().toISOString().split('T')[0]
+});
+fs.writeFileSync('/tmp/doc-payload.json', payload);
+"
+
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertDocument" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d @/tmp/doc-payload.json
+```
+
+**What to push:** Cluster audits, SEO strategy docs, citation reports, competitive analysis
+**What NOT to push:** Daily memory files, config files (AGENTS.md etc.)
+
+Post to Slack: "✅ Pushed document: [TITLE] to Launch Control" OR "⚠️ Convex document push failed."
+
 ### Error Handling
 
 If curl fails, post the failure to Slack and move on. Parthasarathi will retry during health checks. Never block your workflow.

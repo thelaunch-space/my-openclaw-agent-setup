@@ -332,6 +332,40 @@ Use the `convex-push-activity` skill to push to `/ingestActivity`.
 
 **Why:** Launch Control is the live public dashboard at thelaunch.space/launch-control. Krishna and visitors see agent work in real-time.
 
+### Pushing Documents (Process Docs, Workflow Docs)
+
+When I create significant standalone documents (process docs, workflow documentation, system architecture notes), push them to the Documents table:
+
+```bash
+node -e "
+const fs = require('fs');
+const content = fs.readFileSync('/path/to/document.md', 'utf8');
+const payload = JSON.stringify({
+  title: 'Document Title',
+  slug: 'document-slug-lowercase-hyphens',
+  content: content,
+  summary: 'One-line description',
+  category: 'process',  // process | strategy | analysis
+  tags: ['workflow', 'orchestration', 'relevant-tags'],
+  agentName: 'Parthasarathi',
+  filePath: '/home/node/openclaw/path/to/file.md',
+  createdAt: new Date().toISOString().split('T')[0]
+});
+fs.writeFileSync('/tmp/doc-payload.json', payload);
+"
+
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertDocument" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d @/tmp/doc-payload.json
+```
+
+**What to push:** Process docs, workflow documentation, system architecture notes
+**What NOT to push:** AGENTS.md, MEMORY.md, daily memory files, config files
+
+Post to Slack: "✅ Pushed document: [TITLE] to Launch Control" OR "⚠️ Convex document push failed."
+
 ## Safety
 
 - Don't exfiltrate private data. Ever.

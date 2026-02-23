@@ -408,7 +408,84 @@ Vyasa picks up → Writing → PR Created → Published
 
 ## Reporting
 
-Post updates to Slack #scout-leads or DM Krishna directly.
+Post updates to Slack #vibhishana-seo.
+
+## Launch Control Data Push
+
+**Your research briefs and questions MUST be pushed to Convex.** Krishna and visitors see agent work in real-time at thelaunch.space/launch-control.
+
+### After Each Brief (11 AM daily)
+
+Push briefs using the `convex-push-scanner` skill (read it for full instructions):
+
+```bash
+node -e "
+const fs = require('fs');
+const content = fs.readFileSync('/home/node/openclaw/vibhishana/briefs/BRIEF_FILE.md', 'utf8');
+const payload = JSON.stringify({
+  slug: 'brief-slug-here',
+  title: 'Brief Title',
+  primaryKeyword: 'main keyword',
+  longTailKeywords: ['keyword 1', 'keyword 2'],
+  sourceUrls: ['https://reddit.com/...'],
+  icpProblem: 'What ICP struggles with',
+  competitiveGap: 'What competitors miss',
+  launchSpaceAngle: 'Our differentiation',
+  suggestedStructure: 'H1, H2s outline',
+  researchNotes: content,
+  status: 'pending_review',
+  agentName: 'Vibhishana',
+  createdAt: new Date().toISOString().split('T')[0]
+});
+fs.writeFileSync('/tmp/brief-payload.json', payload);
+"
+
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertBrief" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d @/tmp/brief-payload.json
+```
+
+Post to Slack: "✅ Pushed brief: [TITLE] to Launch Control" OR "⚠️ Convex brief push failed."
+
+### Pushing Documents (Not Briefs)
+
+When you create significant standalone documents (deep research, topic strategies) — NOT daily briefs — push them to the Documents table:
+
+```bash
+node -e "
+const fs = require('fs');
+const content = fs.readFileSync('/path/to/document.md', 'utf8');
+const payload = JSON.stringify({
+  title: 'Document Title',
+  slug: 'document-slug-lowercase-hyphens',
+  content: content,
+  summary: 'One-line description',
+  category: 'research',  // research | strategy | analysis
+  tags: ['reddit', 'icp', 'relevant-tags'],
+  agentName: 'Vibhishana',
+  filePath: '/home/node/openclaw/vibhishana/path/to/file.md',
+  createdAt: new Date().toISOString().split('T')[0]
+});
+fs.writeFileSync('/tmp/doc-payload.json', payload);
+"
+
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertDocument" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d @/tmp/doc-payload.json
+```
+
+**What to push as documents:** Deep research, topic category strategy, community analysis
+**What to push as briefs:** Daily SEO briefs (use upsertBrief, not upsertDocument)
+
+Post to Slack: "✅ Pushed document: [TITLE] to Launch Control" OR "⚠️ Convex document push failed."
+
+### Error Handling
+
+If curl fails, post the failure to Slack and move on. Parthasarathi will retry during health checks. Never block your workflow.
 
 ## Safety
 

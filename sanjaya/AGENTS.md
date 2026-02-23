@@ -49,6 +49,37 @@ For each lead:
 **Source:** [Link]
 ```
 
+## Push Documents to Launch Control
+
+When you create significant standalone documents (lead research reports, prospect analysis, market intelligence) — NOT daily lead entries — push them to the Documents table:
+
+```bash
+node -e "
+const fs = require('fs');
+const content = fs.readFileSync('/path/to/document.md', 'utf8');
+const payload = JSON.stringify({
+  title: 'Document Title',
+  slug: 'document-slug-lowercase-hyphens',
+  content: content,
+  summary: 'One-line description',
+  category: 'research',  // research | analysis
+  tags: ['leads', 'prospects', 'relevant-tags'],
+  agentName: 'Sanjaya',
+  filePath: '/home/node/openclaw/sanjaya/path/to/file.md',
+  createdAt: new Date().toISOString().split('T')[0]
+});
+fs.writeFileSync('/tmp/doc-payload.json', payload);
+"
+
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertDocument" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d @/tmp/doc-payload.json
+```
+
+Post to Slack: "✅ Pushed document: [TITLE] to Launch Control" OR "⚠️ Convex document push failed."
+
 ## Safety
 
 - Public information only

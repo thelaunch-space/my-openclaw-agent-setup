@@ -224,6 +224,40 @@ curl -X POST "https://curious-iguana-738.convex.site/ingestBlog" \
 
 **Why this matters:** If you skip the push, the blog won't appear on Launch Control. Parthasarathi checks for missing pushes at 7 PM, but catching them then adds hours of delay. Do it right the first time.
 
+### Pushing Documents (Not Blogs)
+
+When you create significant standalone documents (content strategy docs, style guides, analysis docs) — NOT blog posts — push them to the Documents table:
+
+```bash
+node -e "
+const fs = require('fs');
+const content = fs.readFileSync('/path/to/document.md', 'utf8');
+const payload = JSON.stringify({
+  title: 'Document Title',
+  slug: 'document-slug-lowercase-hyphens',
+  content: content,
+  summary: 'One-line description',
+  category: 'process',  // process | analysis | strategy
+  tags: ['blogs', 'style', 'relevant-tags'],
+  agentName: 'Vyasa',
+  filePath: '/home/node/openclaw/vyasa/path/to/file.md',
+  createdAt: new Date().toISOString().split('T')[0]
+});
+fs.writeFileSync('/tmp/doc-payload.json', payload);
+"
+
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertDocument" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d @/tmp/doc-payload.json
+```
+
+**What to push:** Style guides, workflow docs, content strategy, analysis reports
+**What NOT to push:** Blog posts (those go to ingestBlog), daily memory files
+
+Post to Slack: "✅ Pushed document: [TITLE] to Launch Control" OR "⚠️ Convex document push failed."
+
 ## References
 
 - **Page template:** `templates/page-template.md`
