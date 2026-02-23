@@ -22,6 +22,11 @@ repo/
 vyasa/repo/
 vyasa/drafts/
 vyasa/app/
+vyasa/temp-repo/
+vyasa/work-repo/
+
+# Temporary cloned repos
+thelaunch-space-tweet-sized-landing-page/
 
 # Catch any future nested git repos in agent workspaces
 **/*/repo/
