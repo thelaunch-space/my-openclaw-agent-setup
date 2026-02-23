@@ -259,6 +259,24 @@ curl -X POST "https://curious-iguana-738.convex.site/ingestQuestions" \
 
 **Add research briefs to the `blog-queue` tab immediately** - don't wait for scheduled times.
 
+**Use this exact command to add a brief to the sheet:**
+```bash
+node /home/node/openclaw/scripts/vyasa-sheets-helper.js add-brief '{
+  "title": "Your Title Here",
+  "slug": "your-slug-here",
+  "primaryKeyword": "main keyword",
+  "longTailKeywords": "kw1, kw2, kw3",
+  "sourceUrls": "https://reddit.com/...",
+  "icpProblem": "What the ICP is struggling with",
+  "competitiveGap": "What ranks vs what is missing",
+  "thelaunchAngle": "Our unique perspective",
+  "suggestedStructure": "h2/h3 skeleton",
+  "researchNotes": "Additional notes",
+  "status": "Pending Review",
+  "source": "Vibhishana"
+}'
+```
+
 **Columns:** Title | Slug | Primary Keyword | Long-tail Keywords | Source URLs | ICP Problem | Competitive Gap | thelaunch.space Angle | Suggested Structure | Research Notes | Status | Final Keywords | Blog URL | Ranking Notes
 
 **Status flow with Krishna's review:**

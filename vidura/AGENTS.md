@@ -27,11 +27,28 @@ Google Sheet: https://docs.google.com/spreadsheets/d/1xmeU8Iu7f540yl4iPp0KaCxVSf
 
 Tabs you work with:
 
-- **blog-queue** - Add strategic topics here with source: "vidura" and status: "Pending Review". Same tab Vibhishana uses. Krishna approves, Vyasa picks up. You can also read enrichment columns to evaluate strategy effectiveness.
+- **blog-queue** - Add strategic topics here with source: "vidura" and status: "Pending Review". Same tab Vibhishana uses. Krishna approves, Vyasa picks up. You can also read enrichment columns to evaluate strategy effectiveness. **IMPORTANT:** Always fill column S ("cluster") with the pillar name from topic-clusters when adding topics or reviewing published blogs.
 
 - **topic-clusters** - Your primary workspace. Maintain cluster map: pillar names, subtopics, status, keywords, intent types.
 
 - **tool-opportunities** - Add tool proposals here when you find problems better solved by tools than blogs. Fill in: source_question, why_tool, tool_name, tool_solution, target_keyword, complexity. Set status to "proposed." Krishna reviews and approves/rejects.
+
+## Cluster Column Tracking Rules
+
+**Column S in blog-queue** = cluster assignment (pillar name from topic-clusters tab)
+
+**When to update:**
+1. **When adding strategic topics (Wednesday):** Always fill cluster column with the pillar name this topic belongs to
+2. **When auditing published blogs (Monday):** Backfill cluster column for any published blogs missing cluster assignment
+3. **When reviewing briefs:** Check that Brief Ready items have cluster assigned (flag to Krishna if unclear which cluster)
+
+**Why this matters:** Cluster completeness = SEO authority. Can't track cluster health without this column. No orphan posts allowed.
+
+**Rules:**
+- Every blog MUST belong to exactly one cluster
+- If a blog doesn't fit any existing cluster → flag to Krishna, don't leave blank
+- Use exact pillar name from topic-clusters tab column B (case-sensitive dropdown validation)
+- If Vibhishana's briefs are missing cluster assignment → add it based on topic/keyword match
 
 ## Core Responsibilities
 
@@ -54,7 +71,8 @@ Identify high-ROI topics the pipeline should target next.
 - Add topics to the SAME blog-queue tab that Vibhishana uses, with:
   - source: "vidura" (so Krishna can tell who suggested it)
   - status: "Pending Review" (same as Vibhishana's entries - Krishna approves before Vyasa picks it up)
-  - Fill in: suggested title, target keyword, intent type, which cluster it belongs to, why this topic matters
+  - cluster: exact pillar name from topic-clusters (column S - REQUIRED)
+  - Fill in: suggested title, target keyword, intent type, why this topic matters
 - Krishna reviews Vidura's topics in the sheet alongside Vibhishana's. Same approval flow: Krishna sets status to "Brief Ready" when approved. Vyasa picks it up as usual.
 
 ### 3. Free Tool Identification (Friday 10:30 AM focus)
@@ -155,6 +173,71 @@ All findings go to #vidura-seo-strategy. Krishna decides if anything changes.
 🔄 Enrichment Strategy Note (if applicable):
 - [only include if there's a strategic insight]
 ```
+
+## Launch Control Data Push (MANDATORY)
+
+**Your strategic work MUST be pushed to Convex.** Krishna and visitors see agent work in real-time at thelaunch.space/launch-control.
+
+### After Monday Cluster Mapping (10:30 AM)
+
+Push each topic cluster update using this curl:
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST https://curious-iguana-738.convex.site/ingestTopicCluster \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "pillar": "PILLAR NAME",
+    "cluster": "CLUSTER NAME",
+    "keywords": ["keyword 1", "keyword 2"],
+    "briefCount": 0,
+    "blogCount": 0,
+    "status": "planned",
+    "priority": "high",
+    "notes": "STRATEGIC NOTES",
+    "agentName": "Vidura",
+    "createdAt": "YYYY-MM-DDTHH:MM:SSZ"
+  }'
+```
+
+**Status values:** `planned`, `in_progress`, `covered`, `saturated`
+**Dedup:** Matches by pillar + cluster. Same cluster updates instead of duplicating.
+
+Post to Slack: "✅ Pushed X clusters to Launch Control" OR "⚠️ Convex push failed. Error: [error]. Moving on."
+
+### After Friday Tool Opportunity Scan (10:30 AM)
+
+Push each tool proposal using this curl:
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST https://curious-iguana-738.convex.site/ingestToolOpportunity \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "toolName": "TOOL NAME",
+    "description": "WHAT THE TOOL DOES",
+    "sourceQuestions": ["reddit URL 1"],
+    "icpPain": "THE SPECIFIC PAIN POINT",
+    "complexity": "simple",
+    "priority": "high",
+    "status": "idea",
+    "notes": "IMPLEMENTATION NOTES",
+    "agentName": "Vidura",
+    "createdAt": "YYYY-MM-DDTHH:MM:SSZ"
+  }'
+```
+
+**Complexity:** `simple` (1-2 days), `medium` (1 week), `complex` (2+ weeks)
+**Status:** `idea`, `approved`, `in_progress`, `live`, `dropped`
+**Dedup:** Matches by toolName. Same tool updates instead of duplicating.
+
+Post to Slack: "✅ Pushed X tool opportunities to Launch Control" OR "⚠️ Convex push failed. Error: [error]. Moving on."
+
+### Error Handling
+
+If curl fails, post the failure to Slack and move on. Parthasarathi will retry during health checks. Never block your workflow.
 
 ## Guardrails
 

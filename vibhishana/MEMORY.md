@@ -23,12 +23,17 @@ Durable truths that don't change often.
 - r/edtech - Education (Krishna's background)
 - r/consulting - Consultants going independent (~150k members)
 - r/HealthTech, r/healthcarestartups - Healthcare founders
+- r/legaltech - Legal tech, lawyers building software (~14k members, added 2026-02-23)
 
 ### Communities Discovered (Non-Reddit)
 - **IndeCollective** - Private community for consultants/coaches building independent practices
 - **Founders Network EdTech Initiative** - 600+ global EdTech founders
 - **Future of Higher Education Slack** - 3.5k+ members, EdTech innovation
 - **Early Stage Founders Discord** - 2k members, SaaS/service solopreneurs
+- **No Code Founders Slack** - 30k+ members, world's largest no-code community, non-technical founders hitting tool limits (added 2026-02-23)
+- **Health Tech Nerds Slack** - 6k members, healthcare founders/innovators, vetted $20/mo (added 2026-02-23)
+- **This Week in Fintech Slack** - 10k+ members, fintech operators, VCs restricted from some channels (added 2026-02-23)
+- **No-Code Exits Newsletter** - "Build to Exit" framework, 91% readers stuck in idea/build phase (added 2026-02-23)
 
 ---
 

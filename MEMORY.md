@@ -88,9 +88,16 @@ Durable truths that don't change often.
 - **Live URL:** thelaunch.space/launch-control
 - **Production endpoint:** `https://curious-iguana-738.convex.site`
 - **API key:** `/home/node/openclaw/credentials/convex-api-key.txt`
-- **HTTP endpoints:** `/ingestQuestions`, `/ingestBrief`, `/ingestBlog`, `/ingestActivity`
+- **HTTP endpoints:**
+  - `/upsertQuestions` - dedups by URL (use this, not ingestQuestions)
+  - `/upsertBrief` - dedups by slug (use this, not ingestBrief)
+  - `/upsertBlog` - dedups by slug (use this, not ingestBlog)
+  - `/ingestActivity` - dedups by optional `dedupKey` field
+  - `/ingestTopicCluster` - dedups by pillar+cluster (Vidura)
+  - `/ingestToolOpportunity` - dedups by toolName (Vidura)
+  - `/updateBriefStatus`, `/updateBlogEnrichment` - status updates
 - **Auth:** All endpoints require `Authorization: Bearer <API_KEY>` header
-- **Push method:** Direct curl to endpoints (skill files don't exist - use curl directly)
+- **Push method:** Direct curl via skill files (see ~/.openclaw/skills/convex-push-*)
 
 ---
 

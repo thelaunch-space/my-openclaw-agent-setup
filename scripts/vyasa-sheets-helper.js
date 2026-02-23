@@ -34,10 +34,10 @@ async function getSheets() {
 
 async function readBlogQueue() {
   const sheets = await getSheets();
-  // Read up to column R to include enrichment columns
+  // Read up to column S to include Cluster column (added Feb 23)
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: SPREADSHEET_ID,
-    range: `${TAB_NAME}!A:R`,
+    range: `${TAB_NAME}!A:S`,
   });
   return res.data.values || [];
 }
@@ -54,7 +54,7 @@ async function setStatus(row, status) {
 }
 
 // Parse rows into structured briefs
-// Columns: A-N standard + O=enrichment_count, P=last_enrichment_date, Q=enrichment_log, R=source
+// Columns: A-N standard + O=enrichment_count, P=last_enrichment_date, Q=enrichment_log, R=source, S=cluster
 function parseBriefs(rows) {
   if (rows.length < 2) return [];
   return rows.slice(1).map((row, idx) => ({
@@ -73,11 +73,12 @@ function parseBriefs(rows) {
     finalKeywords: row[11] || '',
     blogUrl: row[12] || '',
     rankingNotes: row[13] || '',
-    // Enrichment columns (O, P, Q, R)
+    // Enrichment columns (O, P, Q, R, S)
     enrichmentCount: row[14] || '',
     lastEnrichmentDate: row[15] || '',
     enrichmentLog: row[16] || '',
     source: row[17] || '',
+    cluster: row[18] || '',  // Column S: Cluster (added Feb 23)
   }));
 }
 
@@ -108,7 +109,7 @@ async function setEnrichment(row, count, log) {
 async function addBrief(briefData) {
   const sheets = await getSheets();
   
-  // Columns A-R
+  // Columns A-S (including Cluster column added Feb 23)
   const row = [
     briefData.title || '',
     briefData.slug || '',
@@ -128,18 +129,19 @@ async function addBrief(briefData) {
     briefData.lastEnrichmentDate || '',
     briefData.enrichmentLog || '',
     briefData.source || '',
+    briefData.cluster || '',  // Column S: Cluster (added Feb 23)
   ];
   
   await sheets.spreadsheets.values.append({
     spreadsheetId: SPREADSHEET_ID,
-    range: `${TAB_NAME}!A:R`,
+    range: `${TAB_NAME}!A:S`,
     valueInputOption: 'RAW',
     insertDataOption: 'INSERT_ROWS',
     requestBody: { values: [row] },
   });
   
   const allRows = await readBlogQueue();
-  return { rowNumber: allRows.length, title: briefData.title };
+  return { rowNumber: allRows.length, title: briefData.title, cluster: briefData.cluster };
 }
 
 // Get next blog to enrich: Published status, oldest lastEnrichmentDate (NULLs first)

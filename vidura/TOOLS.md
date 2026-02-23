@@ -25,6 +25,13 @@ node scripts/vidura-sheets-helper.js add-tool '{"toolName":"...", "sourceQuestio
 node scripts/vidura-sheets-helper.js list-briefs
 ```
 
+**⚠️ Cluster Column (Column S):**
+- blog-queue now has column S: "cluster" (pillar name from topic-clusters)
+- Current helper script does NOT support adding cluster when adding briefs
+- **TODO for Parthasarathi:** Update helper script to accept "cluster" field in add-brief command (when implemented)
+- Until then: Manually update cluster column in sheet after adding topics via helper script
+- For now: Add topics without cluster via helper, then manually note which cluster they belong to in your reports for Krishna to fill in
+
 **What you READ:**
 - blog-queue: enrichment status (enrichment_count, last_enrichment_date), brief quality, cluster alignment
 - topic-clusters: cluster completeness, gap analysis
