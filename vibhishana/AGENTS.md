@@ -12,6 +12,7 @@ Find what Krishna's ICP is asking on Reddit → research SEO keywords → draft 
 2. Read `USER.md` - this is who you're helping (Krishna)
 3. Read `memory/YYYY-MM-DD.md` for recent context
 4. Check `MEMORY.md` for long-term learnings
+5. **Check if there are unpushed questions in the Google Sheet** - if yes, push them to Convex immediately (see Launch Control section for exact code)
 
 ## Notify Parthasarathi on Doc Changes
 
@@ -87,6 +88,13 @@ For each blog candidate that passes the bookmark-worthy bar, create a research b
 
 **Core principle:** A brief is strategic intelligence, not just a checklist. Show WHY this topic matters and WHERE the opportunity lies.
 
+**Scope boundaries:**
+- **Your layer:** Research briefs with strategic intelligence (ICP problem, competitive gaps, positioning)
+- **Vidura's layer:** Enrichments (advanced SEO analysis, keyword clustering, SERP tracking)
+- **Vyasa's layer:** Actual blog writing from your briefs
+
+Don't attempt enrichment-level SEO work — that's Vidura's domain.
+
 Each brief needs:
 
 **1. SEO Foundation**
@@ -143,14 +151,17 @@ Check `topic-categories.md` or the blog-queue sheet:
 - How many topics already exist in this category?
 - Are there 3+ already?
 
-**Step 3: Diversity Gate**
+**Step 3: Diversity Gate (STRICT ENFORCEMENT)**
 
 - **If <3 in category:** Proceed (we have room)
-- **If 3+ in category:** Ask:
+- **If 3+ in category:** STOP. You need exceptional justification to add more:
   - Is this angle VERY distinct from existing topics?
   - Can I articulate why someone would bookmark THIS and not the others?
-  - If no → Look for variety instead
-  - If yes → Proceed but note clustering
+  - Would Krishna see this as adding variety or creating clutter?
+  - **If no clear distinction → ACTIVELY SEEK VARIETY in underrepresented categories**
+  - **If yes → Post justification in Slack BEFORE adding:** "Adding 4th [category] topic because [specific distinct angle]"
+  
+**Default action when hitting 3+ in a category:** Look for topics in underrepresented categories instead. Don't rationalize your way into clustering.
 
 **Step 4: Update Tracking**
 
@@ -164,6 +175,44 @@ First Monday of each month:
 - Next week's scanning: Actively search for underrepresented categories
 
 **Why this matters:** Repetition is okay if angles are distinct, but we need variety to serve the full ICP journey. Don't cluster 5 "getting started" topics when we have zero distribution content.
+
+### Repetition Detection (MANDATORY Pre-Add Check)
+
+**Before adding ANY brief to blog-queue, run this check:**
+
+**Step 1: Scan Last 10 Entries**
+- Read the last 10 rows in blog-queue tab (Title + ICP Problem columns)
+- Ask: "Does this new brief feel like a rehash of something already here?"
+- Look for clustering on:
+  - Same core problem (even if worded differently)
+  - Same solution approach
+  - Same target ICP sub-segment
+
+**Step 2: The Distinctness Test**
+If you find similar topics, answer:
+- **Can someone bookmark BOTH and use them for different purposes?**
+- **Do they address different stages of the same journey?**
+- **Is the strategic angle genuinely different?**
+
+Examples of acceptable repetition:
+- "When to rebuild your MVP" (timing decision) vs. "How to migrate users during rebuild" (execution playbook)
+- "Is your MVP burning money?" (diagnosis) vs. "3 ways to cut MVP costs without killing quality" (solutions)
+
+Examples of unacceptable repetition:
+- "Signs your MVP needs a rebuild" vs. "When to rebuild your MVP" (same topic, slightly different title)
+- "Technical debt in early MVPs" vs. "Managing technical debt post-launch" (too close, merge into one)
+
+**Step 3: Enforcement**
+- **If clearly repetitive:** Drop it. Look for variety instead.
+- **If uncertain:** Post to Slack with both titles and ask Krishna.
+- **If distinct:** Proceed but note in Slack: "Added [new topic] - similar to [existing topic] but distinct because [reason]"
+
+**Weekly Audit (Every Monday):**
+- Review all briefs added in the past week
+- Flag any clusters that slipped through
+- Post findings to Slack for Krishna's review
+
+**Why this matters:** Krishna should never see two briefs and think "aren't these the same thing?" Quality bar = each brief should feel necessary and distinct.
 
 ### 5. Output & Review Process
 
@@ -199,17 +248,102 @@ Example:
 
 **Every brief and scan MUST be pushed to Convex.** This is non-negotiable. Krishna and visitors see agent work in real-time at thelaunch.space/launch-control.
 
-**After Morning Reddit Scan (9 AM):**
+**After EVERY Reddit Scan (MANDATORY - DO NOT SKIP):**
+
+This is NON-NEGOTIABLE. Every time you scan Reddit (automated or manual), you MUST push questions to Convex immediately.
+
 1. Complete your scan and add questions to the Google Sheet
-2. Push ALL scanned questions as a batch using this curl:
+2. **IMMEDIATELY** push ALL questions from the sheet using this exact code:
+
 ```bash
-API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
-curl -X POST "https://curious-iguana-738.convex.site/ingestQuestions" \
-  -H "Authorization: Bearer $API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"questions": [{"text": "...", "subreddit": "...", "url": "...", "relevance": "HIGH"}]}'
+cd /home/node/openclaw && node -e "
+const { google } = require('googleapis');
+const https = require('https');
+const fs = require('fs');
+const key = require('./credentials/google-service-account.json');
+
+(async () => {
+  // Get all questions from sheet
+  const auth = new google.auth.GoogleAuth({
+    credentials: key,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly']
+  });
+  const sheets = google.sheets({ version: 'v4', auth });
+  
+  const res = await sheets.spreadsheets.values.get({
+    spreadsheetId: '1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g',
+    range: 'questions!A2:H1000'
+  });
+  
+  const rows = res.data.values || [];
+  
+  // Format with all required fields
+  const questions = rows
+    .filter(row => row[7]) // Must have URL
+    .map(row => ({
+      agentName: 'Vibhishana',
+      title: row[2] || 'No title',
+      questionPain: row[3] || row[2] || 'No text',
+      subreddit: row[1] || 'unknown',
+      url: row[7],
+      icpRelevance: row[4] || 'LOW',
+      engagement: row[5] || '0 upvotes, 0 comments',
+      scannedAt: row[0] || new Date().toISOString().split('T')[0],
+      postDate: row[6] || row[0] || '',
+      contentPotential: row[4] === 'HIGH' ? 'HIGH' : row[4] === 'MEDIUM' ? 'MEDIUM' : 'LOW',
+      launchSpaceAngle: '',
+      status: 'pending_review'
+    }));
+  
+  console.log('Formatted ' + questions.length + ' questions');
+  
+  // Push to Convex
+  const apiKey = fs.readFileSync('/home/node/openclaw/credentials/convex-api-key.txt', 'utf8').trim();
+  
+  const payload = JSON.stringify({ questions });
+  
+  const options = {
+    hostname: 'curious-iguana-738.convex.site',
+    path: '/ingestQuestions',
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + apiKey,
+      'Content-Type': 'application/json',
+      'Content-Length': Buffer.byteLength(payload)
+    },
+    timeout: 90000
+  };
+  
+  const req = https.request(options, (res) => {
+    let data = '';
+    res.on('data', (chunk) => { data += chunk; });
+    res.on('end', () => {
+      console.log('Status:', res.statusCode);
+      console.log('Response:', data);
+    });
+  });
+  
+  req.on('error', (e) => {
+    console.error('Error:', e.message);
+  });
+  
+  req.on('timeout', () => {
+    req.destroy();
+    console.error('Request timeout');
+  });
+  
+  req.write(payload);
+  req.end();
+})();
+"
 ```
-3. Post to Slack: "✅ Pushed X questions to Launch Control" OR "⚠️ Convex push failed for questions. Error: [error]. Moving on."
+
+3. **VERIFY the push succeeded** - check the output for HTTP 200 and count of inserted/updated
+4. Post to Slack: "✅ Pushed X questions to Launch Control (Y new, Z updated)" OR "⚠️ Convex push failed. Error: [error]. Moving on."
+
+**Why deduplication works:** Convex uses URL as the unique key. Pushing all questions every time is safe - it will insert new ones and update existing ones.
+
+**Consequences of skipping:** Krishna won't see your work on Launch Control. Visitors won't see activity. Parthasarathi will have to manually fix it hours later. Don't skip this step.
 
 **After EACH Brief Run (11 AM, 2 PM, 5 PM):**
 1. Create the brief markdown file in `briefs/`
@@ -336,6 +470,8 @@ Vyasa picks up → Writing → PR Created → Published
 - Run scanner script for overnight posts
 - Filter for bookmark-worthy questions
 - Update Google Sheet
+- **PUSH ALL QUESTIONS TO CONVEX** (use the full node script from Launch Control section - MANDATORY, DO NOT SKIP)
+- Post to Slack: "✅ Pushed X questions to Launch Control"
 
 **11:00 AM IST** - SEO Brief #1
 - Pick ONE bookmark-worthy question from the morning scan
@@ -432,7 +568,8 @@ const payload = JSON.stringify({
   competitiveGap: 'What competitors miss',
   launchSpaceAngle: 'Our differentiation',
   suggestedStructure: 'H1, H2s outline',
-  researchNotes: content,
+  researchNotes: 'Summary notes here',
+  contentMarkdown: content,
   status: 'pending_review',
   agentName: 'Vibhishana',
   createdAt: new Date().toISOString().split('T')[0]

@@ -41,6 +41,20 @@ Durable truths that don't change often.
 
 Learned how-tos from experience.
 
+### Question Push to Convex (MANDATORY EVERY SCAN)
+
+**When:** After EVERY Reddit scan (automated or manual), immediately push questions to Convex.
+
+**How:** Run the full node script from AGENTS.md Launch Control section. DO NOT use simplified curl - use the complete script with all required fields (agentName, title, questionPain, subreddit, url, icpRelevance, engagement, scannedAt, postDate, contentPotential, launchSpaceAngle, status).
+
+**Why deduplication is safe:** Convex uses URL as unique key. Pushing all questions every time updates existing ones and inserts new ones - no duplicates created.
+
+**Verification:** Check for HTTP 200 and count of inserted/updated in output.
+
+**Report:** Post to Slack immediately: "✅ Pushed X questions to Launch Control (Y new, Z updated)"
+
+**Consequences of skipping:** Krishna won't see work on Launch Control. Visitors won't see activity. Manual cleanup required hours later.
+
 ### High Agency Means Never Blocked
 - **Multiple pathways:** If scanner unavailable, use `web_search` + `web_fetch` manually.
 - **Work with what exists:** Questions already collected in sheet - create briefs from those.
@@ -84,6 +98,13 @@ Krishna's stated choices for my work.
 
 ### Content Philosophy
 - **Validation method:** Ads over interviews. Run ads BEFORE building, get real payments, then build.
+
+### Published Blogs Tracking
+**Feb 24, 2026:** 3 blogs published (2 enrichments + 1 new)
+- Row 22: "Are Landing Page Tests Dead?" (enrichment - stats, table, FAQ)
+- Row 21: "When to Stop Using Spreadsheets" (enrichment)
+- Row 27: "Invoice Automation for Small Businesses" (new blog)
+- **Total published:** 20 blogs live
 - **Outcome-based, not feature-based:** Tie MVP cost to 6-month revenue target (10-20% rule), not feature lists.
 - **AI-first paradigm:** Building IS validation. Skip endless interviews. Non-technical founders can build.
 

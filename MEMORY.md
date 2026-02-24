@@ -131,12 +131,25 @@ Learned how-tos from experience (not from docs).
 - **Notify Krishna immediately** - He syncs to local Mac manually.
 - **One notification per change** - Don't batch.
 
-### Launch Control (Convex) Oversight
-- **Agents push their own work** - Vibhishana pushes briefs, Vyasa pushes blogs. Both post confirmation to Slack.
-- **Health checks (8AM/1PM/3PM)** - Scan for "⚠️ Convex push failed" messages → retry those.
-- **7 PM Due Diligence** - Full reconciliation: list today's briefs, check for push confirmations, push any that were missed entirely.
-- **Skills used:** `convex-push-scanner` for briefs/questions, `convex-push-blog` for blogs, `convex-push-activity` for milestones.
+### Launch Control (Convex) Oversight (Updated 2026-02-24)
+- **Agents push their own work** - Vibhishana pushes briefs, Vyasa pushes blogs. Both MUST post confirmation to Slack immediately after push.
 - **Push confirmation format:** "✅ Pushed [slug] to Launch Control" or "⚠️ Convex push failed for [slug]"
+- **Skills used:** `convex-push-scanner` for briefs/questions, `convex-push-blog` for blogs, `convex-push-activity` for milestones.
+
+**Health Check Verification (mandatory):**
+| Check | What to Verify |
+|-------|----------------|
+| 8 AM Morning | Read yesterday's Slack for push confirmations. Flag missing pushes. |
+| 10:30 AM Pre-Blog | Verify 9 AM scan questions were pushed. |
+| 1 PM Midday | Verify 11 AM brief + blog pushes happened. |
+| 7 PM Due Diligence | FULL reconciliation: compare files created vs push confirmations. Push any missed. |
+
+**Reconciliation logic (7 PM):**
+1. List brief files created today: `ls briefs/ | grep $(date +%Y-%m-%d)`
+2. Read #vibhishana-seo for "✅ Pushed" messages - match to files
+3. If file exists but NO confirmation: Push it using upsertBrief
+4. Same for Vyasa blogs in #vyasa-blogs
+5. Retry any "⚠️ failed" messages
 
 ### Cross-Agent Visibility
 - **Enabled via:** `tools.agentToAgent.enabled: true` in config
@@ -190,6 +203,12 @@ Chronological history of setup and changes.
 
 ### 2026-02-20
 - **Slack delivery fix:** All 14 agent crons updated to use self-contained Slack delivery. Root cause: `delivery.mode: "announce"` was failing with "cron announce delivery failed" for isolated sessions. Fix: Changed all agent crons to `delivery.mode: "none"` and added explicit `message action=send` instructions in the cron prompt itself. Now agents post to Slack directly instead of relying on the delivery mechanism.
+
+### 2026-02-24
+- **Convex verification enforcement:** All 4 health check crons updated with mandatory Convex push verification.
+- **Manual reconciliation:** Pushed 5 briefs (Feb 19-23) that were missing from Launch Control.
+- **Root cause:** Agents have push instructions in AGENTS.md but weren't consistently executing them. Health checks now explicitly verify push confirmations, not just check for failures.
+- **New verification flow:** Health checks read agent Slack channels, look for "✅ Pushed" confirmations, flag missing pushes, and retry/push on behalf of agents if needed.
 
 ### 2026-02-19
 - **Security hardening:** Tailscale HTTPS access enabled (srv1331841.tail4447a0.ts.net), Docker port locked to localhost (127.0.0.1:41473), `allowInsecureAuth: false` enforced.
