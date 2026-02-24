@@ -584,6 +584,12 @@ curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertBrie
   -d @/tmp/brief-payload.json
 ```
 
+**⚠️ CRITICAL GUARDRAILS:**
+1. **NEVER push without contentMarkdown** — The upsert OVERWRITES all fields. A push without content will wipe existing content.
+2. **Verify the source file exists** — Only push if `briefs/YYYY-MM-DD-slug.md` file exists and has content (>500 chars).
+3. **If content is missing, DO NOT PUSH** — Better to skip the push than to wipe existing data.
+4. **Never re-push old briefs** without reading the source .md file first.
+
 Post to Slack: "✅ Pushed brief: [TITLE] to Launch Control" OR "⚠️ Convex brief push failed."
 
 ### Pushing Documents (Not Briefs)
