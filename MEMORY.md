@@ -22,16 +22,16 @@ Durable truths that don't change often.
 ### Google Sheets
 | Sheet | ID | Tabs |
 |-------|-----|------|
-| Reddit + SEO Workspace | `1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g` | subreddits, questions, blog-queue |
+| Shared Pipeline | `1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g` | subreddits, questions, blog-queue, topic-clusters, tool-opportunities, **linkedin-pipeline** (22 columns incl. metrics) |
 | Lead Scouting Dashboard | `1N1yNSggmU46jeTUbxF0tvtcycHf2lvE0fuix5o2EKFs` | leads, watching |
-| Content Drafts | `1lqWOfU-SMBYdtvwvsMo0iQwaO3HN2dLHluJsJ_Jf-yw` | drafts |
+| ~~LinkedIn Tracker (old)~~ | `1lqWOfU-SMBYdtvwvsMo0iQwaO3HN2dLHluJsJ_Jf-yw` | DEPRECATED - historical only, no new writes |
 
 ### Credentials
 - **Google Service Account:** `lucy-the-scout@lucy-automation-486513.iam.gserviceaccount.com`
 - **Credentials path:** `/home/node/openclaw/credentials/google-service-account.json`
 - **Browser path:** `/home/node/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome`
 
-### Cron Schedule (IST) — Updated 2026-02-19
+### Cron Schedule (IST) — Updated 2026-02-25
 | Time | Agent | Job | Model | Output |
 |------|-------|-----|-------|--------|
 | 8:00 AM | Parthasarathi | Morning Health Check | grok-fast | Krishna DM |
@@ -45,17 +45,14 @@ Durable truths that don't change often.
 | 11:00 AM | Vibhishana | SEO Brief (1/day) | sonnet | blog-queue |
 | 11:00 AM | Vyasa | Daily Blog Run | opus | PR + #vyasa-blogs |
 | 1:00 PM | Parthasarathi | Midday Health Check | grok-fast | Krishna DM |
-| ~~2:00 PM~~ | ~~Vibhishana~~ | ~~SEO Brief #2~~ | ~~DISABLED~~ | Reduced to 1 brief/day |
 | 2:30 PM | Vidura | Midday Strategy | sonnet | #vidura-seo-strategy |
 | 3:00 PM | Vyasa | Citation Enrichment #1 | sonnet | PR + #vyasa-blogs |
-| ~~4:30 PM~~ | ~~Vibhishana~~ | ~~SEO Brief #3~~ | ~~DISABLED~~ | Reduced to 1 brief/day |
 | 5:00 PM | Vyasa | Citation Enrichment #2 | sonnet | PR + #vyasa-blogs |
 | 6:00 PM | Vibhishana | Evening Report | opus | #vibhishana-seo |
 | 7:00 PM | Parthasarathi | Daily Due Diligence | grok-fast | Krishna DM |
+| **7:00 PM** | **Valmiki** | **LinkedIn Extraction** | sonnet | #valmiki-content |
 | 7:30 PM | Vidura | Evening Review | sonnet | #vidura-seo-strategy |
-| 8:00 PM | Valmiki | Daily Observation | sonnet | memory file (no Slack) |
 | 8:00 PM | Vyasa | Citation Enrichment #3 | sonnet | PR + #vyasa-blogs |
-| 9:00 PM | Valmiki | Ping Krishna | sonnet | #valmiki-content |
 | 10:00 AM Sat | Valmiki | Weekly Performance Review | sonnet | #valmiki-content |
 | 10:00 PM | Parthasarathi | Daily Context Backup | (isolated) | GitHub push + Krishna DM |
 
@@ -200,6 +197,23 @@ Krishna's stated choices and patterns.
 ## Setup Log
 
 Chronological history of setup and changes.
+
+### 2026-02-25
+- **Valmiki workflow pivot:** Complete rewrite from brainstorm-driven to extraction-driven workflow.
+  - **New model:** Extract 3-5 standalone insights from each published blog, filter through ICP, draft 1-2 LinkedIn posts per blog
+  - **Named insights:** Every insight gets a 2-5 word memorable label ("The Invisible Labor Trap", "The $3,000 Mistake")
+  - **Loss-aversion hooks:** Lead with what's broken/costing them, not what's possible
+  - **Value-exchange CTAs:** "Drop your URL and I'll tell you what's costing you traffic" not "Follow for more"
+- **New tab created:** `linkedin-pipeline` in shared Google Sheet (22 columns: 16 workflow + 6 metrics)
+  - Metrics columns: Likes, Comments, Impressions, Profile Views, Connection Requests, Notes
+- **Single-sheet design:** Old separate tracker sheet (`1lqWOfU-SMBYdtvwvsMo0iQwaO3HN2dLHluJsJ_Jf-yw`) deprecated. All Valmiki work now lives in shared pipeline sheet.
+- **New helper script:** `/home/node/openclaw/scripts/linkedin-pipeline-helper.js`
+- **Cron changes:**
+  - DISABLED: 8 PM Daily Observation, 9 PM Ping Krishna (old brainstorm workflow)
+  - NEW: 7 PM LinkedIn Extraction (runs concurrently with Parthasarathi's due diligence)
+  - UPDATED: Saturday 10 AM Weekly Review (now focused on named insights and pipeline metrics)
+- **Workflow doc saved:** `/home/node/openclaw/docs/DAILY-WORKFLOW-END-TO-END.md`
+- **Backlog math:** 18 published blogs × 3-5 insights = 54-90 potential posts = 11-22 weeks of content at 4-5/week
 
 ### 2026-02-24
 - **Brief content wipe incident:** During dedup migration, 36 briefs lost content because upsert was called without `contentMarkdown` field. Upsert OVERWRITES all fields - if a field is missing, it becomes empty/null.

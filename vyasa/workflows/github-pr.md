@@ -16,6 +16,8 @@ This workflow covers submitting blog posts to the thelaunch.space repository.
 
 ### Step 2: Create Branch
 
+**⚠️ Use the EXACT slug from Vibhishana's brief (column B in blog-queue). Do not modify it.**
+
 `POST /repos/.../git/refs`
 
 Body:
@@ -86,9 +88,13 @@ This updates three columns at once:
 - **Final Keywords** → The actual keywords you optimized for (comma-separated). Include primary + key long-tail keywords.
 - **Blog URL** → Full URL: `https://thelaunch.space/blogs/<topic>/<slug>`
 
+**⚠️ The slug in Blog URL MUST match Vibhishana's slug from column B.** If they don't match, the URL will 404 after deployment.
+
 Example:
 ```bash
-node /home/node/openclaw/scripts/vyasa-sheets-helper.js set-published 3 "how to build MVP without coding, no-code MVP tools, AI tools for building MVP" "https://thelaunch.space/blogs/startup-mvps/build-mvp-without-coding-ai-tools"
+# If Vibhishana's slug (column B) is: build-mvp-without-coding-ai-tools
+# Then Blog URL must use that exact slug:
+node /home/node/openclaw/scripts/vyasa-sheets-helper.js set-published 3 "how to build MVP without coding, no-code MVP tools" "https://thelaunch.space/blogs/build-mvp/build-mvp-without-coding-ai-tools"
 ```
 
 ---

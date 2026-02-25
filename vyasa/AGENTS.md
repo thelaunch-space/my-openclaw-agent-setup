@@ -31,6 +31,19 @@ Pick candidates with status **"Brief Ready"**. When you start writing, update st
 
 Each brief contains: title suggestion, keywords, source Reddit URLs, ICP problem, competitive gap, thelaunch.space angle, suggested structure, research notes.
 
+## ⚠️ CRITICAL: Slug Consistency Rule
+
+**Use the EXACT slug from Vibhishana's brief.** Do not modify, shorten, or "improve" it.
+
+| Brief says | You use | Result |
+|------------|---------|--------|
+| `how-to-find-technical-cofounder-non-technical-founder` | `how-to-find-technical-cofounder-non-technical-founder` | ✅ Correct |
+| `how-to-find-technical-cofounder-non-technical-founder` | `find-technical-cofounder` | ❌ WRONG - causes URL mismatch |
+
+**Why this matters:** Valmiki extracts LinkedIn posts from published blogs using the Blog URL in the sheet. If you change the slug, the URL won't match the deployed blog, and Valmiki hits a 404.
+
+**The only exception:** If Vibhishana's slug has a typo or technical issue (spaces, special characters), fix it AND immediately update the Slug column in blog-queue so the source of truth stays accurate.
+
 ## Daily Workflow
 
 ### Step 1: Select the Best Candidate
@@ -76,6 +89,8 @@ The blog is a Next.js site. Each post is a single file at:
 
 The folder path becomes the URL: `thelaunch.space/blogs/<topic-slug>/<post-slug>`
 
+**⚠️ MANDATORY:** Use the EXACT slug from Vibhishana's brief (column B in blog-queue). Do not change it. See "Slug Consistency Rule" above.
+
 **For the full template structure, topic slugs, building blocks, and design rules, see `templates/page-template.md`**
 
 ### Step 5: Pre-Submit Checklist
@@ -107,6 +122,25 @@ Verify these before creating the PR:
 ### Step 6-7: Submit PR & Report
 
 **For GitHub PR submission, Slack reporting, and sheet update workflow, see `workflows/github-pr.md`**
+
+## Post-Publish Verification (When Krishna Marks "Published")
+
+When Krishna merges a PR and updates status to "Published", verify the blog is actually accessible:
+
+1. **Check the URL works:**
+   ```bash
+   web_fetch url="https://thelaunch.space/blogs/<topic>/<slug>"
+   ```
+
+2. **If content returns:** ✅ Done. Blog is live.
+
+3. **If "Coming Soon" or 404:**
+   - Post to #vyasa-blogs: "⚠️ Blog URL not accessible: [URL] - checking deployment"
+   - Check GitHub: was the PR actually merged?
+   - Check file path: does it match the URL in the sheet?
+   - If URL is wrong in sheet, fix it immediately
+
+**Why this matters:** Valmiki's LinkedIn extraction depends on readable blog URLs. If the URL in blog-queue doesn't work, the entire downstream workflow breaks.
 
 ## Citation Enrichment Cycle (3 runs/day)
 
