@@ -397,6 +397,21 @@ async function updateDraft(row, draftText, hookStrategy, ctaType) {
   return { row, updated: true };
 }
 
+// Update notes for a row
+// notes(W)
+async function updateNote(row, note) {
+  const sheets = await getSheets();
+  
+  await sheets.spreadsheets.values.update({
+    spreadsheetId: SPREADSHEET_ID,
+    range: `${PIPELINE_TAB}!W${row}`,
+    valueInputOption: 'RAW',
+    requestBody: { values: [[note]] },
+  });
+  
+  return { row, note };
+}
+
 // CLI
 (async () => {
   const cmd = process.argv[2];
@@ -459,6 +474,19 @@ async function updateDraft(row, draftText, hookStrategy, ctaType) {
         }
         const result = await setPostStatus(row, 'Draft Ready');
         console.log(`Row ${result.row} set to Draft Ready`);
+        break;
+      }
+      
+      case 'update-draft': {
+        const row = parseInt(process.argv[3]);
+        const jsonStr = process.argv[4];
+        if (!row || !jsonStr) {
+          console.error('Usage: update-draft <row> \'{"draftText":"...", "hookStrategy":"...", "ctaType":"..."}\'');
+          process.exit(1);
+        }
+        const data = JSON.parse(jsonStr);
+        const result = await updateDraft(row, data.draftText, data.hookStrategy, data.ctaType);
+        console.log(`Row ${result.row} draft updated`);
         break;
       }
       
@@ -553,6 +581,18 @@ async function updateDraft(row, draftText, hookStrategy, ctaType) {
         const metrics = JSON.parse(jsonArg);
         const result = await updateMetrics(row, metrics);
         console.log(`Updated metrics for row ${result.row}: likes=${result.likes || '-'}, comments=${result.comments || '-'}, impressions=${result.impressions || '-'}`);
+        break;
+      }
+      
+      case 'update-note': {
+        const row = parseInt(process.argv[3]);
+        const note = process.argv[4];
+        if (!row || !note) {
+          console.error('Usage: update-note <row> "note text"');
+          process.exit(1);
+        }
+        const result = await updateNote(row, note);
+        console.log(`Updated note for row ${result.row}`);
         break;
       }
       

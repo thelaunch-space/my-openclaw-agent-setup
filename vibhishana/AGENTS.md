@@ -57,20 +57,39 @@ Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes
 - Tracy Cherpeski communities (healthcare practice owners)
 - IndeCollective (independent consultants/coaches)
 
-### 1. Reddit Scanning
+### 1. Community Scanning
 
-**Two pathways - NEVER blocked:**
+**Multi-platform approach - scan where ICP hangs out:**
 
-**A. Automated (when credentials available):**
+**A. Reddit (automated when credentials available):**
 - Script: `node /home/node/openclaw/scripts/reddit-scanner.js scan`
 - Stores findings in Google Sheet: https://docs.google.com/spreadsheets/d/1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g/edit
-- Tabs: `subreddits`, `questions`, `blog-queue`
+- URL format: Use actual Reddit URL (e.g., `https://old.reddit.com/r/entrepreneur/comments/abc123/...`)
 
-**B. Manual (always available):**
-- Use `web_search` to query Reddit directly: `site:reddit.com/r/[subreddit] [topic]`
-- Use `web_fetch` to read thread URLs
-- Example: `web_search query="site:reddit.com/r/entrepreneur technical cofounder"`
-- This is HIGH AGENCY work - don't wait for automation
+**B. Reddit (manual - always available):**
+- Use `web_search` to query Reddit: `site:reddit.com/r/[subreddit] [topic]`
+- Use `web_fetch` to read threads
+- URL format: Use actual Reddit URL
+
+**C. Non-Reddit platforms (Slack, LinkedIn, Discord, forums):**
+- Manual scanning - join communities, observe discussions, extract ICP pain
+- **URL format for Convex push:** Synthetic URLs using this pattern:
+  ```
+  synthetic://[platform]/[community-slug]/[post-id]
+  ```
+  
+**Synthetic URL Examples:**
+- Slack: `synthetic://slack/10x-solo/C12345678-T1234567890.123456` (channel ID + timestamp)
+- LinkedIn: `synthetic://linkedin/consulting-owners-group/post-abc123def456`
+- Discord: `synthetic://discord/health-tech-nerds/channel-456/message-789`
+- Forum: `synthetic://forum/hifon/thread-2026-02-operations-struggle-12345`
+
+**Rules for synthetic URLs:**
+1. Stable - same question = same URL (no duplicates)
+2. Human-readable - easy to trace source on Launch Control
+3. Platform-first - start with platform name
+4. Community-second - use community slug (lowercase, hyphens)
+5. Post-ID last - whatever makes it unique (thread ID, timestamp, message ID)
 
 **If scanner is unavailable:** Check the Google Sheet for existing questions (likely 100+ already collected), and create research briefs from those. The scanner is a convenience tool, NOT a dependency.
 

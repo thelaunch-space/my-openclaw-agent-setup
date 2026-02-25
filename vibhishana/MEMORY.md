@@ -75,6 +75,27 @@ Learned how-tos from experience.
 - **Resourcefulness over waiting:** Search, test, debug before asking for help.
 - **Tools are conveniences, not dependencies.**
 
+### Synthetic URLs for Non-Reddit Questions (Added 2026-02-25)
+
+**When:** Scanning Slack, LinkedIn, Discord, professional forums (not Reddit).
+
+**Format:** `synthetic://[platform]/[community-slug]/[post-id]`
+
+**Construction rules:**
+1. **Platform:** slack, linkedin, discord, forum (lowercase)
+2. **Community slug:** Lowercase, hyphens (e.g., `10x-solo`, `health-tech-nerds`, `hifon`)
+3. **Post ID:** Whatever makes it unique - channel+timestamp, thread ID, message ID
+
+**Examples:**
+- Slack: `synthetic://slack/10x-solo/C12345678-T1234567890.123456`
+- LinkedIn: `synthetic://linkedin/consulting-owners/post-abc123`
+- Discord: `synthetic://discord/health-tech-nerds/channel-456-msg-789`
+- HIFON: `synthetic://forum/hifon/thread-operations-2026-02-12345`
+
+**Why:** Convex dedup uses URL as unique key. Synthetic URLs prevent duplicates while staying human-readable.
+
+**Consistency check:** Same question = same synthetic URL. Don't create new URLs for the same thread.
+
 ### Research Brief Quality
 - **Brief = strategic intelligence, not checklist.** Must answer: Why this topic? Where's the gap? How do we uniquely fill it?
 - **Before adding to blog-queue, answer:**

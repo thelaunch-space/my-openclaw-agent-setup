@@ -122,3 +122,41 @@ What others in the AI services / SMB space are doing on LinkedIn.
 - Full metrics for Feb 14-21 posts (impressions, likes, comments, profile views)
 - ICP engagement signals (who's commenting? saves? DMs?)
 - Krishna's feedback on which angles resonate vs. which fall flat
+
+### Week of Feb 24-28, 2026
+
+**Major Voice Feedback (Feb 25):**
+> "The hook is 60% of the post virality or not."
+
+This is the new filter. Not "is this insight interesting?" but "does this insight have a hook that stops an ICP founder mid-scroll?"
+
+**Voice violations caught:**
+1. **Negation-to-pivot overuse** - "it isn't X, it's Y" / "these aren't X, they're Y"
+   - Krishna: "I HATE it when negation is used just for the drama"
+   - Rule: Only use negation if it adds value, not to create false pivots
+   
+2. **Non-conversational guru phrases** - "That's the unlock"
+   - Krishna: "Nobody says 'that's the unlock'"
+   - Test: Would Krishna say this exact sentence over coffee?
+
+**Docs updated:**
+- SOUL.md: Negation-to-pivot now marked as "Krishna HATES this"
+- writing-guide.md: Added "Krishna's Voice Constraints" section
+
+**Draft iterations:**
+- "The Specification Skill Shift" v1: Had 2 negation-to-pivots + "that's the unlock"
+- v2: Removed both violations
+- v3 (Krishna's final edit): Added bullets, CAPS emphasis, "already", time-context, conversational CTA
+- Lesson: Run the Friend Test on EVERY sentence before presenting
+
+**Krishna's editing patterns captured:**
+1. Bullet points (•) for scannable lists
+2. CAPS for emphasis ("THEY need to answer")
+3. "already" adds urgency ("clock is already running")
+4. Time-context makes insights feel current ("relevant NOW")
+5. "that one X" more conversational than "the first X"
+6. Scare quotes for casualness ("feature")
+7. Past + present tense in CTAs ("struggle, or had to struggle")
+8. Cleaner CTAs (just ask, don't promise value exchange)
+
+**Scheduled:** Feb 26, 2026 at 8:30 AM IST (first LinkedIn post from blog extraction)

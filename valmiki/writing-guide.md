@@ -215,7 +215,44 @@ Matt writes in a specific rhythm that alternates between long complex sentences 
 
 ---
 
-## 12. What Makes Writing Feel AI-Recycled (Avoid These)
+## 12. Krishna's Voice Constraints (MANDATORY)
+
+**⚠️ These override Matt Gray patterns when in conflict.**
+
+### Negation-to-Pivot (Krishna HATES This)
+
+**NEVER use negation just for drama:**
+
+❌ **WRONG:**
+- "It isn't code. It's specification."
+- "These aren't technical questions. They're product questions."
+- "The gap isn't X, it's Y."
+- "This isn't just X, it's Y."
+
+✅ **RIGHT:**
+- "The gap between your idea and a working product is specification."
+- "Product questions that most founders don't see coming..."
+
+**Rule:** Only use negation if it adds actual value. Not to create false drama or pivots.
+
+### Non-Conversational Guru Phrases
+
+❌ **NEVER use:**
+- "That's the unlock"
+- "Here's the unlock"
+- "This is the secret"
+- "Game-changer" (in any form)
+
+✅ **USE instead:**
+- Natural conversation words
+- What Krishna would actually say over coffee
+- Simple, direct statements
+
+**Test:** Would Krishna say this exact sentence to a founder friend over coffee? If not, rewrite it.
+
+---
+
+## 13. What Makes Writing Feel AI-Recycled (Avoid These)
 
 Based on what Matt consistently avoids:
 
