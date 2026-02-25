@@ -201,6 +201,15 @@ Krishna's stated choices and patterns.
 
 Chronological history of setup and changes.
 
+### 2026-02-24
+- **Brief content wipe incident:** During dedup migration, 36 briefs lost content because upsert was called without `contentMarkdown` field. Upsert OVERWRITES all fields - if a field is missing, it becomes empty/null.
+- **Guardrails added:** Vibhishana's AGENTS.md now has critical warnings: never push without contentMarkdown, verify source file exists (>500 chars), better to skip push than wipe data.
+- **Convex-side validation recommended:** `/upsertBrief` should reject briefs without contentMarkdown when status is pending_review.
+
+### 2026-02-22
+- **Daily context backup cron:** 10 PM IST daily git push to `thelaunch-space/my-openclaw-agent-setup`. All agent files backed up to GitHub.
+- **Convex endpoints verified:** All 8 endpoints tested and working (/ingestQuestions, /upsertBrief, /ingestBlog, /ingestActivity, /ingestTopicCluster, /ingestToolOpportunity, /updateBlogEnrichment, /updateBriefStatus).
+
 ### 2026-02-20
 - **Slack delivery fix:** All 14 agent crons updated to use self-contained Slack delivery. Root cause: `delivery.mode: "announce"` was failing with "cron announce delivery failed" for isolated sessions. Fix: Changed all agent crons to `delivery.mode: "none"` and added explicit `message action=send` instructions in the cron prompt itself. Now agents post to Slack directly instead of relying on the delivery mechanism.
 

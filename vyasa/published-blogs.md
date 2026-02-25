@@ -34,6 +34,7 @@ Blogs about AI products, automation, AI for non-technical founders.
 |---|-------|-----|-----------------|--------------|
 | 5 | I Built My App With AI. Now What? | /blogs/ai-tools/ai-generated-code-deployment-reality | deploy AI generated code production | Why AI code feels like trap, Tool reality check, Three paths forward, $1,000 calculator, Rescue pathway |
 | 9 | Invoice Automation for Small Businesses: When to Automate | /blogs/ai-tools/invoice-automation-small-business-ocr-custom | invoice automation small business | Decision Framework, When to Stay Manual, OCR Failure Modes, When Custom Beats Both, PDFtoQuickBooks Case Study, Decision Calculator |
+| 10 | When Vibe Coding Breaks at Scale: The 3-Flow Wall | /blogs/ai-tools/vibe-coding-scaling-wall | vibe coding production problems | What is the 3-Flow Wall, Why AI Coding Tools Break at Scale, Fix-and-Break Cycle Diagnosis, 3-Flow Wall Decision Tree, Tool Graduation Path |
 
 ## Internal Linking Rules
 
