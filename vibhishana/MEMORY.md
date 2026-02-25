@@ -26,14 +26,28 @@ Durable truths that don't change often.
 - r/legaltech - Legal tech, lawyers building software (~14k members, added 2026-02-23)
 
 ### Communities Discovered (Non-Reddit)
-- **IndeCollective** - Private community for consultants/coaches building independent practices
-- **Founders Network EdTech Initiative** - 600+ global EdTech founders
-- **Future of Higher Education Slack** - 3.5k+ members, EdTech innovation
-- **Early Stage Founders Discord** - 2k members, SaaS/service solopreneurs
-- **No Code Founders Slack** - 30k+ members, world's largest no-code community, non-technical founders hitting tool limits (added 2026-02-23)
-- **Health Tech Nerds Slack** - 6k members, healthcare founders/innovators, vetted $20/mo (added 2026-02-23)
-- **This Week in Fintech Slack** - 10k+ members, fintech operators, VCs restricted from some channels (added 2026-02-23)
-- **No-Code Exits Newsletter** - "Build to Exit" framework, 91% readers stuck in idea/build phase (added 2026-02-23)
+
+**PRIORITY SHIFT (2026-02-25):** Moving away from tech-focused communities toward where domain-expert service business owners hang out.
+
+**Service Business Owner Communities:**
+- **IndeCollective** - Private network for independent consultants/coaches across 20+ disciplines, 50+ cities. Personal advisory boards (6-7 peers meeting weekly), structured networking, referrals, live sessions (added 2026-02-09)
+- **10x Solo** - Private Slack for full-time B2B consultants, fractionals, boutique agency owners. Weekly meetups, workshops, trusted referrals (added 2026-02-25)
+- **Pollen** - 400+ vetted independents (ops, HR, marketing). Peer discussions, playbooks, rate databases, weekly workshops on client balancing and backend systems (added 2026-02-25)
+- **The Upside** - ~250 independent consultants, B2B coaches, boutique CEOs. Continuous peer advice on operations, growth, business support (added 2026-02-25)
+- **ICF Communities of Practice** - Free for ICF members. Executive coaching, career coaching, ethics. Quarterly webinars, discussion boards, CCE credits (added 2026-02-25)
+- **Coach Office Club** - Experimentation space for coaches building businesses. Clarity on funnels/systems, templates, peer support (added 2026-02-25)
+
+**Vertical-Specific (Domain Experts):**
+- **Education:** Founders Network EdTech Initiative (600+ global EdTech founders), Future of Higher Education Slack (3.5k+ EdTech innovation) (added 2026-02-09)
+- **Healthcare:** Health Tech Nerds Slack (6k members, vetted $20/mo), MGMA (operations focus), Sermo (physician-owned practice network), Tracy Cherpeski's communities (masterminds + CoPs for independent practice owners) (added 2026-02-25)
+- **Legal:** No known Slack/Discord for solo practitioners yet, but MGMA-style bar associations exist for networking (needs more research) (added 2026-02-25)
+- **Financial Advisors:** HIFON (250+ RIA operations leaders, 24/7 discussion board, monthly peer forums, shared resource library, 14+ years of searchable knowledge) (added 2026-02-25)
+
+**Tech-Adjacent (Lower Priority Now):**
+- **Early Stage Founders Discord** - 2k members, SaaS/service solopreneurs (added 2026-02-09)
+- **No Code Founders Slack** - 30k+ members, non-technical founders hitting tool limits (added 2026-02-23)
+- **This Week in Fintech Slack** - 10k+ fintech operators (added 2026-02-23)
+- **No-Code Exits Newsletter** - "Build to Exit" framework (added 2026-02-23)
 
 ---
 
@@ -118,6 +132,12 @@ Krishna's stated choices for my work.
 ## Setup Log
 
 Chronological history.
+
+### 2026-02-25
+- **MAJOR PIVOT:** Krishna's strong feedback - move away from tech-based communities (too saturated with product builders, not service business owners).
+- **New community focus:** Domain-expert service business owners (consultants, coaches, practice owners in education/healthcare/legal/finance).
+- Discovered 10+ new communities: 10x Solo, Pollen, The Upside, ICF CoPs, HIFON (RIA ops), Sermo, Tracy Cherpeski, MGMA.
+- Strategic repositioning: prioritize where Krishna's ICP (35-50, domain experts running $30K-$2M services) actually hangs out.
 
 ### 2026-02-12
 - Strategic ICP shift: deprioritize "looking for cofounder" posts. High priority: tech limits, tried-and-failed, operations pain.

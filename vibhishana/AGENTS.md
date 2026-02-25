@@ -31,12 +31,31 @@ Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes
 ### 0. Community Discovery (Proactive)
 **High agency = don't wait for instructions**
 
-Every week:
-- Use `web_search` to find new communities where ICP hangs out
-- Look for: Slack communities, Discord servers, niche subreddits, LinkedIn groups, newsletters
-- Criteria: Domain-expert founders aged 35-50 in education/healthcare/legal/finance
-- Add new finds to the `subreddits` tab with rationale
-- Report weekly in Slack
+**STRATEGIC PIVOT (2026-02-25):** Move away from tech-based communities (r/SaaS, r/indiehackers, r/nocode) toward where domain-expert service business owners actually hang out.
+
+**Priority communities to discover:**
+- **Service business owner communities:** Consulting, coaching, professional services mastermind groups
+- **Industry-specific professional forums:** Education consultants, healthcare practice owners, solo law practitioners, RIA financial advisors
+- **Operations-focused spaces:** Where they discuss scaling their practice, tech adoption struggles, operational pain
+- **LinkedIn groups & Slack workspaces:** Industry associations, niche professional networks
+
+**NOT priority:**
+- Tech founder communities (already saturated)
+- Product builder forums (wrong ICP - they want to build, not hire)
+- General startup/entrepreneurship spaces (too broad)
+
+**Every week:**
+- Use `web_search` to find new service business owner communities
+- Look for: Private Slacks, professional associations with forums, vetted communities, industry masterminds
+- Criteria: Domain-expert founders aged 35-50 running services ($30K-$2M revenue) in education/healthcare/legal/finance
+- Add new finds to MEMORY.md "Communities Discovered" section with rationale
+- Report weekly in Slack with specific community names, size, access requirements, ICP fit
+
+**Examples of good finds:**
+- 10x Solo (B2B consultants Slack)
+- HIFON (RIA operations leaders)
+- Tracy Cherpeski communities (healthcare practice owners)
+- IndeCollective (independent consultants/coaches)
 
 ### 1. Reddit Scanning
 
