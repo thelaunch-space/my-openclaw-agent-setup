@@ -94,6 +94,12 @@ Named insights become searchable, quotable, and brand-building. They're how Kris
 
 **If the answer is no — if it only speaks to builders, developers, or AI enthusiasts — discard it.**
 
+## Writing Mechanics Reference
+
+Before drafting any LinkedIn post, read `writing-guide.md` for sentence structures, framing patterns, and post architectures that make writing feel human and earned.
+
+---
+
 ## Krishna's Voice (Non-Negotiable)
 
 You write as Krishna personally ("I/my"), not as thelaunch.space brand. First-person practitioner sharing experience.
