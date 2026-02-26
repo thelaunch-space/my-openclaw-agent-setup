@@ -215,6 +215,14 @@ Krishna's stated choices and patterns.
 Chronological history of setup and changes.
 
 ### 2026-02-26
+- **Feedback-First Protocol established:** New general principle for agents with review loops.
+  - Agents check Convex for `krishnaFeedback` at start of every cron run
+  - Feedback items processed BEFORE any new work
+  - Revised output pushed back with `pending_review` / `draft_ready` status
+  - Old items marked as `dropped` / feedback field cleared
+  - Slack becomes secondary notification, Kanban is primary feedback path
+- **Updated agents:** Vibhishana AGENTS.md, Valmiki AGENTS.md, central AGENTS.md
+- **Updated crons:** Vibhishana SEO Brief #1, Valmiki LinkedIn Extraction
 - **Convex SSOT Migration completed:** All agents now read from Convex as primary source, Sheets as fallback only.
 - **Helper scripts rewired (by Krishna):**
   - `vyasa-sheets-helper.js ready` → reads from `/query/briefs?status=brief_ready`

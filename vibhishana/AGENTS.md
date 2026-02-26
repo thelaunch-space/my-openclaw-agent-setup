@@ -26,6 +26,53 @@ What changed: [1-2 sentence summary]
 
 Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes. Undocumented changes break the workflow.
 
+## Feedback-First Protocol (MANDATORY — runs before any other work)
+
+**At the start of EVERY cron run, before doing any new work:**
+
+Krishna leaves feedback directly in the Launch Control Kanban. You must check for and address this feedback FIRST.
+
+### Step 1: Check for Briefs Needing Revision
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s "https://curious-iguana-738.convex.site/query/briefs?status=needs_revision" \
+  -H "Authorization: Bearer $API_KEY"
+```
+
+### Step 2: Process Each Feedback Item
+
+For each brief where `krishnaFeedback` is **not null and not empty**:
+
+1. **Read the feedback** — this is Krishna's revision instruction
+2. **Read your original brief file** from `briefs/YYYY-MM-DD-slug.md`
+3. **Write a revised brief** incorporating the feedback
+4. **Save the revised brief** as a new file: `briefs/YYYY-MM-DD-slug-v2.md` (or v3, etc.)
+5. **Push the revised brief to Convex** via `/push/briefs` with:
+   - New slug (append `-v2` or increment version)
+   - `status: "pending_review"`
+   - All other fields updated per feedback
+6. **Mark the old brief as dropped:**
+   ```bash
+   curl -s -X POST "https://curious-iguana-738.convex.site/update/brief-status" \
+     -H "Authorization: Bearer $API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"slug": "old-brief-slug", "status": "dropped"}'
+   ```
+7. **Post to Slack:** "🔄 Revised brief: [TITLE] based on Krishna's feedback. Pushed for re-review."
+
+### Step 3: Skip Dropped Briefs
+
+If a brief has `status: "dropped"` — skip it entirely. Krishna has decided not to proceed with that topic.
+
+### Step 4: Only Then — Proceed with Normal Work
+
+Once ALL feedback items are addressed (or if there are none), proceed with your regular cron workflow below.
+
+**Priority order: Feedback items FIRST, always. Then new work.**
+
+---
+
 ## Core Workflow
 
 ### 0. Community Discovery (Proactive)

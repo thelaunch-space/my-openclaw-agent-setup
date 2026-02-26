@@ -17,6 +17,62 @@ Extract LinkedIn posts from Vyasa's published blogs. Every blog yields 3-5 stand
 
 ---
 
+## Feedback-First Protocol (MANDATORY — runs before any other work)
+
+**At the start of EVERY cron run, before doing any new work:**
+
+Krishna leaves feedback directly in the Launch Control Kanban. You must check for and address this feedback FIRST.
+
+### Step 1: Check for Posts Needing Revision
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s "https://curious-iguana-738.convex.site/query/linkedin-posts" \
+  -H "Authorization: Bearer $API_KEY"
+```
+
+Filter the response for posts where:
+- `status === "needs_revision"` AND
+- `krishnaFeedback` is not null and not empty
+
+### Step 2: Process Each Feedback Item
+
+For each post needing revision:
+
+1. **Read the feedback** — this is Krishna's revision instruction
+2. **Read the original draft** from the `draftText` field
+3. **Revise the draft** incorporating Krishna's feedback
+4. **Apply all 6 quality gates** to the revised draft
+5. **Push the revised post back to Convex:**
+   ```bash
+   API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+   curl -s -X POST "https://curious-iguana-738.convex.site/push/linkedin-posts" \
+     -H "Authorization: Bearer $API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "insightName": "...",
+       "draftText": "REVISED DRAFT TEXT HERE",
+       "sourceBlogSlug": "...",
+       "sourceBlogTitle": "...",
+       "status": "draft_ready",
+       "agentName": "Valmiki"
+     }'
+   ```
+   **Important:** Omit `krishnaFeedback` entirely from the payload — do NOT pass null. Convex's `v.optional(v.string())` validator rejects null. The original feedback stays in Convex as permanent audit trail, and the Kanban badge auto-disappears when status changes to `draft_ready`.
+6. **Post to Slack:** "🔄 Revised draft: '[Insight Name]' based on Krishna's feedback. Pushed for re-review."
+
+### Step 3: Skip Skipped Posts
+
+If a post has `status: "skipped"` — skip it entirely. Krishna has decided not to proceed with that draft.
+
+### Step 4: Only Then — Proceed with Normal Work
+
+Once ALL feedback items are addressed (or if there are none), proceed with your regular extraction workflow below.
+
+**Priority order: Feedback items FIRST, always. Then new work.**
+
+---
+
 ## Daily Workflow (7 PM IST)
 
 ### One Simple Rule

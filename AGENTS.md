@@ -145,18 +145,40 @@ I am Parthasarathi, the main orchestrator. I manage configuration and coordinate
 | Post to Slack channel | For visibility/logging (won't trigger agent) |
 | Ask Krishna to post | When human message trigger needed |
 
+### Feedback-First Protocol (General Principle)
+
+**All agents with a review loop MUST follow this pattern:**
+
+At the start of every cron run:
+1. **Check Convex** for items where `krishnaFeedback` is not null — these are feedback items Krishna has left in the Kanban
+2. **Work on ALL feedback items FIRST** before picking up any new work
+3. **For each feedback item:** Apply the feedback, create updated output, push back with appropriate "pending review" status
+4. **If status is dropped/skipped:** Skip it entirely, don't work on it
+5. **Only after all feedback items are cleared:** Proceed with normal cron work
+
+**Priority order: Feedback items FIRST, always. Then new work.**
+
+**Why this exists:** Krishna reviews work in the Launch Control Kanban and leaves feedback directly there. Agents pick up feedback on their next run, apply it, and push the result back. No manual Slack pasting required.
+
+**Agents using this protocol:**
+- **Vibhishana:** Checks `/query/briefs?status=needs_revision` for brief feedback
+- **Valmiki:** Checks `/query/linkedin-posts` filtered by `status === "needs_revision"`
+- **Vyasa:** (Future) Will check for blog feedback when that flow is added
+
 ### Workflow Handoffs (Blog Pipeline)
 
 ```
 Vibhishana scans Reddit → questions tab
     ↓
-Vibhishana creates research brief → blog-queue (status: Pending Review)
+Vibhishana creates research brief → Convex (status: pending_review)
     ↓
-Krishna reviews in sheet
+Krishna reviews in Launch Control Kanban
     ↓
-If feedback needed → Krishna posts to #vibhishana-seo → status: Needs Revision
+If feedback needed → Krishna sets status to needs_revision + types feedback in Kanban
     ↓
-Vibhishana updates (new row) → status: Pending Review
+Vibhishana's next cron: checks for needs_revision briefs with feedback → revises → pushes new brief (pending_review) + marks old as dropped
+    ↓
+Krishna approves in Kanban → status: brief_ready
     ↓
 Krishna approves → status: Brief Ready
     ↓
