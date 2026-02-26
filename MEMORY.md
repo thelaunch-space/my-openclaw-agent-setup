@@ -81,21 +81,37 @@ Durable truths that don't change often.
 - **Ahrefs/SEMrush:** Not subscribed yet
 - **DuckDuckGo:** Works for competitive research (Google blocks automated search)
 
-### Launch Control (Convex Dashboard)
+### Launch Control (Convex Dashboard) — Updated 2026-02-26
 - **Live URL:** thelaunch.space/launch-control
 - **Production endpoint:** `https://curious-iguana-738.convex.site`
 - **API key:** `/home/node/openclaw/credentials/convex-api-key.txt`
-- **HTTP endpoints:**
-  - `/upsertQuestions` - dedups by URL (use this, not ingestQuestions)
-  - `/upsertBrief` - dedups by slug (use this, not ingestBrief)
-  - `/upsertBlog` - dedups by slug (use this, not ingestBlog)
-  - `/upsertDocument` - dedups by slug (research, strategy, analysis, process docs)
-  - `/ingestActivity` - dedups by optional `dedupKey` field
-  - `/ingestTopicCluster` - dedups by pillar+cluster (Vidura)
-  - `/ingestToolOpportunity` - dedups by toolName (Vidura)
-  - `/updateBriefStatus`, `/updateBlogEnrichment` - status updates
+- **Convex is now SSOT** — Sheets are fallback/archive only
+
+**READ endpoints (GET):**
+| Endpoint | Caller | Returns |
+|----------|--------|---------|
+| `/query/briefs?status=brief_ready` | Vyasa | Full brief objects, oldest-first |
+| `/query/briefs?status=pending_review` | Vibhishana | `{ count, slugs, titles }` |
+| `/query/topic-clusters` | Vidura | All clusters |
+| `/query/tool-opportunities` | Vidura | All tool opportunities |
+| `/query/linkedin-posts` | Valmiki | LinkedIn post drafts |
+
+**WRITE endpoints (POST) — Canonical:**
+| Endpoint | Caller | Dedup Key |
+|----------|--------|-----------|
+| `/push/briefs` | Vibhishana | slug |
+| `/push/questions` | Vibhishana | URL |
+| `/push/blogs` | Vyasa | slug |
+| `/push/activity` | All agents | dedupKey field |
+| `/push/topic-clusters` | Vidura | pillar+cluster |
+| `/push/tool-opportunities` | Vidura | toolName |
+| `/push/linkedin-posts` | Valmiki | (new) |
+| `/update/brief-status` | All | slug |
+| `/update/blog-enrichment` | Vyasa | slug |
+| `/upsertDocument` | All | slug (for docs only) |
+
 - **Auth:** All endpoints require `Authorization: Bearer <API_KEY>` header
-- **Push method:** Direct curl via skill files (see ~/.openclaw/skills/convex-push-*)
+- **Helper scripts:** All agents use helper scripts that read from Convex first, fall back to Sheets
 - **Document categories:** `research`, `strategy`, `brief`, `process`, `analysis`
 
 ---
@@ -197,6 +213,27 @@ Krishna's stated choices and patterns.
 ## Setup Log
 
 Chronological history of setup and changes.
+
+### 2026-02-26
+- **Convex SSOT Migration completed:** All agents now read from Convex as primary source, Sheets as fallback only.
+- **Helper scripts rewired (by Krishna):**
+  - `vyasa-sheets-helper.js ready` → reads from `/query/briefs?status=brief_ready`
+  - `vibhishana-sheets-helper.js pending-review` → reads from `/query/briefs?status=pending_review`
+  - `vidura-sheets-helper.js list-clusters` → reads from `/query/topic-clusters`
+  - `vidura-sheets-helper.js list-tools` → reads from `/query/tool-opportunities`
+  - `linkedin-pipeline-helper.js` → already Convex-wired
+- **AGENTS.md files updated:**
+  - Vyasa: Step 1 now uses `node vyasa-sheets-helper.js ready` for brief selection
+  - Vibhishana: Added queue depth check via `vibhishana-sheets-helper.js pending-review`, push endpoint changed from `upsertBrief` to `/push/briefs`
+  - Vidura: Added `list-clusters` and `list-tools` helper instructions
+  - Valmiki: Already using helper scripts ✓
+- **Cron prompts updated:**
+  - Vyasa Daily Blog Run: Now calls helper script first
+  - Vibhishana SEO Brief #1: Includes queue depth check
+  - Vidura Monday Cluster Mapping: Uses `list-clusters` helper
+  - Vidura Friday Tool Scan: Uses `list-tools` helper
+- **Canonical write endpoints:** All agents use `/push/*` endpoints (not legacy `ingest*` or `upsert*`)
+- **Test brief ready:** `invoice-ocr-custom-decision` (Convex ID: jd7bmvkhz4zzanw5b1kwmng46d819zaf) for end-to-end verification
 
 ### 2026-02-25
 - **Valmiki workflow pivot:** Complete rewrite from brainstorm-driven to extraction-driven workflow.

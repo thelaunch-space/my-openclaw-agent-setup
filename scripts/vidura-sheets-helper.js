@@ -1,18 +1,23 @@
 /**
- * Vidura's Google Sheets helper for SEO strategy operations.
+ * Vidura's helper for SEO strategy operations.
  * Usage: node scripts/vidura-sheets-helper.js <command> [args...]
  * 
  * Commands:
- *   list-questions [limit]      - List questions from Vibhishana's scans (default: 50)
- *   list-clusters               - List all topic clusters
- *   add-cluster <json>          - Add a new topic cluster
- *   update-cluster <row> <json> - Update a cluster row (partial update)
- *   list-tools                  - List all tool opportunities
- *   add-tool <json>             - Add a new tool opportunity
- *   list-briefs                 - List blog-queue entries (read-only, for context)
+ *   list-questions [limit]      - List questions from Vibhishana's scans (Sheets)
+ *   list-clusters               - List all topic clusters (Convex primary)
+ *   add-cluster <json>          - Add a new topic cluster (Sheets)
+ *   update-cluster <row> <json> - Update a cluster row (Sheets)
+ *   list-tools                  - List all tool opportunities (Convex primary)
+ *   add-tool <json>             - Add a new tool opportunity (Sheets)
+ *   list-briefs                 - List blog-queue entries (Sheets)
+ * 
+ * Data source:
+ *   - `list-clusters` and `list-tools` read from Convex (primary)
+ *   - Write commands still use Sheets (archive)
  */
 
 const { google } = require('googleapis');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
@@ -26,6 +31,68 @@ const TABS = {
   TOOLS: 'tool-opportunities',
   BRIEFS: 'blog-queue',
 };
+
+// Convex configuration
+const CONVEX_BASE_URL = 'curious-iguana-738.convex.site';
+const CONVEX_API_KEY_PATH = path.join(__dirname, '..', 'credentials', 'convex-api-key.txt');
+
+/**
+ * Generic Convex GET request
+ */
+async function convexGet(endpoint) {
+  const apiKey = fs.readFileSync(CONVEX_API_KEY_PATH, 'utf8').trim();
+  
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: CONVEX_BASE_URL,
+      path: endpoint,
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      timeout: 30000
+    };
+    
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        if (res.statusCode === 200) {
+          try {
+            resolve(JSON.parse(data));
+          } catch (e) {
+            reject(new Error(`Failed to parse Convex response: ${e.message}`));
+          }
+        } else {
+          reject(new Error(`Convex returned HTTP ${res.statusCode}: ${data}`));
+        }
+      });
+    });
+    
+    req.on('error', (e) => reject(new Error(`Convex request failed: ${e.message}`)));
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error('Convex request timeout'));
+    });
+    
+    req.end();
+  });
+}
+
+/**
+ * Read all topic clusters from Convex
+ */
+async function readClustersFromConvex() {
+  return await convexGet('/query/topic-clusters');
+}
+
+/**
+ * Read all tool opportunities from Convex
+ */
+async function readToolsFromConvex() {
+  return await convexGet('/query/tool-opportunities');
+}
 
 async function getSheets() {
   const creds = JSON.parse(fs.readFileSync(CREDS_PATH, 'utf8'));
@@ -218,8 +285,15 @@ function parseBriefs(rows) {
       }
       
       case 'list-clusters': {
-        const rows = await readTab(TABS.CLUSTERS);
-        const clusters = parseClusters(rows);
+        let clusters;
+        try {
+          // Read from Convex (primary source)
+          clusters = await readClustersFromConvex();
+        } catch (convexErr) {
+          console.error(`Convex read failed (${convexErr.message}), falling back to Sheets...`);
+          const rows = await readTab(TABS.CLUSTERS);
+          clusters = parseClusters(rows);
+        }
         console.log(`\n🗂️ Topic Clusters (${clusters.length} total):\n`);
         
         // Group by pillar
@@ -235,8 +309,7 @@ function parseBriefs(rows) {
           topics.forEach(t => {
             const status = t.status ? `[${t.status}]` : '[?]';
             const intent = t.intentType ? `(${t.intentType})` : '';
-            const hasUrl = t.blogUrl ? '✓' : '';
-            console.log(`   Row ${t.rowNumber}: ${status} ${t.clusterTopic} ${intent} ${hasUrl}`);
+            console.log(`   ${status} ${t.clusterTopic} ${intent}`);
             if (t.targetKeyword) console.log(`      Keyword: ${t.targetKeyword}`);
           });
         });
@@ -277,16 +350,22 @@ function parseBriefs(rows) {
       }
       
       case 'list-tools': {
-        const rows = await readTab(TABS.TOOLS);
-        const tools = parseTools(rows);
+        let tools;
+        try {
+          // Read from Convex (primary source)
+          tools = await readToolsFromConvex();
+        } catch (convexErr) {
+          console.error(`Convex read failed (${convexErr.message}), falling back to Sheets...`);
+          const rows = await readTab(TABS.TOOLS);
+          tools = parseTools(rows);
+        }
         console.log(`\n🔧 Tool Opportunities (${tools.length} total):\n`);
         tools.forEach(t => {
           const status = t.status ? `[${t.status}]` : '[?]';
           const complexity = t.complexity ? `(${t.complexity})` : '';
-          console.log(`Row ${t.rowNumber}: ${status} ${t.toolName} ${complexity}`);
+          console.log(`${status} ${t.toolName} ${complexity}`);
           console.log(`   Keyword: ${t.targetKeyword}`);
-          if (t.whyTool) console.log(`   Why: ${t.whyTool.substring(0, 80)}...`);
-          if (t.krishnaNotes) console.log(`   Krishna: ${t.krishnaNotes}`);
+          if (t.toolSolution) console.log(`   Solution: ${t.toolSolution.substring(0, 80)}...`);
           console.log('');
         });
         break;

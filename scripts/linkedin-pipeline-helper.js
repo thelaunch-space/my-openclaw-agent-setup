@@ -113,6 +113,7 @@
  */
 
 const { google } = require('googleapis');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
@@ -120,6 +121,57 @@ const SPREADSHEET_ID = '1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g';
 const CREDS_PATH = path.join(__dirname, '..', 'credentials', 'google-service-account.json');
 const PIPELINE_TAB = 'linkedin-pipeline';
 const BLOGQUEUE_TAB = 'blog-queue';
+
+// Convex configuration
+const CONVEX_BASE_URL = 'curious-iguana-738.convex.site';
+const CONVEX_API_KEY_PATH = path.join(__dirname, '..', 'credentials', 'convex-api-key.txt');
+
+/**
+ * Push LinkedIn post to Convex
+ */
+async function pushToConvex(postData) {
+  const apiKey = fs.readFileSync(CONVEX_API_KEY_PATH, 'utf8').trim();
+  const payload = JSON.stringify(postData);
+  
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: CONVEX_BASE_URL,
+      path: '/push/linkedin-posts',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(payload)
+      },
+      timeout: 30000
+    };
+    
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        if (res.statusCode === 200) {
+          try {
+            resolve(JSON.parse(data));
+          } catch (e) {
+            reject(new Error(`Failed to parse Convex response: ${e.message}`));
+          }
+        } else {
+          reject(new Error(`Convex returned HTTP ${res.statusCode}: ${data}`));
+        }
+      });
+    });
+    
+    req.on('error', (e) => reject(new Error(`Convex request failed: ${e.message}`)));
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error('Convex request timeout'));
+    });
+    
+    req.write(payload);
+    req.end();
+  });
+}
 
 async function getSheets() {
   const creds = JSON.parse(fs.readFileSync(CREDS_PATH, 'utf8'));
@@ -634,6 +686,56 @@ async function updateNote(row, note) {
           console.log(`   Draft: ${d.draftText.substring(0, 100)}...`);
           console.log('');
         });
+        break;
+      }
+      
+      case 'push-convex': {
+        const row = parseInt(process.argv[3]);
+        if (!row) {
+          console.error('Usage: push-convex <row>');
+          console.error('Push a draft row to Convex (linkedinPosts table)');
+          process.exit(1);
+        }
+        const rows = await readPipeline();
+        const pipeline = parsePipeline(rows);
+        const entry = pipeline.find(p => p.rowNumber === row);
+        if (!entry) {
+          console.error(`Row ${row} not found`);
+          process.exit(1);
+        }
+        if (!entry.insightName || !entry.draftText) {
+          console.error('Row missing insightName or draftText - cannot push to Convex');
+          process.exit(1);
+        }
+        
+        // Map to Convex schema
+        const convexData = {
+          insightName: entry.insightName,
+          draftText: entry.draftText,
+          sourceBlogSlug: entry.blogSlug || '',
+          sourceBlogTitle: entry.blogTitle || '',
+          insightNumber: parseInt(entry.insightNum) || 1,
+          source: entry.source === 'krishna-insight' ? 'krishna-insight' : 'blog',
+          icpPass: entry.icpPass === 'Yes',
+          icpFailReason: entry.icpPass === 'No' ? (entry.icpFailReason || null) : null,
+          hookStrategy: entry.hookStrategy || null,
+          ctaType: entry.ctaType || null,
+          status: entry.postStatus === 'Draft Ready' ? 'draft_ready' : 
+                  entry.postStatus === 'Needs Edit' ? 'needs_revision' :
+                  entry.postStatus === 'Approved' ? 'approved' :
+                  entry.postStatus === 'Posted' ? 'posted' :
+                  entry.postStatus === 'Skipped' ? 'skipped' : 'draft_ready',
+          agentName: 'Valmiki',
+          createdAt: new Date().toISOString()
+        };
+        
+        try {
+          const result = await pushToConvex(convexData);
+          console.log(`✅ Pushed to Convex: ${JSON.stringify(result)}`);
+        } catch (err) {
+          console.error(`⚠️ Convex push failed: ${err.message}`);
+          process.exit(1);
+        }
         break;
       }
       

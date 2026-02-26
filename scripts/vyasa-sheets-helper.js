@@ -1,27 +1,82 @@
 /**
- * Vyasa's Google Sheets helper for blog-queue operations.
+ * Vyasa's helper for blog-queue operations.
  * Usage: node scripts/vyasa-sheets-helper.js <command> [args...]
  * 
  * Commands:
- *   list                              - List all briefs with their status
- *   ready                             - Get first "Brief Ready" entry as JSON
- *   set-status <row> <status>         - Update status for a row
- *   set-published <row> <keywords> <url> - Update keywords, URL, set status to "PR Created"
- *   add-brief <json>                  - Add a new brief row
+ *   list                              - List all briefs with their status (Sheets)
+ *   ready                             - Get first "Brief Ready" entry as JSON (Convex)
+ *   set-status <row> <status>         - Update status for a row (Sheets)
+ *   set-published <row> <keywords> <url> - Update keywords, URL, set status to "PR Created" (Sheets)
+ *   add-brief <json>                  - Add a new brief row (Sheets)
  *   
  * Enrichment commands:
- *   list-published                    - List all published blogs with enrichment data
- *   next-enrich                       - Get next blog to enrich (oldest enrichment date, NULLs first)
- *   set-enrichment <row> <count> <log> - Update enrichment columns after enrichment
+ *   list-published                    - List all published blogs with enrichment data (Sheets)
+ *   next-enrich                       - Get next blog to enrich (oldest enrichment date, NULLs first) (Sheets)
+ *   set-enrichment <row> <count> <log> - Update enrichment columns after enrichment (Sheets)
+ * 
+ * Data source: 
+ *   - `ready` command reads from Convex (primary source)
+ *   - Other commands still use Google Sheets (archive/fallback)
  */
 
 const { google } = require('googleapis');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
 const SPREADSHEET_ID = '1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g';
 const CREDS_PATH = path.join(__dirname, '..', 'credentials', 'google-service-account.json');
 const TAB_NAME = 'blog-queue';
+
+// Convex configuration
+const CONVEX_BASE_URL = 'curious-iguana-738.convex.site';
+const CONVEX_API_KEY_PATH = path.join(__dirname, '..', 'credentials', 'convex-api-key.txt');
+
+/**
+ * Read brief_ready briefs from Convex
+ * Returns array of brief objects, sorted oldest-first
+ */
+async function readBriefReadyFromConvex() {
+  const apiKey = fs.readFileSync(CONVEX_API_KEY_PATH, 'utf8').trim();
+  
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: CONVEX_BASE_URL,
+      path: '/query/briefs?status=brief_ready',
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      timeout: 30000
+    };
+    
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        if (res.statusCode === 200) {
+          try {
+            const briefs = JSON.parse(data);
+            resolve(briefs);
+          } catch (e) {
+            reject(new Error(`Failed to parse Convex response: ${e.message}`));
+          }
+        } else {
+          reject(new Error(`Convex returned HTTP ${res.statusCode}: ${data}`));
+        }
+      });
+    });
+    
+    req.on('error', (e) => reject(new Error(`Convex request failed: ${e.message}`)));
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error('Convex request timeout'));
+    });
+    
+    req.end();
+  });
+}
 
 async function getSheets() {
   const creds = JSON.parse(fs.readFileSync(CREDS_PATH, 'utf8'));
@@ -183,13 +238,45 @@ function getNextToEnrich(briefs) {
       }
       
       case 'ready': {
-        const rows = await readBlogQueue();
-        const briefs = parseBriefs(rows);
-        const ready = briefs.find(b => b.status === 'Brief Ready');
-        if (ready) {
-          console.log(JSON.stringify(ready, null, 2));
-        } else {
-          console.log(JSON.stringify({ error: 'No briefs with status "Brief Ready"' }));
+        // Read from Convex (primary source)
+        try {
+          const briefs = await readBriefReadyFromConvex();
+          if (briefs.length > 0) {
+            // Return first brief (oldest, already sorted by Convex)
+            // Map Convex fields to match expected format
+            const brief = briefs[0];
+            const result = {
+              _id: brief._id,
+              title: brief.title || '',
+              slug: brief.slug || '',
+              primaryKeyword: brief.primaryKeyword || '',
+              longTailKeywords: brief.longTailKeywords || [],
+              sourceUrls: brief.sourceUrls || [],
+              icpProblem: brief.icpProblem || '',
+              competitiveGap: brief.competitiveGap || '',
+              launchSpaceAngle: brief.launchSpaceAngle || '',
+              suggestedStructure: brief.suggestedStructure || '',
+              researchNotes: brief.researchNotes || '',
+              contentMarkdown: brief.contentMarkdown || '',
+              category: brief.category || '',
+              createdAt: brief.createdAt || '',
+              status: 'Brief Ready'
+            };
+            console.log(JSON.stringify(result, null, 2));
+          } else {
+            console.log(JSON.stringify({ error: 'No briefs with status "Brief Ready"' }));
+          }
+        } catch (convexErr) {
+          // Fallback to Sheets if Convex fails
+          console.error(`Convex read failed (${convexErr.message}), falling back to Sheets...`);
+          const rows = await readBlogQueue();
+          const briefs = parseBriefs(rows);
+          const ready = briefs.find(b => b.status === 'Brief Ready');
+          if (ready) {
+            console.log(JSON.stringify(ready, null, 2));
+          } else {
+            console.log(JSON.stringify({ error: 'No briefs with status "Brief Ready"' }));
+          }
         }
         break;
       }

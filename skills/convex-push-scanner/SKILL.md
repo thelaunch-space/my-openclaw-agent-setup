@@ -15,11 +15,11 @@ Base URL: `https://curious-iguana-738.convex.site`
 
 ## 1. Push Questions (After Morning Reddit Scan)
 
-After your 9:00 AM scan completes, push all questions found in that batch. **Use upsertQuestions (not ingestQuestions)** — this prevents duplicates if the same URL is scanned again.
+After your 9:00 AM scan completes, push all questions found in that batch. **Use `/push/questions`** — this deduplicates by URL.
 
 ```bash
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
-curl -s -X POST https://curious-iguana-738.convex.site/upsertQuestions \
+curl -s -X POST https://curious-iguana-738.convex.site/push/questions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $API_KEY" \
   -d '[
@@ -36,7 +36,6 @@ curl -s -X POST https://curious-iguana-738.convex.site/upsertQuestions \
       "postDate": "YYYY-MM-DD",
       "scannedAt": "YYYY-MM-DDTHH:MM:SSZ",
       "status": "new",
-      "briefCreated": false,
       "agentName": "Vibhishana",
       "batchId": "YYYY-MM-DD-morning"
     }
@@ -57,7 +56,7 @@ After each brief run (11 AM, 2 PM, 5 PM), push the brief you just created.
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
 BRIEF_CONTENT=$(node -e "console.log(JSON.stringify(require('fs').readFileSync('/home/node/openclaw/vibhishana/briefs/YYYY-MM-DD-slug.md', 'utf8')))")
 
-curl -s -X POST https://curious-iguana-738.convex.site/ingestBrief \
+curl -s -X POST https://curious-iguana-738.convex.site/push/briefs \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $API_KEY" \
   -d "{
@@ -85,7 +84,7 @@ Expected response: `{"success":true,"id":"..."}`
 
 ## 3. After Pushing a Brief, Update the Question
 
-If the brief was created from a specific question, push an update for that question too — resend it to `/upsertQuestions` with `"status": "brief_created"` and `"briefCreated": true`. The upsert will match by URL and update the existing record.
+If the brief was created from a specific question, push an update for that question too — resend it to `/push/questions` with `"status": "brief_created"`. The upsert will match by URL and update the existing record.
 
 ## 4. Update Brief Status (Sync from Sheet)
 
@@ -93,7 +92,7 @@ When brief statuses change in Google Sheets (e.g., Krishna reviews and changes t
 
 ```bash
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
-curl -s -X POST https://curious-iguana-738.convex.site/updateBriefStatus \
+curl -s -X POST https://curious-iguana-738.convex.site/update/brief-status \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $API_KEY" \
   -d '{
@@ -115,23 +114,14 @@ Expected response: `{"success":true,"id":"...","slug":"...","newStatus":"..."}`
 
 If brief not found: `{"success":false,"error":"Brief not found","slug":"..."}`
 
-## 5. Upsert Brief (Create or Update)
+## 5. Why /push/briefs (Not /ingestBrief)
 
-For idempotent pushes (won't create duplicates if same slug exists):
+**⚠️ CRITICAL:** Always use `/push/briefs`, never `/ingestBrief`.
 
-```bash
-API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
-curl -s -X POST https://curious-iguana-738.convex.site/upsertBrief \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $API_KEY" \
-  -d '{
-    ... same fields as ingestBrief ...
-  }'
-```
+- `/ingestBrief` — **BROKEN** — always inserts, no dedup. Creates duplicates if called twice for same slug.
+- `/push/briefs` — **CORRECT** — deduplicates by slug. Updates if exists, inserts if new.
 
-This will:
-- **Create** if no brief with this slug exists
-- **Update** if a brief with this slug already exists
+All sections now use the canonical `/push/briefs` endpoint.
 
 Expected response: `{"success":true,"id":"...","action":"inserted"}` or `{"success":true,"id":"...","action":"updated"}`
 

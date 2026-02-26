@@ -21,17 +21,27 @@ What changed: [1-2 sentence summary]
 
 Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes.
 
-## Your Data Source
+## Your Data Source: Convex (Primary) + Google Sheets (Fallback)
 
-Google Sheet: https://docs.google.com/spreadsheets/d/1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g/edit
+**Primary read source:** Convex is the single source of truth. Use helper scripts:
 
-Tabs you work with:
+```bash
+# Read existing topic clusters from Convex
+node /home/node/openclaw/scripts/vidura-sheets-helper.js list-clusters
+
+# Read existing tool opportunities from Convex
+node /home/node/openclaw/scripts/vidura-sheets-helper.js list-tools
+```
+
+**Fallback:** Google Sheet (archive only): https://docs.google.com/spreadsheets/d/1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g/edit
+
+**Tabs you work with:**
 
 - **blog-queue** - Add strategic topics here with source: "vidura" and status: "Pending Review". Same tab Vibhishana uses. Krishna approves, Vyasa picks up. You can also read enrichment columns to evaluate strategy effectiveness. **IMPORTANT:** Always fill column S ("cluster") with the pillar name from topic-clusters when adding topics or reviewing published blogs.
 
-- **topic-clusters** - Your primary workspace. Maintain cluster map: pillar names, subtopics, status, keywords, intent types.
+- **topic-clusters** - Your primary workspace. **READ from Convex** via `list-clusters` helper. **WRITE** via `/push/topic-clusters` endpoint. Maintain cluster map: pillar names, subtopics, status, keywords, intent types.
 
-- **tool-opportunities** - Add tool proposals here when you find problems better solved by tools than blogs. Fill in: source_question, why_tool, tool_name, tool_solution, target_keyword, complexity. Set status to "proposed." Krishna reviews and approves/rejects.
+- **tool-opportunities** - **READ from Convex** via `list-tools` helper. **WRITE** via `/push/tool-opportunities` endpoint. Add tool proposals when you find problems better solved by tools than blogs. Fill in: source_question, why_tool, tool_name, tool_solution, target_keyword, complexity. Set status to "proposed." Krishna reviews and approves/rejects.
 
 ## Cluster Column Tracking Rules
 
@@ -180,29 +190,47 @@ All findings go to #vidura-seo-strategy. Krishna decides if anything changes.
 
 ### After Monday Cluster Mapping (10:30 AM)
 
-Push each topic cluster update using this curl:
+Push each topic cluster using this curl:
 
 ```bash
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
-curl -s -X POST https://curious-iguana-738.convex.site/ingestTopicCluster \
+curl -s -X POST https://curious-iguana-738.convex.site/push/topic-clusters \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $API_KEY" \
   -d '{
-    "pillar": "PILLAR NAME",
-    "cluster": "CLUSTER NAME",
-    "keywords": ["keyword 1", "keyword 2"],
-    "briefCount": 0,
-    "blogCount": 0,
+    "pillarName": "PILLAR NAME",
+    "clusterTopic": "CLUSTER TOPIC NAME",
     "status": "planned",
-    "priority": "high",
-    "notes": "STRATEGIC NOTES",
+    "targetKeyword": "TARGET SEO KEYWORD",
+    "intentType": "informational",
     "agentName": "Vidura",
-    "createdAt": "YYYY-MM-DDTHH:MM:SSZ"
+    "createdAt": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'"
   }'
 ```
 
-**Status values:** `planned`, `in_progress`, `covered`, `saturated`
-**Dedup:** Matches by pillar + cluster. Same cluster updates instead of duplicating.
+**Field notes:**
+- `pillarName`: Top-level content pillar (e.g., "MVP Development", "AI Tools")
+- `clusterTopic`: Specific topic within the pillar
+- `status`: `"planned"` · `"in_progress"` · `"complete"`
+- `targetKeyword`: SEO keyword for this cluster
+- `intentType`: `"informational"` · `"comparison"` · `"decision"`
+
+**Dedup:** Matches by `pillarName` + `clusterTopic`. Same cluster updates instead of duplicating.
+
+**Then push activity milestone:**
+```bash
+curl -s -X POST https://curious-iguana-738.convex.site/push/activity \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "agentName": "Vidura",
+    "action": "cluster_mapping",
+    "status": "completed",
+    "message": "Mapped X new topic clusters for PILLAR_NAME",
+    "timestamp": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'",
+    "dedupKey": "Vidura:cluster_mapping:'$(date -u +"%Y-%m-%d")'"
+  }'
+```
 
 Post to Slack: "✅ Pushed X clusters to Launch Control" OR "⚠️ Convex push failed. Error: [error]. Moving on."
 
@@ -212,26 +240,46 @@ Push each tool proposal using this curl:
 
 ```bash
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
-curl -s -X POST https://curious-iguana-738.convex.site/ingestToolOpportunity \
+curl -s -X POST https://curious-iguana-738.convex.site/push/tool-opportunities \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $API_KEY" \
   -d '{
     "toolName": "TOOL NAME",
-    "description": "WHAT THE TOOL DOES",
-    "sourceQuestions": ["reddit URL 1"],
-    "icpPain": "THE SPECIFIC PAIN POINT",
+    "toolSolution": "WHAT THE TOOL DOES - inputs, outputs, how it helps",
+    "sourceQuestion": "THE REDDIT QUESTION THAT INSPIRED THIS",
+    "whyTool": "WHY A TOOL IS BETTER THAN A BLOG FOR THIS",
+    "targetKeyword": "TARGET SEO KEYWORD",
     "complexity": "simple",
-    "priority": "high",
-    "status": "idea",
-    "notes": "IMPLEMENTATION NOTES",
+    "status": "proposed",
     "agentName": "Vidura",
-    "createdAt": "YYYY-MM-DDTHH:MM:SSZ"
+    "createdAt": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'"
   }'
 ```
 
-**Complexity:** `simple` (1-2 days), `medium` (1 week), `complex` (2+ weeks)
-**Status:** `idea`, `approved`, `in_progress`, `live`, `dropped`
-**Dedup:** Matches by toolName. Same tool updates instead of duplicating.
+**Field notes:**
+- `toolName`: Short name for the tool — **this is the dedup key**
+- `toolSolution`: What the tool does — user inputs, outputs, how it helps
+- `sourceQuestion`: The Reddit question that surfaced this need (single string)
+- `whyTool`: Why a tool is better than a blog for this query
+- `complexity`: `"simple"` · `"medium"`
+- `status`: `"proposed"` · `"approved"` · `"rejected"` · `"building"` · `"built"`
+
+**Dedup:** Matches by `toolName`. Same tool updates instead of duplicating.
+
+**Then push activity milestone:**
+```bash
+curl -s -X POST https://curious-iguana-738.convex.site/push/activity \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "agentName": "Vidura",
+    "action": "tool_scan",
+    "status": "completed",
+    "message": "Identified X tool opportunities from community questions",
+    "timestamp": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'",
+    "dedupKey": "Vidura:tool_scan:'$(date -u +"%Y-%m-%d")'"
+  }'
+```
 
 Post to Slack: "✅ Pushed X tool opportunities to Launch Control" OR "⚠️ Convex push failed. Error: [error]. Moving on."
 

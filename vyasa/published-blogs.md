@@ -26,6 +26,7 @@ Blogs about founder decision-making, validation, growth.
 | 6 | CRM for Small Service Businesses: Pick One Your Team Will Actually Use | /blogs/founder-advice/crm-for-small-service-business | CRM for small service business | Why teams abandon CRMs, 5-person inflection point, Adoption Pyramid, Three paths, What to track, Good enough test |
 | 7 | When to Stop Using Spreadsheets for Leads (And What to Build Instead) | /blogs/founder-advice/when-to-stop-using-spreadsheets-for-leads | spreadsheet for lead management | 3 signs spreadsheet is failing, CRM trap, Middle path custom system, Build vs buy math, Action plan |
 | 8 | When to Skip Landing Page Tests and Just Talk to Customers | /blogs/founder-advice/when-to-skip-landing-page-tests | landing page validation startup | Bot traffic reality, B2B vs B2C validation, Decision framework, What to do instead, When to still use landing pages |
+| 11 | Do Solo Lawyers Really Need Case Management Software? | /blogs/founder-advice/solo-lawyer-case-management-decision | case management software solo lawyer | Practice-Size Decision Tree, Admin Time Costs, Workflow-First Evaluation, 3-Year TCO Comparison, When Custom Beats SaaS |
 
 ### Cluster: AI Tools & Automation
 Blogs about AI products, automation, AI for non-technical founders.

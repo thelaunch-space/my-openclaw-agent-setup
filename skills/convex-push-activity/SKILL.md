@@ -19,7 +19,7 @@ Run this with `exec` after completing a significant action:
 
 ```bash
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
-curl -s -X POST https://curious-iguana-738.convex.site/ingestActivity \
+curl -s -X POST https://curious-iguana-738.convex.site/push/activity \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $API_KEY" \
   -d '{
@@ -27,7 +27,8 @@ curl -s -X POST https://curious-iguana-738.convex.site/ingestActivity \
     "action": "ACTION TYPE",
     "status": "completed",
     "message": "ONE-LINE SUMMARY OF WHAT HAPPENED",
-    "timestamp": "YYYY-MM-DDTHH:MM:SSZ"
+    "timestamp": "YYYY-MM-DDTHH:MM:SSZ",
+    "dedupKey": "AGENT:ACTION:DATE-OR-CONTEXT"
   }'
 ```
 

@@ -342,7 +342,7 @@ const key = require('./credentials/google-service-account.json');
   
   const options = {
     hostname: 'curious-iguana-738.convex.site',
-    path: '/ingestQuestions',
+    path: '/upsertQuestions',
     method: 'POST',
     headers: {
       'Authorization': 'Bearer ' + apiKey,
@@ -383,10 +383,27 @@ const key = require('./credentials/google-service-account.json');
 
 **Consequences of skipping:** Krishna won't see your work on Launch Control. Visitors won't see activity. Parthasarathi will have to manually fix it hours later. Don't skip this step.
 
+**BEFORE Creating a Brief - Check Queue Depth:**
+```bash
+node /home/node/openclaw/scripts/vibhishana-sheets-helper.js pending-review
+```
+This returns `{ count, slugs, titles }` from Convex. Use this to:
+- Avoid creating duplicate briefs (check slugs)
+- Know current queue depth before adding more
+
 **After EACH Brief Run (11 AM, 2 PM, 5 PM):**
 1. Create the brief markdown file in `briefs/`
-2. Add to the blog-queue sheet
-3. **IMMEDIATELY** push to Convex using the EXACT schema below
+2. Add to the blog-queue sheet (fallback/archive)
+3. **IMMEDIATELY** push to Convex using `/push/briefs` endpoint:
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/push/briefs" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{...}'
+```
+
 4. Post to Slack: "✅ Pushed [brief-slug] to Launch Control" OR "⚠️ Convex push failed for [brief-slug]. Error: [error]. Moving on."
 
 **⚠️ CRITICAL: Use EXACT field names below. Convex rejects unknown fields with HTTP 500.**
@@ -426,6 +443,45 @@ const key = require('./credentials/google-service-account.json');
 **Error handling:** If curl fails, post the failure to Slack (Parthasarathi will retry during health checks). Never block your workflow, but ALWAYS attempt the push and report the result.
 
 **Why this matters:** If you skip the push, the brief won't appear on Launch Control. Parthasarathi checks for missing pushes, but catching them in health checks adds hours of delay. Do it right the first time.
+
+#### Activity Push (After Key Milestones)
+
+Push activity milestones so Launch Control shows real-time agent activity:
+
+**After morning scan completes:**
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST https://curious-iguana-738.convex.site/push/activity \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "agentName": "Vibhishana",
+    "action": "scan_complete",
+    "status": "completed",
+    "message": "Scanned X questions from Y subreddits",
+    "timestamp": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'",
+    "dedupKey": "Vibhishana:scan_complete:'$(date -u +"%Y-%m-%d")'"
+  }'
+```
+
+**After each brief is created:**
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST https://curious-iguana-738.convex.site/push/activity \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "agentName": "Vibhishana",
+    "action": "brief_created",
+    "status": "completed",
+    "message": "Created brief: BRIEF_TITLE",
+    "timestamp": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'",
+    "dedupKey": "Vibhishana:brief_created:BRIEF_SLUG"
+  }'
+```
+
+**When:** Push scan_complete after the 9 AM scan. Push brief_created after each brief run (11 AM).
+**Why:** Krishna sees real-time activity on Launch Control dashboard.
 
 #### Spreadsheet Updates
 
@@ -590,7 +646,7 @@ Post updates to Slack #vibhishana-seo.
 
 ### After Each Brief (11 AM daily)
 
-Push briefs using the `convex-push-scanner` skill (read it for full instructions):
+Push briefs to Convex via `/push/briefs` endpoint:
 
 ```bash
 node -e "
@@ -616,7 +672,7 @@ fs.writeFileSync('/tmp/brief-payload.json', payload);
 "
 
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
-curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertBrief" \
+curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/push/briefs" \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d @/tmp/brief-payload.json
@@ -660,7 +716,7 @@ curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertDocu
 ```
 
 **What to push as documents:** Deep research, topic category strategy, community analysis
-**What to push as briefs:** Daily SEO briefs (use upsertBrief, not upsertDocument)
+**What to push as briefs:** Daily SEO briefs (use /push/briefs, not upsertDocument)
 
 Post to Slack: "✅ Pushed document: [TITLE] to Launch Control" OR "⚠️ Convex document push failed."
 

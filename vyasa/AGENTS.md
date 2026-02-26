@@ -21,13 +21,19 @@ What changed: [1-2 sentence summary]
 
 Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes. Undocumented changes break the workflow.
 
-## Your Source: Vibhishana's Research
+## Your Source: Convex (Primary) + Google Sheets (Fallback)
 
-Google Sheet: https://docs.google.com/spreadsheets/d/1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g/edit
+**Primary read:** Convex is the single source of truth. Use the helper script:
+```bash
+node /home/node/openclaw/scripts/vyasa-sheets-helper.js ready
+```
+This returns briefs with status `brief_ready`, sorted oldest-first. Pick `response[0]`.
 
-Tab: `blog-queue`
+**Fallback:** If Convex is unreachable, the helper falls back to Google Sheets automatically.
 
-Pick candidates with status **"Brief Ready"**. When you start writing, update status to **"Writing"**.
+**Google Sheet (archive/fallback only):** https://docs.google.com/spreadsheets/d/1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g/edit
+
+When you start writing, update status to **"Writing"** in both Convex and Sheet.
 
 Each brief contains: title suggestion, keywords, source Reddit URLs, ICP problem, competitive gap, thelaunch.space angle, suggested structure, research notes.
 
@@ -48,10 +54,15 @@ Each brief contains: title suggestion, keywords, source Reddit URLs, ICP problem
 
 ### Step 1: Select the Best Candidate
 
-- Read all "Brief Ready" entries in blog-queue
-- Pick the one with: strongest research, clearest gap in existing content, highest ICP relevance
-- If no candidates are ready, or all briefs are too thin for a quality post, post to #vyasa-blogs explaining why and skip for today
-- Mark selected entry status as "Writing"
+**Get briefs from Convex (primary source):**
+```bash
+node /home/node/openclaw/scripts/vyasa-sheets-helper.js ready
+```
+
+This returns `brief_ready` briefs sorted oldest-first. Review the returned briefs and pick the one with: strongest research, clearest gap in existing content, highest ICP relevance.
+
+- If no candidates are ready (empty response), or all briefs are too thin for a quality post, post to #vyasa-blogs explaining why and skip for today
+- Mark selected entry status as "Writing" (update both Convex and Sheet)
 
 ### Step 2: Deep Research
 
@@ -215,14 +226,38 @@ These protect the site, the brand, and the publishing workflow:
 
 ## Launch Control Data Push (MANDATORY - DO NOT SKIP)
 
-**Every blog PR MUST be pushed to Convex.** This is non-negotiable. Krishna and visitors see agent work in real-time at thelaunch.space/launch-control.
+**Every blog MUST be pushed to Convex at TWO points:** when writing starts AND when PR is created. Krishna sees real-time progress at thelaunch.space/launch-control.
 
-**After PR Creation, run this curl:**
+### 1. Push Writing Status (When Starting a Blog)
+
+**IMMEDIATELY** after selecting a brief and marking the sheet as "Writing", push to Convex:
 
 ```bash
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/push/blogs" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "BLOG TITLE FROM BRIEF",
+    "slug": "blog-post-slug",
+    "keyword": "main keyword phrase",
+    "status": "writing",
+    "wordCount": 0,
+    "createdAt": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'",
+    "agentName": "Vyasa"
+  }'
+```
 
-curl -X POST "https://curious-iguana-738.convex.site/ingestBlog" \
+**When:** Right after you pick up a "Brief Ready" entry
+**Why:** Launch Control shows real-time status. Without this, Krishna doesn't know writing has started.
+
+### 2. Push PR Created Status (After Creating PR)
+
+After the PR is created:
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/push/blogs" \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -232,26 +267,42 @@ curl -X POST "https://curious-iguana-738.convex.site/ingestBlog" \
     "keyword": "main keyword phrase",
     "status": "pr_created",
     "wordCount": 2500,
-    "createdAt": "2026-02-20",
+    "createdAt": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'",
     "agentName": "Vyasa"
   }'
 ```
 
-**Field names (use exactly — Convex will reject wrong names):**
-- `title` — Blog title
-- `slug` — URL slug (e.g., "ai-generated-code-deployment-reality")
+**Field notes:**
+- `slug` — URL slug — **this is the dedup key** (same slug = updates existing record)
 - `url` — Full path (e.g., "/blogs/ai-tools/ai-generated-code-deployment-reality")
 - `keyword` — Main keyword from brief (**NOT** `primaryKeyword`)
-- `status` — Must be `"pr_created"` (lowercase, underscore)
-- `wordCount` — Approximate word count (number, not string)
-- `createdAt` — Today's date in YYYY-MM-DD format
-- `agentName` — Always `"Vyasa"`
+- `status` — `"writing"` then `"pr_created"` — Krishna updates to `"published"` after merge
+- `wordCount` — Actual word count as a number
 
-**Checklist for every blog (do all 5):**
+### 3. Push Activity Milestone (After PR Created)
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/push/activity" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "agentName": "Vyasa",
+    "action": "blog_pr_created",
+    "status": "completed",
+    "message": "PR created: BLOG_TITLE (WORD_COUNT words)",
+    "timestamp": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'",
+    "dedupKey": "Vyasa:blog_pr_created:BLOG_SLUG"
+  }'
+```
+
+**Checklist for every blog (do all 7):**
+- [ ] Sheet status updated to "Writing"
+- [ ] Convex push with `status: "writing"` executed
 - [ ] PR created on GitHub
 - [ ] Sheet status updated to "PR Created"
-- [ ] Convex push executed (run curl above)
-- [ ] Push result posted to Slack (success or failure)
+- [ ] Convex push with `status: "pr_created"` executed
+- [ ] Activity push executed
 - [ ] Summary posted to #vyasa-blogs
 
 **Error handling:** If curl fails, post the failure to Slack (Parthasarathi will retry during health checks). Never block your workflow, but ALWAYS attempt the push and report the result.
@@ -288,7 +339,7 @@ curl -s --max-time 60 -X POST "https://curious-iguana-738.convex.site/upsertDocu
 ```
 
 **What to push:** Style guides, workflow docs, content strategy, analysis reports
-**What NOT to push:** Blog posts (those go to ingestBlog), daily memory files
+**What NOT to push:** Blog posts (those go to /push/blogs), daily memory files
 
 Post to Slack: "✅ Pushed document: [TITLE] to Launch Control" OR "⚠️ Convex document push failed."
 
