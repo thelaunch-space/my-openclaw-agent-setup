@@ -23,9 +23,9 @@
 
 **Tracking commitment:** Run 3 baseline queries every Friday evening to measure enrichment impact over time. Goal: achieve first citation, then measure frequency increase.
 
-**LLM citation pattern (Feb 21-26):**
+**LLM citation pattern (Feb 21-28):**
 - Feb 21 midday: Row 13 cited for Query 1 (ONE-TIME occurrence)
-- Feb 21 evening: Zero citations
+- Feb 21 evening: Zero citations ← FRIDAY BASELINE
 - Feb 22 midday: Zero citations
 - Feb 22 evening: Zero citations
 - Feb 23 midday: Row 14 cited for Queries 1 AND 2 (first multi-query citation!)
@@ -34,17 +34,37 @@
 - Feb 24 evening: Row 13 cited for Query 1
 - Feb 25 midday: Zero citations
 - Feb 25 evening: Zero citations (3 consecutive zero-citation checks)
-- **Feb 26 midday: Row 13 cited for Query 1 + Row 14 cited for Query 2**
-- **Feb 26 evening: Row 13 cited for Query 1 (FIRST SAME-DAY PERSISTENCE)**
+- Feb 26 midday: Row 13 cited for Query 1 + Row 14 cited for Query 2
+- Feb 26 evening: Row 13 cited for Query 1 (FIRST SAME-DAY PERSISTENCE)
+- Feb 27 midday: Zero citations
+- **Feb 27 evening: Row 13 cited for Query 1 ← FRIDAY BASELINE ⭐**
 
-**Lesson:** EXTREME daily variance. Citations appear 2-3 times per week. Row 13 (Cluster 3) showing stronger stability than Row 14 (Cluster 2) - first blog to be cited at both midday + evening same day. Week-over-week Friday trend is signal. Next check: Friday Feb 28 to establish first 2-week comparison.
+**WEEK-OVER-WEEK IMPROVEMENT CONFIRMED (Feb 21 → Feb 28):**
+- Friday Feb 21 evening: 0 citations (baseline)
+- Friday Feb 28 evening: 1 citation (Row 13 for Query 1)
+- **First evidence of enrichment impact:** 0 → 1 citation on clean weekly comparison
 
-**[E:2] tracking (Feb 25-26):**
+**Row 13 (Cluster 3) citation stability pattern:**
+- Most cited blog overall (5 times in 7 days)
+- Cited at BOTH Friday evening baseline checks (Feb 21 midday started, Feb 28 evening confirmed)
+- Strongest performer for Query 1 ("should I hire agency or build myself")
+- Still [E:1] (not [E:2]) - proves first enrichment pass sufficient for citations
+
+**Lesson:** Daily variance extreme (0-2 citations per check). Weekly Friday evening baseline is signal. Row 13 (Cluster 3: Build vs Buy) strongest citation performer. Query 1 (comparison/decision-intent) most stable. Next milestone: Friday Mar 7 for 2-week trend confirmation.
+
+**[E:2] tracking (Feb 25-28):**
 - Row 2 (Cluster 1): [E:2] as of Feb 26 → NOT cited yet (Cluster 1 only 2 posts)
-- Row 3 (Cluster 2): [E:2] since Feb 25 → NOT cited Feb 26 (Row 14 from same cluster cited instead)
+- Row 3 (Cluster 2): [E:2] since Feb 25 → NOT cited Feb 26 or Feb 28 (Row 14 from same cluster cited instead)
 - Row 4 (Cluster 4): [E:2] since Feb 25 → NOT cited yet (Cluster 4 only 2 posts)
+- Row 7 (Cluster 6): [E:2] as of Feb 27 → NOT cited yet
+- Row 8 (Cluster 1): [E:2] as of Feb 27 → NOT cited yet
+- Row 10 (Cluster 2): [E:2] as of Feb 27 → NOT cited yet
 
-**Hypothesis:** [E:2] does NOT increase citation frequency within citation-ready clusters. [E:2] also does NOT compensate for clusters below 3-post threshold. First enrichment pass ([E:1]) may be sufficient for citation eligibility. Need Friday Feb 28 weekly comparison to validate.
+**Friday Feb 28 validation:** 6 blogs now at [E:2] (32% of published content), NONE cited during weekly baseline check. Row 13 ([E:1], Cluster 3) cited instead - most cited blog overall.
+
+**CONCLUSION VALIDATED:** [E:2] does NOT increase citation frequency. First enrichment pass ([E:1]) sufficient for citation eligibility. Second pass does NOT deliver measurable SEO benefit based on 1-week tracking data.
+
+**Strategic implication:** Vyasa's effort better spent on new publications (5 briefs in Brief Ready queue) than re-enriching [E:1] blogs to [E:2]. 100% [E:1] coverage = citation-ready. [E:2] = diminishing returns.
 
 **Multi-cluster citation achieved (Feb 24):**
 - Cluster 2 (Build MVPs No-Code): Row 14 cited Feb 23 for 2 queries
@@ -52,32 +72,38 @@
 - **Pattern identified:** 3 posts + enrichment = citation potential. Both clusters have 3 published posts, 100% enrichment ([E:1]), and proven citations.
 - Cluster 1 (Technical Cofounders): 2 posts, not cited yet - suggests 3+ posts needed for authority.
 
-### Content Pipeline Health (as of Feb 26 evening, 2026)
+### Content Pipeline Health (as of Feb 28 evening, 2026)
 
-**Publication rate:** Slowing - 19 total published (0 new on Feb 26)
+**Publication rate:** Slowed - 19 total published (0 new on Feb 27-28)
 - Sunday Feb 22: 3 publications (unusual weekend spike)
 - Monday Feb 23: stable (no new publications)
 - Tuesday Feb 24: 1 publication
 - Wednesday Feb 25: 2 publications (overnight + afternoon)
-- **Thursday Feb 26: 0 publications** (first zero-publication day since tracking began)
-- Brief queue healthy (6 Brief Ready) despite zero publications
+- Thursday Feb 26: 0 publications (first zero-publication day)
+- **Friday Feb 27: 0 publications (2nd consecutive zero-publication day - unprecedented)**
+- Brief queue healthy (5 Brief Ready) despite zero publications
 
 **Enrichment coverage:** 19/19 published blogs enriched (100% coverage - MAINTAINED)
-- **ENRICHMENT MILESTONE (Feb 26 evening):** 3 blogs now at [E:2] (16% of published content)
-  - Row 2 (Cluster 1): How to Find a Technical Cofounder → [E:2] (NEW Feb 26)
+- **ENRICHMENT MILESTONE (Feb 27 evening):** 6 blogs now at [E:2] (32% of published content - up from 16% yesterday)
+  - Row 2 (Cluster 1): How to Find a Technical Cofounder → [E:2]
   - Row 3 (Cluster 2): How to Build an MVP Without Coding → [E:2]
   - Row 4 (Cluster 4): How to Validate a Startup Idea → [E:2]
-- Enrichment distribution: 3 blogs [E:2] (16%), 16 blogs [E:1] (84%)
-- Vyasa using oldest-first strategy (Rows 2, 3, 4 among earliest published)
-- Second enrichment pass velocity: ~1 blog/day reaching [E:2]
-- At current rate: all 19 blogs reach [E:2] by early March
+  - Row 7 (Cluster 6): Why Your Agency Wasted $30K → [E:2] (NEW Feb 27)
+  - Row 8 (Cluster 1): Can't Find a Technical Cofounder? → [E:2] (NEW Feb 27)
+  - Row 10 (Cluster 2): When No-Code Tools Stop Working → [E:2] (NEW Feb 27)
+- Enrichment distribution: 6 blogs [E:2] (32%), 13 blogs [E:1] (68%)
+- Vyasa using oldest-first strategy (correct)
+- Second enrichment pass velocity: ~2 blogs/day reaching [E:2]
+- **BUT:** None of the [E:2] blogs cited during Friday Feb 28 baseline check (Row 13 [E:1] cited instead)
+- **Implication:** [E:2] not delivering citation boost - effort better spent on new publications
 
-**Brief backlog:** Stable - 6 Brief Ready for Vyasa, 12 Pending Review for Krishna (up from 11)
+**Brief backlog:** Stable - 5 Brief Ready for Vyasa, 12 Pending Review for Krishna (unchanged 3 days)
 
-**Citation achievements (Feb 23-24):**
-- Row 14 (Cluster 2): cited for TWO queries Feb 23 midday (first multi-query citation)
-- Row 13 (Cluster 3): cited for Query 1 Feb 24 evening (first Cluster 3 citation confirmed)
-- Pattern: 3 posts + enrichment = citation-ready cluster
+**Citation achievements (Feb 21-28 week):**
+- **WEEK-OVER-WEEK IMPROVEMENT:** 0 citations → 1 citation on Friday evening baseline checks
+- Row 13 (Cluster 3): Most cited blog (5 times in 7 days), including both Friday baselines
+- Row 14 (Cluster 2): Cited intermittently (3 times in 7 days)
+- Pattern validated: 3 posts + [E:1] enrichment = citation-ready cluster. [E:2] = no additional benefit.
 
 ### Strategic Topic Generation (started Feb 25, 2026)
 

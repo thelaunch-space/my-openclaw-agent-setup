@@ -1,5 +1,5 @@
 {
-  "lastPushedDate": "2026-02-19",
+  "lastPushedDate": "2026-02-27",
   "pushedBatches": [
     {
       "date": "2026-02-19",
@@ -13,8 +13,15 @@
       "count": 362,
       "pushedAt": "2026-02-20T06:35:00Z",
       "note": "DUPLICATE PUSH - includes questions already pushed on 2026-02-19"
+    },
+    {
+      "date": "2026-02-27",
+      "batchId": "2026-02-27-catchup",
+      "count": 373,
+      "pushedAt": "2026-02-27T14:16:38.670Z",
+      "note": "Backlog push - fixed endpoint from /ingestQuestions to /push/questions"
     }
   ],
-  "totalPushed": 408,
+  "totalPushed": 781,
   "knownDuplicates": 228
 }

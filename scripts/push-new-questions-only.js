@@ -13,7 +13,7 @@ const SHEET_ID = '1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g';
 const CREDENTIALS_PATH = '/home/node/openclaw/credentials/google-service-account.json';
 const API_KEY_PATH = '/home/node/openclaw/credentials/convex-api-key.txt';
 const TRACKER_PATH = '/home/node/openclaw/vibhishana/pushed-questions-tracker.json';
-const CONVEX_URL = 'https://curious-iguana-738.convex.site/ingestQuestions';
+const CONVEX_URL = 'https://curious-iguana-738.convex.site/push/questions';
 
 function loadTracker() {
   if (!fs.existsSync(TRACKER_PATH)) {

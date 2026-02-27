@@ -40,32 +40,118 @@ curl -s "https://curious-iguana-738.convex.site/query/briefs?status=needs_revisi
   -H "Authorization: Bearer $API_KEY"
 ```
 
-### Step 2: Process Each Feedback Item
+### Step 2: Decide Revision Path (MINOR vs MAJOR)
 
-For each brief where `krishnaFeedback` is **not null and not empty**:
+For each brief where `krishnaFeedback` is **not null and not empty**, read the feedback and decide:
 
-1. **Read the feedback** — this is Krishna's revision instruction
-2. **Read your original brief file** from `briefs/YYYY-MM-DD-slug.md`
-3. **Write a revised brief** incorporating the feedback
-4. **Save the revised brief** as a new file: `briefs/YYYY-MM-DD-slug-v2.md` (or v3, etc.)
-5. **Push the revised brief to Convex** via `/push/briefs` with:
-   - New slug (append `-v2` or increment version)
-   - `status: "pending_review"`
-   - All other fields updated per feedback
-6. **Mark the old brief as dropped:**
+**MINOR REVISION** — Same topic, same ICP problem. Examples:
+- Title tweak or angle refinement
+- Keyword adjustment
+- Structure reorganization
+- Adding missing competitive analysis
+- Tone/voice correction
+
+**MAJOR PIVOT** — Fundamentally different brief. Examples:
+- Completely different topic
+- New primary keyword (different search intent)
+- Different ICP problem entirely
+- Krishna says "scrap this, try X instead"
+
+**When uncertain:** Default to MINOR. If the core topic and ICP problem remain the same, it's minor.
+
+### Step 3A: MINOR Revision (Update in Place)
+
+For minor revisions, update the existing brief — same slug, same card:
+
+1. **Read the current brief from Convex** — capture these values for the snapshot:
+   - `title` (current)
+   - `primaryKeyword` (current)
+   - `suggestedStructure` (current)
+   - `krishnaFeedback` (the feedback that triggered this)
+
+2. **Create the revision history entry:**
+   ```json
+   {
+     "version": 1,
+     "title": "<current title before changes>",
+     "primaryKeyword": "<current keyword before changes>",
+     "suggestedStructure": "<current structure before changes>",
+     "feedback": "<krishnaFeedback that triggered this revision>",
+     "revisedAt": "<ISO timestamp>"
+   }
+   ```
+   If `revisionHistory` already exists, increment the version number (next entry = highest version + 1).
+
+3. **Update your local brief file** — Edit `briefs/YYYY-MM-DD-slug.md` with the revisions (don't create a new file).
+
+4. **Push the updated brief to Convex** with the SAME slug:
    ```bash
+   API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+   curl -s -X POST "https://curious-iguana-738.convex.site/push/briefs" \
+     -H "Authorization: Bearer $API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "slug": "same-slug-as-before",
+       "title": "<updated title>",
+       "primaryKeyword": "<updated or same keyword>",
+       "longTailKeywords": ["..."],
+       "icpProblem": "<updated or same>",
+       "competitiveGap": "<updated or same>",
+       "launchSpaceAngle": "<updated or same>",
+       "suggestedStructure": "<updated structure>",
+       "researchNotes": "<updated notes>",
+       "contentMarkdown": "<full updated brief content>",
+       "sourceUrls": ["..."],
+       "status": "pending_review",
+       "revisionHistory": [<existing entries>, <new entry>],
+       "agentName": "Vibhishana",
+       "createdAt": "<original creation date>"
+     }'
+   ```
+
+5. **Post to Slack:** "🔄 MINOR revision: [TITLE] (v2) — [1-line summary of what changed]. Same card, back in To Do."
+
+**Result:** The same Kanban card moves from Blocked → To Do. Frontend shows "v2 · 1 revision" pill.
+
+### Step 3B: MAJOR Pivot (New Brief)
+
+For major pivots, drop the old brief and create a fresh one:
+
+1. **Mark the old brief as dropped:**
+   ```bash
+   API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
    curl -s -X POST "https://curious-iguana-738.convex.site/update/brief-status" \
      -H "Authorization: Bearer $API_KEY" \
      -H "Content-Type: application/json" \
      -d '{"slug": "old-brief-slug", "status": "dropped"}'
    ```
-7. **Post to Slack:** "🔄 Revised brief: [TITLE] based on Krishna's feedback. Pushed for re-review."
 
-### Step 3: Skip Dropped Briefs
+2. **Create a new brief file** — `briefs/YYYY-MM-DD-new-slug.md` with the pivoted topic.
+
+3. **Push the new brief to Convex** with a NEW slug:
+   ```bash
+   curl -s -X POST "https://curious-iguana-738.convex.site/push/briefs" \
+     -H "Authorization: Bearer $API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "slug": "new-different-slug",
+       "title": "<new title>",
+       ... all fields for the new topic ...,
+       "status": "pending_review",
+       "agentName": "Vibhishana",
+       "createdAt": "<today>"
+     }'
+   ```
+
+4. **Post to Slack:** "🔀 MAJOR pivot: Dropped [OLD TITLE] → Created [NEW TITLE]. Fresh card in To Do."
+
+**Result:** Old card moves to Done (dropped). New card appears in To Do.
+
+### Step 4: Skip Dropped Briefs
 
 If a brief has `status: "dropped"` — skip it entirely. Krishna has decided not to proceed with that topic.
 
-### Step 4: Only Then — Proceed with Normal Work
+### Step 5: Only Then — Proceed with Normal Work
 
 Once ALL feedback items are addressed (or if there are none), proceed with your regular cron workflow below.
 
@@ -389,7 +475,7 @@ const key = require('./credentials/google-service-account.json');
   
   const options = {
     hostname: 'curious-iguana-738.convex.site',
-    path: '/upsertQuestions',
+    path: '/push/questions',
     method: 'POST',
     headers: {
       'Authorization': 'Bearer ' + apiKey,
@@ -559,13 +645,17 @@ node /home/node/openclaw/scripts/vyasa-sheets-helper.js add-brief '{
 ```
 Pending Review (you add brief)
     ↓
-Krishna reviews in sheet
+Krishna reviews in Kanban (Launch Control)
     ↓
-If feedback needed → Krishna posts to #vibhishana-seo with title + feedback
+If feedback needed → Krishna sets status to Needs Revision + writes feedback in Kanban
     ↓
-Needs Revision (Krishna updates status)
+Needs Revision (card moves to Blocked column)
     ↓
-You create NEW ROW with updated brief → Pending Review
+You check for needs_revision briefs at start of every cron run
+    ↓
+MINOR revision: Update in place (same slug) → back to Pending Review
+   OR
+MAJOR pivot: Drop old brief → Create new brief → Pending Review
     ↓
 Cycle repeats until Krishna sets → Brief Ready
     ↓
@@ -574,17 +664,19 @@ Vyasa picks up → Writing → PR Created → Published
 
 **Status values:**
 - **Pending Review** - You added brief, waiting for Krishna's review
-- **Needs Revision** - Krishna gave feedback in Slack, needs update
+- **Needs Revision** - Krishna gave feedback in Kanban, needs revision (card in Blocked column)
 - **Brief Ready** - Krishna approved, Vyasa can pick up
 - **Writing** - Vyasa is working on it
 - **PR Created** - Vyasa submitted PR
 - **Published** - Krishna merged, live on site
+- **Dropped** - Brief abandoned (major pivot or Krishna decided against the topic)
 
 **When Krishna gives feedback:**
-1. He'll post in #vibhishana-seo with the blog title and feedback
-2. He'll change status to "Needs Revision"
-3. You create a NEW ROW with the updated brief (don't edit the old row)
-4. Set the new row status to "Pending Review"
+1. He sets status to "Needs Revision" in the Kanban
+2. He writes feedback in the `krishnaFeedback` field on the card
+3. Card moves to Blocked column automatically
+4. Your next cron run picks it up via the Feedback-First Protocol (see above)
+5. You decide MINOR vs MAJOR and handle accordingly
 
 **Quality bar:** Only add to blog-queue if the topic passes the bookmark-worthy test AND there's a clear gap in what currently ranks
 

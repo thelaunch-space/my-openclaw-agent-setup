@@ -27,6 +27,7 @@ Blogs about founder decision-making, validation, growth.
 | 7 | When to Stop Using Spreadsheets for Leads (And What to Build Instead) | /blogs/founder-advice/when-to-stop-using-spreadsheets-for-leads | spreadsheet for lead management | 3 signs spreadsheet is failing, CRM trap, Middle path custom system, Build vs buy math, Action plan |
 | 8 | When to Skip Landing Page Tests and Just Talk to Customers | /blogs/founder-advice/when-to-skip-landing-page-tests | landing page validation startup | Bot traffic reality, B2B vs B2C validation, Decision framework, What to do instead, When to still use landing pages |
 | 11 | Do Solo Lawyers Really Need Case Management Software? | /blogs/founder-advice/solo-lawyer-case-management-decision | case management software solo lawyer | Practice-Size Decision Tree, Admin Time Costs, Workflow-First Evaluation, 3-Year TCO Comparison, When Custom Beats SaaS |
+| 12 | Why Your Landing Page Gets Zero Signups | /blogs/founder-advice/landing-page-zero-signups-distribution | landing page zero conversions | Distribution Ladder, Trust-First Launch Sequence, 5:1 Rule, Community Participation by Vertical, Rescue Playbook |
 
 ### Cluster: AI Tools & Automation
 Blogs about AI products, automation, AI for non-technical founders.
