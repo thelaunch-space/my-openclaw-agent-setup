@@ -31,6 +31,34 @@ Matt never wastes the first sentence. Every email opener is a standalone provoca
 
 ---
 
+## 1A. Recognition-Based Hooks (Krishna's Frame)
+
+**Critical shift:** Make ICP feel seen and understood, NOT judged or losing.
+
+**The pattern:** Show them successful founders like them, or name a pattern they recognize in themselves. Empowering, not deflating.
+
+**Before/After Examples:**
+
+| ❌ Loss/Pain Frame (Avoid) | ✅ Recognition Frame (Use) |
+|---------------------------|---------------------------|
+| "You're paying $3,000/month for what costs me $200" | "Domain-expert founders are cutting ops costs by 90% without hiring developers" |
+| "Your ops manager is wasting 15 hours/week" | "Here's how founders like you are reclaiming 15 hours/week from ops tasks" |
+| "Most founders make this expensive mistake..." | "The pattern I keep seeing in successful consultancy founders..." |
+| "You're probably doing this wrong..." | "Here's what domain-expert founders do differently when..." |
+| "This is costing you clients every week" | "Here's how premium services founders are converting 30% more discovery calls" |
+
+**The test:** Does the first line make ICP think "Yes, that's me" or "I'm failing"?
+
+**Good recognition hooks:**
+- "Domain-expert founders are [positive behavior]..."
+- "Here's what successful [ICP archetype] do differently..."
+- "The pattern I keep seeing in founders who [positive outcome]..."
+- "Here's how [ICP archetype] are [positive action] without [common blocker]..."
+
+**Why this works:** ICP sees themselves in a *winning* pattern, not a losing one. They lean in because they want to learn how to join that group, not because they feel attacked.
+
+---
+
 ## 2. The Two-Founder Setup
 
 Matt uses a comparison structure constantly — two people, same inputs, different outputs. It creates instant tension and makes the insight feel earned.

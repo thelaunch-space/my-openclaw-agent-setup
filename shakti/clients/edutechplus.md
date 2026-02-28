@@ -6,7 +6,7 @@ Indonesian EdTech company with a B2G content library (math videos + applets for 
 
 ## Relationship
 
-- **Type:** Project client (active engagement, iteration-based)
+- **Type:** Retainer
 - **Scope:** Krishna owns all technical implementation. EdtechPlus provides product vision, content assets, and design direction. Iteration cadence: client expects observable progress every ~2 days.
 - **History:** Vinay is a former boss of Krishna's — relationship is warm and high-trust. Communication is direct and opinionated (Vinay plays the student role during reviews).
 - **Communication:** Video calls for reviews. Feedback is detailed and design-forward.
@@ -53,9 +53,14 @@ These emerged from 6 iterations of client feedback and apply to all EdtechPlus w
 
 ## Upcoming / Backlog Projects
 
-### Content Optimisation Platform (content-optimisation)
-- **Goal:** Tool for optimising EdtechPlus's existing B2G content library. Scope TBD.
-- **Status:** Not started. Folder exists as placeholder.
+### Content Ingestion Platform (content-ingestion)
+- **Goal:** Content team picks assets (videos, applets), AI auto-generates the full learning journey from those assets. An ingestion tool that transforms raw content into structured learning paths.
+- **Status:** Not started.
+- **Priority:** Deprioritized — starts only after Voice Interaction Learning Journey is signed off by client.
+
+### Content Review Agent Team (content-review-agents)
+- **Goal:** An OpenClaw agent team for EduTechPlus that handles content review.
+- **Status:** Not started.
 - **Priority:** Deprioritized — starts only after Voice Interaction Learning Journey is signed off by client.
 
 ---
@@ -63,4 +68,5 @@ These emerged from 6 iterations of client feedback and apply to all EdtechPlus w
 ## Priority Order (across projects)
 
 1. **Voice Interaction Learning Journey** — Final testing + polish → client sign-off → production-ready
-2. **Content Optimisation Platform** — Only after Voice Interaction Learning Journey is complete and approved
+2. **Content Ingestion Platform** — Only after Voice Interaction Learning Journey is complete and approved
+3. **Content Review Agent Team** — Only after Voice Interaction Learning Journey is complete and approved
