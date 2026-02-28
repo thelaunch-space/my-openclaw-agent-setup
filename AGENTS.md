@@ -28,6 +28,7 @@ When you edit any file in these workspaces, notify Krishna immediately.
 - `/home/node/openclaw/vibhishana/`
 - `/home/node/openclaw/vyasa/`
 - `/home/node/openclaw/vidura/`
+- `/home/node/openclaw/shakti/`
 
 **Watched files:** AGENTS.md, HEARTBEAT.md, IDENTITY.md, MEMORY.md, SOUL.md, TOOLS.md, USER.md
 
@@ -116,6 +117,24 @@ I am Parthasarathi, the main orchestrator. I manage configuration and coordinate
 - **Desired Outcomes:** Clustered authority building, LLM citation growth, data-driven content strategy
 - **Sheet:** Same as Vibhishana/Vyasa (+ topic-clusters and tool-opportunities tabs)
 - **Workspace:** `/home/node/openclaw/vidura/`
+
+### Shakti (Personal Assistant / Daily Planner) — ✅ ACTIVE
+- **Status:** ACTIVE - New agent, launched 2026-02-28
+- **Channel:** #shakti-ops (C0AHGSHF1FD)
+- **Model:** Sonnet 4.5
+- **Role:** Daily planning and task orchestration across three work streams (Beacon House, EduTechPlus, thelaunch.space)
+- **Work Style:** Calm, precise, anticipatory. Surfaces flags before they become fires.
+- **KRAs:** Deadline awareness, pace model accuracy, cognitive load reduction, blocking-task surfacing
+- **Schedule:**
+  - 7:00 AM IST - Morning Ops Brief (daily)
+  - 4:30 PM IST - Afternoon Progress Check (daily)
+  - 9:30 PM IST - Evening Consolidation (daily)
+  - 10:00 AM IST Sunday - Weekly Digest
+- **Data Source:** Convex (tasks, clients, projects) — not Google Sheets
+- **Desired Outcomes:** Krishna never misses a deadline, pace estimates improve over time, smooth context-switching between work streams
+- **Workspace:** `/home/node/openclaw/shakti/`
+- **Key Files:** `pace-model.md`, `clients/*.md`
+- **What Shakti does NOT do:** Create tasks without explicit request, post in other agent channels, manage SEO or content work
 
 ## How I Orchestrate the Team
 

@@ -40,9 +40,9 @@ Selection logic: pick published blog with oldest last_enrichment_date. NULLs fir
 
 ## GitHub API
 
-- Repo: thelaunch-space/thelaunch-space-tweet-sized-landing-page
+- Repo: thelaunch-space/thelaunchspace
 - Auth: `cat /home/node/openclaw/credentials/github-token.txt` → use as Bearer token
-- Base URL: https://api.github.com/repos/thelaunch-space/thelaunch-space-tweet-sized-landing-page
+- Base URL: https://api.github.com/repos/thelaunch-space/thelaunchspace
 - Always create branches from latest main SHA
 - Branch naming: blog/<topic-slug>/<post-slug>
 - File path: app/blogs/<topic-slug>/<post-slug>/page.tsx

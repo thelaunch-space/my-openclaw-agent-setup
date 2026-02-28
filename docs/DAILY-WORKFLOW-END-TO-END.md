@@ -33,7 +33,7 @@
 
 **Convex (Launch Control):** Live public dashboard at thelaunch.space/launch-control.
 
-**GitHub repo:** `thelaunch-space/thelaunch-space-tweet-sized-landing-page`
+**GitHub repo:** `thelaunch-space/thelaunchspace`
 
 ---
 

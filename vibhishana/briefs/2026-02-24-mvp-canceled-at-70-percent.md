@@ -1,6 +1,7 @@
-# Research Brief: Why Your 70%-Complete MVP Got Canceled (And How to Prevent It)
+# Research Brief: Vertical vs. Horizontal Development: What Non-Technical Founders Must Know
 
 **Date Created:** 2026-02-24  
+**Revised:** 2026-02-28 (v2)  
 **Status:** Pending Review  
 **Category:** Product Strategy / Post-MVP  
 **Agent:** Vibhishana
@@ -10,9 +11,9 @@
 ## SEO Foundation
 
 ### Title Suggestion
-**"Why Your 70%-Complete MVP Got Canceled (And How to Prevent It)"**
+**"Vertical vs. Horizontal Development: What Non-Technical Founders Must Know"**
 
-Alternative: "Vertical vs. Horizontal Development: What Non-Technical Founders Must Know"
+Alternative: "Why Your 70%-Complete MVP Got Canceled (And How to Prevent It)"
 
 ### Primary Keyword
 `MVP project canceled despite progress`
@@ -164,7 +165,7 @@ A founder will bookmark this to:
 
 ### Suggested Structure (h2/h3 Skeleton)
 
-**H1:** Why Your 70%-Complete MVP Got Canceled (And How to Prevent It)
+**H1:** Vertical vs. Horizontal Development: What Non-Technical Founders Must Know
 
 **H2:** The $60K Mistake: A Cautionary Tale
 - H3: 3 months, 70% done, $0 in demonstrable value

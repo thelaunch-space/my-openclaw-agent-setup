@@ -6,13 +6,13 @@ This workflow covers submitting blog posts to the thelaunch.space repository.
 
 ## Submit PR via GitHub API
 
-**Repository:** thelaunch-space/thelaunch-space-tweet-sized-landing-page
+**Repository:** thelaunch-space/thelaunchspace
 
 **Auth:** GitHub token from environment variable, `Authorization: Bearer <token>`
 
 ### Step 1: Get Latest Main SHA
 
-`GET /repos/thelaunch-space/thelaunch-space-tweet-sized-landing-page/git/ref/heads/main`
+`GET /repos/thelaunch-space/thelaunchspace/git/ref/heads/main`
 
 ### Step 2: Create Branch
 

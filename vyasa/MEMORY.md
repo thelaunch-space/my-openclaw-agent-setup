@@ -6,7 +6,7 @@ Durable truths that don't change often.
 
 ### Resources
 - **Source sheet:** `1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g` (blog-queue tab)
-- **Target repo:** thelaunch-space/thelaunch-space-tweet-sized-landing-page
+- **Target repo:** thelaunch-space/thelaunchspace
 - **Blog URL pattern:** thelaunch.space/blogs/<topic>/<slug>
 - **Helper script:** `node /home/node/openclaw/scripts/vyasa-sheets-helper.js`
 - **Published blogs tracker:** `/home/node/openclaw/vyasa/published-blogs.md`

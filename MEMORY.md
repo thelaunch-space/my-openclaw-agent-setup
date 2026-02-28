@@ -17,6 +17,7 @@ Durable truths that don't change often.
 | #vyasa-blogs | C0ADUM2TLEQ | Vyasa |
 | #vidura-seo-strategy | C0AFTEV7Q6Q | Vidura |
 | #valmiki-content | C0AD3SHGV2A | Valmiki |
+| #shakti-ops | C0AHGSHF1FD | Shakti |
 | #sanjaya-scouting-leads | C0ACZGK0SQ3 | Sanjaya (paused) |
 
 ### Google Sheets
@@ -31,9 +32,10 @@ Durable truths that don't change often.
 - **Credentials path:** `/home/node/openclaw/credentials/google-service-account.json`
 - **Browser path:** `/home/node/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome`
 
-### Cron Schedule (IST) — Updated 2026-02-25
+### Cron Schedule (IST) — Updated 2026-02-28
 | Time | Agent | Job | Model | Output |
 |------|-------|-----|-------|--------|
+| 7:00 AM | Shakti | Morning Ops Brief | sonnet | #shakti-ops |
 | 8:00 AM | Parthasarathi | Morning Health Check | grok-fast | Krishna DM |
 | 9:00 AM | Vibhishana | Morning Reddit Scan | opus | #vibhishana-seo |
 | 9:30 AM | Vidura | Morning Analysis | sonnet | #vidura-seo-strategy |
@@ -47,13 +49,16 @@ Durable truths that don't change often.
 | 1:00 PM | Parthasarathi | Midday Health Check | grok-fast | Krishna DM |
 | 2:30 PM | Vidura | Midday Strategy | sonnet | #vidura-seo-strategy |
 | 3:00 PM | Vyasa | Citation Enrichment #1 | sonnet | PR + #vyasa-blogs |
+| 4:30 PM | Shakti | Afternoon Progress Check | sonnet | #shakti-ops |
 | 5:00 PM | Vyasa | Citation Enrichment #2 | sonnet | PR + #vyasa-blogs |
 | 6:00 PM | Vibhishana | Evening Report | opus | #vibhishana-seo |
 | 7:00 PM | Parthasarathi | Daily Due Diligence | grok-fast | Krishna DM |
 | **7:00 PM** | **Valmiki** | **LinkedIn Extraction** | sonnet | #valmiki-content |
 | 7:30 PM | Vidura | Evening Review | sonnet | #vidura-seo-strategy |
 | 8:00 PM | Vyasa | Citation Enrichment #3 | sonnet | PR + #vyasa-blogs |
+| 9:30 PM | Shakti | Evening Consolidation | sonnet | #shakti-ops |
 | 10:00 AM Sat | Valmiki | Weekly Performance Review | sonnet | #valmiki-content |
+| 10:00 AM Sun | Shakti | Weekly Digest | sonnet | #shakti-ops |
 | 10:00 PM | Parthasarathi | Daily Context Backup | (isolated) | GitHub push + Krishna DM |
 
 ### Model Aliases
@@ -213,6 +218,20 @@ Krishna's stated choices and patterns.
 ## Setup Log
 
 Chronological history of setup and changes.
+
+### 2026-02-28
+- **Shakti agent launched:** Personal assistant / daily planner for task orchestration.
+  - **Channel:** #shakti-ops (C0AHGSHF1FD)
+  - **Model:** Sonnet 4.5
+  - **Data source:** Convex (tasks, clients, projects at curious-iguana-738.convex.site)
+  - **Endpoints:** `/query/tasks`, `/push/tasks`, `/push/clients`, `/push/projects`, `/update/task-status`
+- **4 crons created:**
+  - 7:00 AM IST - Morning Ops Brief (`2faeeb14-4cea-412a-b8f9-bf67f629663a`)
+  - 4:30 PM IST - Afternoon Progress Check (`49d2dc0e-a579-4f07-aa7f-a327916e9af9`)
+  - 9:30 PM IST - Evening Consolidation (`64dac3c7-f2b2-4c26-8cdc-a09d7efea794`)
+  - 10:00 AM IST Sunday - Weekly Digest (`72eeadc7-457e-48d5-859e-1483d1514300`)
+- **Workspace:** `/home/node/openclaw/shakti/` with full doc structure (AGENTS.md, SOUL.md, IDENTITY.md, MEMORY.md, TOOLS.md, pace-model.md, clients/)
+- **Google Calendar:** Deferred - will set up OAuth after Shakti is running. Morning brief handles "go" without blocking.
 
 ### 2026-02-26
 - **Feedback-First Protocol established:** New general principle for agents with review loops.
