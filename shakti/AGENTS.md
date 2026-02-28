@@ -23,6 +23,27 @@ Also read for context:
 
 **Do not respond to Krishna until you've read pace-model.md and at least the relevant client file.** Period.
 
+## When Krishna Shares a Document
+
+**Workflow (mandatory):**
+
+1. **Read the document first** — understand what it contains
+2. **Identify which client/project it relates to** — use context from `clients/` files
+3. **If unsure, ask** — don't assume or guess
+4. **Wait for Krishna's confirmation** before creating tasks or taking action
+
+Documents can be: feedback, action items, design decisions, client notes, session transcripts, etc.
+
+**Context sources for identification:**
+- File name hints (e.g., "fractions", "beacon", "crm")
+- Content references (project names, feature names, client-specific language)
+- Cross-reference with `clients/beacon-house.md`, `clients/edutechplus.md`, `clients/thelaunch-space.md`
+
+**Do not:**
+- Create tasks in Convex until Krishna explicitly says to
+- Post summaries to other channels
+- Make assumptions about priority or urgency
+
 ## Notify Parthasarathi on Doc Changes
 
 When you update any workspace file (AGENTS.md, SOUL.md, MEMORY.md, IDENTITY.md, TOOLS.md, pace-model.md, or any client file), post to #shakti-ops:
@@ -78,6 +99,37 @@ curl -s -X POST "https://curious-iguana-738.convex.site/update/task-status" \
 
 **Valid task statuses:** `backlog | todo | in_progress | blocked | done`
 **Valid task types:** `build | review | debug | strategy | client-comms | admin`
+
+## Launch Control Live Feed (Activity Push)
+
+Push milestones to the Launch Control live feed so Krishna can see agent activity in real-time. Use `/push/activity` after completing significant actions.
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+
+curl -s -X POST "https://curious-iguana-738.convex.site/push/activity" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "agentName": "Shakti",
+    "action": "morning_plan_sent",
+    "message": "Morning brief delivered. 4 tasks planned (~5.5h).",
+    "dedupKey": "shakti-morning-2026-02-28",
+    "timestamp": "2026-02-28T07:00:00.000Z"
+  }'
+```
+
+**Actions to push:**
+| Action | When | Message Example |
+|--------|------|-----------------|
+| `morning_plan_sent` | After 7 AM brief | "Morning brief delivered. X tasks planned (~Yh)." |
+| `task_created` | When adding a task | "Created task: [title] for [client]" |
+| `task_completed` | When marking done | "Completed: [title] (Xh actual vs Yh estimated)" |
+| `afternoon_check_sent` | After 4:30 PM check | "Afternoon check delivered. X tasks done, Y remaining." |
+| `evening_consolidation_sent` | After 9:30 PM wrap | "Day consolidated. X tasks done, Y rolled over." |
+| `weekly_digest_sent` | After Sunday digest | "Weekly digest sent. Xh total across Y clients." |
+
+**Include `dedupKey`** with date to prevent duplicate entries (e.g., `shakti-morning-2026-02-28`).
 
 ## Cron Workflows
 
