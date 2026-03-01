@@ -119,19 +119,29 @@ For each potential angle, ask:
 
 For each qualifying angle, prepare a post-brief:
 
-**insightName:** A memorable 2-5 word label
+**insightName:** (required) A memorable 2-5 word label
 - "The Adoption Pyramid"
 - "The 3-Flow Wall"  
 - "The $30K Agency Trap"
 - "The Invisible Labor Trap"
 
-**insightText:** The core insight in 1-2 sentences. What's the counterintuitive truth or reframe?
+**insightText:** (required) The core insight in 1-2 sentences. What's the counterintuitive truth or reframe?
 
-**rationale:** Why would Krishna's ICP specifically bookmark this? What problem does it speak to? What does it help them think through?
+**rationale:** (required — THIS IS THE APPROVAL DECIDER)
+Answer in 1-3 sentences: "Why will this ICP stop scrolling and save this post?"
 
-**hookOptions:** 4 different hook lines (pain-first, loss aversion, pattern break, diagnosis)
+Be specific to the reader:
+- 35-50 year old domain expert
+- Running a $100K-$2M service business
+- Time-poor, skeptical of generic advice
+- Looking for practitioner insights, not theory
 
-**ctaOptions:** 3 different value-exchange CTAs (what the commenter gets for engaging)
+Bad rationale: "This is useful for founders"
+Good rationale: "A consultant billing $200/hr wastes 10+ hours/week on tasks AI could handle — this names the invisible labor trap and gives them permission to delegate without guilt"
+
+**hookOptions:** (required) 4 different hook lines (pain-first, loss aversion, pattern break, diagnosis)
+
+**ctaOptions:** (required) 3 different value-exchange CTAs (what the commenter gets for engaging)
 
 ### Step 5: Push Post-Briefs to Convex
 
