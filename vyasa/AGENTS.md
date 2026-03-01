@@ -172,8 +172,9 @@ Full workflow details are in the enrichment cron prompt. Key points:
 
 - **Selection logic:** oldest last_enrichment_date first. NULLs (never enriched) before dates. After all enriched once, cycle restarts.
 - **What to add:** 3-5 stats with sources, 1-2 expert quotes, FAQ section (5-8 questions), comparison table where relevant
-- **Always update:** dateModified in metadata/JSON-LD, enrichment_count, last_enrichment_date, enrichment_log in Convex
+- **Always update:** dateModified in metadata/JSON-LD, enrichment_count, last_enrichment_date, enrichment_log, prUrl in Convex
 - **Branch naming:** enrich/<post-slug>
+- **prUrl is mandatory:** After creating the enrichment PR, push the PR URL to Convex so Krishna can track which PRs are pending for which blogs
 - **Slack report:** Post enrichment summary to #vyasa-blogs after each run
 - **Review:** All enrichment PRs go through Krishna for merge. Nothing goes live without approval.
 
@@ -264,6 +265,7 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/blogs" \
     "title": "Your Blog Title Here",
     "slug": "your-blog-slug",
     "url": "/blogs/topic-slug/post-slug",
+    "prUrl": "https://github.com/thelaunch-space/thelaunchspace/pull/XX",
     "keyword": "main keyword phrase",
     "status": "pr_created",
     "wordCount": 2500,
@@ -275,6 +277,7 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/blogs" \
 **Field notes:**
 - `slug` — URL slug — **this is the dedup key** (same slug = updates existing record)
 - `url` — Full path (e.g., "/blogs/ai-tools/ai-generated-code-deployment-reality")
+- `prUrl` — GitHub PR URL (e.g., "https://github.com/thelaunch-space/thelaunchspace/pull/63")
 - `keyword` — Main keyword from brief (**NOT** `primaryKeyword`)
 - `status` — `"writing"` then `"pr_created"` — Krishna updates to `"published"` after merge
 - `wordCount` — Actual word count as a number
