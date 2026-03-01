@@ -33,7 +33,7 @@ This returns briefs with status `brief_ready`, sorted oldest-first. Pick `respon
 
 **Google Sheet (archive/fallback only):** https://docs.google.com/spreadsheets/d/1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g/edit
 
-When you start writing, update status to **"Writing"** in both Convex and Sheet.
+When you start writing, update status to **"writing"** in Convex.
 
 Each brief contains: title suggestion, keywords, source Reddit URLs, ICP problem, competitive gap, thelaunch.space angle, suggested structure, research notes.
 
@@ -46,9 +46,9 @@ Each brief contains: title suggestion, keywords, source Reddit URLs, ICP problem
 | `how-to-find-technical-cofounder-non-technical-founder` | `how-to-find-technical-cofounder-non-technical-founder` | ✅ Correct |
 | `how-to-find-technical-cofounder-non-technical-founder` | `find-technical-cofounder` | ❌ WRONG - causes URL mismatch |
 
-**Why this matters:** Valmiki extracts LinkedIn posts from published blogs using the Blog URL in the sheet. If you change the slug, the URL won't match the deployed blog, and Valmiki hits a 404.
+**Why this matters:** Valmiki extracts LinkedIn posts from published blogs using the Blog URL in Convex. If you change the slug, the URL won't match the deployed blog, and Valmiki hits a 404.
 
-**The only exception:** If Vibhishana's slug has a typo or technical issue (spaces, special characters), fix it AND immediately update the Slug column in blog-queue so the source of truth stays accurate.
+**The only exception:** If Vibhishana's slug has a typo or technical issue (spaces, special characters), fix it AND immediately update the slug in Convex so the source of truth stays accurate.
 
 ## Daily Workflow
 
@@ -62,7 +62,7 @@ node /home/node/openclaw/scripts/vyasa-sheets-helper.js ready
 This returns `brief_ready` briefs sorted oldest-first. Review the returned briefs and pick the one with: strongest research, clearest gap in existing content, highest ICP relevance.
 
 - If no candidates are ready (empty response), or all briefs are too thin for a quality post, post to #vyasa-blogs explaining why and skip for today
-- Mark selected entry status as "Writing" (update both Convex and Sheet)
+- Mark selected entry status as "writing" in Convex
 
 ### Step 2: Deep Research
 
@@ -100,7 +100,7 @@ The blog is a Next.js site. Each post is a single file at:
 
 The folder path becomes the URL: `thelaunch.space/blogs/<topic-slug>/<post-slug>`
 
-**⚠️ MANDATORY:** Use the EXACT slug from Vibhishana's brief (column B in blog-queue). Do not change it. See "Slug Consistency Rule" above.
+**⚠️ MANDATORY:** Use the EXACT slug from Vibhishana's brief (the `slug` field in Convex). Do not change it. See "Slug Consistency Rule" above.
 
 **For the full template structure, topic slugs, building blocks, and design rules, see `templates/page-template.md`**
 
@@ -132,7 +132,7 @@ Verify these before creating the PR:
 
 ### Step 6-7: Submit PR & Report
 
-**For GitHub PR submission, Slack reporting, and sheet update workflow, see `workflows/github-pr.md`**
+**For GitHub PR submission and Slack reporting workflow, see `workflows/github-pr.md`**
 
 ## Post-Publish Verification (When Krishna Marks "Published")
 
@@ -148,10 +148,10 @@ When Krishna merges a PR and updates status to "Published", verify the blog is a
 3. **If "Coming Soon" or 404:**
    - Post to #vyasa-blogs: "⚠️ Blog URL not accessible: [URL] - checking deployment"
    - Check GitHub: was the PR actually merged?
-   - Check file path: does it match the URL in the sheet?
-   - If URL is wrong in sheet, fix it immediately
+   - Check file path: does it match the URL in Convex?
+   - If URL is wrong in Convex, fix it immediately
 
-**Why this matters:** Valmiki's LinkedIn extraction depends on readable blog URLs. If the URL in blog-queue doesn't work, the entire downstream workflow breaks.
+**Why this matters:** Valmiki's LinkedIn extraction depends on readable blog URLs. If the URL in Convex doesn't work, the entire downstream workflow breaks.
 
 ## Citation Enrichment Cycle (3 runs/day)
 
@@ -166,13 +166,13 @@ In addition to writing one new blog per day, you have 3 enrichment runs (3 PM, 5
 
 ### Enrichment Workflow
 
-Each enrichment run: pick the blog with the oldest last_enrichment_date (never-enriched first), read it, research new stats/citations/FAQs, update it via PR, update tracking in the sheet.
+Each enrichment run: pick the blog with the oldest last_enrichment_date (never-enriched first), read it, research new stats/citations/FAQs, update it via PR, update tracking in Convex.
 
 Full workflow details are in the enrichment cron prompt. Key points:
 
 - **Selection logic:** oldest last_enrichment_date first. NULLs (never enriched) before dates. After all enriched once, cycle restarts.
 - **What to add:** 3-5 stats with sources, 1-2 expert quotes, FAQ section (5-8 questions), comparison table where relevant
-- **Always update:** dateModified in metadata/JSON-LD, enrichment_count, last_enrichment_date, enrichment_log in the sheet
+- **Always update:** dateModified in metadata/JSON-LD, enrichment_count, last_enrichment_date, enrichment_log in Convex
 - **Branch naming:** enrich/<post-slug>
 - **Slack report:** Post enrichment summary to #vyasa-blogs after each run
 - **Review:** All enrichment PRs go through Krishna for merge. Nothing goes live without approval.
@@ -230,7 +230,7 @@ These protect the site, the brand, and the publishing workflow:
 
 ### 1. Push Writing Status (When Starting a Blog)
 
-**IMMEDIATELY** after selecting a brief and marking the sheet as "Writing", push to Convex:
+**IMMEDIATELY** after selecting a brief and starting work, push to Convex:
 
 ```bash
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
@@ -296,11 +296,9 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/activity" \
   }'
 ```
 
-**Checklist for every blog (do all 7):**
-- [ ] Sheet status updated to "Writing"
+**Checklist for every blog (do all 5):**
 - [ ] Convex push with `status: "writing"` executed
 - [ ] PR created on GitHub
-- [ ] Sheet status updated to "PR Created"
 - [ ] Convex push with `status: "pr_created"` executed
 - [ ] Activity push executed
 - [ ] Summary posted to #vyasa-blogs

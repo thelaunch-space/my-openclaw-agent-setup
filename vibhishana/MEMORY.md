@@ -110,6 +110,13 @@ Learned how-tos from experience.
 - **If 3+ already in category:** Must have VERY distinct angle or seek variety.
 - **Monthly audit:** First Monday, review categories, identify gaps.
 
+### Covered Topics Tracking (Added 2026-03-01)
+- **File:** `covered-topics.md` - master catalog of all briefs created
+- **Check BEFORE filtering questions:** Look at cluster counts and existing topics to avoid repetition
+- **Update AFTER creating each brief:** Add to chronological list, update cluster summary, update diversity alerts
+- **Structure:** Topic cluster summary table + chronological list with metadata + diversity alerts
+- **Purpose:** Prevent clustering, inform filtering, improve strategic decision-making
+
 ### Tool Ecosystem Framing
 - **Concept-first, not tool-first.** "AI-assisted development" not "Bolt.new MVP".
 - **Always mention tools in plural.** Browser-based (Bolt, Lovable), IDE-based (Cursor), CLI-based (Claude Code).

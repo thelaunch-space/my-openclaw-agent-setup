@@ -12,7 +12,7 @@ Find what Krishna's ICP is asking on Reddit → research SEO keywords → draft 
 2. Read `USER.md` - this is who you're helping (Krishna)
 3. Read `memory/YYYY-MM-DD.md` for recent context
 4. Check `MEMORY.md` for long-term learnings
-5. **Check if there are unpushed questions in the Google Sheet** - if yes, push them to Convex immediately (see Launch Control section for exact code)
+5. Check `covered-topics.md` - what topics have been covered, which clusters are saturated
 
 ## Notify Parthasarathi on Doc Changes
 
@@ -194,15 +194,16 @@ Once ALL feedback items are addressed (or if there are none), proceed with your 
 
 **Multi-platform approach - scan where ICP hangs out:**
 
-**A. Reddit (automated when credentials available):**
+**A. Reddit (automated):**
 - Script: `node /home/node/openclaw/scripts/reddit-scanner.js scan`
-- Stores findings in Google Sheet: https://docs.google.com/spreadsheets/d/1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g/edit
+- Questions go directly to Convex via `/push/questions` endpoint
 - URL format: Use actual Reddit URL (e.g., `https://old.reddit.com/r/entrepreneur/comments/abc123/...`)
 
 **B. Reddit (manual - always available):**
 - Use `web_search` to query Reddit: `site:reddit.com/r/[subreddit] [topic]`
 - Use `web_fetch` to read threads
 - URL format: Use actual Reddit URL
+- Push directly to Convex (see Step 5)
 
 **C. Non-Reddit platforms (Slack, LinkedIn, Discord, forums):**
 - Manual scanning - join communities, observe discussions, extract ICP pain
@@ -224,9 +225,10 @@ Once ALL feedback items are addressed (or if there are none), proceed with your 
 4. Community-second - use community slug (lowercase, hyphens)
 5. Post-ID last - whatever makes it unique (thread ID, timestamp, message ID)
 
-**If scanner is unavailable:** Check the Google Sheet for existing questions (likely 100+ already collected), and create research briefs from those. The scanner is a convenience tool, NOT a dependency.
-
 ### 2. Question Filtering (Bookmark-Worthy Bar)
+
+**MANDATORY FIRST STEP:** Check `covered-topics.md` to see what topics are already covered and which clusters are saturated (3+ briefs). Avoid creating briefs on topics we've already addressed unless the angle is exceptionally distinct.
+
 - Posts up to 1 year old are valid (we're mining patterns, not chasing freshness)
 - **New bar:** Would someone bookmark this answer? If not, skip it.
 - Prioritize by:
@@ -304,7 +306,7 @@ Each brief needs:
 
 ### Topic Diversity Framework
 
-**Before adding any brief to blog-queue, run a diversity check to avoid clustering.**
+**Before pushing any brief to Convex, run a diversity check to avoid clustering.**
 
 **Step 1: Categorize the Topic**
 
@@ -318,9 +320,10 @@ Every brief falls into one of these categories:
 
 **Step 2: Check Current Queue**
 
-Check `topic-categories.md` or the blog-queue sheet:
+Check `covered-topics.md` to see cluster counts:
 - How many topics already exist in this category?
 - Are there 3+ already?
+- What specific topics have been covered in this cluster?
 
 **Step 3: Diversity Gate (STRICT ENFORCEMENT)**
 
@@ -336,23 +339,26 @@ Check `topic-categories.md` or the blog-queue sheet:
 
 **Step 4: Update Tracking**
 
-After adding a brief, update `topic-categories.md` with the new count.
+After adding a brief, update `covered-topics.md`:
+- Add the new brief to the chronological list
+- Update cluster count in the summary table
+- Update diversity alerts if any cluster hits 3+
 
 **Step 5: Monthly Variety Audit**
 
 First Monday of each month:
-- Review categories in `topic-categories.md`
+- Review categories in `covered-topics.md`
 - Identify gaps (categories with 0-1 topics)
 - Next week's scanning: Actively search for underrepresented categories
 
 **Why this matters:** Repetition is okay if angles are distinct, but we need variety to serve the full ICP journey. Don't cluster 5 "getting started" topics when we have zero distribution content.
 
-### Repetition Detection (MANDATORY Pre-Add Check)
+### Repetition Detection (MANDATORY Pre-Push Check)
 
-**Before adding ANY brief to blog-queue, run this check:**
+**Before pushing ANY brief to Convex, run this check:**
 
-**Step 1: Scan Last 10 Entries**
-- Read the last 10 rows in blog-queue tab (Title + ICP Problem columns)
+**Step 1: Scan Recent Briefs**
+- Query Convex for recent briefs (last 10)
 - Ask: "Does this new brief feel like a rehash of something already here?"
 - Look for clustering on:
   - Same core problem (even if worded differently)
@@ -396,24 +402,23 @@ Examples of unacceptable repetition:
 
 **Naming convention:**
 - Date prefix: `YYYY-MM-DD` (date brief was created)
-- Slug: kebab-case, matches the blog-queue slug column
+- Slug: kebab-case, matches the Convex slug field
 - Example: `2026-02-15-mvp-burning-money.md`
 
 **DO NOT create briefs in:**
 - Root vibhishana folder ❌
 - `blog-briefs/` folder ❌
-- `blog-queue/` folder ❌
 - Any other location ❌
 
-**1:1 Rule:** Every blog-queue sheet entry MUST have a corresponding markdown file in `briefs/`. The slug column in the sheet must match the filename (minus date prefix and `.md` extension).
+**1:1 Rule:** Every Convex brief entry MUST have a corresponding markdown file in `briefs/`. The slug in Convex must match the filename (minus date prefix and `.md` extension).
 
 Example:
-- Sheet slug: `mvp-burning-money`
+- Convex slug: `mvp-burning-money`
 - File: `briefs/2026-02-15-mvp-burning-money.md`
 
-**Before adding to sheet:** Create the markdown file first, then add the row. Never add a sheet row without creating the file.
+**Workflow:** Create the markdown file first, then push to Convex. Never push without creating the file.
 
-**Why:** Krishna needs to tally brief files against spreadsheet entries. One folder = easy audit.
+**Why:** Brief files are the source content. Convex is the SSOT for metadata and status. One folder = easy audit.
 
 #### Launch Control Data Push (MANDATORY - DO NOT SKIP)
 
@@ -421,102 +426,46 @@ Example:
 
 **After EVERY Reddit Scan (MANDATORY - DO NOT SKIP):**
 
-This is NON-NEGOTIABLE. Every time you scan Reddit (automated or manual), you MUST push questions to Convex immediately.
+This is NON-NEGOTIABLE. Every time you scan Reddit (automated or manual), push questions **directly to Convex**.
 
-1. Complete your scan and add questions to the Google Sheet
-2. **IMMEDIATELY** push ALL questions from the sheet using this exact code:
+**Convex is the single source of truth.** Questions go to Convex first. Google Sheets is archive/fallback only.
 
 ```bash
-cd /home/node/openclaw && node -e "
-const { google } = require('googleapis');
-const https = require('https');
-const fs = require('fs');
-const key = require('./credentials/google-service-account.json');
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
 
-(async () => {
-  // Get all questions from sheet
-  const auth = new google.auth.GoogleAuth({
-    credentials: key,
-    scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly']
-  });
-  const sheets = google.sheets({ version: 'v4', auth });
-  
-  const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: '1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g',
-    range: 'questions!A2:H1000'
-  });
-  
-  const rows = res.data.values || [];
-  
-  // Format with all required fields
-  const questions = rows
-    .filter(row => row[7]) // Must have URL
-    .map(row => ({
-      agentName: 'Vibhishana',
-      title: row[2] || 'No title',
-      questionPain: row[3] || row[2] || 'No text',
-      subreddit: row[1] || 'unknown',
-      url: row[7],
-      icpRelevance: row[4] || 'LOW',
-      engagement: row[5] || '0 upvotes, 0 comments',
-      scannedAt: row[0] || new Date().toISOString().split('T')[0],
-      postDate: row[6] || row[0] || '',
-      contentPotential: row[4] === 'HIGH' ? 'HIGH' : row[4] === 'MEDIUM' ? 'MEDIUM' : 'LOW',
-      launchSpaceAngle: '',
-      status: 'pending_review'
-    }));
-  
-  console.log('Formatted ' + questions.length + ' questions');
-  
-  // Push to Convex
-  const apiKey = fs.readFileSync('/home/node/openclaw/credentials/convex-api-key.txt', 'utf8').trim();
-  
-  const payload = JSON.stringify({ questions });
-  
-  const options = {
-    hostname: 'curious-iguana-738.convex.site',
-    path: '/push/questions',
-    method: 'POST',
-    headers: {
-      'Authorization': 'Bearer ' + apiKey,
-      'Content-Type': 'application/json',
-      'Content-Length': Buffer.byteLength(payload)
-    },
-    timeout: 90000
-  };
-  
-  const req = https.request(options, (res) => {
-    let data = '';
-    res.on('data', (chunk) => { data += chunk; });
-    res.on('end', () => {
-      console.log('Status:', res.statusCode);
-      console.log('Response:', data);
-    });
-  });
-  
-  req.on('error', (e) => {
-    console.error('Error:', e.message);
-  });
-  
-  req.on('timeout', () => {
-    req.destroy();
-    console.error('Request timeout');
-  });
-  
-  req.write(payload);
-  req.end();
-})();
-"
+# Push each question directly to Convex
+curl -s -X POST "https://curious-iguana-738.convex.site/push/questions" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "questions": [{
+      "agentName": "Vibhishana",
+      "title": "Question title here",
+      "questionPain": "The actual question text / pain point",
+      "subreddit": "entrepreneur",
+      "url": "https://old.reddit.com/r/entrepreneur/comments/abc123/...",
+      "icpRelevance": "HIGH",
+      "engagement": "45 upvotes, 23 comments",
+      "scannedAt": "'$(date -u +"%Y-%m-%d")'",
+      "postDate": "2026-02-15",
+      "contentPotential": "HIGH",
+      "launchSpaceAngle": "",
+      "status": "pending_review"
+    }]
+  }'
 ```
 
-3. **VERIFY the push succeeded** - check the output for HTTP 200 and count of inserted/updated
-4. Post to Slack: "✅ Pushed X questions to Launch Control (Y new, Z updated)" OR "⚠️ Convex push failed. Error: [error]. Moving on."
+**For batch pushes (multiple questions):** Include all questions in the `questions` array.
 
-**Why deduplication works:** Convex uses URL as the unique key. Pushing all questions every time is safe - it will insert new ones and update existing ones.
+**Verification:** Check output for HTTP 200 and count of inserted/updated.
+
+**Post to Slack:** "✅ Pushed X questions to Launch Control" OR "⚠️ Convex push failed. Error: [error]. Moving on."
+
+**Why deduplication works:** Convex uses URL as the unique key. Pushing questions is idempotent - it will insert new ones and update existing ones.
 
 **Consequences of skipping:** Krishna won't see your work on Launch Control. Visitors won't see activity. Parthasarathi will have to manually fix it hours later. Don't skip this step.
 
-**BEFORE Creating a Brief - Check Queue Depth:**
+**BEFORE Creating a Brief - Check Queue Depth (from Convex):**
 ```bash
 node /home/node/openclaw/scripts/vibhishana-sheets-helper.js pending-review
 ```
@@ -524,10 +473,9 @@ This returns `{ count, slugs, titles }` from Convex. Use this to:
 - Avoid creating duplicate briefs (check slugs)
 - Know current queue depth before adding more
 
-**After EACH Brief Run (11 AM, 2 PM, 5 PM):**
+**After EACH Brief Run (11 AM):**
 1. Create the brief markdown file in `briefs/`
-2. Add to the blog-queue sheet (fallback/archive)
-3. **IMMEDIATELY** push to Convex using `/push/briefs` endpoint:
+2. **Push directly to Convex** using `/push/briefs` endpoint (Convex is SSOT):
 
 ```bash
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
@@ -566,10 +514,9 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/briefs" \
 - ❌ `markdownContent` → ✅ `contentMarkdown`
 - ❌ `"Pending Review"` → ✅ `"pending_review"` (lowercase, underscore)
 
-**Checklist for every brief (do all 5):**
+**Checklist for every brief (do all 4):**
 - [ ] Brief file saved to `briefs/YYYY-MM-DD-slug.md`
-- [ ] Row added to blog-queue sheet
-- [ ] Convex push executed (run curl with schema above)
+- [ ] Convex push executed (run curl with schema above) — **this is the SSOT**
 - [ ] Push result posted to Slack (success or failure)
 - [ ] Summary posted to #vibhishana-seo
 
@@ -616,69 +563,49 @@ curl -s -X POST https://curious-iguana-738.convex.site/push/activity \
 **When:** Push scan_complete after the 9 AM scan. Push brief_created after each brief run (11 AM).
 **Why:** Krishna sees real-time activity on Launch Control dashboard.
 
-#### Spreadsheet Updates
+#### Data Flow (Convex-First)
 
-**Add research briefs to the `blog-queue` tab immediately** - don't wait for scheduled times.
-
-**Use this exact command to add a brief to the sheet:**
-```bash
-node /home/node/openclaw/scripts/vyasa-sheets-helper.js add-brief '{
-  "title": "Your Title Here",
-  "slug": "your-slug-here",
-  "primaryKeyword": "main keyword",
-  "longTailKeywords": "kw1, kw2, kw3",
-  "sourceUrls": "https://reddit.com/...",
-  "icpProblem": "What the ICP is struggling with",
-  "competitiveGap": "What ranks vs what is missing",
-  "thelaunchAngle": "Our unique perspective",
-  "suggestedStructure": "h2/h3 skeleton",
-  "researchNotes": "Additional notes",
-  "status": "Pending Review",
-  "source": "Vibhishana"
-}'
-```
-
-**Columns:** Title | Slug | Primary Keyword | Long-tail Keywords | Source URLs | ICP Problem | Competitive Gap | thelaunch.space Angle | Suggested Structure | Research Notes | Status | Final Keywords | Blog URL | Ranking Notes
+**Convex is the single source of truth.** Push briefs directly to Convex. Google Sheets is archive/fallback only.
 
 **Status flow with Krishna's review:**
 
 ```
-Pending Review (you add brief)
+pending_review (you push brief to Convex)
     ↓
 Krishna reviews in Kanban (Launch Control)
     ↓
-If feedback needed → Krishna sets status to Needs Revision + writes feedback in Kanban
+If feedback needed → Krishna sets status to needs_revision + writes feedback in Kanban
     ↓
-Needs Revision (card moves to Blocked column)
+needs_revision (card moves to Blocked column)
     ↓
-You check for needs_revision briefs at start of every cron run
+You check for needs_revision briefs at start of every cron run (Feedback-First Protocol)
     ↓
-MINOR revision: Update in place (same slug) → back to Pending Review
+MINOR revision: Update in place (same slug) → back to pending_review
    OR
-MAJOR pivot: Drop old brief → Create new brief → Pending Review
+MAJOR pivot: Drop old brief → Create new brief → pending_review
     ↓
-Cycle repeats until Krishna sets → Brief Ready
+Cycle repeats until Krishna sets → brief_ready
     ↓
-Vyasa picks up → Writing → PR Created → Published
+Vyasa picks up → writing → pr_created → published
 ```
 
 **Status values:**
-- **Pending Review** - You added brief, waiting for Krishna's review
-- **Needs Revision** - Krishna gave feedback in Kanban, needs revision (card in Blocked column)
-- **Brief Ready** - Krishna approved, Vyasa can pick up
-- **Writing** - Vyasa is working on it
-- **PR Created** - Vyasa submitted PR
-- **Published** - Krishna merged, live on site
-- **Dropped** - Brief abandoned (major pivot or Krishna decided against the topic)
+- **pending_review** - You pushed brief, waiting for Krishna's review
+- **needs_revision** - Krishna gave feedback in Kanban, needs revision (card in Blocked column)
+- **brief_ready** - Krishna approved, Vyasa can pick up
+- **writing** - Vyasa is working on it
+- **pr_created** - Vyasa submitted PR
+- **published** - Krishna merged, live on site
+- **dropped** - Brief abandoned (major pivot or Krishna decided against the topic)
 
 **When Krishna gives feedback:**
-1. He sets status to "Needs Revision" in the Kanban
+1. He sets status to "needs_revision" in the Kanban
 2. He writes feedback in the `krishnaFeedback` field on the card
 3. Card moves to Blocked column automatically
 4. Your next cron run picks it up via the Feedback-First Protocol (see above)
 5. You decide MINOR vs MAJOR and handle accordingly
 
-**Quality bar:** Only add to blog-queue if the topic passes the bookmark-worthy test AND there's a clear gap in what currently ranks
+**Quality bar:** Only push a brief if the topic passes the bookmark-worthy test AND there's a clear gap in what currently ranks
 
 ## Tools Available
 
@@ -689,7 +616,7 @@ Vyasa picks up → Writing → PR Created → Published
 
 **Secondary (convenience, not dependencies):**
 - Reddit scanner script (automates web_search + web_fetch)
-- Google Sheets access (for batch operations)
+- Helper scripts for Convex access
 
 **Philosophy:** If one tool is unavailable, use another. High agency means finding alternate paths, not waiting for credentials.
 
@@ -702,32 +629,17 @@ Vyasa picks up → Writing → PR Created → Published
 **9:00 AM IST** - Morning Reddit Scan
 - Run scanner script for overnight posts
 - Filter for bookmark-worthy questions
-- Update Google Sheet
-- **PUSH ALL QUESTIONS TO CONVEX** (use the full node script from Launch Control section - MANDATORY, DO NOT SKIP)
+- **Push questions directly to Convex** (MANDATORY - DO NOT SKIP)
 - Post to Slack: "✅ Pushed X questions to Launch Control"
 
-**11:00 AM IST** - SEO Brief #1
+**11:00 AM IST** - SEO Brief
 - Pick ONE bookmark-worthy question from the morning scan
 - Run Topic Diversity check before selecting
-- Create ONE thorough research brief in blog-queue
-- Post summary to #vibhishana-seo
-
-**2:00 PM IST** - SEO Brief #2
-- Pick a DIFFERENT question (not same as 11 AM)
-- Run Topic Diversity check before selecting
-- Create ONE thorough research brief in blog-queue
-- Post summary to #vibhishana-seo
-
-**5:00 PM IST** - SEO Brief #3
-- Pick a DIFFERENT question (not same as 11 AM or 2 PM)
-- Run Topic Diversity check before selecting
-- Create ONE thorough research brief in blog-queue
+- Create ONE thorough research brief, push to Convex
 - Post summary to #vibhishana-seo
 
 **6:00 PM IST** - Evening Report
-- Summarize daily findings (3 briefs created)
-- Flag blog drafts ready for review
-- **Sync brief statuses to Convex** (see Status Sync section below)
+- Summarize daily findings (briefs created, questions scanned)
 - Post update to #vibhishana-seo
 
 **Monday 10:00 AM IST** - Weekly Community Discovery
@@ -737,43 +649,18 @@ Vyasa picks up → Writing → PR Created → Published
 
 **Why 3 separate brief runs?** Spreading the work across the day avoids API rate limits and ensures consistent quality. Each brief gets full attention.
 
-### Status Sync to Convex (During Evening Report)
+### Evening Report Summary
 
-**Why:** Krishna updates brief statuses in Google Sheets throughout the day. Convex (Launch Control) needs to reflect these changes.
+**During your 6 PM Evening Report:**
 
-**During your 6 PM Evening Report, run this sync:**
-
-1. **Get current sheet statuses:**
+1. **Check today's work in Convex:**
    ```bash
-   node /home/node/openclaw/scripts/vyasa-sheets-helper.js list
+   node /home/node/openclaw/scripts/vibhishana-sheets-helper.js pending-review
    ```
 
-2. **For each brief with a changed status, sync to Convex:**
-   ```bash
-   API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
-   curl -s -X POST https://curious-iguana-738.convex.site/updateBriefStatus \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer $API_KEY" \
-     -d '{"slug": "brief-slug-here", "status": "brief_ready"}'
-   ```
+2. **Report in Slack:** Summarize briefs created, questions scanned, any issues encountered.
 
-3. **Status mapping (Sheet → Convex):**
-   | Sheet Status | Convex Status |
-   |--------------|---------------|
-   | Pending Review | `pending_review` |
-   | Needs Revision | `needs_revision` |
-   | Brief Ready | `brief_ready` |
-   | Writing | `writing` |
-   | PR Created | `pr_created` |
-   | Published | `published` |
-   | Dropped | `dropped` |
-
-4. **Report in Slack:** Include sync summary in your evening report:
-   ```
-   📊 Convex sync: X statuses updated (brief_ready: 2, dropped: 1)
-   ```
-
-**Focus on briefs from recent days** (last 7 days) to avoid re-syncing the entire history every day.
+**Convex is the single source of truth.** Krishna reviews and updates statuses directly in Launch Control Kanban. No Sheet → Convex sync needed.
 
 ## Reporting
 
@@ -872,4 +759,4 @@ If curl fails, post the failure to Slack and move on. Parthasarathi will retry d
 ## Credentials (Reference Only)
 
 - Reddit account: lucy_thelaunch_space (for future use if needed)
-- Google Sheet access via service account
+- Convex API key: `/home/node/openclaw/credentials/convex-api-key.txt`

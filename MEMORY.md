@@ -17,7 +17,7 @@ Durable truths that don't change often.
 | #vyasa-blogs | C0ADUM2TLEQ | Vyasa |
 | #vidura-seo-strategy | C0AFTEV7Q6Q | Vidura |
 | #valmiki-content | C0AD3SHGV2A | Valmiki |
-| #shakti-ops | C0AHGSHF1FD | Shakti |
+| #shakti-ops | C0AJKV6H2G0 | Shakti |
 | #sanjaya-scouting-leads | C0ACZGK0SQ3 | Sanjaya (paused) |
 
 ### Google Sheets
@@ -32,7 +32,7 @@ Durable truths that don't change often.
 - **Credentials path:** `/home/node/openclaw/credentials/google-service-account.json`
 - **Browser path:** `/home/node/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome`
 
-### Cron Schedule (IST) — Updated 2026-02-28
+### Cron Schedule (IST) — Updated 2026-03-01
 | Time | Agent | Job | Model | Output |
 |------|-------|-----|-------|--------|
 | 7:00 AM | Shakti | Morning Ops Brief | sonnet | #shakti-ops |
@@ -219,9 +219,28 @@ Krishna's stated choices and patterns.
 
 Chronological history of setup and changes.
 
+### 2026-03-01
+- **Shakti cron fixes:** Resolved timezone and duplicate cron issues.
+  - **Deleted 4 duplicate crons:** Morning, Afternoon, Evening, Weekly had pairs - kept newer ones, deleted older.
+  - **Fixed timezone:** Changed from `tz: "UTC"` to `tz: "Asia/Kolkata"` matching other agents.
+  - **Added explicit Slack delivery:** All 4 crons now include `message action=send channel=slack target=C0AJKV6H2G0`.
+  - **Fixed channel ID in docs:** MEMORY.md and main AGENTS.md had wrong ID (C0AHGSHF1FD). Corrected to C0AJKV6H2G0.
+  - **Config binding was correct:** The gateway binding already had the right ID - only documentation was wrong.
+- **Additional cleanup:**
+  - **Deleted duplicate Daily Context Backup cron:** Kept newer one (`3440c8ad`), deleted older (`91168271`).
+  - **Fixed Valmiki Saturday Review:** Changed from `delivery.mode: "announce"` to `mode: "none"` with explicit `message action=send`. This fixes the "cron announce delivery failed" error.
+- **Agent docs Convex-first cleanup:** Fixed stale Google Sheets-first instructions across all agents.
+  - **Vibhishana:** Heavy rewrite. Removed Sheet→Convex sync flow, daily schedule corrected (was still showing 3 brief runs), questions now push directly to Convex.
+  - **Vyasa:** Updated status update instructions, slug references, checklists - all now Convex-first.
+  - **Vidura:** Updated tab references to Convex tables, strategic topic flow now uses /push/briefs.
+  - **Valmiki:** Removed column references, helper scripts (already Convex-wired) now documented correctly.
+  - **Sanjaya:** Updated to show Convex as future primary (paused agent).
+  - **Shakti:** Already clean - no changes needed.
+- **Root cause of missed scans:** Vibhishana's AGENTS.md had instructions to push to Sheet FIRST, then sync to Convex. With stale instructions, the Convex push was effectively optional. Now mandatory and primary.
+
 ### 2026-02-28
 - **Shakti agent launched:** Personal assistant / daily planner for task orchestration.
-  - **Channel:** #shakti-ops (C0AHGSHF1FD)
+  - **Channel:** #shakti-ops (C0AJKV6H2G0)
   - **Model:** Sonnet 4.5
   - **Data source:** Convex (tasks, clients, projects at curious-iguana-738.convex.site)
   - **Endpoints:** `/query/tasks`, `/push/tasks`, `/push/clients`, `/push/projects`, `/update/task-status`

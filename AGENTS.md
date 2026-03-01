@@ -120,7 +120,7 @@ I am Parthasarathi, the main orchestrator. I manage configuration and coordinate
 
 ### Shakti (Personal Assistant / Daily Planner) — ✅ ACTIVE
 - **Status:** ACTIVE - New agent, launched 2026-02-28
-- **Channel:** #shakti-ops (C0AHGSHF1FD)
+- **Channel:** #shakti-ops (C0AJKV6H2G0)
 - **Model:** Sonnet 4.5
 - **Role:** Daily planning and task orchestration across three work streams (Beacon House, EduTechPlus, thelaunch.space)
 - **Work Style:** Calm, precise, anticipatory. Surfaces flags before they become fires.

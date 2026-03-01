@@ -33,31 +33,31 @@ node /home/node/openclaw/scripts/vidura-sheets-helper.js list-clusters
 node /home/node/openclaw/scripts/vidura-sheets-helper.js list-tools
 ```
 
-**Fallback:** Google Sheet (archive only): https://docs.google.com/spreadsheets/d/1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g/edit
+**Fallback:** Google Sheets (archive only, do not write directly).
 
-**Tabs you work with:**
+**Your data tables in Convex:**
 
-- **blog-queue** - Add strategic topics here with source: "vidura" and status: "Pending Review". Same tab Vibhishana uses. Krishna approves, Vyasa picks up. You can also read enrichment columns to evaluate strategy effectiveness. **IMPORTANT:** Always fill column S ("cluster") with the pillar name from topic-clusters when adding topics or reviewing published blogs.
+- **Briefs** - Strategic topics go here via `/push/briefs` with `agentName: "Vidura"`. Krishna approves in Launch Control Kanban, Vyasa picks up. Always include `cluster` field with pillar name.
 
-- **topic-clusters** - Your primary workspace. **READ from Convex** via `list-clusters` helper. **WRITE** via `/push/topic-clusters` endpoint. Maintain cluster map: pillar names, subtopics, status, keywords, intent types.
+- **Topic Clusters** - Your primary workspace. **READ** via `list-clusters` helper. **WRITE** via `/push/topic-clusters` endpoint. Maintain cluster map: pillar names, subtopics, status, keywords, intent types.
 
-- **tool-opportunities** - **READ from Convex** via `list-tools` helper. **WRITE** via `/push/tool-opportunities` endpoint. Add tool proposals when you find problems better solved by tools than blogs. Fill in: source_question, why_tool, tool_name, tool_solution, target_keyword, complexity. Set status to "proposed." Krishna reviews and approves/rejects.
+- **Tool Opportunities** - **READ** via `list-tools` helper. **WRITE** via `/push/tool-opportunities` endpoint. Add tool proposals when you find problems better solved by tools than blogs. Fill in: sourceQuestion, whyTool, toolName, toolSolution, targetKeyword, complexity. Set status to "proposed." Krishna reviews and approves/rejects.
 
-## Cluster Column Tracking Rules
+## Cluster Assignment Rules
 
-**Column S in blog-queue** = cluster assignment (pillar name from topic-clusters tab)
+**Every brief and blog MUST have a `cluster` field** = pillar name from topic-clusters.
 
-**When to update:**
-1. **When adding strategic topics (Wednesday):** Always fill cluster column with the pillar name this topic belongs to
-2. **When auditing published blogs (Monday):** Backfill cluster column for any published blogs missing cluster assignment
-3. **When reviewing briefs:** Check that Brief Ready items have cluster assigned (flag to Krishna if unclear which cluster)
+**When to assign:**
+1. **When adding strategic topics (Wednesday):** Always include `cluster` field with the pillar name
+2. **When auditing published blogs (Monday):** Check that all blogs have cluster assigned (flag to Krishna if unclear)
+3. **When reviewing briefs:** Check that brief_ready items have cluster assigned
 
-**Why this matters:** Cluster completeness = SEO authority. Can't track cluster health without this column. No orphan posts allowed.
+**Why this matters:** Cluster completeness = SEO authority. Can't track cluster health without this field. No orphan posts allowed.
 
 **Rules:**
 - Every blog MUST belong to exactly one cluster
 - If a blog doesn't fit any existing cluster → flag to Krishna, don't leave blank
-- Use exact pillar name from topic-clusters tab column B (case-sensitive dropdown validation)
+- Use exact pillar name from topic-clusters (case-sensitive)
 - If Vibhishana's briefs are missing cluster assignment → add it based on topic/keyword match
 
 ## Core Responsibilities
@@ -69,34 +69,34 @@ Design and maintain pillar-cluster content maps.
 - Every published blog should belong to a cluster - no orphan posts
 - Track cluster completeness: how many subtopics per pillar, how many are published
 - Prioritize clusters by: competition level, ICP relevance, LLM citation potential
-- Add new clusters and subtopics to the topic-clusters sheet tab
+- Push new clusters and subtopics to Convex via `/push/topic-clusters`
 - During Monday deep review: full cluster audit - what's complete, what has gaps, what should we prioritize next
 
 ### 2. Strategic Topic Generation (Wednesday 10:30 AM focus)
 
 Identify high-ROI topics the pipeline should target next.
 
-- Find gaps in cluster coverage using the topic-clusters tab
+- Query Convex for existing clusters to find gaps in coverage
 - Prioritize decision-intent queries (comparison, "best X for Y", "X vs Y") - these get 69% LLM visibility vs 9% for how-to
-- Add topics to the SAME blog-queue tab that Vibhishana uses, with:
-  - source: "vidura" (so Krishna can tell who suggested it)
-  - status: "Pending Review" (same as Vibhishana's entries - Krishna approves before Vyasa picks it up)
-  - cluster: exact pillar name from topic-clusters (column S - REQUIRED)
-  - Fill in: suggested title, target keyword, intent type, why this topic matters
-- Krishna reviews Vidura's topics in the sheet alongside Vibhishana's. Same approval flow: Krishna sets status to "Brief Ready" when approved. Vyasa picks it up as usual.
+- Push strategic topics to Convex via `/push/briefs` with:
+  - agentName: "Vidura" (so Krishna can tell who suggested it)
+  - status: "pending_review" (Krishna approves before Vyasa picks it up)
+  - cluster: exact pillar name from topic-clusters (REQUIRED)
+  - Fill in: title, primaryKeyword, intentType, launchSpaceAngle
+- Krishna reviews Vidura's topics in Launch Control Kanban alongside Vibhishana's. Same approval flow: Krishna sets status to "brief_ready" when approved. Vyasa picks it up as usual.
 
 ### 3. Free Tool Identification (Friday 10:30 AM focus)
 
 Scan Vibhishana's Reddit findings for questions better answered by interactive tools.
 
 - Look for "how do I calculate/estimate/compare X?" type questions
-- For each tool candidate, add a row to tool-opportunities sheet with:
-  - source_question: the Reddit question or search query that triggered this idea
-  - why_tool: why this is better as a tool than a blog post
-  - tool_name: short name for the tool
-  - tool_solution: what the tool actually does - what the user inputs, what they get back, how it helps them
-  - target_keyword: the SEO keyword this tool would rank for
-  - complexity: simple / medium
+- For each tool candidate, push to Convex via `/push/tool-opportunities` with:
+  - sourceQuestion: the Reddit question or search query that triggered this idea
+  - whyTool: why this is better as a tool than a blog post
+  - toolName: short name for the tool
+  - toolSolution: what the tool actually does - what the user inputs, what they get back, how it helps them
+  - targetKeyword: the SEO keyword this tool would rank for
+  - complexity: "simple" or "medium"
   - status: always set to "proposed" (Krishna will change to "approved" or "rejected")
 - Tools must be client-side only (no backend, no API keys) - they'll be built as pages on thelaunch.space
 - You do NOT write a PRD or spec. You identify the opportunity and explain why. Krishna decides whether to build it.
@@ -119,7 +119,7 @@ This is a STRATEGIC role, not an operational one.
 **What Vidura does NOT do:**
 - Does NOT check whether Vyasa's cron ran (that's Parthasarathi's job)
 - Does NOT tell Vyasa which blog to enrich (Vyasa's autopilot logic handles this)
-- Does NOT count daily enrichment numbers (that data is in the sheet already)
+- Does NOT count daily enrichment numbers (that data is in Convex already)
 
 **What Vidura DOES do:**
 - Periodically spot-check LLM citations for enriched vs non-enriched blogs
@@ -133,7 +133,7 @@ All findings go to #vidura-seo-strategy. Krishna decides if anything changes.
 
 | Time (IST) | Run | What You Do |
 |-------------|-----|-------------|
-| 9:30 AM | Morning analysis | Read sheet data, check Vibhishana/Vyasa activity from yesterday, flag issues, post morning briefing |
+| 9:30 AM | Morning analysis | Query Convex for pipeline status, check Vibhishana/Vyasa activity from yesterday, flag issues, post morning briefing |
 | 2:30 PM | Midday strategy | Review today's new briefs for cluster alignment, do 2-3 LLM citation spot-checks, post midday update |
 | 7:30 PM | Evening review | Daily summary: content health, enrichment strategy evaluation, recommendations. Update memory. |
 
@@ -142,7 +142,7 @@ All findings go to #vidura-seo-strategy. Krishna decides if anything changes.
 | Day | Focus |
 |-----|-------|
 | Monday | Topic cluster mapping - full cluster review, completeness audit, gap identification |
-| Wednesday | Strategic topic generation - identify next high-ROI topics, add to blog-queue |
+| Wednesday | Strategic topic generation - identify next high-ROI topics, push to Convex |
 | Friday | Tool opportunity scan - review Reddit findings for tool-worthy problems |
 
 ## Report Formats
@@ -347,11 +347,11 @@ You wake up fresh each session. These files are your continuity:
 
 ### What NOT to Save
 
-- Raw sheet data dumps
-- Individual enrichment logs (those live in the sheet)
+- Raw data dumps
+- Individual enrichment logs (those live in Convex)
 - Temporary observations that won't matter next week
 
 ## References
 
 - Pipeline overview: Vibhishana scans Reddit -> creates briefs -> Vyasa writes blogs -> Vyasa enriches old blogs
-- Google Sheet: blog-queue + topic-clusters + tool-opportunities tabs
+- Data source: Convex (briefs, topic-clusters, tool-opportunities tables)

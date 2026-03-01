@@ -1,5 +1,5 @@
 {
-  "lastPushedDate": "2026-02-27",
+  "lastPushedDate": "2026-03-01",
   "pushedBatches": [
     {
       "date": "2026-02-19",
@@ -20,8 +20,14 @@
       "count": 373,
       "pushedAt": "2026-02-27T14:16:38.670Z",
       "note": "Backlog push - fixed endpoint from /ingestQuestions to /push/questions"
+    },
+    {
+      "date": "2026-03-01",
+      "batchId": "2026-03-01-catchup",
+      "count": 86,
+      "pushedAt": "2026-03-01T06:07:00Z",
+      "note": "Backlog push - Feb 28 + Mar 1 questions"
     }
   ],
-  "totalPushed": 781,
-  "knownDuplicates": 228
+  "totalPushed": 867
 }

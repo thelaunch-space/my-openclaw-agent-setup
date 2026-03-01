@@ -23,8 +23,8 @@ Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes
 
 ## Your Resources
 
-- **Lead tracking sheet:** https://docs.google.com/spreadsheets/d/1N1yNSggmU46jeTUbxF0tvtcycHf2lvE0fuix5o2EKFs/edit
-- **Sheets helper:** `node /home/node/openclaw/scripts/sheets-helper.js`
+- **Data source:** Convex (primary) — push leads to `/push/leads` when endpoint is ready
+- **Fallback:** Google Sheet (archive only): https://docs.google.com/spreadsheets/d/1N1yNSggmU46jeTUbxF0tvtcycHf2lvE0fuix5o2EKFs/edit
 - **Web search:** Use for finding leads, researching prospects
 - **Browser:** Can browse LinkedIn, X, forums (not for Reddit - use Vibhishana's scanner)
 
@@ -33,7 +33,7 @@ Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes
 **Morning scan:**
 - Check configured sources for new signals
 - Research promising leads
-- Add to Google Sheet with full context
+- Push to Convex (when active) or post summary to this channel
 - Post summary to this channel
 
 ## Lead Format

@@ -1,52 +1,105 @@
 # TOOLS.md - Vidura's Tools
 
-## Google Sheets
+## Convex (Primary)
 
-- SEO sheet: 1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g
-- Tabs: questions, blog-queue, topic-clusters, tool-opportunities
-- **Helper script:** `node /home/node/openclaw/scripts/vidura-sheets-helper.js`
+**Endpoint:** `https://curious-iguana-738.convex.site`
+**Auth:** `Authorization: Bearer $(cat /home/node/openclaw/credentials/convex-api-key.txt)`
 
-### Commands
+### Read Commands (via helper script)
 
 ```bash
-# Read Vibhishana's Reddit questions (for Friday tool scan)
+# Topic Clusters - your cluster map
+node scripts/vidura-sheets-helper.js list-clusters
+
+# Tool Opportunities - your tool proposals
+node scripts/vidura-sheets-helper.js list-tools
+
+# Reddit Questions - for Friday tool scan (still from Sheets, migrating)
 node scripts/vidura-sheets-helper.js list-questions 50
 
-# Topic Clusters (for Monday cluster mapping)
-node scripts/vidura-sheets-helper.js list-clusters
-node scripts/vidura-sheets-helper.js add-cluster '{"pillarName":"...", "clusterTopic":"...", "targetKeyword":"...", "intentType":"informational"}'
-node scripts/vidura-sheets-helper.js update-cluster 5 '{"status":"in_progress"}'
-
-# Tool Opportunities (for Friday tool scan)
-node scripts/vidura-sheets-helper.js list-tools
-node scripts/vidura-sheets-helper.js add-tool '{"toolName":"...", "sourceQuestion":"...", "whyTool":"...", "toolSolution":"...", "targetKeyword":"..."}'
-
-# Blog Queue (read-only, for context)
+# Blog Queue status - for context
 node scripts/vidura-sheets-helper.js list-briefs
 ```
 
-**⚠️ Cluster Column (Column S):**
-- blog-queue now has column S: "cluster" (pillar name from topic-clusters)
-- Current helper script does NOT support adding cluster when adding briefs
-- **TODO for Parthasarathi:** Update helper script to accept "cluster" field in add-brief command (when implemented)
-- Until then: Manually update cluster column in sheet after adding topics via helper script
-- For now: Add topics without cluster via helper, then manually note which cluster they belong to in your reports for Krishna to fill in
+### Write Commands (direct curl to Convex)
 
-**What you READ:**
-- blog-queue: enrichment status (enrichment_count, last_enrichment_date), brief quality, cluster alignment
-- topic-clusters: cluster completeness, gap analysis
+**Topic Clusters (Monday 10:30 AM):**
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST https://curious-iguana-738.convex.site/push/topic-clusters \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "pillarName": "PILLAR NAME",
+    "clusterTopic": "CLUSTER TOPIC",
+    "status": "planned",
+    "targetKeyword": "TARGET KEYWORD",
+    "intentType": "informational",
+    "agentName": "Vidura"
+  }'
+```
 
-**What you WRITE:**
-- blog-queue: add strategic topics (source: "vidura", status: "Pending Review")
-- topic-clusters: maintain cluster map (pillars, subtopics, status, keywords, intent types)
-- tool-opportunities: add tool proposals (source_question, why_tool, tool_name, tool_solution, target_keyword, complexity, status: "proposed")
+**Tool Opportunities (Friday 10:30 AM):**
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST https://curious-iguana-738.convex.site/push/tool-opportunities \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "toolName": "TOOL NAME",
+    "toolSolution": "WHAT IT DOES",
+    "sourceQuestion": "REDDIT QUESTION",
+    "whyTool": "WHY TOOL > BLOG",
+    "targetKeyword": "TARGET KEYWORD",
+    "complexity": "simple",
+    "status": "proposed",
+    "agentName": "Vidura"
+  }'
+```
+
+**Strategic Topics (Wednesday 10:30 AM):**
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST https://curious-iguana-738.convex.site/push/briefs \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "title": "TOPIC TITLE",
+    "slug": "topic-slug-here",
+    "primaryKeyword": "PRIMARY KEYWORD",
+    "intentType": "comparison",
+    "cluster": "PILLAR NAME",
+    "launchSpaceAngle": "WHY THIS MATTERS FOR ICP",
+    "status": "pending_review",
+    "agentName": "Vidura"
+  }'
+```
+
+**Activity Milestones:**
+```bash
+curl -s -X POST https://curious-iguana-738.convex.site/push/activity \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "agentName": "Vidura",
+    "action": "cluster_mapping",
+    "status": "completed",
+    "message": "Mapped X new topic clusters",
+    "dedupKey": "Vidura:cluster_mapping:'$(date -u +"%Y-%m-%d")'"
+  }'
+```
+
+## Google Sheets (Fallback Only)
+
+- Sheet ID: `1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g`
+- **DO NOT write directly to Sheets.** Write to Convex; Sheets is archive/fallback.
+- Helper script falls back to Sheets only if Convex read fails.
 
 ## web_search
 
-- Use for: LLM citation spot-checks, competitive research, verifying SEO trends
-- Each session: test 2-3 queries against AI search to check if thelaunch.space appears
+Use for: LLM citation spot-checks, competitive research, verifying SEO trends.
+Each session: test 2-3 queries against AI search to check if thelaunch.space appears.
 
 ## web_fetch
 
-- Use for: reading published blog content when evaluating enrichment effectiveness
-- Use for: checking competitor content that ranks for target keywords
+Use for: reading published blog content, checking competitor content that ranks for target keywords.

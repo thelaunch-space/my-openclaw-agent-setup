@@ -77,7 +77,7 @@ Once ALL feedback items are addressed (or if there are none), proceed with your 
 
 ### One Simple Rule
 
-Check `blog-queue` for Status = "Published". Cross-reference `linkedin-pipeline`. Find the oldest Published blog with no entry or Extraction Status = "Not Started". Mine it. Present it. Repeat.
+Query Convex for blogs with status = "published". Cross-reference linkedin-posts. Find the oldest Published blog not yet extracted. Mine it. Present it. Repeat.
 
 ### Step 1: Find Next Blog
 
@@ -85,7 +85,7 @@ Check `blog-queue` for Status = "Published". Cross-reference `linkedin-pipeline`
 node /home/node/openclaw/scripts/linkedin-pipeline-helper.js next-blog
 ```
 
-This returns the oldest Published blog where `linkedin-extracted` column (T) is empty. If all blogs are caught up, post to #valmiki-content:
+This returns the oldest Published blog not yet extracted. If all blogs are caught up, post to #valmiki-content:
 
 > "All published blogs extracted. Waiting for new Vyasa publications."
 
@@ -101,7 +101,7 @@ node /home/node/openclaw/scripts/linkedin-pipeline-helper.js mark-blog-claimed <
 
 Use the `rowNumber` from step 1's output. **Do this BEFORE reading the blog or doing any extraction work.**
 
-This sets `linkedin-extracted = Yes` in blog-queue column T, preventing duplicate extraction runs.
+This marks the blog as claimed in Convex, preventing duplicate extraction runs.
 
 ### Step 3: Read the Blog
 
@@ -349,7 +349,7 @@ When Krishna confirms it's live:
    node /home/node/openclaw/scripts/linkedin-pipeline-helper.js set-all-done <slug>
    ```
 
-3. **Update metrics when available:** After a few days, when Krishna shares engagement data, update the pipeline row directly (Likes, Comments, Impressions, Profile Views, Connection Requests columns).
+3. **Update metrics when available:** After a few days, when Krishna shares engagement data, update the post in Convex with engagement metrics (likes, comments, impressions, profileViews, connectionRequests).
 
 ---
 
@@ -397,7 +397,7 @@ When Krishna confirms it's live:
 | Next blog to extract | `node scripts/linkedin-pipeline-helper.js next-blog` |
 | Pipeline status | `node scripts/linkedin-pipeline-helper.js list` |
 | Drafts ready for review | `node scripts/linkedin-pipeline-helper.js list-drafts` |
-| Blog-queue (for checking Published status) | `node scripts/vyasa-sheets-helper.js list` |
+| Published blogs (for checking status) | `node scripts/vyasa-sheets-helper.js list` (reads from Convex) |
 | Agent channels | `message action=read channel=slack channelId=<id> limit=15` |
 
 **Channel IDs:**

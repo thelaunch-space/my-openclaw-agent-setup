@@ -3,17 +3,20 @@
  * Usage: node scripts/vidura-sheets-helper.js <command> [args...]
  * 
  * Commands:
- *   list-questions [limit]      - List questions from Vibhishana's scans (Sheets)
+ *   list-questions [limit]      - List questions from Vibhishana's scans
  *   list-clusters               - List all topic clusters (Convex primary)
- *   add-cluster <json>          - Add a new topic cluster (Sheets)
- *   update-cluster <row> <json> - Update a cluster row (Sheets)
  *   list-tools                  - List all tool opportunities (Convex primary)
- *   add-tool <json>             - Add a new tool opportunity (Sheets)
- *   list-briefs                 - List blog-queue entries (Sheets)
+ *   list-briefs                 - List blog-queue entries
  * 
  * Data source:
- *   - `list-clusters` and `list-tools` read from Convex (primary)
- *   - Write commands still use Sheets (archive)
+ *   - READ: Convex (primary), Sheets (fallback if Convex fails)
+ *   - WRITE: Use curl to Convex endpoints directly (see TOOLS.md)
+ *     - /push/topic-clusters
+ *     - /push/tool-opportunities
+ *     - /push/briefs (for strategic topics)
+ * 
+ * DEPRECATED (legacy Sheets writes - do not use):
+ *   add-cluster, update-cluster, add-tool
  */
 
 const { google } = require('googleapis');
