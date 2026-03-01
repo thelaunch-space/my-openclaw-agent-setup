@@ -42,6 +42,15 @@ Expected response: `{"success":true,"id":"...","action":"inserted"}`
 
 After the PR is created and the sheet is updated, push again with `status: "pr_created"`.
 
+**Construct the prUrl for Netlify deploy preview:**
+The GitHub API response includes the PR number. Use it to build the preview URL:
+```
+https://deploy-preview-{PR_NUMBER}--thelaunch-space.netlify.app/blogs/{TOPIC}/{SLUG}
+```
+
+Example: PR #847 for topic `ai-tools` and slug `cursor-vs-claude-code` becomes:
+`https://deploy-preview-847--thelaunch-space.netlify.app/blogs/ai-tools/cursor-vs-claude-code`
+
 ```bash
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
 curl -s -X POST https://curious-iguana-738.convex.site/push/blogs \
@@ -51,6 +60,7 @@ curl -s -X POST https://curious-iguana-738.convex.site/push/blogs \
     "title": "BLOG TITLE",
     "slug": "blog-post-slug",
     "url": "https://thelaunch.space/blogs/TOPIC-SLUG/POST-SLUG",
+    "prUrl": "https://deploy-preview-PR_NUMBER--thelaunch-space.netlify.app/blogs/TOPIC-SLUG/POST-SLUG",
     "keyword": "PRIMARY TARGET KEYWORD",
     "status": "pr_created",
     "agentName": "Vyasa",
@@ -62,6 +72,7 @@ curl -s -X POST https://curious-iguana-738.convex.site/push/blogs \
 Field notes:
 - `slug`: the post slug (e.g., `hire-developer-vs-build-with-ai`) — **this is the dedup key**
 - `url`: the full URL where this blog will live once merged
+- `prUrl`: Netlify deploy preview URL — lets Krishna preview the blog before merging
 - `keyword`: the primary keyword from Vibhishana's brief
 - `status`: `"pr_created"` — Krishna will update to `"published"` after merge
 - `wordCount`: the actual word count as a number (no quotes), e.g., `2847`
