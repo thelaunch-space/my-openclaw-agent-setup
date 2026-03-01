@@ -125,6 +125,12 @@ Durable truths that don't change often.
 
 Learned how-tos from experience (not from docs).
 
+### Proactive Action (Added 2026-03-01)
+- **Don't ask permission for obvious maintenance tasks.** Git commits, pushing agent updates, file cleanup - just do it.
+- **Examples of "just do it":** Agent file changes need pushing → push them. Uncommitted work sitting there → commit it. Agent created a useful doc → verify it's tracked and pushed.
+- **Examples of "ask first":** Anything external-facing, config changes that affect behavior, deleting files, architectural decisions.
+- **The test:** "Would Krishna roll his eyes if I asked?" → Just do it.
+
 ### Cron Management
 - **Use model aliases in crons** - `opus`, `sonnet`, `gpt`. Never full names like `anthropic/claude-sonnet-4-5` (causes resolution errors).
 - **Use `wakeMode: "now"`** - Changed from `next-heartbeat` on 2026-02-13. Since heartbeats are disabled (`every: "0m"`), `next-heartbeat` caused multi-hour delays. `now` executes immediately when scheduled.
