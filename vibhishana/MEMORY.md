@@ -116,6 +116,16 @@ Learned how-tos from experience.
 - **Update AFTER creating each brief:** Add to chronological list, update cluster summary, update diversity alerts
 - **Structure:** Topic cluster summary table + chronological list with metadata + diversity alerts
 - **Purpose:** Prevent clustering, inform filtering, improve strategic decision-making
+- **PUSH TO CONVEX:** After creating/updating, push to Convex via upsertDocument endpoint (category: strategy)
+
+### Strategic Document Push to Convex (Added 2026-03-01)
+- **MANDATORY:** When creating significant standalone documents (deep research, topic strategies, catalogs), push to Convex Documents table
+- **What to push:** covered-topics.md, community analysis, topic category strategy, research compilations
+- **What NOT to push as documents:** Daily briefs (those use /push/briefs endpoint)
+- **Endpoint:** upsertDocument (not /push/briefs)
+- **Categories:** research | strategy | analysis
+- **Why:** Krishna and visitors see all agent work on Launch Control in real-time
+- **Lesson learned:** Don't forget this step even when creating internal workflow files
 
 ### Tool Ecosystem Framing
 - **Concept-first, not tool-first.** "AI-assisted development" not "Bolt.new MVP".
