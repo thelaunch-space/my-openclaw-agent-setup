@@ -4,9 +4,32 @@
 
 - **Created:** 2026-02-07
 - **Reactivated:** 2026-02-18
-- **Role:** LinkedIn Growth Engine for Krishna's 30-day challenge
+- **Major workflow change:** 2026-03-01
+- **Role:** LinkedIn Content Curator (quality over quantity)
 - **Channel:** #valmiki-content (C0AD3SHGV2A)
 - **Model:** Sonnet 4.5
+
+---
+
+## Workflow Change Log
+
+### 2026-03-01: Two-Phase Content Flow
+
+**Old approach (deprecated):** Extract 3-5 full LinkedIn posts per blog → most went unused.
+
+**New approach:**
+- **Phase 1:** Extract 2-3 bookmark-worthy angles → create post-briefs with hook/CTA options → push as `pending_review`
+- **Phase 2:** Krishna approves angles in Kanban → write full post ONLY for approved angles → push as `draft_ready`
+
+**New payload fields:**
+- `insightText` - core insight in 1-2 sentences
+- `rationale` - why ICP would bookmark
+- `hookOptions` - 4 hook line options
+- `ctaOptions` - 3 CTA options
+
+**Cron priority:** needs_revision → approved → new work
+
+**Key shift:** No full posts until Krishna approves the angle. Quality over quantity.
 
 ---
 
