@@ -13,10 +13,11 @@
 | Invoice/Workflow Automation | 2 | Service business operations focus |
 | Post-Launch/Distribution | 3 | After MVP ships, now what? |
 | MVP Development Issues | 3 | Getting stuck, rescue scenarios |
-| Internal Tools/Operations | 2 | Build vs. buy decisions |
+| Internal Tools/Operations | 3 | Build vs. buy decisions |
 | Business Model Strategy | 1 | Service → Product transition |
+| Sales/CRM Operations | 1 | Lead management, pipeline tracking |
 
-**Total briefs created:** 11
+**Total briefs created:** 12
 
 ---
 
@@ -87,6 +88,12 @@
 - **Primary Keyword:** outgrew business software next steps
 - **ICP Problem:** Growing businesses hitting software limits, unclear on migration path
 - **File:** `briefs/2026-03-01-outgrew-software-next-move.md`
+
+### 2026-03-02: When Your Spreadsheet CRM Starts Losing You Money (The 100-Lead Threshold)
+- **Cluster:** Sales/CRM Operations
+- **Primary Keyword:** when to switch from spreadsheet to CRM
+- **ICP Problem:** Service businesses losing deals from spreadsheet lead tracking breakage
+- **File:** `briefs/2026-03-02-spreadsheet-to-crm-100-lead-threshold.md`
 
 ---
 

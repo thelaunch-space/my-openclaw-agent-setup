@@ -24,6 +24,8 @@ Durable truths that don't change often.
 - r/consulting - Consultants going independent (~150k members)
 - r/HealthTech, r/healthcarestartups - Healthcare founders
 - r/legaltech - Legal tech, lawyers building software (~14k members, added 2026-02-23)
+- r/lawfirm - Solo/small firm practice management, tech stacks, operations (added 2026-03-02)
+- r/lawyers - Professional discussions, includes tech adoption and practice challenges (added 2026-03-02)
 
 ### Communities Discovered (Non-Reddit)
 
@@ -40,8 +42,18 @@ Durable truths that don't change often.
 **Vertical-Specific (Domain Experts):**
 - **Education:** Founders Network EdTech Initiative (600+ global EdTech founders), Future of Higher Education Slack (3.5k+ EdTech innovation) (added 2026-02-09)
 - **Healthcare:** Health Tech Nerds Slack (6k members, vetted $20/mo), MGMA (operations focus), Sermo (physician-owned practice network), Tracy Cherpeski's communities (masterminds + CoPs for independent practice owners) (added 2026-02-25)
-- **Legal:** No known Slack/Discord for solo practitioners yet, but MGMA-style bar associations exist for networking (needs more research) (added 2026-02-25)
+- **Legal:** 
+  - **Maximum Lawyer Community** - Podcast community for solo/small law firm owners (900+ episodes, thousands of attorneys). Goal: help 1,000 law firm owners reach 7 figures. Covers hiring, AI, operations, work-life balance. Active community beyond podcast. (added 2026-03-02)
+  - **Lawyerist** - Community + podcast for small/medium law firms. Strong on legal tech, automation, profitability, client relationships. Thought leadership focus. (added 2026-03-02)
+  - **Attorney at Work** - Newsletter + content hub for solo attorneys. Practice tips, well-being, delegation, AI tools. Free subscription with regular tips. (added 2026-03-02)
 - **Financial Advisors:** HIFON (250+ RIA operations leaders, 24/7 discussion board, monthly peer forums, shared resource library, 14+ years of searchable knowledge) (added 2026-02-25)
+- **Dental Practice Owners:** 
+  - **Dental Practice Matchmaker** - 18k+ members Facebook group for private practice transitions (buying/selling/hiring). Largest online network for private practice dentists. (added 2026-03-02)
+  - **Dental Nachos** - Active Facebook group for dental professionals (added 2026-03-02)
+  - **Dental Boss Movement** - Practice owner community (added 2026-03-02)
+- **Therapists/Private Practice:**
+  - **Practice of the Practice Community** - Resources and community for therapists scaling group practices. Podcast + community + consulting. (added 2026-03-02)
+  - **The Group Practice Exchange** - Community for therapists growing group practices. Facebook group + resources + trainings. (added 2026-03-02)
 
 **Tech-Adjacent (Lower Priority Now):**
 - **Early Stage Founders Discord** - 2k members, SaaS/service solopreneurs (added 2026-02-09)

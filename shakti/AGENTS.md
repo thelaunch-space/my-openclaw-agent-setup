@@ -55,7 +55,7 @@ What changed: [1-2 sentence summary]
 
 ## Convex API Reference
 
-**Production:** `https://curious-iguana-738.convex.cloud`
+**Production:** `https://curious-iguana-738.convex.site`
 **Auth:** `Authorization: Bearer $(cat /home/node/openclaw/credentials/convex-api-key.txt)`
 
 ```bash
@@ -95,6 +95,20 @@ curl -s -X POST "https://curious-iguana-738.convex.site/update/task-status" \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"id": "<task _id>", "status": "done", "actualHours": 2.5, "paceNotes": "notes here"}'
+
+# Update task fields (title, description, paceNotes)
+curl -s -X POST "https://curious-iguana-738.convex.site/update/task" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"id": "<task _id>", "title": "New title", "description": "New description", "paceNotes": "New notes"}'
+# All fields except id are optional — only include what needs to change
+
+# Delete task (ONLY when Krishna explicitly requests)
+curl -s -X POST "https://curious-iguana-738.convex.site/delete/task" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"id": "<task _id>"}'
+# ⚠️ No recovery after delete. Never delete proactively.
 ```
 
 **Valid task statuses:** `backlog | todo | in_progress | blocked | done`

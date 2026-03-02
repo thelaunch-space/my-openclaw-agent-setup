@@ -1,5 +1,5 @@
 {
-  "lastPushedDate": "2026-03-01",
+  "lastPushedDate": null,
   "pushedBatches": [
     {
       "date": "2026-02-19",
@@ -27,7 +27,13 @@
       "count": 86,
       "pushedAt": "2026-03-01T06:07:00Z",
       "note": "Backlog push - Feb 28 + Mar 1 questions"
+    },
+    {
+      "date": "2026-03-02",
+      "batchId": "NaN-batch",
+      "count": 26,
+      "pushedAt": "2026-03-02T03:31:01.151Z"
     }
   ],
-  "totalPushed": 867
+  "totalPushed": 893
 }
