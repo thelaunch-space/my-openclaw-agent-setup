@@ -3,14 +3,14 @@
  * Usage: node scripts/vidura-sheets-helper.js <command> [args...]
  * 
  * Commands:
- *   list-questions [limit]      - List questions from Vibhishana's scans
+ *   list-questions [limit]      - List questions (Convex primary, Sheets fallback)
  *   list-clusters               - List all topic clusters (Convex primary)
  *   list-tools                  - List all tool opportunities (Convex primary)
- *   list-briefs                 - List blog-queue entries
+ *   list-briefs                 - List blog-queue entries (Convex primary)
  * 
  * Data source:
  *   - READ: Convex (primary), Sheets (fallback if Convex fails)
- *   - WRITE: Use curl to Convex endpoints directly (see TOOLS.md)
+ *   - WRITE: Use curl to Convex endpoints directly (see AGENTS.md)
  *     - /push/topic-clusters
  *     - /push/tool-opportunities
  *     - /push/briefs (for strategic topics)
@@ -95,6 +95,35 @@ async function readClustersFromConvex() {
  */
 async function readToolsFromConvex() {
   return await convexGet('/query/tool-opportunities');
+}
+
+/**
+ * Read all briefs from Convex (queries multiple statuses and combines)
+ */
+async function readBriefsFromConvex() {
+  const statuses = ['pending_review', 'needs_revision', 'brief_ready', 'writing', 'pr_created', 'published', 'dropped'];
+  const allBriefs = [];
+  
+  for (const status of statuses) {
+    try {
+      const briefs = await convexGet(`/query/briefs?status=${status}`);
+      if (Array.isArray(briefs)) {
+        briefs.forEach(b => { b.status = status; });
+        allBriefs.push(...briefs);
+      }
+    } catch (err) {
+      // Status might not exist or be empty, continue
+    }
+  }
+  
+  return allBriefs;
+}
+
+/**
+ * Read all questions from Convex
+ */
+async function readQuestionsFromConvex() {
+  return await convexGet('/query/questions');
 }
 
 async function getSheets() {
@@ -274,15 +303,27 @@ function parseBriefs(rows) {
     switch (cmd) {
       case 'list-questions': {
         const limit = parseInt(process.argv[3]) || 50;
-        const rows = await readTab(TABS.QUESTIONS);
-        const questions = parseQuestions(rows).slice(-limit); // Last N questions
-        console.log(`\n📋 Last ${questions.length} questions from Vibhishana's scans:\n`);
+        let questions;
+        try {
+          // Read from Convex (primary source)
+          const allQuestions = await readQuestionsFromConvex();
+          questions = allQuestions.slice(-limit);
+          console.log(`\n📋 Last ${questions.length} questions from Convex:\n`);
+        } catch (convexErr) {
+          console.error(`Convex read failed (${convexErr.message}), falling back to Sheets...`);
+          const rows = await readTab(TABS.QUESTIONS);
+          questions = parseQuestions(rows).slice(-limit);
+          console.log(`\n📋 Last ${questions.length} questions from Sheets (fallback):\n`);
+        }
         questions.forEach(q => {
           const relevance = q.icpRelevance ? `[${q.icpRelevance}]` : '';
           const potential = q.contentPotential ? `(${q.contentPotential})` : '';
-          console.log(`Row ${q.rowNumber}: ${relevance} ${q.postTitle.substring(0, 60)}... ${potential}`);
-          if (q.questionPain) console.log(`   Pain: ${q.questionPain.substring(0, 80)}...`);
-          if (q.postUrl) console.log(`   URL: ${q.postUrl}`);
+          const title = q.postTitle || q.title || '';
+          console.log(`${relevance} ${title.substring(0, 60)}... ${potential}`);
+          const pain = q.questionPain || q.question || '';
+          if (pain) console.log(`   Pain: ${pain.substring(0, 80)}...`);
+          const url = q.postUrl || q.url || '';
+          if (url) console.log(`   URL: ${url}`);
         });
         break;
       }
@@ -393,9 +434,17 @@ function parseBriefs(rows) {
       }
       
       case 'list-briefs': {
-        const rows = await readTab(TABS.BRIEFS);
-        const briefs = parseBriefs(rows);
-        console.log(`\n📝 Blog Queue (${briefs.length} total):\n`);
+        let briefs;
+        try {
+          // Read from Convex (primary source)
+          briefs = await readBriefsFromConvex();
+          console.log(`\n📝 Blog Queue from Convex (${briefs.length} total):\n`);
+        } catch (convexErr) {
+          console.error(`Convex read failed (${convexErr.message}), falling back to Sheets...`);
+          const rows = await readTab(TABS.BRIEFS);
+          briefs = parseBriefs(rows);
+          console.log(`\n📝 Blog Queue from Sheets (${briefs.length} total):\n`);
+        }
         
         // Group by status
         const byStatus = {};
@@ -408,9 +457,10 @@ function parseBriefs(rows) {
         Object.entries(byStatus).forEach(([status, items]) => {
           console.log(`\n[${status}] (${items.length})`);
           items.slice(0, 10).forEach(b => {
-            const source = b.source ? ` (${b.source})` : '';
+            const source = b.source || b.agentName ? ` (${b.source || b.agentName})` : '';
             const enriched = b.enrichmentCount ? ` [E:${b.enrichmentCount}]` : '';
-            console.log(`   Row ${b.rowNumber}: ${b.title.substring(0, 50)}...${source}${enriched}`);
+            const title = b.title || '';
+            console.log(`   ${b.slug || ''}: ${title.substring(0, 50)}...${source}${enriched}`);
           });
           if (items.length > 10) console.log(`   ... and ${items.length - 10} more`);
         });
