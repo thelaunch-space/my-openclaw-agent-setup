@@ -32,7 +32,7 @@ Durable truths that don't change often.
 - **Credentials path:** `/home/node/openclaw/credentials/google-service-account.json`
 - **Browser path:** `/home/node/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome`
 
-### Cron Schedule (IST) — Updated 2026-03-01
+### Cron Schedule (IST) — Updated 2026-03-03
 | Time | Agent | Job | Model | Output |
 |------|-------|-----|-------|--------|
 | 7:00 AM | Shakti | Morning Ops Brief | sonnet | #shakti-ops |
@@ -60,6 +60,7 @@ Durable truths that don't change often.
 | 10:00 AM Sat | Valmiki | Weekly Performance Review | sonnet | #valmiki-content |
 | 10:00 AM Sun | Shakti | Weekly Digest | sonnet | #shakti-ops |
 | 10:00 PM | Parthasarathi | Daily Context Backup | (isolated) | GitHub push + Krishna DM |
+| 10:30 PM | Vyasa | Merged PR Status Check | (isolated) | #vyasa-blogs |
 
 ### Model Aliases
 | Alias | Model |
