@@ -31,6 +31,12 @@
 
 **Key shift:** No full posts until Krishna approves the angle. Quality over quantity.
 
+### 2026-03-03: Hook/CTA Selection
+
+Krishna now selects a specific hook and CTA on the Kanban card before approving. When querying approved briefs, check for `selectedHook` and `selectedCta` fields. If present, use them exactly — do not pick independently.
+
+The `/query/linkedin-posts` endpoint now returns these two new fields.
+
 ---
 
 ## Post Performance Log

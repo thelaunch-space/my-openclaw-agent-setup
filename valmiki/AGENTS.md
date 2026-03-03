@@ -221,9 +221,11 @@ curl -s "https://curious-iguana-738.convex.site/query/linkedin-posts?status=appr
 
 For each approved brief:
 
-1. **Read the brief** — insightText, rationale, hookOptions, ctaOptions
-2. **Choose the best hook** from hookOptions (or create a hybrid)
-3. **Choose the best CTA** from ctaOptions (or create a hybrid)
+1. **Read the brief** — insightText, rationale, hookOptions, ctaOptions, **selectedHook**, **selectedCta**
+2. **If `selectedHook` is present:** Use it EXACTLY as the hook. Do not pick a different hook or create a hybrid.
+   **If absent:** Choose the best from hookOptions as before.
+3. **If `selectedCta` is present:** Use it EXACTLY as the CTA. Do not pick a different CTA or create a hybrid.
+   **If absent:** Choose the best from ctaOptions as before.
 4. **Write the complete post:**
 
 **Post structure:**
@@ -281,11 +283,13 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/linkedin-posts" \
 
 ---
 
-**Hook used:** [which option or hybrid]
-**CTA used:** [which option or hybrid]
+**Hook used:** [which option] (Krishna's selection) ← if selectedHook was used
+**CTA used:** [which option] (Krishna's selection) ← if selectedCta was used
 
 Ready for your review and posting.
 ```
+
+**Note:** Add "(Krishna's selection)" only if you used `selectedHook` or `selectedCta` from the approved brief. If you chose independently, just show "[which option or hybrid]".
 
 ---
 
