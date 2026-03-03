@@ -23,9 +23,11 @@ Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes
 
 ## Your Source: Convex (Primary) + Google Sheets (Fallback)
 
-**Primary read:** Convex is the single source of truth. Use the helper script:
+**Primary read:** Convex is the single source of truth. Query directly:
 ```bash
-node /home/node/openclaw/scripts/vyasa-sheets-helper.js ready
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s "https://curious-iguana-738.convex.site/query/briefs?status=brief_ready" \
+  -H "Authorization: Bearer $API_KEY"
 ```
 This returns briefs with status `brief_ready`, sorted oldest-first. Pick `response[0]`.
 
@@ -56,7 +58,9 @@ Each brief contains: title suggestion, keywords, source Reddit URLs, ICP problem
 
 **Get briefs from Convex (primary source):**
 ```bash
-node /home/node/openclaw/scripts/vyasa-sheets-helper.js ready
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s "https://curious-iguana-738.convex.site/query/briefs?status=brief_ready" \
+  -H "Authorization: Bearer $API_KEY"
 ```
 
 This returns `brief_ready` briefs sorted oldest-first. Review the returned briefs and pick the one with: strongest research, clearest gap in existing content, highest ICP relevance.

@@ -16,8 +16,9 @@
 | Internal Tools/Operations | 3 | Build vs. buy decisions |
 | Business Model Strategy | 1 | Service → Product transition |
 | Sales/CRM Operations | 1 | Lead management, pipeline tracking |
+| Team Building/Hiring | 1 | Solo to agency transition |
 
-**Total briefs created:** 12
+**Total briefs created:** 13
 
 ---
 
@@ -95,6 +96,12 @@
 - **ICP Problem:** Service businesses losing deals from spreadsheet lead tracking breakage
 - **File:** `briefs/2026-03-02-spreadsheet-to-crm-100-lead-threshold.md`
 
+### 2026-03-03: When to Hire Your First Employee as a Solo Consultant (And Why Most Do It Too Early)
+- **Cluster:** Team Building/Hiring
+- **Primary Keyword:** when to hire first employee consulting business
+- **ICP Problem:** Solo consultants at $250K-$500K revenue unsure when/how to hire, scared of margin compression, unclear on contractor vs. employee
+- **File:** `briefs/2026-03-03-solo-consultant-first-hire-decision.md`
+
 ---
 
 ## Diversity Alerts
@@ -110,3 +117,4 @@
 ## Update Log
 
 - **2026-03-01:** File created. 11 briefs cataloged.
+- **2026-03-03:** Added brief #13 - Solo consultant first hire decision (new cluster: Team Building/Hiring).

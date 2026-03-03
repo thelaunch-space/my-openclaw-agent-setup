@@ -5,11 +5,12 @@
 Durable truths that don't change often.
 
 ### Resources
-- **Source sheet:** `1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g` (blog-queue tab)
+- **Convex endpoint:** `https://curious-iguana-738.convex.site` (SSOT)
+- **API key:** `/home/node/openclaw/credentials/convex-api-key.txt`
 - **Target repo:** thelaunch-space/thelaunchspace
 - **Blog URL pattern:** thelaunch.space/blogs/<topic>/<slug>
-- **Helper script:** `node /home/node/openclaw/scripts/vyasa-sheets-helper.js`
 - **Published blogs tracker:** `/home/node/openclaw/vyasa/published-blogs.md`
+- **Sheets (archive only):** `1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g`
 
 ### Published Blogs
 
@@ -66,7 +67,7 @@ Core framework for all content. Traditional advice was written for expensive/slo
 ### PR Workflow
 - **Push revisions to same branch** - PR updates automatically.
 - **Don't close and reopen** for revisions.
-- **Use `set-published` command** to update sheet: `node scripts/vyasa-sheets-helper.js set-published <row> "<keywords>" "<url>"`
+- **After PR created:** Push blog metadata to Convex via `/push/blogs` endpoint (see TOOLS.md)
 
 ---
 

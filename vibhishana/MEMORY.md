@@ -150,15 +150,28 @@ Learned how-tos from experience.
 
 Krishna's stated choices for my work.
 
-### Signal Priorities (Updated 2026-02-12)
+### Signal Priorities (Updated 2026-03-03)
 
-**High Priority:**
-1. **Small businesses hitting tech limits** - spreadsheets breaking, manual processes, competitors using tech, dev disappeared
-2. **Founders who tried AI tools and failed** - tried Bubble/Webflow/Bolt but stuck, ChatGPT gave unusable code, built 70% can't finish
-3. **Operations/automation pain** - internal tools, workflow automation, scale bottlenecks, integrations
+**FILTER ORDER: Business growth FIRST, building/shipping SECOND**
 
-**Deprioritized:**
-- "Looking for technical cofounder" posts - wrong buying intent (equity vs. service), low conversion
+**PRIMARY (always prioritize):**
+1. **Revenue plateau due to operations** - "Hit $200K can't scale," "20hrs/week admin blocking sales," "Need to systematize to grow"
+2. **Lead generation / GTM struggles** - "Can't get enough clients," "Marketing not working," "Customer acquisition bottleneck"
+3. **Scaling constraints** - "Can't take more clients without hiring," "Operations breaking at volume," "Growth stalling due to backend"
+4. **Service business operations holding back revenue** - "Manual processes eating sales time," "Can't deliver faster = can't sell more"
+
+**SECONDARY (prioritize only when connected to growth):**
+1. **Founders who tried tools and failed** - Bolt/Bubble/ChatGPT stuck (IF blocking business growth)
+2. **Small businesses hitting tech limits** - Spreadsheets breaking, manual processes (IF framed as growth constraint)
+3. **Failed vendor experiences** - Agency/dev disappeared (IF blocking scale/revenue)
+4. **Operations/automation pain** - Workflow bottlenecks, integrations (IF tied to revenue goals)
+
+**DEPRIORITIZED (wrong ICP or wrong intent):**
+- "Looking for technical cofounder" posts - wrong buying intent (equity vs. service)
+- Building questions disconnected from revenue/growth
+- Hobbyist/student learning projects
+- Pure tech stack discussions
+- Speculative/emerging tech (crypto, web3)
 
 ### Content Philosophy
 - **Validation method:** Ads over interviews. Run ads BEFORE building, get real payments, then build.
@@ -182,6 +195,13 @@ Krishna's stated choices for my work.
 ## Setup Log
 
 Chronological history.
+
+### 2026-03-03
+- **PRIORITY REORDERING:** Business growth pain now PRIMARY filter, building/shipping questions SECONDARY.
+- Updated SOUL.md ICP Signals and MEMORY.md Signal Priorities to reflect new hierarchy.
+- Rationale: Attract founders trying to grow businesses (actual ICP), not just people trying to build things.
+- Growth signals: revenue plateau, lead gen struggles, GTM bottlenecks, scaling constraints, operations blocking revenue.
+- Building signals: only prioritize when connected to growth goals.
 
 ### 2026-02-25
 - **MAJOR PIVOT:** Krishna's strong feedback - move away from tech-based communities (too saturated with product builders, not service business owners).

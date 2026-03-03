@@ -467,7 +467,9 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/questions" \
 
 **BEFORE Creating a Brief - Check Queue Depth (from Convex):**
 ```bash
-node /home/node/openclaw/scripts/vibhishana-sheets-helper.js pending-review
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s "https://curious-iguana-738.convex.site/query/briefs?status=pending_review" \
+  -H "Authorization: Bearer $API_KEY"
 ```
 This returns `{ count, slugs, titles }` from Convex. Use this to:
 - Avoid creating duplicate briefs (check slugs)
@@ -655,7 +657,9 @@ Vyasa picks up → writing → pr_created → published
 
 1. **Check today's work in Convex:**
    ```bash
-   node /home/node/openclaw/scripts/vibhishana-sheets-helper.js pending-review
+   API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+   curl -s "https://curious-iguana-738.convex.site/query/briefs?status=pending_review" \
+     -H "Authorization: Bearer $API_KEY"
    ```
 
 2. **Report in Slack:** Summarize briefs created, questions scanned, any issues encountered.

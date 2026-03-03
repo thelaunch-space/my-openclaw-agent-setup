@@ -1,42 +1,40 @@
 # TOOLS.md - Vyasa's Local Notes
 
-## Google Sheets
+## Convex (Primary Data Source)
 
-- Vibhishana's SEO sheet: 1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g
-- Tab: blog-queue
-- **My helper script:** `node /home/node/openclaw/scripts/vyasa-sheets-helper.js`
-  - `list` - show all briefs with status
-  - `ready` - get first "Brief Ready" entry as JSON (use this to pick next blog)
-  - `set-status <row> <status>` - update status (e.g., `set-status 2 Writing`)
-  - `set-published <row> "<keywords>" "<url>"` - update Final Keywords, Blog URL, and set status to "PR Created"
-- Workflow: `ready` → `set-status N Writing` → write blog → PR → `set-published N "<keywords>" "<url>"`
+**Convex is SSOT for all brief/blog operations.**
 
-### Enrichment Commands
-
+### Get Briefs Ready to Write
 ```bash
-# List all published blogs with enrichment data
-node scripts/vyasa-sheets-helper.js list-published
-
-# Get next blog to enrich (oldest enrichment date, NULLs first) as JSON
-node scripts/vyasa-sheets-helper.js next-enrich
-
-# Update enrichment columns after enrichment PR
-node scripts/vyasa-sheets-helper.js set-enrichment <row> <count> "<log>"
-# Example: set-enrichment 3 2 "Added 3 stats, FAQ section, comparison table"
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s "https://curious-iguana-738.convex.site/query/briefs?status=brief_ready" \
+  -H "Authorization: Bearer $API_KEY"
 ```
 
-Enrichment workflow: `next-enrich` → enrich blog → PR → `set-enrichment N <count> "<log>"`
+### Update Brief Status
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/update/brief-status" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"slug": "your-slug", "status": "writing"}'
+```
 
-## Enrichment Tracking (blog-queue sheet)
+### Push Blog After PR Created
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/push/blogs" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"slug": "...", "title": "...", "url": "...", "keywords": [...], ...}'
+```
 
-Additional columns used during enrichment runs:
+Workflow: query `brief_ready` → update status to `writing` → write blog → create PR → push blog to Convex
 
-- **enrichment_count** - how many enrichment passes this blog has had
-- **last_enrichment_date** - when it was last enriched
-- **enrichment_log** - what was added in the last pass
-- **source** - who originated the topic: "vibhishana" or "vidura"
+## Google Sheets (Archive Only)
 
-Selection logic: pick published blog with oldest last_enrichment_date. NULLs first.
+Sheet ID: `1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g`
+**DO NOT read from Sheets. Convex is primary. Sheets is archive/fallback only.**
 
 ## GitHub API
 
