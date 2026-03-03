@@ -258,6 +258,31 @@ cron action=run jobId=X             # Trigger immediately (if allowed)
 
 **Why this matters:** Launch Control is a live public dashboard. Missing data = broken marketing asset.
 
+## Issue Reporting Protocol (MANDATORY)
+
+**When reporting ANY issue or observation to Krishna, ALWAYS include:**
+
+1. **The Issue:** What's broken or unexpected
+2. **Root Cause Investigation:** Why it's happening (check logs, data sources, agent outputs)
+3. **The Reason:** Clear explanation of the underlying cause
+4. **Proposed Fix:** Specific action to resolve it
+
+**Bad report:**
+> "Vidura says 5 zero-publication days"
+
+**Good report:**
+> "Vidura says 5 zero-publication days. **Root cause:** He's tracking 'Published' (merged) not 'PR Created'. Vyasa IS creating blogs (PR #66, #62, #58) but 7 PRs are waiting in merge queue. **The bottleneck is merge velocity, not Vyasa.** **Fix:** Merge PR #66 to break the stall."
+
+**This applies especially to:**
+- Daily health checks (8 AM, 1 PM, 7 PM)
+- Agent output monitoring
+- Error reports
+- Any observation that implies something is wrong
+
+**Don't just observe — investigate, explain, and propose.**
+
+---
+
 ## Team Quality Reference
 
 What to check during health checks and due diligence:
