@@ -17,8 +17,9 @@
 | Business Model Strategy | 1 | Service → Product transition |
 | Sales/CRM Operations | 1 | Lead management, pipeline tracking |
 | Team Building/Hiring | 1 | Solo to agency transition |
+| Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 
-**Total briefs created:** 13
+**Total briefs created:** 14
 
 ---
 
@@ -102,6 +103,12 @@
 - **ICP Problem:** Solo consultants at $250K-$500K revenue unsure when/how to hire, scared of margin compression, unclear on contractor vs. employee
 - **File:** `briefs/2026-03-03-solo-consultant-first-hire-decision.md`
 
+### 2026-03-04: Your Developer Disappeared With Your Code. What Now? (The 72-Hour Decision Framework)
+- **Cluster:** Technical Debt/Code Ownership
+- **Primary Keyword:** developer disappeared with code
+- **ICP Problem:** Non-technical founders in panic mode after developer ghosting, $20K-$50K sunk costs, paralyzed by uncertainty about rescue vs. rebuild vs. walk away
+- **File:** `briefs/2026-03-04-developer-disappeared-code-rescue-decision.md`
+
 ---
 
 ## Diversity Alerts
@@ -118,3 +125,4 @@
 
 - **2026-03-01:** File created. 11 briefs cataloged.
 - **2026-03-03:** Added brief #13 - Solo consultant first hire decision (new cluster: Team Building/Hiring).
+- **2026-03-04:** Added brief #14 - Developer disappeared code rescue (new cluster: Technical Debt/Code Ownership).

@@ -101,10 +101,10 @@
 ### thelaunch.space Angle
 
 **Our unique perspective:**
-We've built CRM integrations for 65+ projects. We've seen clients who switched too early (wasted money on features they didn't need) and clients who waited too late (lost 5-figure deals because of spreadsheet chaos).
+We've built custom business software and CRM integrations across various client projects. Through Reddit research and industry observation, we're seeing a clear pattern: service business owners hit the same spreadsheet breakage point, and most don't realize how much it's costing them until they've lost multiple deals.
 
 **What we can say that generic blogs can't:**
-1. **The 100-lead inflection point is real** - We've seen it dozens of times. Below 100 leads/month, spreadsheets are fine (even optimal for very small operations). At 100-200 leads/month, breakage starts. Above 200, you're hemorrhaging money.
+1. **The 100-lead inflection point is real** - Reddit threads consistently mention 100-200 leads/month as the breakage point. Below 100 leads/month, spreadsheets are fine (even optimal for very small operations). At 100-200 leads/month, breakage starts. Above 200, owners are actively reporting lost revenue. Example: One r/smallbusiness poster quantified $5K in lost deals over 3 months before switching.
 
 2. **Quantify the hidden costs** - Example: If you're closing 10% of leads at $2K average deal size, missing just 5 follow-ups per month = $1K/month lost revenue. That's $12K/year. A CRM costs $14-50/month. The ROI is obvious once you see it.
 
@@ -120,7 +120,7 @@ We've built CRM integrations for 65+ projects. We've seen clients who switched t
 1. **Memorable framework:** "The 100-Lead Threshold" (specific, searchable, repeatable)
 2. **Quantified breakage points:** "At 150 leads/month with 2 team members, expect 8-12% of leads to fall through cracks = $X/month lost"
 3. **Decision tree:** Simple flowchart: leads/month + team size + average deal value = spreadsheet or CRM
-4. **Real practitioner stories:** "Client X lost $15K in 3 months before switching" (anonymized but specific)
+4. **Real practitioner stories:** Reddit examples like the r/smallbusiness poster who lost $5K in 3 months, the consultant managing 200+ leads who missed follow-ups, the agency owner hitting walls at 50+ leads/month
 5. **The honest "when spreadsheets are fine" section** - AI tools love balanced takes
 
 ### Bookmark Test: Why Would Someone Save This?
@@ -152,7 +152,7 @@ This isn't "just another CRM vs spreadsheet comparison." This is the **practitio
 - The problem isn't spreadsheets themselves—it's scale
 
 **H2: The 100-Lead Threshold (And Why It Matters)**
-- Pattern we've seen 65+ times: breakage starts around 100 leads/month
+- A pattern emerging from Reddit threads and industry observation: breakage consistently starts around 100 leads/month
 - Why this number? Human cognitive limits + spreadsheet UI limits
 - The symptoms of breakage:
   - Duplicate entries multiplying
@@ -220,11 +220,11 @@ This isn't "just another CRM vs spreadsheet comparison." This is the **practitio
 
 ### Key Stats/Data Points for Vyasa to Include
 
-1. **The 100-200 lead/month range** - Mention this as the empirical breakage point from Reddit threads and our client work
+1. **The 100-200 lead/month range** - Mention this as the empirical breakage point consistently appearing in Reddit threads across r/smallbusiness and r/entrepreneur
 2. **Industry standard close rates** - 10-20% for B2B service businesses (cite general sales data)
 3. **Time waste quantification** - Service business owners report 10-20 hours/week on spreadsheet maintenance at 200+ leads (from Reddit threads)
 4. **CRM pricing reality** - $14/month (Pipedrive starter), $0 (HubSpot free tier), $50/month (higher tiers) - cite current 2026 pricing
-5. **Migration time** - Most small businesses complete CSV import in under 2 hours (based on our client migrations)
+5. **Migration time** - Most CRM vendors advertise CSV import taking under 2 hours for basic setups; Reddit posters confirm this timeline for small business migrations
 
 ### Backlink Opportunities (Authoritative External Sources)
 
@@ -235,7 +235,7 @@ This isn't "just another CRM vs spreadsheet comparison." This is the **practitio
 
 ### Voice/Tone Guidelines
 
-- **Practitioner to practitioner** - "We've built 65+ CRM integrations and seen this pattern dozens of times"
+- **Practitioner to practitioner** - "We build custom software and see this pattern across Reddit threads and industry discussions"
 - **Honest, not preachy** - "If you're under 50 leads/month, sheets are fine. Don't waste money yet."
 - **Quantified, not hand-wavy** - Always give specific numbers (lead volumes, revenue loss, time waste)
 - **Empathetic to the procrastination** - "We get it. Migration feels like a weekend project you don't have time for. But..."

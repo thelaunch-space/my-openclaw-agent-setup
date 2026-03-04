@@ -33,6 +33,7 @@ Blogs about founder decision-making, validation, growth.
 | 14 | I Validated the Problem. Why Won't Anyone Pay? | /blogs/founder-advice/validated-problem-wont-pay | validated problem no paying customers | Monetization Dead Zone, Vitamin vs Painkiller Test, 150:1 Burden, Payment-First Validation, Credit Card Commitment Filter, 4-Week Rescue Playbook |
 | 16 | Developer Disappeared Mid-Project? Here's Your Recovery Plan | /blogs/founder-advice/dev-disappeared | developer disappeared halfway through project | 72-Hour Triage, Technical Assessment, Salvage vs Rebuild Framework, Finding Rescue Partner, Prevention Red Flags |
 | 17 | How to Handle Customer Feature Requests (When You're Not a PM) | /blogs/founder-advice/feature-request-overwhelm | customer feature requests | Why requests feel overwhelming, 3-Customer Rule, Vision Litmus Test, 48-Hour Validation Sprint, Build-Cost Reality Check, Relationship-First No, Lightweight tracking |
+| 18 | When to Leave Teachable/Kajabi for Custom | /blogs/founder-advice/teachable-kajabi-custom-decision | when to leave teachable for custom | Revenue Threshold Framework, 8-Signal Outgrown Checklist, 2026 Build Spectrum, 3-Year TCO Table, 90-Day Migration Roadmap, When Custom Is Mistake |
 
 ### Cluster: AI Tools & Automation
 Blogs about AI products, automation, AI for non-technical founders.
