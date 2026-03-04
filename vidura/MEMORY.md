@@ -88,6 +88,8 @@
 
 **Tuesday Mar 3 validation:** 10 blogs at [E:2] (53% of published content), ZERO citations all day (7 query-checks). Row 14 (at [E:2] since Saturday) cited Sunday/Monday, NOT cited Tuesday - no stability improvement from [E:2].
 
+**Wednesday Mar 4 validation:** ZERO citations all day (8 query-checks: morning + strategic + midday + evening). 15 consecutive zero-checks across Tue-Wed. Row 14 NOT cited for 84+ hours despite proven Query 2 alignment. Daily variance extreme - citations too unstable for daily tracking.
+
 **CONCLUSION VALIDATED (2+ weeks data):** [E:2] does NOT increase citation frequency OR citation stability. First enrichment pass ([E:1]) sufficient for citation eligibility. Second pass delivers ZERO measurable SEO benefit.
 
 **Evidence:**
@@ -98,7 +100,11 @@
 
 **Strategic implication:** Vyasa's effort better spent on new publications (3 briefs in Brief Ready queue as of Mar 1) than re-enriching [E:1] blogs to [E:2]. 100% [E:1] coverage = citation-ready. [E:2] = diminishing returns / zero ROI.
 
-**CRITICAL CRISIS (Mar 1-3):** 6 consecutive zero-publication days (Thu-Tue, Feb 26-Mar 3) - UNPRECEDENTED. Root cause: Vyasa prioritizing [E:2] enrichment over new publications. Krishna must recalibrate autopilot urgently. 7 days since last publication. 10 briefs in Brief Ready waiting. Pipeline effectively frozen.
+**CRITICAL CRISIS (Feb 26 - Mar 3):** 6 consecutive zero-publication days (Thu-Tue) - UNPRECEDENTED. Root cause: Vyasa prioritizing [E:2] enrichment over new publications. 
+
+**CRISIS RESOLVED (Mar 2-3):** Publication stall broke without Krishna intervention. 4 new blogs published Mar 2-3 (19 → 23 total). Vyasa autopilot recovered. Publication velocity restored. Brief Ready queue healthy (11 briefs as of Mar 4 evening).
+
+**NEW CRISIS DISCOVERED (Mar 4):** 7 of 23 published blogs (30%) have NO cluster assignment - "orphan blogs" not tracked in cluster architecture. Violates AGENTS.md core rule. Undermines strategic SEO planning. Cannot measure cluster health/completeness. Krishna must assign clusters urgently.
 
 **Multi-cluster citation achieved (Feb 24):**
 - Cluster 2 (Build MVPs No-Code): Row 14 cited Feb 23 for 2 queries
