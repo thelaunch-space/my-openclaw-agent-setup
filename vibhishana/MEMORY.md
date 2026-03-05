@@ -10,22 +10,24 @@ Durable truths that don't change often.
 - **Scanner script:** `node /home/node/openclaw/scripts/reddit-scanner.js`
 - **Credentials:** `/home/node/openclaw/credentials/google-service-account.json`
 
-### Subreddits Tracked
-**Core:**
-- r/entrepreneur, r/Entrepreneur - General entrepreneurship
-- r/smallbusiness - Small business owners
-- r/startups - Early-stage founders
-- r/cofounder - Technical cofounder searches
-- r/SaaS, r/indiehackers - Builders
-- r/nocode - No-code users (hitting limits = ICP)
+### Subreddits Tracked (Business Growth Focus ONLY - Updated 2026-03-05)
+**Business Operations & Growth (CORE):**
+- r/smallbusiness - Small business owners (operations, scaling, revenue)
+- r/entrepreneur, r/Entrepreneur - General entrepreneurship (growth focused)
 
-**Verticals:**
-- r/edtech - Education (Krishna's background)
-- r/consulting - Consultants going independent (~150k members)
-- r/HealthTech, r/healthcarestartups - Healthcare founders
-- r/legaltech - Legal tech, lawyers building software (~14k members, added 2026-02-23)
-- r/lawfirm - Solo/small firm practice management, tech stacks, operations (added 2026-03-02)
-- r/lawyers - Professional discussions, includes tech adoption and practice challenges (added 2026-03-02)
+**Service Business Owners (CORE):**
+- r/consulting - Consultants going independent (~150k members, operations/growth focus)
+
+**Domain-Specific Practice Owners (VERTICALS):**
+- r/lawfirm - Solo/small firm practice management, operations, scaling (added 2026-03-02)
+- r/lawyers - Professional discussions, practice challenges (added 2026-03-02)
+- r/edtech - Education practice owners/EdTech companies (Krishna's background)
+
+**REMOVED (2026-03-05 - Krishna mandate):**
+- ❌ r/SaaS, r/indiehackers, r/nocode - BUILDERS not service business owners
+- ❌ r/cofounder - Wrong buying intent (seeking equity partners not service providers)
+- ❌ r/startups - Too early stage/product building focused
+- ❌ r/HealthTech, r/healthcarestartups, r/legaltech - Tech builders not practice owners
 
 ### Communities Discovered (Non-Reddit)
 
@@ -55,11 +57,23 @@ Durable truths that don't change often.
   - **Practice of the Practice Community** - Resources and community for therapists scaling group practices. Podcast + community + consulting. (added 2026-03-02)
   - **The Group Practice Exchange** - Community for therapists growing group practices. Facebook group + resources + trainings. (added 2026-03-02)
 
-**Tech-Adjacent (Lower Priority Now):**
-- **Early Stage Founders Discord** - 2k members, SaaS/service solopreneurs (added 2026-02-09)
-- **No Code Founders Slack** - 30k+ members, non-technical founders hitting tool limits (added 2026-02-23)
-- **This Week in Fintech Slack** - 10k+ fintech operators (added 2026-02-23)
-- **No-Code Exits Newsletter** - "Build to Exit" framework (added 2026-02-23)
+**NEW ADDITIONS - Growth/Revenue Focused (2026-03-05):**
+- **r/sweatystartup** - 120k+ members, bootstrapped service businesses (landscaping, cleaning, pressure washing, HVAC). Nick Huber community - real ops stories, scaling, revenue. NO TECH GLAMOUR. PERFECT FIT.
+- **r/EntrepreneurRideAlong** - 50k members, real service business journeys with revenue breakdowns, pitfalls. Pool cleaning, window washing, local services.
+- **r/marketing** - 1.2M members, digital marketing for service businesses (Google Ads for local services, lead gen funnels)
+- **r/sales** - 400k members, B2B/B2C sales tactics, closing deals for service businesses
+- **r/growthhacking** - 200k members, low-budget marketing hacks for bootstrapped services
+- **Scale LLP** - Distributed law firm model for solo practitioners, referrals, shared work, community
+- **Chamber of Commerce** (local chapters) - Visibility, workshops, mentorship for service business growth
+- **BNI (Business Network International)** - Weekly chapters, referral-focused, trust-building for service businesses
+- **Alignable** - 7M+ US small business members, free platform for local/industry connections
+- **SCORE** - Free SBA mentors for scaling, marketing, operations
+
+**REMOVED - Tech/Building Focused (2026-03-05):**
+- ❌ Early Stage Founders Discord - Product builders not service owners
+- ❌ No Code Founders Slack - Tool builders not business growth
+- ❌ This Week in Fintech Slack - Tech operators not practice owners  
+- ❌ No-Code Exits Newsletter - Building to exit not service business growth
 
 ---
 
@@ -195,6 +209,16 @@ Krishna's stated choices for my work.
 ## Setup Log
 
 Chronological history.
+
+### 2026-03-05
+- **CRITICAL PIVOT - STOP ALL MVP/BUILDING COMMUNITIES**
+- Krishna's direct mandate: STOP scanning MVP, building, cofounder, startup communities entirely
+- **Scanner rewrite:** Replaced all building/MVP keywords with business growth keywords (revenue plateau, lead gen, operations bottlenecks, scaling pain)
+- **Subreddits purged:** Removed r/SaaS, r/indiehackers, r/nocode, r/cofounder, r/startups, r/HealthTech, r/healthcarestartups, r/legaltech
+- **Subreddits kept:** r/smallbusiness, r/entrepreneur, r/consulting, r/lawfirm, r/lawyers, r/edtech (business operations ONLY)
+- **Non-Reddit communities purged:** Removed Early Stage Founders Discord, No Code Founders Slack, This Week in Fintech, No-Code Exits
+- **Focus shift:** ONLY service business owners facing revenue/growth/operations pain. NO product builders, NO cofounder seekers, NO tech enthusiasts.
+- **Action item:** Find NEW communities where service business owners discuss growth struggles, not building struggles.
 
 ### 2026-03-03
 - **PRIORITY REORDERING:** Business growth pain now PRIMARY filter, building/shipping questions SECONDARY.

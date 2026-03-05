@@ -232,6 +232,22 @@ Krishna's stated choices and patterns.
 
 Chronological history of setup and changes.
 
+### 2026-03-05
+- **MAJOR POSITIONING PIVOT:** Moved from "MVP/landing page services" to "Launch Control + agents for small businesses"
+- **Files updated:**
+  - `USER.md` (main + all 6 agent copies): Rewrote offering, ICP, skills, proof points, business goals
+  - `AGENTS.md` (main): Updated Vyasa's desired outcomes
+  - `vyasa/SOUL.md`: Updated strategic intent, proof points, positioning
+  - `vibhishana/AGENTS.md`: Updated thelaunch.space angle, topic examples, founder phases
+  - `vidura/AGENTS.md`: Updated pillar example
+- **New positioning:**
+  - Product: Launch Control (agent orchestration dashboard)
+  - Service: Custom agent teams for services businesses
+  - Proof: This agent team IS the demo (6 agents, 15+ scheduled tasks, public dashboard)
+  - ICP: Services business founders ($30K-$2M) drowning in operational overhead
+  - Tagline: "I run my business on agents. I'll build the same system for yours."
+- **Historical MVP references:** Kept as "background" proof points where relevant, but not primary positioning
+
 ### 2026-03-01
 - **Shakti cron fixes:** Resolved timezone and duplicate cron issues.
   - **Deleted 4 duplicate crons:** Morning, Afternoon, Evening, Weekly had pairs - kept newer ones, deleted older.

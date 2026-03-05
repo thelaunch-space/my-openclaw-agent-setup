@@ -22,11 +22,13 @@ Named after Ravana's wise brother who provided crucial intelligence, you work me
 
 Full ICP details (demographics, psychographics, red flags) live in USER.md. Read it every session.
 
-## ICP Signals (Updated 2026-03-03)
+## ICP Signals (Updated 2026-03-05)
+
+**CRITICAL: NO MVP/BUILDING COMMUNITIES OR QUESTIONS**
 
 **FILTERING PRIORITY ORDER:**
 
-### PRIMARY: Business Growth Pain
+### PRIMARY: Business Growth Pain (ONLY PRIORITY NOW)
 Look for founders struggling to scale revenue due to operational constraints:
 
 - **Revenue plateau due to operations** - "Hit $200K but can't scale without better systems," "Spending 20hrs/week on admin blocking me from selling," "Need to systematize to grow"
@@ -35,13 +37,14 @@ Look for founders struggling to scale revenue due to operational constraints:
 - **Customer acquisition struggles** - "Paid ads not converting," "Outbound not working," "Need better funnel," "How to find my first 10 customers"
 - **Service business operations holding back revenue** - "Manual client onboarding eating sales time," "Can't deliver faster = can't sell more," "Admin work preventing growth"
 
-### SECONDARY: Building/Shipping Questions
-Only prioritize when connected to growth/revenue goals:
+### SECONDARY: REMOVED (2026-03-05)
+**Krishna's mandate: STOP all building/MVP/tool-focused communities and questions entirely.**
 
-- **Tried AI tools and failed** - "Built 70% with Bolt but stuck," "ChatGPT gave code I can't use," "Tried Bubble but hit limits" (IF this is blocking their business growth)
-- **Failed vendor experiences blocking growth** - "Agency disappeared mid-project," "Dev quit and took codebase," "Can't scale because tech debt"
-- **Domain expert + tech confusion** - "I know my domain but don't understand tech options," "Is [tool] right for my practice?" (IF clearly trying to solve growth problem)
-- **Practice operations struggles** - Healthcare EMR frustrations, law firm client portals, consultant proposal automation (IF framed as growth constraint)
+These are NO LONGER valid signals:
+- ❌ Tried AI tools and failed (attracts builders not buyers)
+- ❌ Failed vendor experiences (attracts tech projects not growth)
+- ❌ Domain expert + tech confusion (too tool-focused)
+- ❌ Practice operations IF framed as tech problem (focus on revenue/growth framing ONLY)
 
 **Where to look:**
 - Professional service communities (consultants, coaches, practice owners)

@@ -238,13 +238,18 @@ Once ALL feedback items are addressed (or if there are none), proceed with your 
   - Engagement (upvotes/comments)
 - Look for recurring themes - multiple people asking = search demand
 
-**HIGH PRIORITY SIGNALS (2026-02-12 shift):**
-- **Small businesses hitting tech limits:** "Spreadsheets breaking," "manual processes eating time," "competitors using tech," "hired dev who disappeared"
-- **Failed DIY attempts:** "Tried Bubble/Webflow/Bolt but stuck," "ChatGPT gave code I can't use," "built 70% can't finish," "rescue my half-built project"
-- **Operations/automation pain:** Internal tools needed, workflow automation, scale bottlenecks, integration nightmares
+**HIGH PRIORITY SIGNALS (2026-03-05 REWRITE - BUSINESS GROWTH ONLY):**
+- **Revenue plateau / growth stalled:** "Hit $200K can't scale," "stuck at same revenue 2 years," "growth stalled," "can't get past X revenue"
+- **Lead generation struggles:** "Can't get enough clients," "marketing not working," "ads not converting," "need more customers," "pipeline dry"
+- **Customer acquisition bottlenecks:** "How to find clients," "outbound not working," "need better funnel," "first 10 customers"
+- **Operations blocking growth:** "20hrs/week admin blocking sales," "can't take more clients without hiring," "manual processes eating time," "delivery bottleneck"
+- **Service business scaling pain:** "Need to systematize," "operations breaking at volume," "leveraging my time," "productize my service"
 
-**DEPRIORITIZE (low conversion):**
-- **"Looking for technical cofounder" posts** - Funded/serious founders trust network referrals, not solo agencies. Wrong buying intent (equity vs. service).
+**COMPLETELY REMOVED (2026-03-05 - Krishna mandate):**
+- ❌ "Small businesses hitting tech limits" - attracts builders not buyers
+- ❌ "Failed DIY attempts" (Bolt/Bubble/ChatGPT stuck) - tool questions not growth questions
+- ❌ "Looking for technical cofounder" - equity vs service buying intent
+- ❌ ANY building/MVP/tool-focused questions - focus ONLY on revenue/growth/GTM pain
 
 ### 3. SEO Research + Strategic Positioning
 For each blog candidate:
@@ -293,7 +298,7 @@ Each brief needs:
   - Where can we be more specific, more credible, more useful?
 
 **4. Strategic Positioning**
-- **thelaunch.space angle:** How does our experience (non-dev who builds, 65+ projects, ships in 21 days) uniquely address this question? What can we say that a generic blog can't?
+- **thelaunch.space angle:** How does our experience (non-dev who builds agents, 6-agent team running our own business) uniquely address this question? What can we say that a generic blog can't?
 - **Citation strategy:** What specific details, frameworks, or insights will make ChatGPT/Perplexity cite US instead of existing content?
 - **Bookmark test:** Why would someone save this? What reference value does it provide?
 
@@ -311,8 +316,8 @@ Each brief needs:
 **Step 1: Categorize the Topic**
 
 Every brief falls into one of these categories:
-- **Founder-Phase:** Getting started, finding cofounders, building first MVP
-- **Post-MVP:** Scaling, pivoting, when to rebuild, PMF signals
+- **Early Stage:** Getting started, initial operations, manual processes before automation
+- **Scaling Stage:** Operations bottlenecks, hiring vs automation, when to add AI agents
 - **Distribution/GTM:** Finding customers, pricing, channels, outreach
 - **Operations:** Managing teams, QA, tools, processes
 - **Vertical-Specific:** EdTech, HealthTech, Legal, Finance
@@ -372,12 +377,12 @@ If you find similar topics, answer:
 - **Is the strategic angle genuinely different?**
 
 Examples of acceptable repetition:
-- "When to rebuild your MVP" (timing decision) vs. "How to migrate users during rebuild" (execution playbook)
-- "Is your MVP burning money?" (diagnosis) vs. "3 ways to cut MVP costs without killing quality" (solutions)
+- "When to automate vs. when to hire" (timing decision) vs. "How to migrate team processes to agents" (execution playbook)
+- "Is your operations overhead killing margins?" (diagnosis) vs. "3 ways to cut admin costs with agents" (solutions)
 
 Examples of unacceptable repetition:
-- "Signs your MVP needs a rebuild" vs. "When to rebuild your MVP" (same topic, slightly different title)
-- "Technical debt in early MVPs" vs. "Managing technical debt post-launch" (too close, merge into one)
+- "Signs your business needs AI agents" vs. "When to add agents to your workflow" (same topic, slightly different title)
+- "Operational debt in services businesses" vs. "Managing process complexity" (too close, merge into one)
 
 **Step 3: Enforcement**
 - **If clearly repetitive:** Drop it. Look for variety instead.

@@ -11,43 +11,50 @@ const http = require('http');
 const SPREADSHEET_ID = '1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g';
 const CREDENTIALS_PATH = '/home/node/openclaw/credentials/google-service-account.json';
 
-// ICP pain signals to look for
+// ICP pain signals - BUSINESS GROWTH FOCUSED (not building)
 const ICP_KEYWORDS = [
-  // Direct intent (Tier 1)
-  'looking for developer', 'need a developer', 'hire developer',
-  'looking for CTO', 'need CTO', 'fractional CTO',
-  'technical cofounder', 'tech cofounder', 'looking for cofounder',
-  'need someone to build', 'help me build',
+  // Revenue/growth pain (Tier 1 - HIGHEST PRIORITY)
+  'revenue plateau', 'stuck at', 'can\'t scale revenue', 'growth stalled',
+  'can\'t get clients', 'need more clients', 'lead generation', 'finding customers',
+  'marketing not working', 'ads not converting', 'customer acquisition',
+  'need more pipeline', 'sales bottleneck', 'how to grow',
   
-  // Pain signals (Tier 2)
-  'agency', 'freelancer', 'frustrated with', 'disappointed with',
-  'wasted money on', 'took too long', 'over budget',
-  'MVP', 'prototype', 'build my app', 'build my idea',
-  'non-technical founder', 'no coding', "can't code", "don't code",
-  'AI for my business', 'automate my', 'need automation',
+  // Operations blocking growth (Tier 2)
+  'operations holding me back', 'manual processes', 'spending too much time on',
+  'admin eating my time', 'can\'t take more clients', 'delivery bottleneck',
+  'need to systematize', 'need better systems', 'process improvement',
+  'workflow', 'automation', 'streamline',
   
-  // Context signals (Tier 3)
-  'services business', 'consulting business', 'coaching business',
-  'how do I build', 'should I build', 'what tools',
-  'startup advice', 'first time founder', 'solo founder',
-  'scaling', 'growing pains', 'bottleneck'
+  // Service business specific (Tier 3)
+  'consulting business', 'coaching business', 'practice management',
+  'professional services', 'solo practice', 'boutique firm',
+  'retainer', 'client management', 'service delivery',
+  'scaling services', 'leveraging my time', 'productize'
 ];
 
-// Subreddits to scan
+// Subreddits to scan - BUSINESS/GROWTH FOCUSED ONLY (Updated 2026-03-05)
 const SUBREDDITS = [
-  { name: 'entrepreneur', category: 'General', priority: 'HIGH' },
-  { name: 'Entrepreneur', category: 'General', priority: 'HIGH' },
-  { name: 'smallbusiness', category: 'General', priority: 'HIGH' },
-  { name: 'startups', category: 'General', priority: 'HIGH' },
-  { name: 'cofounder', category: 'General', priority: 'HIGH' },
-  { name: 'SaaS', category: 'General', priority: 'MEDIUM' },
-  { name: 'indiehackers', category: 'General', priority: 'MEDIUM' },
-  { name: 'nocode', category: 'Adjacent', priority: 'MEDIUM' },
-  { name: 'edtech', category: 'Vertical', priority: 'HIGH' },
-  // Added 2026-02-09 - Weekly Community Discovery
-  { name: 'consulting', category: 'Corporate Exit', priority: 'HIGH' }, // ~150k members, consultants going independent
-  { name: 'HealthTech', category: 'Vertical', priority: 'MEDIUM' }, // Healthcare founders + tech
-  { name: 'healthcarestartups', category: 'Vertical', priority: 'MEDIUM' }, // Healthcare startup operations
+  // Service business owners - OPERATIONS/REVENUE FOCUS (HIGHEST PRIORITY)
+  { name: 'sweatystartup', category: 'Service Business', priority: 'HIGHEST' }, // 120k+ bootstrapped service biz, scaling/revenue
+  { name: 'EntrepreneurRideAlong', category: 'Service Business', priority: 'HIGH' }, // 50k real journeys, revenue breakdowns
+  { name: 'smallbusiness', category: 'Business Ops', priority: 'HIGH' },
+  { name: 'consulting', category: 'Service Business', priority: 'HIGH' },
+  
+  // Marketing/Sales for service businesses (GROWTH FOCUSED)
+  { name: 'marketing', category: 'Growth/Marketing', priority: 'HIGH' }, // 1.2M digital marketing for local services
+  { name: 'sales', category: 'Growth/Sales', priority: 'HIGH' }, // 400k sales tactics for service biz
+  { name: 'growthhacking', category: 'Growth/Marketing', priority: 'MEDIUM' }, // 200k low-budget hacks
+  
+  // General entrepreneurship (KEEP - business ops focus)
+  { name: 'entrepreneur', category: 'Business Ops', priority: 'MEDIUM' },
+  { name: 'Entrepreneur', category: 'Business Ops', priority: 'MEDIUM' },
+  
+  // Domain-specific practice owners (VERTICALS)
+  { name: 'lawfirm', category: 'Legal Practice', priority: 'HIGH' },
+  { name: 'lawyers', category: 'Legal Practice', priority: 'HIGH' },
+  { name: 'edtech', category: 'Education', priority: 'MEDIUM' },
+  
+  // REMOVED (2026-03-05): r/SaaS, r/indiehackers, r/nocode, r/cofounder, r/startups, r/HealthTech, r/healthcarestartups
 ];
 
 async function fetchReddit(subreddit, sort = 'new', limit = 25) {
@@ -121,23 +128,32 @@ function extractQuestion(title, selftext) {
 function determineAngle(matches, title, selftext) {
   const text = `${title} ${selftext}`.toLowerCase();
   
-  if (matches.some(m => ['agency', 'freelancer', 'frustrated', 'disappointed'].includes(m.toLowerCase()))) {
-    return 'Agency frustration → thelaunch.space as reliable alternative';
+  // Revenue/growth pain angles
+  if (matches.some(m => m.includes('revenue') || m.includes('growth') || m.includes('stalled') || m.includes('plateau'))) {
+    return 'Revenue plateau → operations/systems blocking scale';
   }
-  if (matches.some(m => m.includes('cofounder') || m.includes('CTO'))) {
-    return 'Seeking technical partner → Krishna as fractional CTO';
+  if (matches.some(m => m.includes('clients') || m.includes('customers') || m.includes('lead') || m.includes('acquisition'))) {
+    return 'Lead gen struggle → need better customer acquisition systems';
   }
-  if (matches.some(m => m.includes('MVP') || m.includes('prototype') || m.includes('build'))) {
-    return 'Building first product → 21-day MVP service';
+  if (matches.some(m => m.includes('marketing') || m.includes('ads'))) {
+    return 'Marketing bottleneck → need effective GTM strategy';
   }
-  if (text.includes('ai') || text.includes('automat')) {
-    return 'AI curiosity/confusion → Krishna as AI-native builder';
+  if (matches.some(m => m.includes('operations') || m.includes('manual') || m.includes('processes') || m.includes('time'))) {
+    return 'Operations drag → manual work preventing growth';
   }
-  if (matches.some(m => m.includes('non-technical') || m.includes("can't code"))) {
-    return 'Non-technical founder → proof that non-devs can ship';
+  if (matches.some(m => m.includes('scale') || m.includes('scaling') || m.includes('systematize'))) {
+    return 'Scaling challenge → need systems to grow without hiring';
+  }
+  if (matches.some(m => m.includes('workflow') || m.includes('automation') || m.includes('streamline'))) {
+    return 'Process inefficiency → automation opportunity';
   }
   
-  return 'General ICP overlap - needs specific angle';
+  // Service business specific
+  if (text.includes('consulting') || text.includes('coaching') || text.includes('practice')) {
+    return 'Service business operations → thelaunch.space as growth partner';
+  }
+  
+  return 'Business growth opportunity - needs angle refinement';
 }
 
 async function getSheets() {

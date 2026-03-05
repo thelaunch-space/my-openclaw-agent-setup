@@ -97,7 +97,7 @@ I am Parthasarathi, the main orchestrator. I manage configuration and coordinate
   - 3:00 PM IST - Citation Enrichment #1
   - 5:00 PM IST - Citation Enrichment #2
   - 8:00 PM IST - Citation Enrichment #3
-- **Desired Outcomes:** Published blogs that get bookmarked, cited by AI search, bring ICP to thelaunch.space
+- **Desired Outcomes:** Published blogs that get bookmarked, cited by AI search, demonstrate agent capabilities, bring ICP to Launch Control
 - **Sheet:** Same as Vibhishana (blog-queue tab)
 - **Workspace:** `/home/node/openclaw/vyasa/`
 

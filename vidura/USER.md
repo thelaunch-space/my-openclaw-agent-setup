@@ -2,95 +2,103 @@
 
 ## Who Krishna Is
 
-Krishna is the solo founder of thelaunch.space - an AI-first execution studio that converts founder ideas into shipped products in weeks.
+Krishna is the solo founder of thelaunch.space - building Launch Control (an AI agent orchestration system) and custom agent teams for small businesses.
 
 - Former EdTech leader: 9+ years at BYJU'S, AVP level, 300+ person team
 - Non-developer who builds production software through prompting - 65 projects in 14 months
-- Expert in Claude Code, Anthropic API, CLI-based AI tools, Supabase
-- Runs end-to-end tech for small businesses
+- Expert in Claude Code, Anthropic API, CLI-based AI tools, agent orchestration
+- Runs his own business on agents (this team you're part of is the proof)
 
 ## Unfair Advantages
 
-1. **Product thinking** — Don't just build; think strategically about what to build and why
-2. **Non-dev who builds** — Understand founder pain firsthand because I AM a non-technical founder who ships
-3. **Education background** — 10 years teaching/curriculum design. Can explain and teach, not just deliver
-4. **Speed + quality combo** — Ship as fast as anyone but with production-grade quality
+1. **Living proof** — Running my own business on the exact agent system I sell. Not theoretical - you're part of the demo.
+2. **Non-dev who builds agents** — Understand founder pain firsthand. Built a 6-agent team without writing code.
+3. **Education background** — 10 years teaching/curriculum design. Can explain agent concepts to non-technical founders.
+4. **Workflow thinking** — See business operations as workflows to automate, not features to build.
 
 ## Skills (for credible content topics)
 
-- **Expert:** Prompt engineering, Bolt.new, vibe-coding, product strategy, MVP methodology, curriculum design
-- **Proficient:** Claude/OpenAI APIs, Supabase, Convex, Make.com, Cursor, Claude Code, Netlify, AI-UX design
-- **Intermediate:** SQL, database schema, GitHub, LLM fine-tuning
-- **Learning:** CI/CD, Docker, RAG, serverless, MLOps
+- **Expert:** Agent orchestration, prompt engineering, Claude Code, OpenClaw, multi-agent workflows, Convex, product strategy, curriculum design
+- **Proficient:** Claude/OpenAI APIs, Supabase, Cursor, Bolt.new, Make.com, Netlify, AI-UX design
+- **Intermediate:** SQL, database schema, GitHub, LLM fine-tuning, RAG
+- **Learning:** CI/CD, Docker, serverless, MLOps
 
 ## What thelaunch.space Does
 
-Ships MVPs, landing pages, and AI tools for non-technical founders. Thinks like a cofounder, builds like a CTO.
+Builds AI agent teams for small businesses. The same system running your marketing, SEO, and operations - productized for other founders.
 
-- **Services:** MVPs ($1,500-$4,000), Landing Pages ($500-$1,500), Growth Partnerships ($2,000-$5,000/mo)
-- **Tagline:** "21 days. idea to revenue."
-- **Close rate:** 80% (8/10 founders converted)
-- **Bottleneck:** Lead generation - top of funnel is the constraint. Sales is NOT the problem.
+- **Product:** Launch Control - agent orchestration dashboard showing live agent work (thelaunch.space/launch-control)
+- **Service:** Custom agent teams - SEO agents, content agents, ops agents, research agents built for specific business workflows
+- **Proof:** This agent team (you, Vibhishana, Vyasa, Valmiki, Vidura, Shakti) IS the product demo
+- **ICP:** Services businesses ($30K-$2M revenue) drowning in manual work that agents could handle
+- **Positioning:** "I run my business on agents. I'll build the same system for yours."
 
 ## Proof Points
 
-**Marquee Client:** Beacon House (14+ month retainer) — education consultancy focused on Ivy League admissions. Built their entire digital infrastructure.
+**Primary proof:** This agent team (thelaunch.space/launch-control)
+- 6 specialized agents: Parthasarathi (orchestrator), Vibhishana (SEO research), Vyasa (blog writing), Valmiki (LinkedIn), Vidura (strategy), Shakti (ops)
+- Runs 15+ scheduled tasks daily
+- Produces 1 blog/day, LinkedIn posts, Reddit scanning, SEO briefs - all autonomous
+- Public dashboard shows live agent work
 
-**Speed examples:**
-- DirectShelf: D2C investor demo — 1-day turnaround
-- Benzorgo PWA: Field sales app for 40+ reps — 3-4 week delivery
-- Tripture Travel: Instagram growth — 200 followers/week
+**Marquee Client:** Beacon House (14+ month retainer) — education consultancy. Built their entire digital infrastructure. Future agent candidate.
 
-**Scale examples:**
-- Wise Tutor: 50+ lesson plans generated before retiring
-- PDFtoQuickBooks: Saves bookkeepers 5+ hours/week
+**Historical wins (MVP era - can reference as background):**
+- 65+ projects shipped in 14 months
 - Bolt.new: CEO reached out; wrote official curriculum
+- PDFtoQuickBooks: Saves bookkeepers 5+ hours/week
 
 **Mentoring:** Coached a non-technical PM to land a $500 gig in 14 days, now doing high-ticket projects
 
-## Verticals with Proven Experience
+## Verticals with Agent Potential
 
-Use for lead qualification — Krishna has shipped in these domains:
-- **Education / EdTech** (Beacon House, Wise Tutor, Capstone, Universal Education)
-- **Healthcare / Pharma** (VitalyF, Benzorgo Sales Officer PWA)
-- **D2C / E-commerce** (DirectShelf, UGC Factory)
-- **Finance / Invoicing** (EasyInvoice, PDFtoQuickBooks, AdvisorIQ)
-- **AI / Developer Tools** (First Prompt, Bolt.new curriculum, X Growth Engine, OpenClaw)
-- **Travel** (Tripture Travel)
-- **Community** (LetsPOAI)
+Use for lead qualification — high-touch services businesses where agents can handle operational overhead:
+- **Education / Consulting** (Beacon House model - research, content, client prep)
+- **Professional Services** (Strategy consulting, coaching, legal ops)
+- **Healthcare Admin** (Patient prep, scheduling, follow-ups)
+- **Finance / Accounting** (Document processing, client communication)
+
+**Why these verticals:** High client volume, repetitive research tasks, content needs, operational overhead that doesn't require human judgment.
 
 ## Krishna's Ideal Client (ICP)
 
-Domain-expert founders, aged 35-50, who've transitioned from corporate or had a startup exit. Running premium services businesses ($30K-$2M revenue) in education, healthcare, legal, finance, or professional services.
+Services business founders (35-55) drowning in operational overhead. Running profitable businesses ($30K-$2M revenue) in education, consulting, professional services, healthcare, legal, or finance. Aware that AI can help but don't know how to implement agent workflows.
 
 **Key traits:**
-- HIGH awareness that AI can transform their business, LOW clarity on implementation
-- Value speed over cost, partnership over vendor relationships
-- Done waiting 6 months for agencies to deliver mediocre work
-- Non-technical but deeply smart in their domain
+- SEES other businesses using AI, KNOWS they're falling behind
+- Has repetitive operational work: research, content, scheduling, client prep, follow-ups
+- Currently doing this manually or paying staff to do low-leverage work
+- Values outcomes over understanding the tech ("just make it work")
+- Willing to invest $2-5K/month for systems that free up their time
 
 **Example archetypes:**
-- 45-year-old ex-McKinsey partner running a boutique strategy consultancy
-- 40-year-old exited founder building a premium admissions consulting firm
-- 38-year-old executive coach wanting to scale their proprietary framework
-- 50-year-old running a law firm watching younger competitors use tech
+- Education consultant manually researching every school for every client (Beacon House model)
+- Strategy consultant spending 10 hours/week on content marketing
+- Law firm partner whose team wastes time on document prep
+- Executive coach drowning in admin between sessions
+
+**Buying signals (what to watch for):**
+- "I spend too much time on X" (X = research, content, admin, follow-ups)
+- Hiring for ops/admin roles that could be automated
+- Posts about scaling challenges without adding headcount
+- Interest in AI tools but frustrated by DIY complexity
 
 **Red flags (NOT a fit):**
-- "I need it cheap" - cost over value
-- "I have detailed specs" - wants order-taker, not partner
-- "We need to involve our IT team" - enterprise process
-- Pre-revenue with no budget
+- Wants to understand and control every technical detail
+- Pre-revenue or no budget for systems
+- "I just need one quick task automated" (too small)
+- Enterprise with IT approval processes
 
 ## Where to Find Leads
 
 | Channel | Signal to Watch For |
 |---------|-------------------|
-| LinkedIn | Domain experts posting about operational struggles, scaling challenges, or AI curiosity |
-| X/Twitter | Non-tech founders building in public, complaining about agencies, asking about AI tools |
-| Reddit | r/entrepreneur, r/smallbusiness, r/startups - posts about needing tech help, AI confusion |
-| Job boards | Non-tech companies hiring for CTO/dev roles = buying signal (they need tech but can't build it) |
-| Startup news | Funding announcements for services companies, domain-expert founders in the news |
-| Podcasts | Industry-specific podcasts featuring domain experts talking about scaling challenges |
+| LinkedIn | Services founders posting about drowning in manual work, scaling without headcount, AI curiosity |
+| X/Twitter | Founders frustrated with repetitive tasks, asking about AI agents/automation |
+| Reddit | r/entrepreneur, r/smallbusiness, r/consulting - posts about operational overhead, hiring challenges |
+| Existing network | Past MVP clients who now need ongoing operational help |
+| Vertical communities | Education consultants, coaches, legal ops - anyone doing high-touch client work |
+| Job postings | Services companies hiring ops/admin roles = work that agents could do |
 
 ## How Krishna Works
 
@@ -122,10 +130,10 @@ Domain-expert founders, aged 35-50, who've transitioned from corporate or had a 
 
 - Revenue target: $100-150k/year (~$8-12k/month)
 - Current: Under $2k/month (need 4-6x growth)
-- Model: 2-3 retainer clients + 1-2 projects/month
-- Grow X from 1,200 to meaningful following
-- Establish thought leadership in "non-dev who builds" space
-- Workshops track: Schools for visibility, corporate for high-ticket revenue
+- Model: 2-4 agent-team retainer clients ($2-5K/month each)
+- Launch Control as portfolio proof / lead magnet
+- Establish thought leadership in "agents for small businesses" space
+- Content focus: Show the agent team in action, document the build-in-public journey
 
 ## What Energizes Krishna
 

@@ -209,7 +209,7 @@ curl -s -X POST https://curious-iguana-738.convex.site/push/topic-clusters \
 ```
 
 **Field notes:**
-- `pillarName`: Top-level content pillar (e.g., "MVP Development", "AI Tools")
+- `pillarName`: Top-level content pillar (e.g., "AI Agents for Business", "Operations Automation")
 - `clusterTopic`: Specific topic within the pillar
 - `status`: `"planned"` · `"in_progress"` · `"complete"`
 - `targetKeyword`: SEO keyword for this cluster
