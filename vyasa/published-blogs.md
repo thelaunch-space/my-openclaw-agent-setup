@@ -4,45 +4,53 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
+**Total Published: 24 blogs** (as of 2026-03-05)
+
 ## Topic Clusters
 
 Blogs are grouped into clusters. Google treats clusters as authority signals — blogs within the same cluster should link to each other when relevant. Cross-cluster links are fine when the content genuinely connects.
 
-### Cluster: Startup MVPs & Building
+### Cluster: Startup MVPs & Building (8 blogs)
 Blogs about building products, finding cofounders, MVP methodology.
 
-| # | Title | URL | Primary Keyword | Key Headings |
-|---|-------|-----|-----------------|--------------|
-| 1 | How to Find a Technical Cofounder (Without Getting Ghosted) | /blogs/startup-mvps/how-to-find-technical-cofounder | find technical cofounder | Where to look, What cofounders want, Red flags, Alternatives |
-| 2 | Build Your MVP Without Coding: AI-First Tools That Actually Work | /blogs/startup-mvps/build-mvp-without-coding-ai-tools | build MVP without coding | AI tools comparison, When to use what, Real cost breakdown |
-| 4 | Why Your Agency Wasted $30K on Your MVP (And What to Do Instead) | /blogs/startup-mvps/why-agency-mvp-failed | agency MVP failed | Agency failure patterns, DIY alternatives, AI-first approach |
-| 15 | Why Your MVP Costs Too Much (And How to Fix It Before You Build) | /blogs/startup-mvps/why-mvp-costs-too-much-validation-first | MVP costs | 10-20% revenue framework, Ads-first validation, Sean Ellis Test, 7% Retention Rule, 5 Decision Questions |
+| # | Title | URL | Primary Keyword |
+|---|-------|-----|-----------------|
+| 1 | How to Find a Technical Cofounder (Without Getting Ghosted) | /blogs/startup-mvps/how-to-find-technical-cofounder | find technical cofounder |
+| 2 | Build Your MVP Without Coding: AI-First Tools That Actually Work | /blogs/startup-mvps/build-mvp-without-coding-ai-tools | build MVP without coding |
+| 3 | Why Your Agency Wasted $30K on Your MVP (And What to Do Instead) | /blogs/startup-mvps/why-agency-mvp-failed | agency MVP failed |
+| 4 | Why Your MVP Costs Too Much (And How to Fix It Before You Build) | /blogs/startup-mvps/why-mvp-costs-too-much-validation-first | MVP costs |
+| 5 | Agency vs In-House Development: The Real Tradeoffs | /blogs/startup-mvps/agency-vs-in-house-development | agency vs in-house development |
+| 6 | Can't Find a Technical Cofounder? Here's What to Do | /blogs/startup-mvps/find-technical-cofounder-alternative | technical cofounder alternative |
+| 7 | Hire a Developer or Build with AI? A Decision Framework | /blogs/startup-mvps/hire-developer-vs-build-with-ai | hire developer vs build with AI |
+| 8 | When No-Code Tools Stop Working (And What to Do Next) | /blogs/startup-mvps/when-no-code-tools-stop-working | no-code tools limitations |
 
-### Cluster: Founder Advice & Strategy
+### Cluster: Founder Advice & Strategy (12 blogs)
 Blogs about founder decision-making, validation, growth.
 
-| # | Title | URL | Primary Keyword | Key Headings |
-|---|-------|-----|-----------------|--------------|
-| 3 | How to Validate Your Startup Idea as a Domain Expert | /blogs/founder-advice/validate-startup-idea-domain-expert | validate startup idea | Domain expertise advantage, Validation framework, Testing demand |
-| 6 | CRM for Small Service Businesses: Pick One Your Team Will Actually Use | /blogs/founder-advice/crm-for-small-service-business | CRM for small service business | Why teams abandon CRMs, 5-person inflection point, Adoption Pyramid, Three paths, What to track, Good enough test |
-| 7 | When to Stop Using Spreadsheets for Leads (And What to Build Instead) | /blogs/founder-advice/when-to-stop-using-spreadsheets-for-leads | spreadsheet for lead management | 3 signs spreadsheet is failing, CRM trap, Middle path custom system, Build vs buy math, Action plan |
-| 8 | When to Skip Landing Page Tests and Just Talk to Customers | /blogs/founder-advice/when-to-skip-landing-page-tests | landing page validation startup | Bot traffic reality, B2B vs B2C validation, Decision framework, What to do instead, When to still use landing pages |
-| 11 | Do Solo Lawyers Really Need Case Management Software? | /blogs/founder-advice/solo-lawyer-case-management-decision | case management software solo lawyer | Practice-Size Decision Tree, Admin Time Costs, Workflow-First Evaluation, 3-Year TCO Comparison, When Custom Beats SaaS |
-| 12 | Why Your Landing Page Gets Zero Signups | /blogs/founder-advice/landing-page-zero-signups-distribution | landing page zero conversions | Distribution Ladder, Trust-First Launch Sequence, 5:1 Rule, Community Participation by Vertical, Rescue Playbook |
-| 13 | Zero Signups After Launch? Here's What Actually Works | /blogs/founder-advice/zero-signups-participation-shift | how to get first customers after launch | Creating vs Entering Demand, Promotion-to-Participation Shift, 5:1 Contribution Rule, Rescue Playbook, Helper Permission Structure |
-| 14 | I Validated the Problem. Why Won't Anyone Pay? | /blogs/founder-advice/validated-problem-wont-pay | validated problem no paying customers | Monetization Dead Zone, Vitamin vs Painkiller Test, 150:1 Burden, Payment-First Validation, Credit Card Commitment Filter, 4-Week Rescue Playbook |
-| 16 | Developer Disappeared Mid-Project? Here's Your Recovery Plan | /blogs/founder-advice/dev-disappeared | developer disappeared halfway through project | 72-Hour Triage, Technical Assessment, Salvage vs Rebuild Framework, Finding Rescue Partner, Prevention Red Flags |
-| 17 | How to Handle Customer Feature Requests (When You're Not a PM) | /blogs/founder-advice/feature-request-overwhelm | customer feature requests | Why requests feel overwhelming, 3-Customer Rule, Vision Litmus Test, 48-Hour Validation Sprint, Build-Cost Reality Check, Relationship-First No, Lightweight tracking |
-| 18 | When to Leave Teachable/Kajabi for Custom | /blogs/founder-advice/teachable-kajabi-custom-decision | when to leave teachable for custom | Revenue Threshold Framework, 8-Signal Outgrown Checklist, 2026 Build Spectrum, 3-Year TCO Table, 90-Day Migration Roadmap, When Custom Is Mistake |
+| # | Title | URL | Primary Keyword |
+|---|-------|-----|-----------------|
+| 9 | How to Validate Your Startup Idea as a Domain Expert | /blogs/founder-advice/validate-startup-idea-domain-expert | validate startup idea |
+| 10 | CRM for Small Service Businesses: Pick One Your Team Will Actually Use | /blogs/founder-advice/crm-for-small-service-business | CRM for small service business |
+| 11 | When to Stop Using Spreadsheets for Leads (And What to Build Instead) | /blogs/founder-advice/when-to-stop-using-spreadsheets-for-leads | spreadsheet for lead management |
+| 12 | When to Skip Landing Page Tests and Just Talk to Customers | /blogs/founder-advice/when-to-skip-landing-page-tests | landing page validation startup |
+| 13 | Do Solo Lawyers Really Need Case Management Software? | /blogs/founder-advice/solo-lawyer-case-management-decision | case management software solo lawyer |
+| 14 | Why Your Landing Page Gets Zero Signups | /blogs/founder-advice/landing-page-zero-signups-distribution | landing page zero conversions |
+| 15 | Zero Signups After Launch? Here's What Actually Works | /blogs/founder-advice/zero-signups-participation-shift | how to get first customers after launch |
+| 16 | I Validated the Problem. Why Won't Anyone Pay? | /blogs/founder-advice/validated-problem-wont-pay | validated problem no paying customers |
+| 17 | Developer Disappeared Mid-Project? Here's Your Recovery Plan | /blogs/founder-advice/dev-disappeared | developer disappeared halfway through project |
+| 18 | How to Handle Customer Feature Requests (When You're Not a PM) | /blogs/founder-advice/feature-request-overwhelm | customer feature requests |
+| 19 | Post-MVP Doubt: Should You Keep Going or Quit? | /blogs/founder-advice/post-mvp-doubt-should-you-keep-going | post-MVP doubt |
+| 20 | Why Most Founders Fail at Distribution | /blogs/founder-advice/why-founders-fail-distribution-getting-customers | founder distribution failure |
 
-### Cluster: AI Tools & Automation
+### Cluster: AI Tools & Automation (4 blogs)
 Blogs about AI products, automation, AI for non-technical founders.
 
-| # | Title | URL | Primary Keyword | Key Headings |
-|---|-------|-----|-----------------|--------------|
-| 5 | I Built My App With AI. Now What? | /blogs/ai-tools/ai-generated-code-deployment-reality | deploy AI generated code production | Why AI code feels like trap, Tool reality check, Three paths forward, $1,000 calculator, Rescue pathway |
-| 9 | Invoice Automation for Small Businesses: When to Automate | /blogs/ai-tools/invoice-automation-small-business-ocr-custom | invoice automation small business | Decision Framework, When to Stay Manual, OCR Failure Modes, When Custom Beats Both, PDFtoQuickBooks Case Study, Decision Calculator |
-| 10 | When Vibe Coding Breaks at Scale: The 3-Flow Wall | /blogs/ai-tools/vibe-coding-scaling-wall | vibe coding production problems | What is the 3-Flow Wall, Why AI Coding Tools Break at Scale, Fix-and-Break Cycle Diagnosis, 3-Flow Wall Decision Tree, Tool Graduation Path |
+| # | Title | URL | Primary Keyword |
+|---|-------|-----|-----------------|
+| 21 | I Built My App With AI. Now What? | /blogs/ai-tools/ai-generated-code-deployment-reality | deploy AI generated code production |
+| 22 | Invoice Automation for Small Businesses: When to Automate | /blogs/ai-tools/invoice-automation-small-business-ocr-custom | invoice automation small business |
+| 23 | When Vibe Coding Breaks at Scale: The 3-Flow Wall | /blogs/ai-tools/vibe-coding-scaling-wall | vibe coding production problems |
+| 24 | Best AI Tools for Non-Technical Founders to Build MVPs | /blogs/ai-tools/ai-tools-non-technical-founders-mvp | AI tools non-technical founders |
 
 ## Internal Linking Rules
 
@@ -57,11 +65,7 @@ Blogs about AI products, automation, AI for non-technical founders.
 
 ## How to Update This File
 
-After submitting every PR, add a new row to the relevant cluster table:
-
-| # | Title | URL | Primary Keyword | Key Headings |
-
-If the blog doesn't fit an existing cluster, create a new cluster section with a descriptive name.
+After submitting every PR, add a new row to the relevant cluster table with the next sequential number.
 
 Use the topic slug categories from AGENTS.md:
 - startup-mvps → Cluster: Startup MVPs & Building

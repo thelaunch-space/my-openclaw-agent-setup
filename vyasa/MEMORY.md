@@ -12,19 +12,22 @@ Durable truths that don't change often.
 - **Published blogs tracker:** `/home/node/openclaw/vyasa/published-blogs.md`
 - **Sheets (archive only):** `1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g`
 
-### Published Blogs
+### Published Blogs Summary (as of 2026-03-05)
 
-| # | Title | URL | Published |
-|---|-------|-----|-----------|
-| 1 | How to Find a Technical Cofounder (Without Getting Ghosted) | /blogs/startup-mvps/how-to-find-technical-cofounder | 2026-02-09 |
-| 2 | How to Build an MVP Without Coding: The AI-First Playbook | /blogs/startup-mvps/build-mvp-without-coding-ai-tools | 2026-02-09 |
-| 3 | How to Validate a Startup Idea When You're Already a Domain Expert | /blogs/founder-advice/validate-startup-idea-domain-expert | 2026-02-10 |
-| 4 | Why Your Agency Wasted $30K on Your MVP (And What to Do Instead) | /blogs/startup-mvps/why-agency-mvp-failed | 2026-02-11 |
+**Total: 24 blogs published**
+
+| Cluster | Count | Examples |
+|---------|-------|----------|
+| Startup MVPs & Building | 8 | technical cofounder, MVP without coding, agency vs in-house, hire dev vs AI |
+| Founder Advice & Strategy | 12 | validation, CRM, landing pages, distribution, post-MVP doubt |
+| AI Tools & Automation | 4 | deploy AI code, invoice automation, vibe coding, AI tools for founders |
+
+Full list with URLs: see `published-blogs.md`
 
 ### Topic Slugs
 | Slug | Use For |
 |------|---------|
-| startup-mvps | MVP building, validation, lean startup |
+| startup-mvps | MVP building, validation, lean startup, cofounders |
 | landing-pages | Conversion, copywriting, landing page design |
 | ai-tools | AI products, automation, AI for founders |
 | founder-advice | General startup advice, lessons learned |
@@ -88,13 +91,20 @@ Krishna's stated choices for my work.
 - **"So what?" test:** Every section has clear reason to exist.
 
 ### Quality Feedback (from Krishna)
-- Post #4 (Agency MVP): "Fine, not mighty impactful" - decent take but didn't land strongly. Lesson: go deeper on unique angles, more practitioner-specific insights.
+- Post #3 (domain expert validation): Contrarian angle landed well. Go deeper on unique angles.
+- Post #4 (agency MVP): "Fine, not mighty impactful" - decent take but didn't land strongly. Need more practitioner-specific insights.
 
 ---
 
 ## Setup Log
 
 Chronological history.
+
+### 2026-03-05
+- **Memory audit:** Updated blog count from 4 to 24 (was severely outdated).
+- Synced `published-blogs.md` with GitHub repo - found 7 blogs missing from tracking.
+- Removed 2 blogs from tracking that no longer exist in repo (teachable-kajabi-custom-decision, first-sale-taking-forever).
+- Current breakdown: 8 startup-mvps, 12 founder-advice, 4 ai-tools.
 
 ### 2026-02-11
 - AI-First Paradigm Shift framework added to SOUL.md.

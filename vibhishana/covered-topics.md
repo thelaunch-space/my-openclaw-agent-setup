@@ -14,12 +14,13 @@
 | Post-Launch/Distribution | 3 | After MVP ships, now what? |
 | MVP Development Issues | 3 | Getting stuck, rescue scenarios |
 | Internal Tools/Operations | 3 | Build vs. buy decisions |
+| Scaling/Growth Operations | 1 | Revenue plateaus from operational bottlenecks |
 | Business Model Strategy | 1 | Service → Product transition |
 | Sales/CRM Operations | 1 | Lead management, pipeline tracking |
 | Team Building/Hiring | 1 | Solo to agency transition |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 
-**Total briefs created:** 14
+**Total briefs created:** 15
 
 ---
 
@@ -109,6 +110,12 @@
 - **ICP Problem:** Non-technical founders in panic mode after developer ghosting, $20K-$50K sunk costs, paralyzed by uncertainty about rescue vs. rebuild vs. walk away
 - **File:** `briefs/2026-03-04-developer-disappeared-code-rescue-decision.md`
 
+### 2026-03-05: You're Making $200K as a Solo Consultant. Why Can't You Make $300K? (The Admin Time Wall)
+- **Cluster:** Scaling/Growth Operations (NEW)
+- **Primary Keyword:** solo consultant revenue ceiling admin overhead
+- **ICP Problem:** Solo consultants at $150K-$250K revenue hitting hard ceiling where 30-50% of time goes to non-billable admin tasks, maxed on billable hours, can't add revenue because admin overhead scales linearly with clients
+- **File:** `briefs/2026-03-05-solo-consultant-200k-admin-ceiling.md`
+
 ---
 
 ## Diversity Alerts
@@ -126,3 +133,4 @@
 - **2026-03-01:** File created. 11 briefs cataloged.
 - **2026-03-03:** Added brief #13 - Solo consultant first hire decision (new cluster: Team Building/Hiring).
 - **2026-03-04:** Added brief #14 - Developer disappeared code rescue (new cluster: Technical Debt/Code Ownership).
+- **2026-03-05:** Added brief #15 - Solo consultant $200K admin ceiling (new cluster: Scaling/Growth Operations).
