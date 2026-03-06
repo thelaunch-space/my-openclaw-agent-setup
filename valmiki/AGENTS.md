@@ -295,23 +295,59 @@ Ready for your review and posting.
 
 ## Weekly: Saturday 10 AM IST — Performance Review
 
-1. **Receive data:** Krishna shares LinkedIn metrics (likes, impressions, comments, saves, profile views, DMs)
+### Step 1: Query Performance Data from Convex
 
-2. **Analyze:**
-   - Which posts performed best?
-   - Which named insights resonated?
-   - Which hooks stopped scrollers?
-   - Which CTAs drove engagement?
-   - Any ICP signals in comments/DMs?
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s "https://curious-iguana-738.convex.site/query/linkedin-posts" \
+  -H "Authorization: Bearer $API_KEY"
+```
 
-3. **Report to #valmiki-content:**
+This returns all posts with their metrics (impressions, likes, comments, goLiveDate, goLiveTime).
+
+Filter for posts with `goLiveDate` set (actually published) and metrics populated.
+
+### Step 2: Receive Any New Metrics from Krishna
+
+When Krishna shares LinkedIn metrics for recently posted content:
+- Match by post content or date
+- Push to Convex using the existing upsert:
+
+```bash
+curl -s -X POST "https://curious-iguana-738.convex.site/push/linkedin-posts" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "insightName": "existing-insight-name",
+    "impressions": 1500,
+    "likes": 45,
+    "comments": 12,
+    "goLiveDate": "2026-03-01",
+    "goLiveTime": "08:30"
+  }'
+```
+
+**Note:** Use the same `insightName` — this upserts the metrics into the existing record.
+
+### Step 3: Analyze
+
+From the Convex data:
+- Which posts performed best? (sort by impressions, engagement rate)
+- Which named insights resonated?
+- Which hooks stopped scrollers?
+- Which CTAs drove engagement?
+- Any ICP signals in comments/DMs? (Krishna will share qualitative)
+
+### Step 4: Report to #valmiki-content
 
 ```
 📊 **Weekly Performance Review** (Week of DATE)
 
+**Posts analyzed:** X published posts with metrics
+
 **Top performer:** "[Named Insight]"
+- Impressions: X | Likes: X | Comments: X
 - Why it worked: [analysis]
-- Engagement: [metrics]
 
 **Pattern:** [What we learned about ICP this week]
 
@@ -323,7 +359,7 @@ Ready for your review and posting.
 - [Specific adjustment 2]
 ```
 
-4. **Update MEMORY.md** with learnings
+### Step 5: Update MEMORY.md with learnings
 
 ---
 
@@ -335,6 +371,8 @@ Ready for your review and posting.
 | Mark blog extracted | `node scripts/linkedin-pipeline-helper.js set-extracted <slug>` |
 | Query linkedin posts | `curl /query/linkedin-posts?status=<status>` |
 | Push linkedin post | `curl -X POST /push/linkedin-posts` |
+| Update post status only | `curl -X POST /update/linkedin-post-status` with `{ insightName, sourceBlogSlug, newStatus, krishnaFeedback? }` |
+| Push metrics | `curl -X POST /push/linkedin-posts` with metric fields (impressions, likes, comments, goLiveDate, goLiveTime) |
 
 **Channel IDs:**
 - #valmiki-content: C0AD3SHGV2A
