@@ -168,13 +168,35 @@ In addition to writing one new blog per day, you have 3 enrichment runs (3 PM, 5
 - 93% of Perplexity citations go to recently updated content
 - Google's Dec 2025 core update rewarded updaters over publishers
 
+### Enrichment Data Source: Convex (Primary)
+
+**Get next blog to enrich (primary):**
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s "https://curious-iguana-738.convex.site/query/blogs?needs_enrichment=true" \
+  -H "Authorization: Bearer $API_KEY"
+```
+Returns the single published blog most in need of enrichment. Selection logic is built into Convex: never-enriched blogs first, then oldest `lastEnrichmentDate`. Returns `null` if nothing available.
+
+**List all published blogs (for reference):**
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s "https://curious-iguana-738.convex.site/query/blogs?status=published" \
+  -H "Authorization: Bearer $API_KEY"
+```
+Returns all published blogs with enrichment tracking fields: `enrichmentCount`, `lastEnrichmentDate`, `enrichmentLog`.
+
+**Fallback:** If Convex is unreachable, the helper script falls back to Google Sheets automatically:
+```bash
+node scripts/vyasa-sheets-helper.js next-enrich
+node scripts/vyasa-sheets-helper.js list-published
+```
+
 ### Enrichment Workflow
 
-Each enrichment run: pick the blog with the oldest last_enrichment_date (never-enriched first), read it, research new stats/citations/FAQs, update it via PR, update tracking in Convex.
+Each enrichment run: query Convex for the next blog to enrich, read it, research new stats/citations/FAQs, update it via PR, update tracking in Convex.
 
-Full workflow details are in the enrichment cron prompt. Key points:
-
-- **Selection logic:** oldest last_enrichment_date first. NULLs (never enriched) before dates. After all enriched once, cycle restarts.
+- **Selection logic:** Handled by Convex — never-enriched first, then oldest `lastEnrichmentDate`. After all enriched once, cycle restarts.
 - **What to add:** 3-5 stats with sources, 1-2 expert quotes, FAQ section (5-8 questions), comparison table where relevant
 - **Always update:** dateModified in metadata/JSON-LD, enrichment_count, last_enrichment_date, enrichment_log, prUrl in Convex
 - **Branch naming:** enrich/<post-slug>

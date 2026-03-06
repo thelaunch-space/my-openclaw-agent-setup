@@ -4,19 +4,20 @@
  * 
  * Commands:
  *   list                              - List all briefs with their status (Sheets)
- *   ready                             - Get first "Brief Ready" entry as JSON (Convex)
+ *   ready                             - Get first "Brief Ready" entry as JSON (Convex → Sheets fallback)
  *   set-status <row> <status>         - Update status for a row (Sheets)
  *   set-published <row> <keywords> <url> - Update keywords, URL, set status to "PR Created" (Sheets)
  *   add-brief <json>                  - Add a new brief row (Sheets)
  *   
  * Enrichment commands:
- *   list-published                    - List all published blogs with enrichment data (Sheets)
- *   next-enrich                       - Get next blog to enrich (oldest enrichment date, NULLs first) (Sheets)
+ *   list-published                    - List all published blogs with enrichment data (Convex → Sheets fallback)
+ *   next-enrich                       - Get next blog to enrich (Convex → Sheets fallback)
  *   set-enrichment <row> <count> <log> - Update enrichment columns after enrichment (Sheets)
  * 
  * Data source: 
- *   - `ready` command reads from Convex (primary source)
- *   - Other commands still use Google Sheets (archive/fallback)
+ *   - Convex is the primary source (SSOT) for: ready, list-published, next-enrich
+ *   - Google Sheets is fallback when Convex is unreachable
+ *   - Write operations (set-status, set-enrichment) still update Sheets for archive
  */
 
 const { google } = require('googleapis');
@@ -33,16 +34,15 @@ const CONVEX_BASE_URL = 'curious-iguana-738.convex.site';
 const CONVEX_API_KEY_PATH = path.join(__dirname, '..', 'credentials', 'convex-api-key.txt');
 
 /**
- * Read brief_ready briefs from Convex
- * Returns array of brief objects, sorted oldest-first
+ * Generic Convex GET request helper
  */
-async function readBriefReadyFromConvex() {
+async function convexGet(path) {
   const apiKey = fs.readFileSync(CONVEX_API_KEY_PATH, 'utf8').trim();
   
   return new Promise((resolve, reject) => {
     const options = {
       hostname: CONVEX_BASE_URL,
-      path: '/query/briefs?status=brief_ready',
+      path: path,
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
@@ -57,8 +57,8 @@ async function readBriefReadyFromConvex() {
       res.on('end', () => {
         if (res.statusCode === 200) {
           try {
-            const briefs = JSON.parse(data);
-            resolve(briefs);
+            const result = JSON.parse(data);
+            resolve(result);
           } catch (e) {
             reject(new Error(`Failed to parse Convex response: ${e.message}`));
           }
@@ -76,6 +76,31 @@ async function readBriefReadyFromConvex() {
     
     req.end();
   });
+}
+
+/**
+ * Read brief_ready briefs from Convex
+ * Returns array of brief objects, sorted oldest-first
+ */
+async function readBriefReadyFromConvex() {
+  return convexGet('/query/briefs?status=brief_ready');
+}
+
+/**
+ * Read published blogs from Convex
+ * Returns array of blog objects with enrichment tracking fields
+ */
+async function readPublishedFromConvex() {
+  return convexGet('/query/blogs?status=published');
+}
+
+/**
+ * Read next blog needing enrichment from Convex
+ * Returns single blog object (never-enriched first, then oldest lastEnrichmentDate)
+ * Returns null if nothing available
+ */
+async function readNeedsEnrichmentFromConvex() {
+  return convexGet('/query/blogs?needs_enrichment=true');
 }
 
 async function getSheets() {
@@ -325,29 +350,73 @@ function getNextToEnrich(briefs) {
       // ============ ENRICHMENT COMMANDS ============
       
       case 'list-published': {
-        const rows = await readBlogQueue();
-        const briefs = parseBriefs(rows);
-        const published = briefs.filter(b => b.status === 'Published');
-        console.log(`\n📚 Published Blogs (${published.length} total):\n`);
-        published.forEach(b => {
-          const count = b.enrichmentCount || '0';
-          const lastDate = b.lastEnrichmentDate || 'never';
-          console.log(`Row ${b.rowNumber}: ${b.title.substring(0, 50)}...`);
-          console.log(`   Enrichments: ${count} | Last: ${lastDate}`);
-          console.log(`   URL: ${b.blogUrl || '(no URL)'}`);
-          console.log('');
-        });
+        // Try Convex first, fallback to Sheets
+        try {
+          const blogs = await readPublishedFromConvex();
+          if (blogs && blogs.length > 0) {
+            console.log(`\n📚 Published Blogs from Convex (${blogs.length} total):\n`);
+            blogs.forEach(b => {
+              const count = b.enrichmentCount || 0;
+              const lastDate = b.lastEnrichmentDate || 'never';
+              console.log(`${b.title ? b.title.substring(0, 50) : b.slug}...`);
+              console.log(`   Enrichments: ${count} | Last: ${lastDate}`);
+              console.log(`   URL: ${b.url || '(no URL)'}`);
+              console.log('');
+            });
+          } else {
+            console.log('No published blogs found in Convex.');
+          }
+        } catch (convexErr) {
+          console.error(`Convex read failed (${convexErr.message}), falling back to Sheets...`);
+          const rows = await readBlogQueue();
+          const briefs = parseBriefs(rows);
+          const published = briefs.filter(b => b.status === 'Published');
+          console.log(`\n📚 Published Blogs from Sheets (${published.length} total):\n`);
+          published.forEach(b => {
+            const count = b.enrichmentCount || '0';
+            const lastDate = b.lastEnrichmentDate || 'never';
+            console.log(`Row ${b.rowNumber}: ${b.title.substring(0, 50)}...`);
+            console.log(`   Enrichments: ${count} | Last: ${lastDate}`);
+            console.log(`   URL: ${b.blogUrl || '(no URL)'}`);
+            console.log('');
+          });
+        }
         break;
       }
       
       case 'next-enrich': {
-        const rows = await readBlogQueue();
-        const briefs = parseBriefs(rows);
-        const next = getNextToEnrich(briefs);
-        if (next) {
-          console.log(JSON.stringify(next, null, 2));
-        } else {
-          console.log(JSON.stringify({ error: 'No published blogs available for enrichment' }));
+        // Try Convex first, fallback to Sheets
+        try {
+          const blog = await readNeedsEnrichmentFromConvex();
+          if (blog) {
+            // Map Convex fields to expected format
+            const result = {
+              _id: blog._id,
+              title: blog.title || '',
+              slug: blog.slug || '',
+              url: blog.url || '',
+              keyword: blog.keyword || '',
+              enrichmentCount: blog.enrichmentCount || 0,
+              lastEnrichmentDate: blog.lastEnrichmentDate || null,
+              enrichmentLog: blog.enrichmentLog || [],
+              status: blog.status || 'published',
+              source: 'convex'
+            };
+            console.log(JSON.stringify(result, null, 2));
+          } else {
+            console.log(JSON.stringify({ error: 'No published blogs available for enrichment' }));
+          }
+        } catch (convexErr) {
+          console.error(`Convex read failed (${convexErr.message}), falling back to Sheets...`);
+          const rows = await readBlogQueue();
+          const briefs = parseBriefs(rows);
+          const next = getNextToEnrich(briefs);
+          if (next) {
+            next.source = 'sheets';
+            console.log(JSON.stringify(next, null, 2));
+          } else {
+            console.log(JSON.stringify({ error: 'No published blogs available for enrichment' }));
+          }
         }
         break;
       }
