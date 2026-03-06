@@ -232,6 +232,21 @@ Krishna's stated choices and patterns.
 
 Chronological history of setup and changes.
 
+### 2026-03-06
+- **SSOT MIGRATION COMPLETE:** All four content agents now use Convex-first for reads.
+- **Vyasa:** Enrichment reads now query `/query/blogs?needs_enrichment=true` and `/query/blogs?status=published` instead of Sheets. Helper script (`vyasa-sheets-helper.js`) updated with Convex-first pattern.
+- **Valmiki:** Metrics tracking now uses Convex. Weekly performance review queries `/query/linkedin-posts` directly. Helper script (`valmiki-sheets-helper.js`) updated with Convex-first for `list`, `update-metrics`, `get-stats`.
+- **Vibhishana:** Evening report now uses `/query/briefs?summary=true` and `/query/questions?summary=true` for full pipeline snapshot. Was already Convex-first for brief/question pushes.
+- **Parthasarathi:** AGENTS.md updated with new query endpoints for health checks. Can now verify pipeline state directly via `?summary=true` endpoints.
+- **New query endpoints added to production:**
+  - `GET /query/briefs?summary=true` — counts by status in one call
+  - `GET /query/questions?summary=true` — counts by status in one call
+  - `GET /query/blogs?needs_enrichment=true` — blogs needing enrichment
+  - `GET /query/blogs?status=<status>` — filtered blogs
+  - `GET /query/linkedin-posts?status=<status>` — filtered LinkedIn posts
+  - `POST /update/linkedin-post-status` — status-only updates for LinkedIn posts
+- **Google Sheets status:** Now archive/fallback only. All primary reads are Convex.
+
 ### 2026-03-05
 - **MAJOR POSITIONING PIVOT:** Moved from "MVP/landing page services" to "Launch Control + agents for small businesses"
 - **Files updated:**

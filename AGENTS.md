@@ -61,12 +61,12 @@ I am Parthasarathi, the main orchestrator. I manage configuration and coordinate
   - 7:00 PM IST - LinkedIn Extraction (extract insights from next Published blog, filter ICP, draft 1-2 posts, present to Krishna)
   - 10:00 AM IST Saturday - Weekly Performance Review
   - 8:30 AM next day - Krishna posts manually
-- **Pipeline:** `linkedin-pipeline` tab in shared sheet tracks Blog → Insights → Drafts → Posted
+- **Data Source:** Convex-first (linkedinPosts table) — metrics, performance tracking, post status all in Convex. Sheets is archive/fallback only.
 - **Named Insights:** Every insight gets a 2-5 word label ("The Invisible Labor Trap", "The $3,000 Mistake")
 - **Backlog:** 18 published blogs = 54-90 potential posts = 11-22 weeks of content
 - **Desired Outcomes:** Consistent LinkedIn presence, ICP engagement (not devs), warm leads, named insights that become quotable
 - **Workspace:** `/home/node/openclaw/valmiki/`
-- **Helper Script:** `node /home/node/openclaw/scripts/linkedin-pipeline-helper.js`
+- **Helper Script:** `node /home/node/openclaw/scripts/linkedin-pipeline-helper.js` (Convex-first)
 - **What Valmiki does NOT do:** Post directly, mention source blogs in posts, handle comments/DMs, write X posts, touch agent configs
 
 ### Vibhishana (SEO Research)
@@ -98,7 +98,7 @@ I am Parthasarathi, the main orchestrator. I manage configuration and coordinate
   - 5:00 PM IST - Citation Enrichment #2
   - 8:00 PM IST - Citation Enrichment #3
 - **Desired Outcomes:** Published blogs that get bookmarked, cited by AI search, demonstrate agent capabilities, bring ICP to Launch Control
-- **Sheet:** Same as Vibhishana (blog-queue tab)
+- **Data Source:** Convex-first (blogs table) — enrichment reads, blog status, metadata all in Convex. Sheets is archive/fallback only.
 - **Workspace:** `/home/node/openclaw/vyasa/`
 
 ### Vidura (SEO Intelligence)
@@ -239,22 +239,35 @@ cron action=run jobId=X             # Trigger immediately (if allowed)
 **My responsibility:** Ensure all agent work appears on the public Launch Control dashboard.
 
 **Agents push their own work:**
-- Vibhishana pushes briefs after each brief run (11 AM, 2 PM, 5 PM)
+- Vibhishana pushes briefs after each brief run (11 AM)
 - Vyasa pushes blog metadata after PR creation
-- Both should post "✅ Pushed [slug] to Launch Control" or "⚠️ Convex push failed" to their channels
+- Valmiki pushes post-briefs and metrics
+- All should post "✅ Pushed [slug] to Launch Control" or "⚠️ Convex push failed" to their channels
+
+**Query endpoints for health checks (direct verification):**
+
+| Endpoint | What It Returns | Use Case |
+|----------|-----------------|----------|
+| `GET /query/briefs?summary=true` | `{ total, byStatus: { pending_review, brief_ready, writing, published, needs_revision, ... } }` | Pipeline snapshot in one call |
+| `GET /query/questions?summary=true` | `{ total, byStatus: { new, brief_created, skipped } }` | Question counts by status |
+| `GET /query/blogs?needs_enrichment=true` | Blogs needing enrichment | Vyasa enrichment queue |
+| `GET /query/blogs?status=published` | Published blogs | Verify Vyasa output |
+| `GET /query/linkedin-posts?status=<status>` | Filtered LinkedIn posts | Valmiki pipeline state |
 
 **My safety net (health checks + due diligence):**
 
 | Check | What I Do |
 |-------|-----------|
 | 8 AM, 1 PM, 3 PM | Scan agent channels for "⚠️ Convex push failed" → retry those |
-| 7 PM Due Diligence | Full reconciliation: find all briefs/blogs created today, check for push confirmations, push any that were missed entirely |
+| 7 PM Due Diligence | Full reconciliation: query `?summary=true` endpoints for pipeline counts, compare against agent reports, push any missed items |
 
 **Reconciliation logic (7 PM):**
-1. List today's brief files in `/home/node/openclaw/vibhishana/briefs/`
-2. For each brief, check Slack for "✅ Pushed" or "⚠️ failed" message
-3. If NEITHER exists → agent forgot → I push it using `convex-push-scanner` skill
-4. Same for Vyasa's blogs using `convex-push-blog` skill
+1. Query `/query/briefs?summary=true` — get exact pipeline counts
+2. Query `/query/questions?summary=true` — get question counts
+3. Compare against what agents reported in Slack
+4. List today's brief files in `/home/node/openclaw/vibhishana/briefs/` — verify each has a Convex entry
+5. If file exists but no Convex entry → push it using `convex-push-scanner` skill
+6. Same for Vyasa's blogs using `convex-push-blog` skill
 
 **Why this matters:** Launch Control is a live public dashboard. Missing data = broken marketing asset.
 
