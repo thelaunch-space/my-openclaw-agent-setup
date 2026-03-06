@@ -109,6 +109,26 @@ curl -s -X POST "https://curious-iguana-738.convex.site/delete/task" \
   -H "Content-Type: application/json" \
   -d '{"id": "<task _id>"}'
 # ⚠️ No recovery after delete. Never delete proactively.
+
+# --- Blog Operations (for Launch Control blog management) ---
+
+# Query blogs (filter by status, needs_enrichment, etc.)
+curl -s "https://curious-iguana-738.convex.site/query/blogs?status=published" \
+  -H "Authorization: Bearer $API_KEY"
+
+# Update blog status (mark as published, change status by slug)
+curl -s -X POST "https://curious-iguana-738.convex.site/update/blog-status" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"slug": "blog-slug-here", "status": "published", "publishedAt": "2026-03-07"}'
+# publishedAt is optional
+
+# Delete blog (cleanup junk/duplicate/test entries ONLY)
+curl -s -X POST "https://curious-iguana-738.convex.site/delete/blog" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"slug": "blog-slug-to-delete"}'
+# ⚠️ No recovery after delete. Only use for cleanup.
 ```
 
 **Valid task statuses:** `backlog | todo | in_progress | blocked | done`

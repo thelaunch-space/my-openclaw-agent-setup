@@ -114,6 +114,8 @@ Durable truths that don't change often.
 | `/push/linkedin-posts` | Valmiki | (new) |
 | `/update/brief-status` | All | slug |
 | `/update/blog-enrichment` | Vyasa | slug |
+| `/update/blog-status` | All | slug |
+| `/delete/blog` | All | slug (cleanup only) |
 | `/upsertDocument` | All | slug (for docs only) |
 
 - **Auth:** All endpoints require `Authorization: Bearer <API_KEY>` header
@@ -231,6 +233,12 @@ Krishna's stated choices and patterns.
 ## Setup Log
 
 Chronological history of setup and changes.
+
+### 2026-03-07
+- **New Convex endpoints added:**
+  - `POST /update/blog-status` — change blog status by slug, optional `publishedAt` date
+  - `POST /delete/blog` — cleanup junk/duplicate/test entries by slug
+- **Shakti docs updated:** Blog operations section added to her Convex API Reference (query, update-status, delete)
 
 ### 2026-03-06
 - **SSOT MIGRATION COMPLETE:** All four content agents now use Convex-first for reads.

@@ -4,7 +4,7 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
-**Total Published: 24 blogs** (as of 2026-03-05)
+**Total Published: 25 blogs** (as of 2026-03-06)
 
 ## Topic Clusters
 
@@ -51,6 +51,7 @@ Blogs about AI products, automation, AI for non-technical founders.
 | 22 | Invoice Automation for Small Businesses: When to Automate | /blogs/ai-tools/invoice-automation-small-business-ocr-custom | invoice automation small business |
 | 23 | When Vibe Coding Breaks at Scale: The 3-Flow Wall | /blogs/ai-tools/vibe-coding-scaling-wall | vibe coding production problems |
 | 24 | Best AI Tools for Non-Technical Founders to Build MVPs | /blogs/ai-tools/ai-tools-non-technical-founders-mvp | AI tools non-technical founders |
+| 25 | When to Rescue Your Stuck AI Project (And How) | /blogs/ai-tools/rescue-stuck-ai-project | rescue stuck no-code project |
 
 ## Internal Linking Rules
 
