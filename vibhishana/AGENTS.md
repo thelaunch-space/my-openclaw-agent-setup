@@ -473,12 +473,21 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/questions" \
 **BEFORE Creating a Brief - Check Queue Depth (from Convex):**
 ```bash
 API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+
+# Quick check: pending_review count and slugs (for dedup)
 curl -s "https://curious-iguana-738.convex.site/query/briefs?status=pending_review" \
   -H "Authorization: Bearer $API_KEY"
+# Returns: { count, slugs, titles }
+
+# Full pipeline view (optional - use when deciding whether to add more)
+curl -s "https://curious-iguana-738.convex.site/query/briefs?summary=true" \
+  -H "Authorization: Bearer $API_KEY"
+# Returns: { total, byStatus: { pending_review: N, brief_ready: N, writing: N, ... } }
 ```
-This returns `{ count, slugs, titles }` from Convex. Use this to:
-- Avoid creating duplicate briefs (check slugs)
+Use this to:
+- Avoid creating duplicate briefs (check slugs from pending_review query)
 - Know current queue depth before adding more
+- See full pipeline state (if 5+ briefs already in writing, maybe wait before adding more to pending_review)
 
 **After EACH Brief Run (11 AM):**
 1. Create the brief markdown file in `briefs/`
@@ -660,14 +669,46 @@ Vyasa picks up → writing → pr_created → published
 
 **During your 6 PM Evening Report:**
 
-1. **Check today's work in Convex:**
+1. **Get full pipeline snapshot (one call each):**
    ```bash
    API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
-   curl -s "https://curious-iguana-738.convex.site/query/briefs?status=pending_review" \
+   
+   # Brief pipeline summary
+   curl -s "https://curious-iguana-738.convex.site/query/briefs?summary=true" \
      -H "Authorization: Bearer $API_KEY"
+   # Returns: { total, byStatus: { pending_review: N, brief_ready: N, writing: N, published: N, needs_revision: N, approved: N, dropped: N } }
+   
+   # Questions summary
+   curl -s "https://curious-iguana-738.convex.site/query/questions?summary=true" \
+     -H "Authorization: Bearer $API_KEY"
+   # Returns: { total, byStatus: { new: N, brief_created: N, skipped: N } }
    ```
 
-2. **Report in Slack:** Summarize briefs created, questions scanned, any issues encountered.
+2. **Report in Slack with pipeline snapshot:**
+
+```
+📊 **Evening Report** (DATE)
+
+**Brief Pipeline:**
+- Pending Review: X
+- Brief Ready: X
+- Writing: X
+- Published: X
+- Needs Revision: X
+- Dropped: X
+- **Total: X**
+
+**Questions:**
+- New (unprocessed): X
+- Brief Created: X
+- Skipped: X
+- **Total: X**
+
+**Today's Work:**
+- Briefs created: [list]
+- Questions scanned: X
+- Issues: [any problems encountered]
+```
 
 **Convex is the single source of truth.** Krishna reviews and updates statuses directly in Launch Control Kanban. No Sheet → Convex sync needed.
 
