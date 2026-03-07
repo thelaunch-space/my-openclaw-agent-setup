@@ -189,3 +189,84 @@ This is the new filter. Not "is this insight interesting?" but "does this insigh
 8. Cleaner CTAs (just ask, don't promise value exchange)
 
 **Scheduled:** Feb 26, 2026 at 8:30 AM IST (first LinkedIn post from blog extraction)
+
+### Week of March 1-7, 2026: First Week of Two-Phase Flow
+
+**Pipeline Performance:**
+- 14 post-briefs extracted across 4 blogs
+- 5 dropped (36%) - "too builder-focused"
+- 3 moved to draft_ready (21% approval rate)
+- 5 pending review
+- 0 posts published on LinkedIn (no metrics available)
+
+**Major ICP Filter Calibration:**
+
+**What Krishna dropped (5 post-briefs):**
+1. No-code migration angles → "Not for ICP - too builder focused"
+2. Agency structural misalignment → "Not interesting"
+3. Validation-before-building paradigm shift → "Too builder focused. Not for the right ICP"
+
+**Pattern in drops:**
+- Talking TO founders building products
+- Technical migration paths
+- Generic startup advice (MVP validation playbooks)
+
+**What Krishna approved (3 post-briefs → full posts written):**
+- "The Over-Validation Trap" (domain experts stuck in research)
+- "Two Types of Validation" (market vs execution validation)
+- "5 Peers Not 50 Strangers" (leverage industry networks)
+
+**Pattern in approvals:**
+- Talking TO established service business founders (35-50, $100K-$2M)
+- Recognition-first framing ("the skill that made you successful is now the obstacle")
+- Permission-giving ("you already validated, stop researching")
+- Empowering reframes (domain expertise IS the advantage)
+
+**Hook Krishna Loved:**
+> "Here is the red flag most founders miss: if your MVP takes longer to build than it takes to test your core assumption, the timeline is backwards."
+
+**Why it worked:** Pattern diagnosis + makes timeline itself an evaluation criterion (actionable filter)
+
+**CTA Direction from Krishna:**
+> "CTA should be something which triggers the ICP to WANT to either DM me or comment their pain point, or to look for some validation in terms of how quickly it could be built out in todays world."
+
+**Shift from value-exchange to validation offer:**
+- Old: "What's the one assumption you need to test?"
+- New: "Drop your situation - I'll tell you if you need 6 months or 6 weeks"
+
+**Voice Learnings This Week:**
+
+**Recognition-first beats diagnosis:**
+- ✅ "Your domain expertise is now your advantage" (empowering)
+- ❌ "Here's what you're doing wrong" (judgmental)
+
+**Permission-giving beats prescriptive:**
+- ✅ "Stop researching what you already know"
+- ✅ "You built a $500K business solo, why need a cofounder?"
+
+**Rationale field is the approval gate:**
+- Must answer: "Why would a 45-50yo service business owner BOOKMARK this?"
+- Bad: "This is useful for founders"
+- Good: "A 45yo consultancy founder thinks they need 50 interviews. This gives them permission to leverage their 200+ peer network instead."
+
+**Process Learnings:**
+
+**Cron Priority System Working:**
+1. needs_revision (feedback-first)
+2. approved (write full posts)
+3. new work (extract angles)
+
+**ICP Filter Needs Tightening:**
+- 21% approval rate means I'm still extracting too many builder-focused angles
+- New filter: Before extracting, ask "Is this blog about RUNNING a service business or BUILDING a product?"
+- If product-focused, reframe harder OR skip
+
+**Experiment for Next Week:**
+Extract ONLY from blogs about service business operations/automation. Skip MVP/startup/cofounder blogs unless can reframe for established founders productizing expertise.
+
+**Hypothesis:** >50% approval rate when source material is inherently ICP-aligned.
+
+**Outstanding Questions:**
+1. Are the 3 draft-ready posts from "Validate Domain Expert" ready to publish?
+2. When will we get LinkedIn metrics for published posts?
+3. Should I continue extracting from startup/MVP blogs or focus on service business ops?

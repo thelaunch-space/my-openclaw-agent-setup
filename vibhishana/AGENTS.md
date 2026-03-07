@@ -26,6 +26,37 @@ What changed: [1-2 sentence summary]
 
 Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes. Undocumented changes break the workflow.
 
+## Ops Feed Reporting (MANDATORY after every cron run)
+
+After every cron job completes, push a detailed report to the Ops Feed. This is IN ADDITION to your Slack post and /push/activity call.
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/push/cron-update" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "agentId": "vibhishana",
+    "agentName": "Vibhishana",
+    "jobName": "<must match schedule: morning_reddit_scan | seo_brief | evening_report | weekly_community_discovery>",
+    "content": "<full markdown report>"
+  }'
+```
+
+**Content should include:**
+- What the job did (actions taken, sources checked)
+- Key outputs (counts, findings, decisions made)
+- Any errors or anomalies
+- What happens next (downstream dependencies)
+
+**jobName mapping:**
+| Cron | jobName |
+|------|---------|
+| 9 AM Reddit Scan | `morning_reddit_scan` |
+| 11 AM SEO Brief | `seo_brief` |
+| 6 PM Evening Report | `evening_report` |
+| Monday Community Discovery | `weekly_community_discovery` |
+
 ## Feedback-First Protocol (MANDATORY — runs before any other work)
 
 **At the start of EVERY cron run, before doing any new work:**

@@ -234,6 +234,58 @@ cron action=update jobId=X patch={} # Update job prompt/schedule
 cron action=run jobId=X             # Trigger immediately (if allowed)
 ```
 
+### Launch Control Timeline Sync (Added 2026-03-07)
+
+The Overview page timeline at `/launch-control` pulls from the `cronSchedule` table in Convex.
+
+**My responsibility:** Whenever I add, remove, or reschedule any cron job for any agent, re-push the full schedule:
+
+```bash
+POST https://curious-iguana-738.convex.site/push/cron-schedule
+Authorization: Bearer <API_KEY>
+Content-Type: application/json
+
+# Payload: JSON array of all active crons
+[{ "agentName", "agentId", "jobName", "label", "timeIST", "displayTime", "action", "dayOfWeek", "enabled" }, ...]
+```
+
+**Field notes:**
+- `agentId`: "main" for me, lowercase agent name for others
+- `jobName`: unique, lowercase, underscored (upsert key with agentId)
+- `action`: must match what agent pushes to `/push/activity` for cross-reference
+- `timeIST`: 24h zero-padded ("08:00", "14:30")
+- `dayOfWeek`: "daily" or lowercase day name ("monday", "saturday")
+
+### Ops Feed Reports (Added 2026-03-07)
+
+After every cron job completes, ALL agents (including me) must push a detailed report to the Ops Feed:
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/push/cron-update" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "agentId": "<agent-id>",
+    "agentName": "<Agent Name>",
+    "jobName": "<must match schedule jobName>",
+    "content": "<full markdown report>"
+  }'
+```
+
+**What goes in content:**
+- What the job did (actions taken, sources checked)
+- Key outputs (counts, findings, decisions made)
+- Any errors or anomalies
+- What happens next (downstream dependencies)
+
+**Rules:**
+- `jobName` MUST match the schedule (e.g., "morning_reddit_scan", "daily_blog_run")
+- Push AFTER job completes, alongside Slack post and /push/activity — don't replace, add
+- Krishna can reply to reports from the Ops Feed UI — replies come as chat messages
+
+**This is in ADDITION to existing Slack posts and /push/activity calls.**
+
 ### Launch Control (Convex) Oversight
 
 **My responsibility:** Ensure all agent work appears on the public Launch Control dashboard.

@@ -21,6 +21,38 @@ What changed: [1-2 sentence summary]
 
 Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes. Undocumented changes break the workflow.
 
+## Ops Feed Reporting (MANDATORY after every cron run)
+
+After every cron job completes, push a detailed report to the Ops Feed. This is IN ADDITION to your Slack post and /push/activity call.
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/push/cron-update" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "agentId": "vyasa",
+    "agentName": "Vyasa",
+    "jobName": "<must match schedule: daily_blog_run | citation_enrichment_1 | citation_enrichment_2 | citation_enrichment_3 | merged_pr_status_check>",
+    "content": "<full markdown report>"
+  }'
+```
+
+**Content should include:**
+- What the job did (blog written, enrichment applied, PRs checked)
+- Key outputs (blog title, what was enriched, status changes)
+- Any errors or anomalies
+- What happens next (PR merge needed, next enrichment target)
+
+**jobName mapping:**
+| Cron | jobName |
+|------|---------|
+| 11 AM Daily Blog Run | `daily_blog_run` |
+| 3 PM Citation Enrichment #1 | `citation_enrichment_1` |
+| 5 PM Citation Enrichment #2 | `citation_enrichment_2` |
+| 8 PM Citation Enrichment #3 | `citation_enrichment_3` |
+| 10:30 PM Merged PR Check | `merged_pr_status_check` |
+
 ## Your Source: Convex (Primary) + Google Sheets (Fallback)
 
 **Primary read:** Convex is the single source of truth. Query directly:

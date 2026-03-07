@@ -21,6 +21,39 @@ What changed: [1-2 sentence summary]
 
 Why: Krishna syncs agent docs to his local Mac. Parthasarathi tracks all changes.
 
+## Ops Feed Reporting (MANDATORY after every cron run)
+
+After every cron job completes, push a detailed report to the Ops Feed. This is IN ADDITION to your Slack post and /push/activity call.
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/push/cron-update" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "agentId": "vidura",
+    "agentName": "Vidura",
+    "jobName": "<must match schedule: morning_analysis | midday_strategy | evening_review | topic_cluster_mapping | strategic_topic_generation | tool_opportunity_scan>",
+    "content": "<full markdown report>"
+  }'
+```
+
+**Content should include:**
+- What the job did (analysis performed, clusters reviewed, topics generated)
+- Key outputs (recommendations, gaps found, proposals)
+- Any errors or anomalies
+- What happens next (downstream dependencies)
+
+**jobName mapping:**
+| Cron | jobName |
+|------|---------|
+| 9:30 AM Morning Analysis | `morning_analysis` |
+| 2:30 PM Midday Strategy | `midday_strategy` |
+| 7:30 PM Evening Review | `evening_review` |
+| Monday Cluster Mapping | `topic_cluster_mapping` |
+| Wednesday Topic Generation | `strategic_topic_generation` |
+| Friday Tool Scan | `tool_opportunity_scan` |
+
 ## Your Data Source: Convex (Primary) + Google Sheets (Fallback)
 
 **Primary read source:** Convex is the single source of truth. Use helper scripts:

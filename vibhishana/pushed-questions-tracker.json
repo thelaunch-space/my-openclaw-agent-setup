@@ -1,5 +1,5 @@
 {
-  "lastPushedDate": null,
+  "lastPushedDate": "2026-03-07",
   "pushedBatches": [
     {
       "date": "2026-02-19",
@@ -30,34 +30,40 @@
     },
     {
       "date": "2026-03-02",
-      "batchId": "NaN-batch",
+      "batchId": "2026-03-02-batch",
       "count": 26,
       "pushedAt": "2026-03-02T03:31:01.151Z"
     },
     {
       "date": "2026-03-03",
-      "batchId": "NaN-batch",
+      "batchId": "2026-03-03-batch",
       "count": 42,
       "pushedAt": "2026-03-03T03:31:33.514Z"
     },
     {
       "date": "2026-03-04",
-      "batchId": "NaN-batch",
+      "batchId": "2026-03-04-batch",
       "count": 42,
       "pushedAt": "2026-03-04T03:31:02.105Z"
     },
     {
       "date": "2026-03-05",
-      "batchId": "NaN-batch",
+      "batchId": "2026-03-05-batch",
       "count": 38,
       "pushedAt": "2026-03-05T03:31:24.746Z"
     },
     {
       "date": "2026-03-06",
-      "batchId": "NaN-batch",
+      "batchId": "2026-03-06-batch",
       "count": 87,
       "pushedAt": "2026-03-06T03:30:56.391Z"
+    },
+    {
+      "date": "2026-03-07",
+      "batchId": "2026-03-07-batch",
+      "count": 36,
+      "pushedAt": "2026-03-07T03:30:00.000Z"
     }
   ],
-  "totalPushed": 1102
+  "totalPushed": 1138
 }

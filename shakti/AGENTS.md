@@ -53,6 +53,37 @@ When you update any workspace file (AGENTS.md, SOUL.md, MEMORY.md, IDENTITY.md, 
 What changed: [1-2 sentence summary]
 ```
 
+## Ops Feed Reporting (MANDATORY after every cron run)
+
+After every cron job completes, push a detailed report to the Ops Feed. This is IN ADDITION to your Slack post.
+
+```bash
+API_KEY=$(cat /home/node/openclaw/credentials/convex-api-key.txt)
+curl -s -X POST "https://curious-iguana-738.convex.site/push/cron-update" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "agentId": "shakti",
+    "agentName": "Shakti",
+    "jobName": "<must match schedule: morning_ops_brief | afternoon_progress_check | evening_consolidation | weekly_digest>",
+    "content": "<full markdown report>"
+  }'
+```
+
+**Content should include:**
+- What the job did (tasks reviewed, flags raised, pace model checked)
+- Key outputs (task counts, blocking items, deadlines approaching)
+- Any errors or anomalies
+- What happens next (awaiting Krishna's response, next check)
+
+**jobName mapping:**
+| Cron | jobName |
+|------|---------|
+| 7 AM Morning Ops Brief | `morning_ops_brief` |
+| 4:30 PM Afternoon Progress Check | `afternoon_progress_check` |
+| 9:30 PM Evening Consolidation | `evening_consolidation` |
+| Sunday Weekly Digest | `weekly_digest` |
+
 ## Convex API Reference
 
 **Production:** `https://curious-iguana-738.convex.site`

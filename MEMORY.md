@@ -105,6 +105,8 @@ Durable truths that don't change often.
 **WRITE endpoints (POST) — Canonical:**
 | Endpoint | Caller | Dedup Key |
 |----------|--------|-----------|
+| `/push/cron-schedule` | Parthasarathi | agentId + jobName |
+| `/push/cron-update` | All agents | agentId + jobName (Ops Feed reports) |
 | `/push/briefs` | Vibhishana | slug |
 | `/push/questions` | Vibhishana | URL |
 | `/push/blogs` | Vyasa | slug |

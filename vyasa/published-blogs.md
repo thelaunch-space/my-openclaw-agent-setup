@@ -23,6 +23,7 @@ Blogs about building products, finding cofounders, MVP methodology.
 | 6 | Can't Find a Technical Cofounder? Here's What to Do | /blogs/startup-mvps/find-technical-cofounder-alternative | technical cofounder alternative |
 | 7 | Hire a Developer or Build with AI? A Decision Framework | /blogs/startup-mvps/hire-developer-vs-build-with-ai | hire developer vs build with AI |
 | 8 | When No-Code Tools Stop Working (And What to Do Next) | /blogs/startup-mvps/when-no-code-tools-stop-working | no-code tools limitations |
+| 9 | Vertical vs. Horizontal Development: What Non-Technical Founders Must Know | /blogs/startup-mvps/mvp-canceled-at-70-percent | vertical vs horizontal software development |
 
 ### Cluster: Founder Advice & Strategy (12 blogs)
 Blogs about founder decision-making, validation, growth.
