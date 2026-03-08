@@ -14,14 +14,14 @@
 | Post-Launch/Distribution | 3 | After MVP ships, now what? |
 | MVP Development Issues | 3 | Getting stuck, rescue scenarios |
 | Internal Tools/Operations | 3 | Build vs. buy decisions |
-| Lead Generation Strategy | 1 | Channel pivots, diversification (NEW) |
+| Lead Generation Strategy | 1 | Channel pivots, diversification |
 | Scaling/Growth Operations | 1 | Revenue plateaus from operational bottlenecks |
-| Business Model Strategy | 1 | Service → Product transition |
+| Business Model Strategy | 2 | Service → Product transition, Break-fix → Retainer transition |
 | Sales/CRM Operations | 1 | Lead management, pipeline tracking |
 | Team Building/Hiring | 1 | Solo to agency transition |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 
-**Total briefs created:** 16
+**Total briefs created:** 17
 
 ---
 
@@ -123,6 +123,12 @@
 - **ICP Problem:** Service business owners ($100K-$500K) who built entire pipeline on ONE channel (LinkedIn organic, cold email, ads) facing existential crisis as channel collapses due to algorithm/policy changes. Paralyzed by strategic decision: abandon or adapt? How to pivot without 60-90 day pipeline gap?
 - **File:** `briefs/2026-03-06-lead-gen-channel-pivot-framework.md`
 
+### 2026-03-08: Your Clients Won't Commit to Retainers. Should You Force the Issue or Stay Flexible?
+- **Cluster:** Business Model Strategy
+- **Primary Keyword:** service business retainer model transition
+- **ICP Problem:** Solo service provider stuck in reactive break-fix mode trying to build predictable retainer revenue, but clients resist monthly commitments. Tension between business model evolution (need retainers for scale) and market reality (clients want flexibility). Dual blockers: revenue model ceiling + operations capacity wall.
+- **File:** `briefs/2026-03-08-break-fix-to-retainer-service-business.md`
+
 ---
 
 ## Diversity Alerts
@@ -142,3 +148,4 @@
 - **2026-03-04:** Added brief #14 - Developer disappeared code rescue (new cluster: Technical Debt/Code Ownership).
 - **2026-03-05:** Added brief #15 - Solo consultant $200K admin ceiling (new cluster: Scaling/Growth Operations).
 - **2026-03-06:** Added brief #16 - Lead gen channel pivot framework (new cluster: Lead Generation Strategy).
+- **2026-03-08:** Added brief #17 - Break-fix to retainer model transition (Business Model Strategy cluster, 2nd brief).

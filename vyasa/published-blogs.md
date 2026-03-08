@@ -4,7 +4,7 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
-**Total Published: 25 blogs** (as of 2026-03-06)
+**Total Published: 26 blogs** (as of 2026-03-08)
 
 ## Topic Clusters
 
@@ -25,7 +25,7 @@ Blogs about building products, finding cofounders, MVP methodology.
 | 8 | When No-Code Tools Stop Working (And What to Do Next) | /blogs/startup-mvps/when-no-code-tools-stop-working | no-code tools limitations |
 | 9 | Vertical vs. Horizontal Development: What Non-Technical Founders Must Know | /blogs/startup-mvps/mvp-canceled-at-70-percent | vertical vs horizontal software development |
 
-### Cluster: Founder Advice & Strategy (12 blogs)
+### Cluster: Founder Advice & Strategy (13 blogs)
 Blogs about founder decision-making, validation, growth.
 
 | # | Title | URL | Primary Keyword |
@@ -42,6 +42,7 @@ Blogs about founder decision-making, validation, growth.
 | 18 | How to Handle Customer Feature Requests (When You're Not a PM) | /blogs/founder-advice/feature-request-overwhelm | customer feature requests |
 | 19 | Post-MVP Doubt: Should You Keep Going or Quit? | /blogs/founder-advice/post-mvp-doubt-should-you-keep-going | post-MVP doubt |
 | 20 | Why Most Founders Fail at Distribution | /blogs/founder-advice/why-founders-fail-distribution-getting-customers | founder distribution failure |
+| 21 | I Hate Providing Services — When to Transition to Products | /blogs/founder-advice/service-treadmill-to-product | service to product transition |
 
 ### Cluster: AI Tools & Automation (4 blogs)
 Blogs about AI products, automation, AI for non-technical founders.

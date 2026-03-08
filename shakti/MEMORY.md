@@ -26,8 +26,41 @@ Created with full doc structure:
 
 ## Operational Notes
 
-[Populated as patterns emerge]
+**Task Logging Patterns (March 1-6):**
+- Krishna logs actuals either during evening consolidation or via Kanban moves in Launch Control
+- Strategy tasks sometimes completed without actualHours recorded (e.g., content review agent roles on March 7) — need to prompt for this data
+
+**Client Momentum (Week of March 1-8):**
+- EduTechPlus: HIGH — Ask a Doubt feature fully shipped (13 tasks), now in testing/polish phase. Next deadline: Push Max inside applets (March 9)
+- thelaunch.space: HIGH — Major Launch Control infrastructure upgrades complete. Daily SEO blog pipeline running. Social GTM active.
+- Beacon House: BLOCKED — WhatsApp automation stalled on Meta display name review for 12+ days. Zero progress possible until unblocked.
+
+**Deadline Tracking:**
+- EduTechPlus deadlines are real and client-facing (Vinay expects observable progress every ~2 days)
+- thelaunch.space deadlines are self-imposed and can flex
+- Beacon House has no active deadlines while Meta review pending
 
 ## Pace Observations
 
-[See pace-model.md for structured data — use this section for qualitative notes]
+**Build Task Velocity Variance (March 1-6):**
+- Pattern identified: Krishna's velocity varies 5-10x depending on task structure and codebase familiarity
+- Batch work in familiar codebase: 5.5x faster than conservative estimates (March 2: 10 tasks, 16.5h est → 3h actual)
+- Individual feature builds with complexity: tracks close to or slightly over estimates (1.5h tasks for tier logic, input methods)
+- Infrastructure/cross-system work: 10-20% variance (Launch Control: 6h on 6h, 3h on 2h estimated)
+
+**Client-Specific Pace Profiles:**
+- EduTechPlus: Avg 0.52h per build task — mostly UI/config changes in existing React app
+- thelaunch.space: Avg 4.5h per build task — full-stack platform infrastructure
+- Beacon House: No data yet (WhatsApp automation blocked since Feb 24)
+
+**Debug Tasks (first data points, March 2-3):**
+- Consistently running 20-30% over estimates
+- Launch Control mobile UI: 2h actual vs 1.5h estimated
+- EduTechPlus deployment: 1h actual vs 1h estimated
+- Small sample size but suggests conservative +25% buffer for debug work
+
+**Estimation Strategy Update (March 6):**
+- Don't use global averages — estimates must account for client scope
+- thelaunch.space infrastructure ≠ edutechplus features
+- When Krishna batches related tasks with clear spec in familiar codebase: halve conservative estimates
+- When building new cross-system integrations: add 20% buffer

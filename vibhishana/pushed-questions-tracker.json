@@ -1,5 +1,5 @@
 {
-  "lastPushedDate": "2026-03-07",
+  "lastPushedDate": null,
   "pushedBatches": [
     {
       "date": "2026-02-19",
@@ -63,7 +63,13 @@
       "batchId": "2026-03-07-batch",
       "count": 36,
       "pushedAt": "2026-03-07T03:30:00.000Z"
+    },
+    {
+      "date": "2026-03-08",
+      "batchId": "NaN-batch",
+      "count": 26,
+      "pushedAt": "2026-03-08T03:30:53.298Z"
     }
   ],
-  "totalPushed": 1138
+  "totalPushed": 1164
 }
