@@ -39,15 +39,23 @@ Durable truths that don't change often.
 - **Pollen** - 400+ vetted independents (ops, HR, marketing). Peer discussions, playbooks, rate databases, weekly workshops on client balancing and backend systems (added 2026-02-25)
 - **The Upside** - ~250 independent consultants, B2B coaches, boutique CEOs. Continuous peer advice on operations, growth, business support (added 2026-02-25)
 - **ICF Communities of Practice** - Free for ICF members. Executive coaching, career coaching, ethics. Quarterly webinars, discussion boards, CCE credits (added 2026-02-25)
+- **ICF Engage** - Online platform for ICF members with anytime discussions, peer insights, relationship-building. 140+ global chapters for in-person networking. Converge 2025 On Demand available through Nov 2026. (added 2026-03-09)
+- **Fractionals United** - 8,000+ members Slack for fractional leaders and consultants. Collaboration, business resources, networking. $10/month after trial. Application at bit.ly/frunapp. (added 2026-03-09)
 - **Coach Office Club** - Experimentation space for coaches building businesses. Clarity on funnels/systems, templates, peer support (added 2026-02-25)
 
 **Vertical-Specific (Domain Experts):**
 - **Education:** Founders Network EdTech Initiative (600+ global EdTech founders), Future of Higher Education Slack (3.5k+ EdTech innovation) (added 2026-02-09)
 - **Healthcare:** Health Tech Nerds Slack (6k members, vetted $20/mo), MGMA (operations focus), Sermo (physician-owned practice network), Tracy Cherpeski's communities (masterminds + CoPs for independent practice owners) (added 2026-02-25)
+  - **Thriving Practice Community** - Global online community for independent healthcare practice owners (physicians, physical therapists, naturopaths, psychologists). 24/7 platform, twice-monthly group sessions, searchable resource library. Focus on scaling sustainably without burnout. (added 2026-03-09)
+  - **PCMH Forum** - Nationwide Slack for Patient-Centered Medical Home topics, resources, Q&A among certified healthcare orgs. (added 2026-03-09)
+  - **AgingHere** - Free Slack for eldercare professionals, networking, resource sharing. (added 2026-03-09)
 - **Legal:** 
   - **Maximum Lawyer Community** - Podcast community for solo/small law firm owners (900+ episodes, thousands of attorneys). Goal: help 1,000 law firm owners reach 7 figures. Covers hiring, AI, operations, work-life balance. Active community beyond podcast. (added 2026-03-02)
   - **Lawyerist** - Community + podcast for small/medium law firms. Strong on legal tech, automation, profitability, client relationships. Thought leadership focus. (added 2026-03-02)
   - **Attorney at Work** - Newsletter + content hub for solo attorneys. Practice tips, well-being, delegation, AI tools. Free subscription with regular tips. (added 2026-03-02)
+  - **LawyerSmack** - Private Slack community, $199/year, 100+ channels organized by state and practice area, curated industry news. For lawyers of all practice types. (added 2026-03-09)
+  - **Flying Solo** - Free Slack community specifically for sole in-house lawyers and small teams. Best practices, guidance, peer support, regular events. (added 2026-03-09)
+  - **Lawyer Slack (Associate's Mind)** - Private lawyers-only Slack, informal "water-cooler" environment for legal mentoring, camaraderie, peer critique. Multiple practice types. (added 2026-03-09)
 - **Financial Advisors:** HIFON (250+ RIA operations leaders, 24/7 discussion board, monthly peer forums, shared resource library, 14+ years of searchable knowledge) (added 2026-02-25)
 - **Dental Practice Owners:** 
   - **Dental Practice Matchmaker** - 18k+ members Facebook group for private practice transitions (buying/selling/hiring). Largest online network for private practice dentists. (added 2026-03-02)
@@ -209,6 +217,13 @@ Krishna's stated choices for my work.
 ## Setup Log
 
 Chronological history.
+
+### 2026-03-09
+- **Weekly Community Discovery** - Found and added 7 new communities:
+  - **Legal (3):** LawyerSmack ($199/yr Slack, 100+ channels), Flying Solo (free Slack for solo lawyers), Lawyer Slack/Associate's Mind (private lawyers-only)
+  - **Healthcare (3):** Thriving Practice Community (independent practice owners, 24/7 platform), PCMH Forum (medical home Slack), AgingHere (eldercare professionals)
+  - **Consulting (2):** ICF Engage (140+ global chapters), Fractionals United (8k members Slack, $10/mo)
+- All communities focus on domain-expert founders aged 35-50 running service businesses - aligned with ICP pivot away from tech builders.
 
 ### 2026-03-05
 - **CRITICAL PIVOT - STOP ALL MVP/BUILDING COMMUNITIES**

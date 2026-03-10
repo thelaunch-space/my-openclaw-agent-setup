@@ -15,13 +15,14 @@
 | MVP Development Issues | 3 | Getting stuck, rescue scenarios |
 | Internal Tools/Operations | 3 | Build vs. buy decisions |
 | Lead Generation Strategy | 1 | Channel pivots, diversification |
-| Scaling/Growth Operations | 1 | Revenue plateaus from operational bottlenecks |
+| Scaling/Growth Operations | 2 | Revenue plateaus from operational bottlenecks, admin overhead |
 | Business Model Strategy | 2 | Service → Product transition, Break-fix → Retainer transition |
 | Sales/CRM Operations | 1 | Lead management, pipeline tracking |
 | Team Building/Hiring | 1 | Solo to agency transition |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
+| Field Service Operations | 1 | Dispatch/scheduling bottlenecks blocking revenue growth |
 
-**Total briefs created:** 17
+**Total briefs created:** 19
 
 ---
 
@@ -129,6 +130,18 @@
 - **ICP Problem:** Solo service provider stuck in reactive break-fix mode trying to build predictable retainer revenue, but clients resist monthly commitments. Tension between business model evolution (need retainers for scale) and market reality (clients want flexibility). Dual blockers: revenue model ceiling + operations capacity wall.
 - **File:** `briefs/2026-03-08-break-fix-to-retainer-service-business.md`
 
+### 2026-03-09: Service Crew Dispatch Scheduling: When Manual Becomes a Revenue Ceiling
+- **Cluster:** Field Service Operations (NEW)
+- **Primary Keyword:** when to invest in dispatch scheduling software
+- **ICP Problem:** Service business owners with 2-15 field technicians hitting operations-driven revenue ceiling from manual dispatch chaos (Google Calendar + text messages). Missing jobs from double-bookings, wasted drive time from inefficient routing, 10-15 hours/week admin overhead. Cannot scale beyond current volume because scheduling complexity grows exponentially. Decision paralysis: when does manual become more expensive than software?
+- **File:** `briefs/2026-03-09-service-crew-dispatch-scheduling-investment-decision.md`
+
+### 2026-03-10: What to Automate First in Your Service Business (And What to Leave Alone)
+- **Cluster:** Scaling/Growth Operations
+- **Primary Keyword:** automate back office service business
+- **ICP Problem:** Service business owners at 10-20 employees spending 10-15 hours/week on admin tasks (follow-ups, invoice chasing, email triage, scheduling). Cannot justify full-time office manager yet but DIY admin is blocking revenue growth and sanity. Need decision framework: which tasks safe to automate (high ROI, low risk) vs. which will backfire (damage brand).
+- **File:** `briefs/2026-03-10-back-office-automation-roi-service-business.md`
+
 ---
 
 ## Diversity Alerts
@@ -149,3 +162,5 @@
 - **2026-03-05:** Added brief #15 - Solo consultant $200K admin ceiling (new cluster: Scaling/Growth Operations).
 - **2026-03-06:** Added brief #16 - Lead gen channel pivot framework (new cluster: Lead Generation Strategy).
 - **2026-03-08:** Added brief #17 - Break-fix to retainer model transition (Business Model Strategy cluster, 2nd brief).
+- **2026-03-09:** Added brief #18 - Service crew dispatch scheduling investment decision (new cluster: Field Service Operations).
+- **2026-03-10:** Added brief #19 - What to automate first in service business (Scaling/Growth Operations cluster, 2nd brief).

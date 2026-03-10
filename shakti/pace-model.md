@@ -1,12 +1,12 @@
 # Pace Model
 
-Last updated: 2026-03-06
+Last updated: 2026-03-08
 
 ## By Task Type (All Clients)
 
 | Task Type | Observed Count | Avg Actual Hours | Last 3 Actuals |
 |--------------|---------------|-----------------|----------------|
-| build | 15 | 1.05 | 6.0, 3.0, 1.5 |
+| build | 17 | 1.46 | 8.0, 1.0, 6.0 |
 | review | 0 | TBD | — |
 | debug | 2 | 1.5 | 2.0, 1.0 |
 | strategy | 0 | TBD | — |
@@ -18,8 +18,8 @@ Last updated: 2026-03-06
 | Client | Observed Count | Avg Actual Hours |
 |-----------------|---------------|-----------------|
 | beacon-house | 0 | TBD |
-| edutechplus | 13 | 0.52 |
-| thelaunch-space | 2 | 4.5 |
+| edutechplus | 14 | 0.55 |
+| thelaunch-space | 3 | 5.67 |
 
 ## Observations
 
@@ -30,3 +30,5 @@ Last updated: 2026-03-06
 **2026-03-03:** Completed 3 EduTechPlus tasks (4h total) + 1 Launch Control debug task (2h, actually done March 2). EduTechPlus: (1) Ask a Doubt tier-based intelligence (1.5h), (2) alternative input methods with tappable chips + typing field (1.5h), (3) bug fixes + deployment (1h debug). Launch Control: mobile UI modal dismiss fix (2h debug). Pattern shift: These EduTechPlus build tasks took significantly longer (1.5h each) vs the 0.3h batch tasks from March 2 — reflects more complex feature work vs simple UI adjustments. First debug tasks logged — debug averages 1.5h across both clients so far.
 
 **2026-03-06:** First thelaunch.space build tasks logged. (1) Move Slack conversations to Launch Control web UI — estimated 6h, actual 6h (perfect estimate). (2) Add OpenClaw HTTP endpoint to Launch Control — estimated 2h, actual 3h (50% over, additional wiring complexity). Pattern emerging: thelaunch.space infrastructure builds average 4.5h vs edutechplus feature work at 0.52h. Major scope difference — Launch Control is full-stack platform work, EduTechPlus V5 was mostly config/UI tweaks in existing system.
+
+**2026-03-08:** Two completions logged. (1) EduTechPlus: "Push Max inside applets" — estimated 3h, actual 1h (3x faster). Familiar React applet integration. (2) thelaunch.space: "Launch Control landing page revamped" — estimated 8h, actual 8h (perfect match). Full-scope work including brainstorm, research, build, testing, iterations. Pattern reinforcement: EduTechPlus feature work continues to come in under conservative estimates when working in familiar codebase. thelaunch.space builds track closer to estimates when properly scoped with discovery time included.

@@ -4,7 +4,7 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
-**Total Published: 26 blogs** (as of 2026-03-08)
+**Total Published: 28 blogs** (as of 2026-03-10)
 
 ## Topic Clusters
 
@@ -25,7 +25,7 @@ Blogs about building products, finding cofounders, MVP methodology.
 | 8 | When No-Code Tools Stop Working (And What to Do Next) | /blogs/startup-mvps/when-no-code-tools-stop-working | no-code tools limitations |
 | 9 | Vertical vs. Horizontal Development: What Non-Technical Founders Must Know | /blogs/startup-mvps/mvp-canceled-at-70-percent | vertical vs horizontal software development |
 
-### Cluster: Founder Advice & Strategy (13 blogs)
+### Cluster: Founder Advice & Strategy (14 blogs)
 Blogs about founder decision-making, validation, growth.
 
 | # | Title | URL | Primary Keyword |
@@ -43,6 +43,8 @@ Blogs about founder decision-making, validation, growth.
 | 19 | Post-MVP Doubt: Should You Keep Going or Quit? | /blogs/founder-advice/post-mvp-doubt-should-you-keep-going | post-MVP doubt |
 | 20 | Why Most Founders Fail at Distribution | /blogs/founder-advice/why-founders-fail-distribution-getting-customers | founder distribution failure |
 | 21 | I Hate Providing Services — When to Transition to Products | /blogs/founder-advice/service-treadmill-to-product | service to product transition |
+| 22 | When to Build a Custom Internal Tool vs Buy Software | /blogs/founder-advice/when-custom-internal-tool-beats-off-shelf | custom internal tool vs off-the-shelf |
+| 23 | You Outgrew Your Software - What's Your Next Move? | /blogs/founder-advice/outgrew-software-next-move | outgrew business software |
 
 ### Cluster: AI Tools & Automation (4 blogs)
 Blogs about AI products, automation, AI for non-technical founders.
