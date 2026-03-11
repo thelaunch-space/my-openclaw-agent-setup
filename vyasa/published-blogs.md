@@ -4,7 +4,7 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
-**Total Published: 28 blogs** (as of 2026-03-10)
+**Total Published: 29 blogs** (as of 2026-03-11)
 
 ## Topic Clusters
 
@@ -45,6 +45,7 @@ Blogs about founder decision-making, validation, growth.
 | 21 | I Hate Providing Services — When to Transition to Products | /blogs/founder-advice/service-treadmill-to-product | service to product transition |
 | 22 | When to Build a Custom Internal Tool vs Buy Software | /blogs/founder-advice/when-custom-internal-tool-beats-off-shelf | custom internal tool vs off-the-shelf |
 | 23 | You Outgrew Your Software - What's Your Next Move? | /blogs/founder-advice/outgrew-software-next-move | outgrew business software |
+| 24 | Your Product is Built. Why Can't You Get Customers? | /blogs/founder-advice/product-built-no-customers | how to get first customers after building product |
 
 ### Cluster: AI Tools & Automation (4 blogs)
 Blogs about AI products, automation, AI for non-technical founders.

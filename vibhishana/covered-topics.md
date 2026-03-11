@@ -16,13 +16,13 @@
 | Internal Tools/Operations | 3 | Build vs. buy decisions |
 | Lead Generation Strategy | 1 | Channel pivots, diversification |
 | Scaling/Growth Operations | 2 | Revenue plateaus from operational bottlenecks, admin overhead |
-| Business Model Strategy | 2 | Service → Product transition, Break-fix → Retainer transition |
+| Business Model Strategy | 3 | Service → Product transition, Break-fix → Retainer transition, Hourly → Value-based pricing |
 | Sales/CRM Operations | 1 | Lead management, pipeline tracking |
 | Team Building/Hiring | 1 | Solo to agency transition |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 | Field Service Operations | 1 | Dispatch/scheduling bottlenecks blocking revenue growth |
 
-**Total briefs created:** 19
+**Total briefs created:** 20
 
 ---
 
@@ -142,6 +142,12 @@
 - **ICP Problem:** Service business owners at 10-20 employees spending 10-15 hours/week on admin tasks (follow-ups, invoice chasing, email triage, scheduling). Cannot justify full-time office manager yet but DIY admin is blocking revenue growth and sanity. Need decision framework: which tasks safe to automate (high ROI, low risk) vs. which will backfire (damage brand).
 - **File:** `briefs/2026-03-10-back-office-automation-roi-service-business.md`
 
+### 2026-03-11: How to Transition from Hourly to Value-Based Pricing (Without Losing Clients)
+- **Cluster:** Business Model Strategy
+- **Primary Keyword:** how to transition from hourly to value based pricing
+- **ICP Problem:** Service business owners (consultants, agencies, coaches) hitting revenue ceiling from hourly billing. Work efficiently but get punished (faster = less revenue). Can't scale (revenue tied to personal hours). AI paradox: Tools cut project time 50-75% but hourly billing makes that REDUCE revenue. Need transition roadmap for moving existing hourly clients to value-based without mass churn.
+- **File:** `briefs/2026-03-11-hourly-to-value-based-pricing-transition.md`
+
 ---
 
 ## Diversity Alerts
@@ -151,6 +157,8 @@
 **⚠️ MVP Development Issues cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
 
 **⚠️ Post-Launch/Distribution cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
+
+**⚠️ Business Model Strategy cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
 
 ---
 
@@ -164,3 +172,4 @@
 - **2026-03-08:** Added brief #17 - Break-fix to retainer model transition (Business Model Strategy cluster, 2nd brief).
 - **2026-03-09:** Added brief #18 - Service crew dispatch scheduling investment decision (new cluster: Field Service Operations).
 - **2026-03-10:** Added brief #19 - What to automate first in service business (Scaling/Growth Operations cluster, 2nd brief).
+- **2026-03-11:** Added brief #20 - Hourly to value-based pricing transition (Business Model Strategy cluster, 3rd brief - now at saturation).

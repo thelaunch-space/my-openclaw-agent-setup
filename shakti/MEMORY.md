@@ -22,7 +22,11 @@ Created with full doc structure:
 
 ## Key Decisions
 
-[Populated as decisions are made]
+**EduTechPlus 3-Month Contract Opportunity (March 11, 2026):**
+- EduTechPlus offered 3-month contracts if Krishna hires a dev + agentic engineer quickly
+- Requires proposal by Friday, March 13 (2 days) with month-on-month deliverables and costing
+- Directly ties to thelaunch.space growth-and-expansion hiring sprint (target: hire within 2 weeks)
+- Potential for significant revenue expansion if Krishna can scale execution capacity
 
 ## Operational Notes
 
@@ -34,6 +38,11 @@ Created with full doc structure:
 - EduTechPlus: HIGH — Ask a Doubt feature fully shipped (13 tasks), now in testing/polish phase. Next deadline: Push Max inside applets (March 9)
 - thelaunch.space: HIGH — Major Launch Control infrastructure upgrades complete. Daily SEO blog pipeline running. Social GTM active.
 - Beacon House: BLOCKED — WhatsApp automation stalled on Meta display name review for 12+ days. Zero progress possible until unblocked.
+
+**New Projects Added (March 11):**
+- Beacon House: counsellor-training-ai — AI-driven feedback system for counselor quality improvement based on call notes
+- EduTechPlus: content-review-agent-team — OpenClaw agent team deployment on Hostinger VPS
+- thelaunch.space: growth-and-expansion — Hiring dev + agentic engineer (2-week sprint target)
 
 **Deadline Tracking:**
 - EduTechPlus deadlines are real and client-facing (Vinay expects observable progress every ~2 days)
