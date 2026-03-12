@@ -4,13 +4,13 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
-**Total Published: 29 blogs** (as of 2026-03-11)
+**Total Published: 30 blogs** (as of 2026-03-12)
 
 ## Topic Clusters
 
 Blogs are grouped into clusters. Google treats clusters as authority signals — blogs within the same cluster should link to each other when relevant. Cross-cluster links are fine when the content genuinely connects.
 
-### Cluster: Startup MVPs & Building (8 blogs)
+### Cluster: Startup MVPs & Building (10 blogs)
 Blogs about building products, finding cofounders, MVP methodology.
 
 | # | Title | URL | Primary Keyword |
@@ -24,6 +24,7 @@ Blogs about building products, finding cofounders, MVP methodology.
 | 7 | Hire a Developer or Build with AI? A Decision Framework | /blogs/startup-mvps/hire-developer-vs-build-with-ai | hire developer vs build with AI |
 | 8 | When No-Code Tools Stop Working (And What to Do Next) | /blogs/startup-mvps/when-no-code-tools-stop-working | no-code tools limitations |
 | 9 | Vertical vs. Horizontal Development: What Non-Technical Founders Must Know | /blogs/startup-mvps/mvp-canceled-at-70-percent | vertical vs horizontal software development |
+| 10 | You Launched Your MVP and No One Came. Now What? | /blogs/startup-mvps/launched-mvp-no-users | launched MVP no users |
 
 ### Cluster: Founder Advice & Strategy (14 blogs)
 Blogs about founder decision-making, validation, growth.

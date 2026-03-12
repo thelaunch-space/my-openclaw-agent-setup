@@ -15,14 +15,14 @@
 | MVP Development Issues | 3 | Getting stuck, rescue scenarios |
 | Internal Tools/Operations | 3 | Build vs. buy decisions |
 | Lead Generation Strategy | 1 | Channel pivots, diversification |
-| Scaling/Growth Operations | 2 | Revenue plateaus from operational bottlenecks, admin overhead |
+| Scaling/Growth Operations | 3 | Revenue plateaus from operational bottlenecks, admin overhead, systematization |
 | Business Model Strategy | 3 | Service → Product transition, Break-fix → Retainer transition, Hourly → Value-based pricing |
 | Sales/CRM Operations | 1 | Lead management, pipeline tracking |
 | Team Building/Hiring | 1 | Solo to agency transition |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 | Field Service Operations | 1 | Dispatch/scheduling bottlenecks blocking revenue growth |
 
-**Total briefs created:** 20
+**Total briefs created:** 21
 
 ---
 
@@ -148,17 +148,25 @@
 - **ICP Problem:** Service business owners (consultants, agencies, coaches) hitting revenue ceiling from hourly billing. Work efficiently but get punished (faster = less revenue). Can't scale (revenue tied to personal hours). AI paradox: Tools cut project time 50-75% but hourly billing makes that REDUCE revenue. Need transition roadmap for moving existing hourly clients to value-based without mass churn.
 - **File:** `briefs/2026-03-11-hourly-to-value-based-pricing-transition.md`
 
+### 2026-03-12: What to Systematize First When You're a Solo Consultant at Capacity (The 3-Bottleneck Diagnostic)
+- **Cluster:** Scaling/Growth Operations
+- **Primary Keyword:** what to systematize first in consulting business
+- **ICP Problem:** Solo consultants at $200K-$500K revenue hitting operational capacity limits. Can't take more clients without operations breaking. Don't know which bottleneck to fix first (delivery, admin, or sales). Trapped in analysis paralysis between hiring, automating, or raising rates.
+- **File:** `briefs/2026-03-12-what-to-systematize-first-solo-consultant-capacity.md`
+
 ---
 
 ## Diversity Alerts
 
-**⚠️ Internal Tools/Operations cluster at 3 briefs** - Approaching saturation. Next brief in this cluster needs VERY distinct angle.
+**⚠️ Internal Tools/Operations cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
 
 **⚠️ MVP Development Issues cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
 
 **⚠️ Post-Launch/Distribution cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
 
 **⚠️ Business Model Strategy cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
+
+**⚠️ Scaling/Growth Operations cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
 
 ---
 
@@ -173,3 +181,4 @@
 - **2026-03-09:** Added brief #18 - Service crew dispatch scheduling investment decision (new cluster: Field Service Operations).
 - **2026-03-10:** Added brief #19 - What to automate first in service business (Scaling/Growth Operations cluster, 2nd brief).
 - **2026-03-11:** Added brief #20 - Hourly to value-based pricing transition (Business Model Strategy cluster, 3rd brief - now at saturation).
+- **2026-03-12:** Added brief #21 - What to systematize first when at capacity (Scaling/Growth Operations cluster, 3rd brief - now at saturation).
