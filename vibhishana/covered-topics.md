@@ -20,9 +20,9 @@
 | Sales/CRM Operations | 1 | Lead management, pipeline tracking |
 | Team Building/Hiring | 1 | Solo to agency transition |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
-| Field Service Operations | 1 | Dispatch/scheduling bottlenecks blocking revenue growth |
+| Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
 
-**Total briefs created:** 21
+**Total briefs created:** 22
 
 ---
 
@@ -154,6 +154,12 @@
 - **ICP Problem:** Solo consultants at $200K-$500K revenue hitting operational capacity limits. Can't take more clients without operations breaking. Don't know which bottleneck to fix first (delivery, admin, or sales). Trapped in analysis paralysis between hiring, automating, or raising rates.
 - **File:** `briefs/2026-03-12-what-to-systematize-first-solo-consultant-capacity.md`
 
+### 2026-03-13: When After-Hours Calls Are Costing You More Than You Think (The 60% Revenue Leak)
+- **Cluster:** Field Service Operations
+- **Primary Keyword:** after hours lead capture service business
+- **ICP Problem:** Service businesses paying for Google Ads but losing 60% of leads because calls come after 5pm, go to voicemail. By morning, prospects booked competitors. Hemorrhaging revenue ($2,832/mo example) but don't know if they should hire answering service, build automation, or accept the loss. Decision paralysis on build vs. buy.
+- **File:** `briefs/2026-03-13-after-hours-lead-capture-decision-framework.md`
+
 ---
 
 ## Diversity Alerts
@@ -182,3 +188,4 @@
 - **2026-03-10:** Added brief #19 - What to automate first in service business (Scaling/Growth Operations cluster, 2nd brief).
 - **2026-03-11:** Added brief #20 - Hourly to value-based pricing transition (Business Model Strategy cluster, 3rd brief - now at saturation).
 - **2026-03-12:** Added brief #21 - What to systematize first when at capacity (Scaling/Growth Operations cluster, 3rd brief - now at saturation).
+- **2026-03-13:** Added brief #22 - After-hours lead capture decision framework (Field Service Operations cluster, 2nd brief).
