@@ -47,6 +47,7 @@ Blogs about founder decision-making, validation, growth.
 | 22 | When to Build a Custom Internal Tool vs Buy Software | /blogs/founder-advice/when-custom-internal-tool-beats-off-shelf | custom internal tool vs off-the-shelf |
 | 23 | You Outgrew Your Software - What's Your Next Move? | /blogs/founder-advice/outgrew-software-next-move | outgrew business software |
 | 24 | Your Product is Built. Why Can't You Get Customers? | /blogs/founder-advice/product-built-no-customers | how to get first customers after building product |
+| 25 | When to Hire Your First Employee as a Solo Consultant | /blogs/founder-advice/2026-03-03-solo-consultant-first-hire-decision | when to hire first employee consulting business |
 
 ### Cluster: AI Tools & Automation (4 blogs)
 Blogs about AI products, automation, AI for non-technical founders.

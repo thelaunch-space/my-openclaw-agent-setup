@@ -17,12 +17,12 @@
 | Lead Generation Strategy | 1 | Channel pivots, diversification |
 | Scaling/Growth Operations | 3 | Revenue plateaus from operational bottlenecks, admin overhead, systematization |
 | Business Model Strategy | 3 | Service → Product transition, Break-fix → Retainer transition, Hourly → Value-based pricing |
-| Sales/CRM Operations | 1 | Lead management, pipeline tracking |
+| Sales/CRM Operations | 2 | Lead management, pipeline tracking, proposal turnaround bottlenecks |
 | Team Building/Hiring | 1 | Solo to agency transition |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
 
-**Total briefs created:** 22
+**Total briefs created:** 23
 
 ---
 
@@ -160,6 +160,12 @@
 - **ICP Problem:** Service businesses paying for Google Ads but losing 60% of leads because calls come after 5pm, go to voicemail. By morning, prospects booked competitors. Hemorrhaging revenue ($2,832/mo example) but don't know if they should hire answering service, build automation, or accept the loss. Decision paralysis on build vs. buy.
 - **File:** `briefs/2026-03-13-after-hours-lead-capture-decision-framework.md`
 
+### 2026-03-14: When Your Slow Proposal Process Is Costing You Deals (The 48-Hour Framework)
+- **Cluster:** Sales/CRM Operations
+- **Primary Keyword:** proposal turnaround time service business
+- **ICP Problem:** Service business owners ($100K-$500K revenue) losing qualified leads because proposal process takes 5-14 days instead of 24-48 hours. By the time they send proposals, prospects went with faster competitors or lost enthusiasm. Measurable revenue leak from slow turnaround but unsure if/how to fix. Need diagnostic framework for when speed matters and build vs. buy decision tree.
+- **File:** `briefs/2026-03-14-proposal-turnaround-costing-deals.md`
+
 ---
 
 ## Diversity Alerts
@@ -189,3 +195,4 @@
 - **2026-03-11:** Added brief #20 - Hourly to value-based pricing transition (Business Model Strategy cluster, 3rd brief - now at saturation).
 - **2026-03-12:** Added brief #21 - What to systematize first when at capacity (Scaling/Growth Operations cluster, 3rd brief - now at saturation).
 - **2026-03-13:** Added brief #22 - After-hours lead capture decision framework (Field Service Operations cluster, 2nd brief).
+- **2026-03-14:** Added brief #23 - Slow proposal process costing deals (Sales/CRM Operations cluster, 2nd brief).
