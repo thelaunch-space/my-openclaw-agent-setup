@@ -14,7 +14,7 @@
 | Post-Launch/Distribution | 3 | After MVP ships, now what? |
 | MVP Development Issues | 3 | Getting stuck, rescue scenarios |
 | Internal Tools/Operations | 3 | Build vs. buy decisions |
-| Lead Generation Strategy | 1 | Channel pivots, diversification |
+| Lead Generation Strategy | 2 | Channel pivots, diversification, referral systems |
 | Scaling/Growth Operations | 3 | Revenue plateaus from operational bottlenecks, admin overhead, systematization |
 | Business Model Strategy | 3 | Service → Product transition, Break-fix → Retainer transition, Hourly → Value-based pricing |
 | Sales/CRM Operations | 2 | Lead management, pipeline tracking, proposal turnaround bottlenecks |
@@ -22,7 +22,7 @@
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
 
-**Total briefs created:** 23
+**Total briefs created:** 24
 
 ---
 
@@ -166,6 +166,12 @@
 - **ICP Problem:** Service business owners ($100K-$500K revenue) losing qualified leads because proposal process takes 5-14 days instead of 24-48 hours. By the time they send proposals, prospects went with faster competitors or lost enthusiasm. Measurable revenue leak from slow turnaround but unsure if/how to fix. Need diagnostic framework for when speed matters and build vs. buy decision tree.
 - **File:** `briefs/2026-03-14-proposal-turnaround-costing-deals.md`
 
+### 2026-03-15: How to Build a Referral System That Generates 70% of Your Consulting Clients (The Post-Project Framework)
+- **Cluster:** Lead Generation Strategy
+- **Primary Keyword:** consulting referral system
+- **ICP Problem:** Solo consultants and small consulting firms ($100K-$500K revenue) getting referrals reactively and sporadically, treating them as lucky accidents rather than a predictable growth engine. They know referrals are their best leads (highest conversion, lowest CAC) but don't have a systematic process to generate them consistently. Meanwhile, cold outreach is dying (LinkedIn saturated, email response rates tanking) and they're stuck in feast-or-famine revenue cycles. Don't know when to ask, how to frame it, who to target, or what to track.
+- **File:** `briefs/2026-03-15-consulting-referral-system-framework.md`
+
 ---
 
 ## Diversity Alerts
@@ -196,3 +202,4 @@
 - **2026-03-12:** Added brief #21 - What to systematize first when at capacity (Scaling/Growth Operations cluster, 3rd brief - now at saturation).
 - **2026-03-13:** Added brief #22 - After-hours lead capture decision framework (Field Service Operations cluster, 2nd brief).
 - **2026-03-14:** Added brief #23 - Slow proposal process costing deals (Sales/CRM Operations cluster, 2nd brief).
+- **2026-03-15:** Added brief #24 - Consulting referral system framework (Lead Generation Strategy cluster, 2nd brief).

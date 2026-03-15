@@ -4,7 +4,7 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
-**Total Published: 31 blogs** (as of 2026-03-13)
+**Total Published: 32 blogs** (as of 2026-03-15)
 
 ## Topic Clusters
 
@@ -60,12 +60,13 @@ Blogs about AI products, automation, AI for non-technical founders.
 | 24 | Best AI Tools for Non-Technical Founders to Build MVPs | /blogs/ai-tools/ai-tools-non-technical-founders-mvp | AI tools non-technical founders |
 | 25 | When to Rescue Your Stuck AI Project (And How) | /blogs/ai-tools/rescue-stuck-ai-project | rescue stuck no-code project |
 
-### Cluster: Growth & Marketing Strategy (1 blog)
+### Cluster: Growth & Marketing Strategy (2 blogs)
 Blogs about scaling, lead management, sales systems.
 
 | # | Title | URL | Primary Keyword |
 |---|-------|-----|-----------------|
 | 26 | When Your Spreadsheet CRM Starts Losing You Money (The 100-Lead Threshold) | /blogs/growth-strategy/2026-03-02-spreadsheet-to-crm-100-lead-threshold | when to switch from spreadsheet to crm |
+| 27 | Your Business Hit $200K Revenue. Why Can't You Get to $300K? | /blogs/growth-strategy/small-business-200k-admin-ceiling | small business 200k revenue ceiling |
 
 ## Internal Linking Rules
 

@@ -22,22 +22,30 @@ Created with full doc structure:
 
 ## Key Decisions
 
-**EduTechPlus 3-Month Contract Opportunity (March 11, 2026):**
+**EduTechPlus 3-Month Contract Opportunity (March 11-13, 2026):**
 - EduTechPlus offered 3-month contracts if Krishna hires a dev + agentic engineer quickly
-- Requires proposal by Friday, March 13 (2 days) with month-on-month deliverables and costing
+- Proposal delivered on time Friday, March 13
 - Directly ties to thelaunch.space growth-and-expansion hiring sprint (target: hire within 2 weeks)
 - Potential for significant revenue expansion if Krishna can scale execution capacity
+- Status: Awaiting client response
+
+**Beacon House New Strategic Build (March 11-12, 2026):**
+- Counselor training AI — AI-driven feedback system for counselor quality improvement based on pre-call/post-call notes
+- First Beacon House work logged after 12+ days blocked on WhatsApp automation (Meta display name review)
+- Architecture thinking completed March 12 (2h)
+- Indicates strategic pivot while waiting for Meta approval
 
 ## Operational Notes
 
-**Task Logging Patterns (March 1-6):**
+**Task Logging Patterns (March 1-12):**
 - Krishna logs actuals either during evening consolidation or via Kanban moves in Launch Control
-- Strategy tasks sometimes completed without actualHours recorded (e.g., content review agent roles on March 7) — need to prompt for this data
+- Strategy tasks sometimes completed without actualHours recorded — prompt for this data when status moves to done
+- Week of March 8-14: Board cleared to zero (no todo/in_progress/blocked tasks) — either full sprint completion or new work creation paused
 
-**Client Momentum (Week of March 1-8):**
-- EduTechPlus: HIGH — Ask a Doubt feature fully shipped (13 tasks), now in testing/polish phase. Next deadline: Push Max inside applets (March 9)
-- thelaunch.space: HIGH — Major Launch Control infrastructure upgrades complete. Daily SEO blog pipeline running. Social GTM active.
-- Beacon House: BLOCKED — WhatsApp automation stalled on Meta display name review for 12+ days. Zero progress possible until unblocked.
+**Client Momentum (Week of March 8-14):**
+- EduTechPlus: MODERATE — Push Max inside applets completed (March 9). Contract proposal delivered on time (March 13) for potential 3-month contract opportunity. Momentum depends on hiring sprint success.
+- thelaunch.space: HIGH — Heavy landing page week (14h). Launch Control landing page + /your-ai-team revamp completed. Daily SEO blog pipeline running. Social GTM active.
+- Beacon House: EMERGING — First work logged after 12+ days blocked. Counselor training AI architecture completed (March 12). WhatsApp automation still blocked on Meta review (19+ days).
 
 **New Projects Added (March 11):**
 - Beacon House: counsellor-training-ai — AI-driven feedback system for counselor quality improvement based on call notes
@@ -51,16 +59,23 @@ Created with full doc structure:
 
 ## Pace Observations
 
-**Build Task Velocity Variance (March 1-6):**
-- Pattern identified: Krishna's velocity varies 5-10x depending on task structure and codebase familiarity
+**Build Task Velocity Variance (March 1-12):**
+- Pattern identified: Krishna's velocity varies 3-10x depending on task structure and codebase familiarity
 - Batch work in familiar codebase: 5.5x faster than conservative estimates (March 2: 10 tasks, 16.5h est → 3h actual)
 - Individual feature builds with complexity: tracks close to or slightly over estimates (1.5h tasks for tier logic, input methods)
 - Infrastructure/cross-system work: 10-20% variance (Launch Control: 6h on 6h, 3h on 2h estimated)
+- **NEW: Marketing/landing page work highly variable** — March 8: perfect estimate (8h with discovery scoped), March 10: 2x overrun (3h est → 6h actual, discovery not scoped). Pattern: messaging iteration time must be explicitly included in estimates.
 
 **Client-Specific Pace Profiles:**
-- EduTechPlus: Avg 0.52h per build task — mostly UI/config changes in existing React app
-- thelaunch.space: Avg 4.5h per build task — full-stack platform infrastructure
-- Beacon House: No data yet (WhatsApp automation blocked since Feb 24)
+- EduTechPlus: Avg 0.55h per build task (updated March 12) — mostly UI/config changes in existing React app
+- thelaunch.space: Avg 5.75h per build task (updated March 12) — full-stack platform infrastructure + marketing pages with messaging iteration
+- Beacon House: First data point (March 12): 2h strategy task (architecture thinking)
+
+**Strategy Tasks (March 11-12):**
+- Consistently coming in 25-33% under estimates
+- Counselor feedback AI architecture: 3h est → 2h actual (33% under)
+- EduTechPlus 3-month contract proposal: 4h est → 3h actual (25% under)
+- Pattern suggests strategy task estimates can be tightened — Krishna's strategic thinking is faster than initial conservative estimates
 
 **Debug Tasks (first data points, March 2-3):**
 - Consistently running 20-30% over estimates
@@ -68,8 +83,10 @@ Created with full doc structure:
 - EduTechPlus deployment: 1h actual vs 1h estimated
 - Small sample size but suggests conservative +25% buffer for debug work
 
-**Estimation Strategy Update (March 6):**
+**Estimation Strategy Update (March 12):**
 - Don't use global averages — estimates must account for client scope
-- thelaunch.space infrastructure ≠ edutechplus features
+- thelaunch.space infrastructure ≠ edutechplus features ≠ marketing/landing pages
 - When Krishna batches related tasks with clear spec in familiar codebase: halve conservative estimates
 - When building new cross-system integrations: add 20% buffer
+- **NEW: Marketing/landing page work — default to 6-8h range unless scope is extremely narrow and discovery/messaging iteration is explicitly excluded**
+- **NEW: Strategy tasks — current estimates can be reduced by 20-30%**

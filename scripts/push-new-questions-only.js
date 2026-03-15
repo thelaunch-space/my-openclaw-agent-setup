@@ -88,8 +88,8 @@ async function main() {
   
   console.log(`Found ${newQuestions.length} NEW questions to push`);
   
-  // Get the latest date from new questions
-  const latestDate = Math.max(...newQuestions.map(q => q.batchId.split('-morning')[0]));
+  // Get the latest date from new questions (sort as strings, not numbers)
+  const latestDate = newQuestions.map(q => q.batchId.split('-morning')[0]).sort().pop();
   
   // Push to Convex
   const apiKey = fs.readFileSync(API_KEY_PATH, 'utf8').trim();
