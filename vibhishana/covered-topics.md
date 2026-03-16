@@ -21,8 +21,9 @@
 | Team Building/Hiring | 1 | Solo to agency transition |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
+| Market Positioning / Strategic Differentiation | 1 | Positioning consulting business in AI era |
 
-**Total briefs created:** 24
+**Total briefs created:** 25
 
 ---
 
@@ -172,6 +173,12 @@
 - **ICP Problem:** Solo consultants and small consulting firms ($100K-$500K revenue) getting referrals reactively and sporadically, treating them as lucky accidents rather than a predictable growth engine. They know referrals are their best leads (highest conversion, lowest CAC) but don't have a systematic process to generate them consistently. Meanwhile, cold outreach is dying (LinkedIn saturated, email response rates tanking) and they're stuck in feast-or-famine revenue cycles. Don't know when to ask, how to frame it, who to target, or what to track.
 - **File:** `briefs/2026-03-15-consulting-referral-system-framework.md`
 
+### 2026-03-16: How to Position Your Consulting Business in the AI Era (Without Racing to the Bottom or Fighting the Tide)
+- **Cluster:** Market Positioning / Strategic Differentiation (NEW)
+- **Primary Keyword:** how to position consulting business in AI era
+- **ICP Problem:** Boutique consulting firms (data/BI/cloud/custom software, serving SMBs/mid-market) caught in existential positioning crisis: "AI-powered" = commoditized race to bottom vs. "AI cleanup crew" = swimming upstream. Need third positioning that acknowledges AI leverage WITHOUT commoditizing human judgment. Revenue impact: Poor positioning = 30-40% revenue leak from mismatched client expectations + pricing compression.
+- **File:** `briefs/2026-03-16-consulting-positioning-ai-era-third-way.md`
+
 ---
 
 ## Diversity Alerts
@@ -203,3 +210,4 @@
 - **2026-03-13:** Added brief #22 - After-hours lead capture decision framework (Field Service Operations cluster, 2nd brief).
 - **2026-03-14:** Added brief #23 - Slow proposal process costing deals (Sales/CRM Operations cluster, 2nd brief).
 - **2026-03-15:** Added brief #24 - Consulting referral system framework (Lead Generation Strategy cluster, 2nd brief).
+- **2026-03-16:** Added brief #25 - Consulting positioning in AI era (new cluster: Market Positioning / Strategic Differentiation). Source: r/consulting thread with 28 comments. Addresses boutique firms' positioning crisis: "AI-powered" vs. "AI cleanup" false choice. White space: "AI-assisted, human-accountable" positioning.

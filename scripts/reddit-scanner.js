@@ -52,6 +52,7 @@ const SUBREDDITS = [
   // Domain-specific practice owners (VERTICALS)
   { name: 'lawfirm', category: 'Legal Practice', priority: 'HIGH' },
   { name: 'lawyers', category: 'Legal Practice', priority: 'HIGH' },
+  { name: 'solopractice', category: 'Legal Practice', priority: 'HIGH' }, // 15k solo attorneys - ops, bootstrapping (added 2026-03-16)
   { name: 'edtech', category: 'Education', priority: 'MEDIUM' },
   
   // REMOVED (2026-03-05): r/SaaS, r/indiehackers, r/nocode, r/cofounder, r/startups, r/HealthTech, r/healthcarestartups

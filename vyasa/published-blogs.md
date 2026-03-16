@@ -4,7 +4,7 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
-**Total Published: 32 blogs** (as of 2026-03-15)
+**Total Published: 33 blogs** (as of 2026-03-16)
 
 ## Topic Clusters
 
@@ -26,7 +26,7 @@ Blogs about building products, finding cofounders, MVP methodology.
 | 9 | Vertical vs. Horizontal Development: What Non-Technical Founders Must Know | /blogs/startup-mvps/mvp-canceled-at-70-percent | vertical vs horizontal software development |
 | 10 | You Launched Your MVP and No One Came. Now What? | /blogs/startup-mvps/launched-mvp-no-users | launched MVP no users |
 
-### Cluster: Founder Advice & Strategy (14 blogs)
+### Cluster: Founder Advice & Strategy (15 blogs)
 Blogs about founder decision-making, validation, growth.
 
 | # | Title | URL | Primary Keyword |
@@ -48,6 +48,7 @@ Blogs about founder decision-making, validation, growth.
 | 23 | You Outgrew Your Software - What's Your Next Move? | /blogs/founder-advice/outgrew-software-next-move | outgrew business software |
 | 24 | Your Product is Built. Why Can't You Get Customers? | /blogs/founder-advice/product-built-no-customers | how to get first customers after building product |
 | 25 | When to Hire Your First Employee as a Solo Consultant | /blogs/founder-advice/2026-03-03-solo-consultant-first-hire-decision | when to hire first employee consulting business |
+| 26 | When to Leave Teachable or Kajabi for Custom | /blogs/founder-advice/teachable-kajabi-custom-decision | when to leave teachable for custom |
 
 ### Cluster: AI Tools & Automation (4 blogs)
 Blogs about AI products, automation, AI for non-technical founders.

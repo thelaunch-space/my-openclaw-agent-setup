@@ -21,6 +21,7 @@ Durable truths that don't change often.
 **Domain-Specific Practice Owners (VERTICALS):**
 - r/lawfirm - Solo/small firm practice management, operations, scaling (added 2026-03-02)
 - r/lawyers - Professional discussions, practice challenges (added 2026-03-02)
+- r/solopractice - 15k members, hyper-focused on solo attorney bootstrapping, low-overhead ops, niche practice areas (added 2026-03-16)
 - r/edtech - Education practice owners/EdTech companies (Krishna's background)
 
 **REMOVED (2026-03-05 - Krishna mandate):**
@@ -45,6 +46,8 @@ Durable truths that don't change often.
 
 **Vertical-Specific (Domain Experts):**
 - **Education:** Founders Network EdTech Initiative (600+ global EdTech founders), Future of Higher Education Slack (3.5k+ EdTech innovation) (added 2026-02-09)
+  - **IECA (Independent Educational Consultants Association)** - Verified network for IECs, IECA Talk List (active listserv for sharing college/financial aid advice), 2k+ member vetted Facebook group, annual conferences. Gold standard credential for education consultants. (added 2026-03-16)
+  - **HECA (Higher Education Consultants Association)** - College admissions consultants, higher ed specialists. Conferences, forums, member directory. More niche than IECA but strong for college counseling vertical. (added 2026-03-16)
 - **Healthcare:** Health Tech Nerds Slack (6k members, vetted $20/mo), MGMA (operations focus), Sermo (physician-owned practice network), Tracy Cherpeski's communities (masterminds + CoPs for independent practice owners) (added 2026-02-25)
   - **Thriving Practice Community** - Global online community for independent healthcare practice owners (physicians, physical therapists, naturopaths, psychologists). 24/7 platform, twice-monthly group sessions, searchable resource library. Focus on scaling sustainably without burnout. (added 2026-03-09)
   - **PCMH Forum** - Nationwide Slack for Patient-Centered Medical Home topics, resources, Q&A among certified healthcare orgs. (added 2026-03-09)
@@ -57,6 +60,7 @@ Durable truths that don't change often.
   - **Flying Solo** - Free Slack community specifically for sole in-house lawyers and small teams. Best practices, guidance, peer support, regular events. (added 2026-03-09)
   - **Lawyer Slack (Associate's Mind)** - Private lawyers-only Slack, informal "water-cooler" environment for legal mentoring, camaraderie, peer critique. Multiple practice types. (added 2026-03-09)
 - **Financial Advisors:** HIFON (250+ RIA operations leaders, 24/7 discussion board, monthly peer forums, shared resource library, 14+ years of searchable knowledge) (added 2026-02-25)
+  - **XY Planning Network (XYPN)** - 2,100+ fee-only financial advisors. Member-only forums, mastermind groups matched by niche/firm stage, XYPN LIVE annual conference, office hours, local meetups. 90% member satisfaction. Gold standard for independent RIA community. (added 2026-03-16)
 - **Dental Practice Owners:** 
   - **Dental Practice Matchmaker** - 18k+ members Facebook group for private practice transitions (buying/selling/hiring). Largest online network for private practice dentists. (added 2026-03-02)
   - **Dental Nachos** - Active Facebook group for dental professionals (added 2026-03-02)
@@ -217,6 +221,13 @@ Krishna's stated choices for my work.
 ## Setup Log
 
 Chronological history.
+
+### 2026-03-16
+- **Weekly Community Discovery** - Found and added 4 new communities:
+  - **Financial Advisors (1):** XY Planning Network (2,100+ fee-only financial planners, member forums, masterminds, XYPN LIVE conference, 90% member satisfaction)
+  - **Legal (1):** r/solopractice (~15k members, hyper-focused on solo attorney bootstrapping, low-overhead ops, niche practice areas)
+  - **Education (2):** IECA - Independent Educational Consultants Association (verified IEC network, IECA Talk List, 2k+ member Facebook group), HECA - Higher Education Consultants Association (college admissions consultants, conferences, forums)
+- All additions focus on domain-expert service providers (35-50, running established practices) - continuing ICP pivot away from tech builders.
 
 ### 2026-03-09
 - **Weekly Community Discovery** - Found and added 7 new communities:
