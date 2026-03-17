@@ -14,7 +14,7 @@
 | Post-Launch/Distribution | 3 | After MVP ships, now what? |
 | MVP Development Issues | 3 | Getting stuck, rescue scenarios |
 | Internal Tools/Operations | 3 | Build vs. buy decisions |
-| Lead Generation Strategy | 2 | Channel pivots, diversification, referral systems |
+| Lead Generation Strategy | 3 | Channel pivots, diversification, referral systems, CAC diagnostics |
 | Scaling/Growth Operations | 3 | Revenue plateaus from operational bottlenecks, admin overhead, systematization |
 | Business Model Strategy | 3 | Service → Product transition, Break-fix → Retainer transition, Hourly → Value-based pricing |
 | Sales/CRM Operations | 2 | Lead management, pipeline tracking, proposal turnaround bottlenecks |
@@ -23,7 +23,7 @@
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
 | Market Positioning / Strategic Differentiation | 1 | Positioning consulting business in AI era |
 
-**Total briefs created:** 25
+**Total briefs created:** 26
 
 ---
 
@@ -179,9 +179,17 @@
 - **ICP Problem:** Boutique consulting firms (data/BI/cloud/custom software, serving SMBs/mid-market) caught in existential positioning crisis: "AI-powered" = commoditized race to bottom vs. "AI cleanup crew" = swimming upstream. Need third positioning that acknowledges AI leverage WITHOUT commoditizing human judgment. Revenue impact: Poor positioning = 30-40% revenue leak from mismatched client expectations + pricing compression.
 - **File:** `briefs/2026-03-16-consulting-positioning-ai-era-third-way.md`
 
+### 2026-03-17: When High CAC Is Actually a Crisis (And When It's Just Growing Pains)
+- **Cluster:** Lead Generation Strategy
+- **Primary Keyword:** when is client acquisition cost too high
+- **ICP Problem:** Service business owners ($100K-$500K revenue) experiencing CAC anxiety but can't diagnose whether CAC is their bottleneck or symptom. Stuck in analysis paralysis: don't know if $5K CAC is good/bad without context (LTV, margins, stage). Real problem: blaming CAC when issue might be conversion rate, pricing, or LTV.
+- **File:** `briefs/2026-03-17-when-high-cac-actually-crisis.md`
+
 ---
 
 ## Diversity Alerts
+
+**⚠️ Lead Generation Strategy cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
 
 **⚠️ Internal Tools/Operations cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
 
@@ -211,3 +219,4 @@
 - **2026-03-14:** Added brief #23 - Slow proposal process costing deals (Sales/CRM Operations cluster, 2nd brief).
 - **2026-03-15:** Added brief #24 - Consulting referral system framework (Lead Generation Strategy cluster, 2nd brief).
 - **2026-03-16:** Added brief #25 - Consulting positioning in AI era (new cluster: Market Positioning / Strategic Differentiation). Source: r/consulting thread with 28 comments. Addresses boutique firms' positioning crisis: "AI-powered" vs. "AI cleanup" false choice. White space: "AI-assisted, human-accountable" positioning.
+- **2026-03-17:** Added brief #26 - When high CAC is actually a crisis (Lead Generation Strategy cluster, 3rd brief - now at saturation). Source: Multiple r/consulting and r/entrepreneur threads on high CAC anxiety. White space: Diagnostic framework (not just reduction tactics), stage-specific benchmarks, hidden CAC calculator including founder time cost.

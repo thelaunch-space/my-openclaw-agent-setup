@@ -4,7 +4,7 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
-**Total Published: 33 blogs** (as of 2026-03-16)
+**Total Published: 35 blogs** (as of 2026-03-17)
 
 ## Topic Clusters
 
@@ -49,6 +49,8 @@ Blogs about founder decision-making, validation, growth.
 | 24 | Your Product is Built. Why Can't You Get Customers? | /blogs/founder-advice/product-built-no-customers | how to get first customers after building product |
 | 25 | When to Hire Your First Employee as a Solo Consultant | /blogs/founder-advice/2026-03-03-solo-consultant-first-hire-decision | when to hire first employee consulting business |
 | 26 | When to Leave Teachable or Kajabi for Custom | /blogs/founder-advice/teachable-kajabi-custom-decision | when to leave teachable for custom |
+| 27 | Why Your First Sale Is Taking Forever | /blogs/founder-advice/first-sale-taking-forever | how to get your first paying customer |
+| 28 | Your Lead Gen Channel Just Died | /blogs/founder-advice/lead-gen-channel-died | lead generation channel pivot service business |
 
 ### Cluster: AI Tools & Automation (4 blogs)
 Blogs about AI products, automation, AI for non-technical founders.
