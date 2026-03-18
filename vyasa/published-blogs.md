@@ -4,7 +4,7 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
-**Total Published: 35 blogs** (as of 2026-03-17)
+**Total Published: 36 blogs** (as of 2026-03-18)
 
 ## Topic Clusters
 
@@ -51,6 +51,7 @@ Blogs about founder decision-making, validation, growth.
 | 26 | When to Leave Teachable or Kajabi for Custom | /blogs/founder-advice/teachable-kajabi-custom-decision | when to leave teachable for custom |
 | 27 | Why Your First Sale Is Taking Forever | /blogs/founder-advice/first-sale-taking-forever | how to get your first paying customer |
 | 28 | Your Lead Gen Channel Just Died | /blogs/founder-advice/lead-gen-channel-died | lead generation channel pivot service business |
+| 29 | Your Clients Won't Commit to Retainers. Now What? | /blogs/founder-advice/2026-03-08-break-fix-to-retainer-service-business | service business retainer model transition |
 
 ### Cluster: AI Tools & Automation (4 blogs)
 Blogs about AI products, automation, AI for non-technical founders.

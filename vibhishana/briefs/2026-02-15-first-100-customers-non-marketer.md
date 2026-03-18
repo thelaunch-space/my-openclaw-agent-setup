@@ -1,7 +1,7 @@
 # Research Brief: How to Get Your First 100 Customers (When You're Not a Marketer)
 
 **Created:** 2026-02-15  
-**Last Revised:** 2026-03-11 (v2 - Integrity revision per Krishna feedback)  
+**Last Revised:** 2026-03-18 (v3 - Confirmed fabrication removal)  
 **Category:** Distribution/GTM  
 **Status:** Pending Review
 

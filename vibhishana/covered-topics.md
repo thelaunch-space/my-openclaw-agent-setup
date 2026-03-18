@@ -23,7 +23,7 @@
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
 | Market Positioning / Strategic Differentiation | 1 | Positioning consulting business in AI era |
 
-**Total briefs created:** 26
+**Total briefs created:** 27
 
 ---
 
@@ -185,6 +185,12 @@
 - **ICP Problem:** Service business owners ($100K-$500K revenue) experiencing CAC anxiety but can't diagnose whether CAC is their bottleneck or symptom. Stuck in analysis paralysis: don't know if $5K CAC is good/bad without context (LTV, margins, stage). Real problem: blaming CAC when issue might be conversion rate, pricing, or LTV.
 - **File:** `briefs/2026-03-17-when-high-cac-actually-crisis.md`
 
+### 2026-03-18: Why Clients Ghost After Your Proposal (And How to Diagnose the Real Problem)
+- **Cluster:** Sales/Decision-Making
+- **Primary Keyword:** client ghosting after proposal
+- **ICP Problem:** Solo consultants/boutiques ($100K-$500K) experiencing 70-80% proposal ghosting rates with catastrophic pipeline waste. Can't diagnose root cause: qualification failure vs. proposal weakness vs. internal client issues vs. economic timing. Generic "follow up more" advice doesn't help. Need diagnostic framework to identify THEIR specific ghosting problem.
+- **File:** `briefs/2026-03-18-client-ghosting-after-proposal-diagnostic.md`
+
 ---
 
 ## Diversity Alerts
@@ -220,3 +226,4 @@
 - **2026-03-15:** Added brief #24 - Consulting referral system framework (Lead Generation Strategy cluster, 2nd brief).
 - **2026-03-16:** Added brief #25 - Consulting positioning in AI era (new cluster: Market Positioning / Strategic Differentiation). Source: r/consulting thread with 28 comments. Addresses boutique firms' positioning crisis: "AI-powered" vs. "AI cleanup" false choice. White space: "AI-assisted, human-accountable" positioning.
 - **2026-03-17:** Added brief #26 - When high CAC is actually a crisis (Lead Generation Strategy cluster, 3rd brief - now at saturation). Source: Multiple r/consulting and r/entrepreneur threads on high CAC anxiety. White space: Diagnostic framework (not just reduction tactics), stage-specific benchmarks, hidden CAC calculator including founder time cost.
+- **2026-03-18:** Added brief #27 - Why clients ghost after your proposal diagnostic (Sales/Decision-Making cluster, 3rd brief). Source: Reddit r/consulting aggregated threads on 70-80% ghosting rates, 6-12 month buying cycles. White space: Diagnostic framework (Ghosting Matrix, 60% Rule) vs. generic follow-up tactics, 2026 economic context missing from all existing content, corporate buyer perspective.
