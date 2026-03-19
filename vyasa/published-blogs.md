@@ -4,7 +4,7 @@
 > Use it to add relevant internal links. Only link when contextually relevant. Never force a link.
 > Update this file after every PR is submitted (add the new blog entry).
 
-**Total Published: 36 blogs** (as of 2026-03-18)
+**Total Published: 37 blogs** (as of 2026-03-19)
 
 ## Topic Clusters
 
@@ -52,6 +52,7 @@ Blogs about founder decision-making, validation, growth.
 | 27 | Why Your First Sale Is Taking Forever | /blogs/founder-advice/first-sale-taking-forever | how to get your first paying customer |
 | 28 | Your Lead Gen Channel Just Died | /blogs/founder-advice/lead-gen-channel-died | lead generation channel pivot service business |
 | 29 | Your Clients Won't Commit to Retainers. Now What? | /blogs/founder-advice/2026-03-08-break-fix-to-retainer-service-business | service business retainer model transition |
+| 30 | When to Invest in Dispatch Scheduling Software | /blogs/founder-advice/service-crew-dispatch-scheduling-investment-decision | when to invest in dispatch scheduling software |
 
 ### Cluster: AI Tools & Automation (4 blogs)
 Blogs about AI products, automation, AI for non-technical founders.

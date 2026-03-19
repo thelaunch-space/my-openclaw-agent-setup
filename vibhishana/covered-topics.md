@@ -22,8 +22,9 @@
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
 | Market Positioning / Strategic Differentiation | 1 | Positioning consulting business in AI era |
+| Client Portfolio Management | 1 | Firing bad-fit clients, concentration risk |
 
-**Total briefs created:** 27
+**Total briefs created:** 28
 
 ---
 
@@ -191,6 +192,12 @@
 - **ICP Problem:** Solo consultants/boutiques ($100K-$500K) experiencing 70-80% proposal ghosting rates with catastrophic pipeline waste. Can't diagnose root cause: qualification failure vs. proposal weakness vs. internal client issues vs. economic timing. Generic "follow up more" advice doesn't help. Need diagnostic framework to identify THEIR specific ghosting problem.
 - **File:** `briefs/2026-03-18-client-ghosting-after-proposal-diagnostic.md`
 
+### 2026-03-19: Should I Fire My Biggest Client? (The Hidden Cost Framework)
+- **Cluster:** Client Portfolio Management (NEW)
+- **Primary Keyword:** should I fire my biggest client
+- **ICP Problem:** Service business owners (consultants, agencies, dev shops) trapped by "biggest client" (30-50% revenue) that's a bad fit (scope creep, late payment, toxicity, ethical misalignment). Decision paralysis: Fire → revenue drop vs. Keep → team/brand/profitability damage. Need financial modeling framework to calculate hidden costs (stress, opportunity cost, turnover risk) + exit strategy + replacement timeline reality (6-12 months).
+- **File:** `briefs/2026-03-19-should-i-fire-my-biggest-client.md`
+
 ---
 
 ## Diversity Alerts
@@ -227,3 +234,4 @@
 - **2026-03-16:** Added brief #25 - Consulting positioning in AI era (new cluster: Market Positioning / Strategic Differentiation). Source: r/consulting thread with 28 comments. Addresses boutique firms' positioning crisis: "AI-powered" vs. "AI cleanup" false choice. White space: "AI-assisted, human-accountable" positioning.
 - **2026-03-17:** Added brief #26 - When high CAC is actually a crisis (Lead Generation Strategy cluster, 3rd brief - now at saturation). Source: Multiple r/consulting and r/entrepreneur threads on high CAC anxiety. White space: Diagnostic framework (not just reduction tactics), stage-specific benchmarks, hidden CAC calculator including founder time cost.
 - **2026-03-18:** Added brief #27 - Why clients ghost after your proposal diagnostic (Sales/Decision-Making cluster, 3rd brief). Source: Reddit r/consulting aggregated threads on 70-80% ghosting rates, 6-12 month buying cycles. White space: Diagnostic framework (Ghosting Matrix, 60% Rule) vs. generic follow-up tactics, 2026 economic context missing from all existing content, corporate buyer perspective.
+- **2026-03-19:** Added brief #28 - Should I Fire My Biggest Client? (new cluster: Client Portfolio Management). Source: Reddit r/Entrepreneur threads (Feb-Mar 2026) on firing bad-fit biggest clients (40-50% revenue). White space: Hidden Cost Calculator (quantify stress/opportunity cost/turnover risk in dollars), 30% Concentration Risk Threshold (structural vulnerability), Exit Strategy Decision Tree, realistic 6-12 month replacement timeline, prevention framework (client qualification upfront). ALL existing content = emotional advice or generic "set boundaries" - ZERO financial modeling.
