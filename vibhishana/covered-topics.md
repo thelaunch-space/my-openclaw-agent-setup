@@ -21,10 +21,10 @@
 | Team Building/Hiring | 1 | Solo to agency transition |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
-| Market Positioning / Strategic Differentiation | 1 | Positioning consulting business in AI era |
+| Market Positioning / Strategic Differentiation | 2 | Positioning consulting business in AI era, generalist vs specialist decision |
 | Client Portfolio Management | 1 | Firing bad-fit clients, concentration risk |
 
-**Total briefs created:** 28
+**Total briefs created:** 29
 
 ---
 
@@ -198,6 +198,12 @@
 - **ICP Problem:** Service business owners (consultants, agencies, dev shops) trapped by "biggest client" (30-50% revenue) that's a bad fit (scope creep, late payment, toxicity, ethical misalignment). Decision paralysis: Fire → revenue drop vs. Keep → team/brand/profitability damage. Need financial modeling framework to calculate hidden costs (stress, opportunity cost, turnover risk) + exit strategy + replacement timeline reality (6-12 months).
 - **File:** `briefs/2026-03-19-should-i-fire-my-biggest-client.md`
 
+### 2026-03-20: Should I Specialize My Consulting Business? (The $150K Revenue Crossover Point)
+- **Cluster:** Market Positioning / Strategic Differentiation
+- **Primary Keyword:** should I specialize my consulting business
+- **ICP Problem:** Solo consultants and boutique firms ($100K-$500K revenue) stuck in strategic limbo: built generalist revenue ($150K-$250K) but hitting ceiling. See specialist colleagues charging 2-3x their rates. Fear revenue drop during transition, niche risk (pick wrong industry), pipeline anxiety (fewer opportunities), timing paralysis (too early/late). Real question: When does financial math flip from generalist safety to specialist upside—and how to transition without revenue cliff?
+- **File:** `briefs/2026-03-20-should-i-specialize-consulting-business-revenue-crossover.md`
+
 ---
 
 ## Diversity Alerts
@@ -235,3 +241,4 @@
 - **2026-03-17:** Added brief #26 - When high CAC is actually a crisis (Lead Generation Strategy cluster, 3rd brief - now at saturation). Source: Multiple r/consulting and r/entrepreneur threads on high CAC anxiety. White space: Diagnostic framework (not just reduction tactics), stage-specific benchmarks, hidden CAC calculator including founder time cost.
 - **2026-03-18:** Added brief #27 - Why clients ghost after your proposal diagnostic (Sales/Decision-Making cluster, 3rd brief). Source: Reddit r/consulting aggregated threads on 70-80% ghosting rates, 6-12 month buying cycles. White space: Diagnostic framework (Ghosting Matrix, 60% Rule) vs. generic follow-up tactics, 2026 economic context missing from all existing content, corporate buyer perspective.
 - **2026-03-19:** Added brief #28 - Should I Fire My Biggest Client? (new cluster: Client Portfolio Management). Source: Reddit r/Entrepreneur threads (Feb-Mar 2026) on firing bad-fit biggest clients (40-50% revenue). White space: Hidden Cost Calculator (quantify stress/opportunity cost/turnover risk in dollars), 30% Concentration Risk Threshold (structural vulnerability), Exit Strategy Decision Tree, realistic 6-12 month replacement timeline, prevention framework (client qualification upfront). ALL existing content = emotional advice or generic "set boundaries" - ZERO financial modeling.
+- **2026-03-20:** Added brief #29 - Should I Specialize My Consulting Business? (Market Positioning cluster, 2nd brief). Source: Reddit r/consulting multiple threads 2022-2024 on generalist vs specialist, revenue plateaus ($150-250K generalist, $300K+ specialist), 2-3x pricing delta. White space: Revenue Crossover Analysis framework (financial decision model with specific $150K threshold), Specialization Decision Tree (your situation → stay/specialize/hybrid), 12-18 month transition playbook, risk mitigation strategies, honest about valid generalist cases. ALL existing content = generic "benefits of specialization" motivation - ZERO financial decision frameworks.
