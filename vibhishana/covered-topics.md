@@ -23,8 +23,9 @@
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
 | Market Positioning / Strategic Differentiation | 2 | Positioning consulting business in AI era, generalist vs specialist decision |
 | Client Portfolio Management | 1 | Firing bad-fit clients, concentration risk |
+| Cash Flow / Payment Operations | 1 | Payment terms structure, late payment enforcement, cash flow protection |
 
-**Total briefs created:** 30
+**Total briefs created:** 31
 
 ---
 
@@ -210,6 +211,12 @@
 - **ICP Problem:** Solo consultants hitting $150K-$200K revenue range experiencing multi-dimensional ceiling that LOOKS like capacity problem but could be delivery bottleneck, acquisition bottleneck, or pricing model trap. Paralyzed by jumping straight to "should I hire?" without diagnosing WHICH bottleneck is their real constraint. Result: Wrong solution (hire delivery support when real problem is lead gen), wasted money, margin compression without revenue growth.
 - **File:** `briefs/2026-03-21-why-stuck-180k-solo-consultant-diagnostic.md`
 
+### 2026-03-22: How to Structure Payment Terms That Actually Get Paid (Without Losing Clients)
+- **Cluster:** Cash Flow / Payment Operations (NEW)
+- **Primary Keyword:** how to structure payment terms for consulting
+- **ICP Problem:** Solo consultants and small service businesses ($100K-$500K revenue) experiencing cash flow crisis from late payments (avg 60-90 days vs net 30). Have penalties but don't enforce (relationship fear). Don't know WHEN to use which payment structure (risk-based decision). Can't quantify late payment cost. Fear aggressive terms will lose deals.
+- **File:** `briefs/2026-03-22-payment-terms-service-business-late-payment-framework.md`
+
 ---
 
 ## Diversity Alerts
@@ -249,3 +256,4 @@
 - **2026-03-19:** Added brief #28 - Should I Fire My Biggest Client? (new cluster: Client Portfolio Management). Source: Reddit r/Entrepreneur threads (Feb-Mar 2026) on firing bad-fit biggest clients (40-50% revenue). White space: Hidden Cost Calculator (quantify stress/opportunity cost/turnover risk in dollars), 30% Concentration Risk Threshold (structural vulnerability), Exit Strategy Decision Tree, realistic 6-12 month replacement timeline, prevention framework (client qualification upfront). ALL existing content = emotional advice or generic "set boundaries" - ZERO financial modeling.
 - **2026-03-20:** Added brief #29 - Should I Specialize My Consulting Business? (Market Positioning cluster, 2nd brief). Source: Reddit r/consulting multiple threads 2022-2024 on generalist vs specialist, revenue plateaus ($150-250K generalist, $300K+ specialist), 2-3x pricing delta. White space: Revenue Crossover Analysis framework (financial decision model with specific $150K threshold), Specialization Decision Tree (your situation → stay/specialize/hybrid), 12-18 month transition playbook, risk mitigation strategies, honest about valid generalist cases. ALL existing content = generic "benefits of specialization" motivation - ZERO financial decision frameworks.
 - **2026-03-21:** Added brief #30 - Why You're Stuck at $180K/Year as a Solo Consultant (Scaling/Growth Operations cluster, 4th brief - NOW OVER LIMIT). Source: Reddit r/consulting Feb 2026 thread (156 upvotes) "Revenue stuck at $15k/month, can't scale without team", plus multiple 2025-2026 threads on $150K-$200K plateaus. White space: 3-Bottleneck Diagnostic framework (Delivery vs Acquisition vs Pricing Model), decision tree logic (bottleneck → solution), $180K Math Calculator (1,500 billable hrs × $120/hr), Wrong-Solution Trap (misdiagnosis cost), AI Efficiency Paradox (tools + hourly billing = LESS revenue), honest lifestyle vs scale trade-offs (when staying solo beats scaling). ALL existing content = generic "how to scale" tactics - ZERO diagnostic frameworks to identify YOUR specific constraint before choosing solution.
+- **2026-03-22:** Added brief #31 - How to Structure Payment Terms That Actually Get Paid (new cluster: Cash Flow / Payment Operations). Source: Reddit r/consulting and r/entrepreneur Jan-Mar 2026 threads (247-412 upvotes) on net 30 → actual 60-90 day payments, enforcement paralysis, client ghosting after $15K invoices. White space: Payment Terms Risk Matrix (project size × client type → recommended structure with specific triggers), Late Payment Cost Calculator (opportunity + admin + stress cost formulas), Positioning Framework (how to present deposits/short terms as client benefit not seller desperation), Enforcement Decision Tree (when to waive/charge/suspend/walk away), 2026 economic context (why net 30 dying post-recession, what's replacing it). ALL existing content = generic lists of payment options - ZERO decision frameworks, positioning strategy, enforcement psychology, or solo consultant cash flow reality.
