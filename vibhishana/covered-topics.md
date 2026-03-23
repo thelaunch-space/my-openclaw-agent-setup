@@ -18,14 +18,14 @@
 | Scaling/Growth Operations | 4 | Revenue plateaus from operational bottlenecks, admin overhead, systematization, diagnostic frameworks |
 | Business Model Strategy | 3 | Service → Product transition, Break-fix → Retainer transition, Hourly → Value-based pricing |
 | Sales/CRM Operations | 2 | Lead management, pipeline tracking, proposal turnaround bottlenecks |
-| Team Building/Hiring | 1 | Solo to agency transition |
+| Team Building/Hiring | 2 | Solo to agency transition, contractor vs employee decisions |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
 | Market Positioning / Strategic Differentiation | 2 | Positioning consulting business in AI era, generalist vs specialist decision |
 | Client Portfolio Management | 1 | Firing bad-fit clients, concentration risk |
 | Cash Flow / Payment Operations | 1 | Payment terms structure, late payment enforcement, cash flow protection |
 
-**Total briefs created:** 31
+**Total briefs created:** 32
 
 ---
 
@@ -217,6 +217,12 @@
 - **ICP Problem:** Solo consultants and small service businesses ($100K-$500K revenue) experiencing cash flow crisis from late payments (avg 60-90 days vs net 30). Have penalties but don't enforce (relationship fear). Don't know WHEN to use which payment structure (risk-based decision). Can't quantify late payment cost. Fear aggressive terms will lose deals.
 - **File:** `briefs/2026-03-22-payment-terms-service-business-late-payment-framework.md`
 
+### 2026-03-23: Contractor vs. Employee for Your First Hire: When to Convert (The 30/3/6 Decision Framework)
+- **Cluster:** Team Building/Hiring
+- **Primary Keyword:** contractor vs employee first hire
+- **ICP Problem:** Solo consultants and service business owners ($150K-$500K revenue) paralyzed by multi-dimensional contractor vs. employee decision with major financial/legal consequences: 30-40% cost increase, misclassification fines ($10K-$25K), timing uncertainty (hours/revenue/duration thresholds), IP risk, and commitment vs. flexibility trade-off. Don't know WHEN to convert.
+- **File:** `briefs/2026-03-23-contractor-vs-employee-first-hire-decision.md`
+
 ---
 
 ## Diversity Alerts
@@ -257,3 +263,4 @@
 - **2026-03-20:** Added brief #29 - Should I Specialize My Consulting Business? (Market Positioning cluster, 2nd brief). Source: Reddit r/consulting multiple threads 2022-2024 on generalist vs specialist, revenue plateaus ($150-250K generalist, $300K+ specialist), 2-3x pricing delta. White space: Revenue Crossover Analysis framework (financial decision model with specific $150K threshold), Specialization Decision Tree (your situation → stay/specialize/hybrid), 12-18 month transition playbook, risk mitigation strategies, honest about valid generalist cases. ALL existing content = generic "benefits of specialization" motivation - ZERO financial decision frameworks.
 - **2026-03-21:** Added brief #30 - Why You're Stuck at $180K/Year as a Solo Consultant (Scaling/Growth Operations cluster, 4th brief - NOW OVER LIMIT). Source: Reddit r/consulting Feb 2026 thread (156 upvotes) "Revenue stuck at $15k/month, can't scale without team", plus multiple 2025-2026 threads on $150K-$200K plateaus. White space: 3-Bottleneck Diagnostic framework (Delivery vs Acquisition vs Pricing Model), decision tree logic (bottleneck → solution), $180K Math Calculator (1,500 billable hrs × $120/hr), Wrong-Solution Trap (misdiagnosis cost), AI Efficiency Paradox (tools + hourly billing = LESS revenue), honest lifestyle vs scale trade-offs (when staying solo beats scaling). ALL existing content = generic "how to scale" tactics - ZERO diagnostic frameworks to identify YOUR specific constraint before choosing solution.
 - **2026-03-22:** Added brief #31 - How to Structure Payment Terms That Actually Get Paid (new cluster: Cash Flow / Payment Operations). Source: Reddit r/consulting and r/entrepreneur Jan-Mar 2026 threads (247-412 upvotes) on net 30 → actual 60-90 day payments, enforcement paralysis, client ghosting after $15K invoices. White space: Payment Terms Risk Matrix (project size × client type → recommended structure with specific triggers), Late Payment Cost Calculator (opportunity + admin + stress cost formulas), Positioning Framework (how to present deposits/short terms as client benefit not seller desperation), Enforcement Decision Tree (when to waive/charge/suspend/walk away), 2026 economic context (why net 30 dying post-recession, what's replacing it). ALL existing content = generic lists of payment options - ZERO decision frameworks, positioning strategy, enforcement psychology, or solo consultant cash flow reality.
+- **2026-03-23:** Added brief #32 - Contractor vs. Employee for Your First Hire (Team Building/Hiring cluster, 2nd brief). Source: Reddit r/smallbusiness and r/consulting (20+ threads, 2025-2026) on contractor → employee conversion timing, misclassification fines ($10K-$25K), 30 hrs/week thresholds. White space: 30/3/6 Decision Framework (30 hrs/week trigger, 3-month trial, 6-month maximum), Cost Calculator (contractor vs employee all-in comparison), Misclassification Self-Audit (5 red flags from IRS/DOL tests), State-Specific Warnings (CA/MA/NY stricter), Conversion Playbook (4-6 week step-by-step). ALL existing content = generic compliance checklists (Gusto, NOLO) - ZERO decision frameworks with specific thresholds, 2025-2026 regulatory updates, service business economics lens, or conversion timing triggers.

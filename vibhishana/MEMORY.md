@@ -59,18 +59,27 @@ Durable truths that don't change often.
   - **LawyerSmack** - Private Slack community, $199/year, 100+ channels organized by state and practice area, curated industry news. For lawyers of all practice types. (added 2026-03-09)
   - **Flying Solo** - Free Slack community specifically for sole in-house lawyers and small teams. Best practices, guidance, peer support, regular events. (added 2026-03-09)
   - **Lawyer Slack (Associate's Mind)** - Private lawyers-only Slack, informal "water-cooler" environment for legal mentoring, camaraderie, peer critique. Multiple practice types. (added 2026-03-09)
+  - **Solo Practice University** - Online educational + networking community founded by Susan Cartier Liebel. Courses (e.g., "How to Hang a Shingle"), guest lectures, blogs, free 68-page e-book. ABA Journal recognized as top law practice management resource. For solo attorneys and law students starting/scaling solo practices. (added 2026-03-23)
 - **Financial Advisors:** HIFON (250+ RIA operations leaders, 24/7 discussion board, monthly peer forums, shared resource library, 14+ years of searchable knowledge) (added 2026-02-25)
   - **XY Planning Network (XYPN)** - 2,100+ fee-only financial advisors. Member-only forums, mastermind groups matched by niche/firm stage, XYPN LIVE annual conference, office hours, local meetups. 90% member satisfaction. Gold standard for independent RIA community. (added 2026-03-16)
 - **Dental Practice Owners:** 
   - **Dental Practice Matchmaker** - 18k+ members Facebook group for private practice transitions (buying/selling/hiring). Largest online network for private practice dentists. (added 2026-03-02)
   - **Dental Nachos** - Active Facebook group for dental professionals (added 2026-03-02)
   - **Dental Boss Movement** - Practice owner community (added 2026-03-02)
+- **Veterinary Practice Owners:**
+  - **VetLife on Slack (VetCor)** - 400+ veterinarians on Slack organized by discussion channels. Real-time medical case support, peer boards for goal-setting/accountability, owners share monthly EBITDA and HR challenges. Serves solo practitioners and multi-clinic operators scaling operations. (added 2026-03-23)
+- **Physical Therapy Practice Owners:**
+  - **APTA Private Practice / Beyond the Treatment Table** - Free monthly virtual networking for PT practice owners (4th Thursday, 1-2pm ET via Zoom). Guided discussions on business scaling, leadership, practice management - no lectures. Structured peer support for private practice PTs. (added 2026-03-23)
+  - **CyberPT Forum** - Professional discussion board with dedicated private practice section. Active threads on starting/scaling PT clinics, practice management, and growth strategies. (added 2026-03-23)
+- **Accounting/CPA Practice Owners:**
+  - **Future Firm Accelerate** - Community for CPA/accounting firm owners focused on scaling practices. Training, peer support, automation strategies, hiring playbooks. Targets solo practitioners to small firm owners scaling operations. (added 2026-03-23)
+  - **AccountantForums.com** - Forum for accounting professionals including solo practitioners. Discussions on client management, technology adoption, and practice growth. (added 2026-03-23)
 - **Therapists/Private Practice:**
   - **Practice of the Practice Community** - Resources and community for therapists scaling group practices. Podcast + community + consulting. (added 2026-03-02)
   - **The Group Practice Exchange** - Community for therapists growing group practices. Facebook group + resources + trainings. (added 2026-03-02)
 
 **NEW ADDITIONS - Growth/Revenue Focused (2026-03-05):**
-- **r/sweatystartup** - 120k+ members, bootstrapped service businesses (landscaping, cleaning, pressure washing, HVAC). Nick Huber community - real ops stories, scaling, revenue. NO TECH GLAMOUR. PERFECT FIT.
+- **r/sweatystartup** - 400k+ members (updated 2026-03-23), bootstrapped service businesses (landscaping, cleaning, pressure washing, HVAC). Nick Huber community - real ops stories, scaling, revenue. NO TECH GLAMOUR. PERFECT FIT.
 - **r/EntrepreneurRideAlong** - 50k members, real service business journeys with revenue breakdowns, pitfalls. Pool cleaning, window washing, local services.
 - **r/marketing** - 1.2M members, digital marketing for service businesses (Google Ads for local services, lead gen funnels)
 - **r/sales** - 400k members, B2B/B2C sales tactics, closing deals for service businesses
@@ -221,6 +230,15 @@ Krishna's stated choices for my work.
 ## Setup Log
 
 Chronological history.
+
+### 2026-03-23
+- **Weekly Community Discovery** - Found and added 6 new communities across 4 verticals:
+  - **Veterinary (1):** VetLife on Slack (VetCor) - 400+ vets, peer boards, monthly EBITDA sharing, real-time case support
+  - **Physical Therapy (2):** APTA Private Practice / Beyond the Treatment Table (free monthly networking), CyberPT Forum (dedicated private practice sections)
+  - **Accounting/CPA (2):** Future Firm Accelerate (scaling-focused community), AccountantForums.com (solo practitioner forum)
+  - **Legal (1):** Solo Practice University (Susan Cartier Liebel's ABA-recognized resource for solo attorneys)
+- Updated r/sweatystartup member count: 120k → 400k+ (significant growth)
+- Also cleared brief feedback backlog: "first-100-customers-non-marketer" v3 revision confirmed complete, status moved to pending_review
 
 ### 2026-03-16
 - **Weekly Community Discovery** - Found and added 4 new communities:
