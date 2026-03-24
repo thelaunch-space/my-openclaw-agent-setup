@@ -299,6 +299,7 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/blogs" \
   -d '{
     "title": "BLOG TITLE FROM BRIEF",
     "slug": "blog-post-slug",
+    "topic": "founder-advice",
     "keyword": "main keyword phrase",
     "status": "writing",
     "wordCount": 0,
@@ -309,6 +310,8 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/blogs" \
 
 **When:** Right after you pick up a "Brief Ready" entry
 **Why:** Launch Control shows real-time status. Without this, Krishna doesn't know writing has started.
+
+**Note on topic:** Set this based on where you plan to place the blog file. See "Field notes" below for valid values.
 
 ### 2. Push PR Created Status (After Creating PR)
 
@@ -322,7 +325,8 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/blogs" \
   -d '{
     "title": "Your Blog Title Here",
     "slug": "your-blog-slug",
-    "url": "/blogs/topic-slug/post-slug",
+    "topic": "founder-advice",
+    "url": "/blogs/founder-advice/your-blog-slug",
     "prUrl": "https://github.com/thelaunch-space/thelaunchspace/pull/XX",
     "keyword": "main keyword phrase",
     "status": "pr_created",
@@ -334,7 +338,16 @@ curl -s -X POST "https://curious-iguana-738.convex.site/push/blogs" \
 
 **Field notes:**
 - `slug` — URL slug — **this is the dedup key** (same slug = updates existing record)
-- `url` — Full path (e.g., "/blogs/ai-tools/ai-generated-code-deployment-reality")
+- `topic` — **NEW FIELD (required):** The directory you placed the blog in. Valid values:
+  - `startup-mvps`
+  - `ai-tools`
+  - `founder-advice`
+  - `growth-strategy`
+  - `landing-pages`
+  - `technical-guides`
+  
+  Example: If blog goes to `app/blogs/founder-advice/my-slug/page.tsx`, send `topic: "founder-advice"`
+- `url` — Full path including topic (e.g., "/blogs/founder-advice/my-blog-slug")
 - `prUrl` — GitHub PR URL (e.g., "https://github.com/thelaunch-space/thelaunchspace/pull/63")
 - `keyword` — Main keyword from brief (**NOT** `primaryKeyword`)
 - `status` — `"writing"` then `"pr_created"` — Krishna updates to `"published"` after merge

@@ -433,28 +433,34 @@ Examples of unacceptable repetition:
 
 **All brief markdown files go in ONE location:**
 ```
-/home/node/openclaw/vibhishana/briefs/YYYY-MM-DD-slug.md
+/home/node/openclaw/vibhishana/briefs/slug.md
 ```
 
 **Naming convention:**
-- Date prefix: `YYYY-MM-DD` (date brief was created)
-- Slug: kebab-case, matches the Convex slug field
-- Example: `2026-02-15-mvp-burning-money.md`
+- **NO date prefixes** — slugs should be clean, descriptive, and keyword-focused
+- Slug: kebab-case, matches the Convex slug field exactly
+- Example: `mvp-burning-money.md` ✅ (NOT `2026-02-15-mvp-burning-money.md` ❌)
+
+**Slug rules:**
+- Clean and keyword-focused (e.g., `solo-consultant-first-hire-decision`)
+- No date prefixes (e.g., NOT `2026-03-03-solo-consultant-first-hire-decision`)
+- Lowercase, hyphens only, no special characters
+- Descriptive enough to understand the topic at a glance
 
 **DO NOT create briefs in:**
 - Root vibhishana folder ❌
 - `blog-briefs/` folder ❌
 - Any other location ❌
 
-**1:1 Rule:** Every Convex brief entry MUST have a corresponding markdown file in `briefs/`. The slug in Convex must match the filename (minus date prefix and `.md` extension).
+**1:1 Rule:** Every Convex brief entry MUST have a corresponding markdown file in `briefs/`. The slug in Convex must match the filename exactly (minus `.md` extension).
 
 Example:
 - Convex slug: `mvp-burning-money`
-- File: `briefs/2026-02-15-mvp-burning-money.md`
+- File: `briefs/mvp-burning-money.md`
 
 **Workflow:** Create the markdown file first, then push to Convex. Never push without creating the file.
 
-**Why:** Brief files are the source content. Convex is the SSOT for metadata and status. One folder = easy audit.
+**Why:** Brief files are the source content. Convex is the SSOT for metadata and status. One folder = easy audit. Clean slugs = clean URLs on the live site.
 
 #### Launch Control Data Push (MANDATORY - DO NOT SKIP)
 
