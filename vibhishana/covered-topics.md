@@ -22,10 +22,10 @@
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
 | Market Positioning / Strategic Differentiation | 2 | Positioning consulting business in AI era, generalist vs specialist decision |
-| Client Portfolio Management | 1 | Firing bad-fit clients, concentration risk |
+| Client Portfolio Management | 2 | Firing bad-fit clients, proposal qualification/RFP walk-away decisions |
 | Cash Flow / Payment Operations | 1 | Payment terms structure, late payment enforcement, cash flow protection |
 
-**Total briefs created:** 32
+**Total briefs created:** 33
 
 ---
 
@@ -223,6 +223,12 @@
 - **ICP Problem:** Solo consultants and service business owners ($150K-$500K revenue) paralyzed by multi-dimensional contractor vs. employee decision with major financial/legal consequences: 30-40% cost increase, misclassification fines ($10K-$25K), timing uncertainty (hours/revenue/duration thresholds), IP risk, and commitment vs. flexibility trade-off. Don't know WHEN to convert.
 - **File:** `briefs/2026-03-23-contractor-vs-employee-first-hire-decision.md`
 
+### 2026-03-24: When to Walk Away From an RFP or Proposal Request (The 5-Minute Qualification Framework)
+- **Cluster:** Client Portfolio Management
+- **Primary Keyword:** when to walk away from RFP service business
+- **ICP Problem:** Service business owners ($100K-$500K revenue) losing 10-40 hours/month to "proposal vampires" who demand detailed custom proposals but never buy, creating massive opportunity cost and revenue leak. Can't calculate if proposal investment (time cost) justifies win probability. Treat all opportunities equally instead of risk-based triage.
+- **File:** `briefs/2026-03-24-when-to-walk-away-from-rfp-proposal-decision-framework.md`
+
 ---
 
 ## Diversity Alerts
@@ -264,3 +270,4 @@
 - **2026-03-21:** Added brief #30 - Why You're Stuck at $180K/Year as a Solo Consultant (Scaling/Growth Operations cluster, 4th brief - NOW OVER LIMIT). Source: Reddit r/consulting Feb 2026 thread (156 upvotes) "Revenue stuck at $15k/month, can't scale without team", plus multiple 2025-2026 threads on $150K-$200K plateaus. White space: 3-Bottleneck Diagnostic framework (Delivery vs Acquisition vs Pricing Model), decision tree logic (bottleneck → solution), $180K Math Calculator (1,500 billable hrs × $120/hr), Wrong-Solution Trap (misdiagnosis cost), AI Efficiency Paradox (tools + hourly billing = LESS revenue), honest lifestyle vs scale trade-offs (when staying solo beats scaling). ALL existing content = generic "how to scale" tactics - ZERO diagnostic frameworks to identify YOUR specific constraint before choosing solution.
 - **2026-03-22:** Added brief #31 - How to Structure Payment Terms That Actually Get Paid (new cluster: Cash Flow / Payment Operations). Source: Reddit r/consulting and r/entrepreneur Jan-Mar 2026 threads (247-412 upvotes) on net 30 → actual 60-90 day payments, enforcement paralysis, client ghosting after $15K invoices. White space: Payment Terms Risk Matrix (project size × client type → recommended structure with specific triggers), Late Payment Cost Calculator (opportunity + admin + stress cost formulas), Positioning Framework (how to present deposits/short terms as client benefit not seller desperation), Enforcement Decision Tree (when to waive/charge/suspend/walk away), 2026 economic context (why net 30 dying post-recession, what's replacing it). ALL existing content = generic lists of payment options - ZERO decision frameworks, positioning strategy, enforcement psychology, or solo consultant cash flow reality.
 - **2026-03-23:** Added brief #32 - Contractor vs. Employee for Your First Hire (Team Building/Hiring cluster, 2nd brief). Source: Reddit r/smallbusiness and r/consulting (20+ threads, 2025-2026) on contractor → employee conversion timing, misclassification fines ($10K-$25K), 30 hrs/week thresholds. White space: 30/3/6 Decision Framework (30 hrs/week trigger, 3-month trial, 6-month maximum), Cost Calculator (contractor vs employee all-in comparison), Misclassification Self-Audit (5 red flags from IRS/DOL tests), State-Specific Warnings (CA/MA/NY stricter), Conversion Playbook (4-6 week step-by-step). ALL existing content = generic compliance checklists (Gusto, NOLO) - ZERO decision frameworks with specific thresholds, 2025-2026 regulatory updates, service business economics lens, or conversion timing triggers.
+- **2026-03-24:** Added brief #33 - When to Walk Away From an RFP or Proposal Request (Client Portfolio Management cluster, 2nd brief). Source: Reddit r/smallbusiness and r/consulting (multiple threads Jan 2024-Feb 2026, 150-245 upvotes, 200+ comments) on "proposal vampires," bad client red flags, RFP qualification. Pain: 90% of service businesses report 30-50% of leads are time-wasters, 10-40 hours/month wasted on proposals that never close. Case study: HVAC owner saved $10K/year, 30% revenue increase. White space: 5-Minute Qualification Framework (3 questions predicting 85% of time-wasters), Proposal ROI Calculator (hours × win probability vs opportunity cost with formula), Staged Proposal Approach (teaser/paid discovery/deposit sequence), Kill Criteria Decision Trees (when to walk away mid-process), Good Lead Preservation (how to qualify without scaring buyers). ALL existing content = generic red flags lists ("vague scope," "no budget") - ZERO financial decision frameworks, ROI modeling, staged approaches, or opportunity cost economics.
