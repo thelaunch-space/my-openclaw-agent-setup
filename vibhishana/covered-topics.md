@@ -18,14 +18,14 @@
 | Scaling/Growth Operations | 4 | Revenue plateaus from operational bottlenecks, admin overhead, systematization, diagnostic frameworks |
 | Business Model Strategy | 3 | Service → Product transition, Break-fix → Retainer transition, Hourly → Value-based pricing |
 | Sales/CRM Operations | 2 | Lead management, pipeline tracking, proposal turnaround bottlenecks |
-| Team Building/Hiring | 2 | Solo to agency transition, contractor vs employee decisions |
+| Team Building/Hiring | 3 | First hire timing, contractor vs employee, solo-to-agency transition |
 | Technical Debt/Code Ownership | 1 | Developer abandonment, code rescue |
 | Field Service Operations | 2 | Dispatch/scheduling bottlenecks blocking revenue growth, after-hours lead capture |
 | Market Positioning / Strategic Differentiation | 2 | Positioning consulting business in AI era, generalist vs specialist decision |
 | Client Portfolio Management | 2 | Firing bad-fit clients, proposal qualification/RFP walk-away decisions |
 | Cash Flow / Payment Operations | 1 | Payment terms structure, late payment enforcement, cash flow protection |
 
-**Total briefs created:** 33
+**Total briefs created:** 34
 
 ---
 
@@ -229,9 +229,17 @@
 - **ICP Problem:** Service business owners ($100K-$500K revenue) losing 10-40 hours/month to "proposal vampires" who demand detailed custom proposals but never buy, creating massive opportunity cost and revenue leak. Can't calculate if proposal investment (time cost) justifies win probability. Treat all opportunities equally instead of risk-based triage.
 - **File:** `briefs/2026-03-24-when-to-walk-away-from-rfp-proposal-decision-framework.md`
 
+### 2026-03-25: Solo to Agency Transition: When to Make the Leap (And How to Not Blow Up Your Business)
+- **Cluster:** Team Building/Hiring
+- **Primary Keyword:** solo to agency transition
+- **ICP Problem:** Solo consultants at $250K-$500K revenue hitting capacity ceiling, considering business model transformation from personal expertise delivery to managed team agency. Not just "should I hire?" (Brief #13) but fundamental strategic pivot: shift to retainers, hire team, become manager instead of consultant. Decision paralysis from multiple unknowns: financial viability (Valley of Death 6-12 month revenue dip, margin compression 30-50%), timing (when exactly to leap), readiness (cash reserves, retainer revenue %), identity crisis (love consulting, hate management?), and 2026 AI wildcard (can I scale solo with AI/automation instead of hiring humans?). High-stakes transformation with clear failure modes from Reddit: hired too early without systems, underestimated cash needs, project-based revenue can't sustain salaries, hated management role.
+- **File:** `briefs/2026-03-25-solo-to-agency-transition-decision-framework.md`
+
 ---
 
 ## Diversity Alerts
+
+**⚠️ Team Building/Hiring cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
 
 **⚠️ Lead Generation Strategy cluster at 3 briefs** - At limit. Seek variety unless gap is exceptional.
 
@@ -249,6 +257,7 @@
 
 ## Update Log
 
+- **2026-03-25:** Added brief #34 - Solo to agency transition decision framework (Team Building/Hiring cluster, 3rd brief - now at saturation). Source: Multiple Reddit threads 2024-2026 (r/consulting, r/smallbusiness, 90-320 upvotes) on solo consultant → agency model transformation. Pain: $250K-$500K revenue ceiling, turning down $10K-$20K/month business, decision paralysis on business model pivot. White space: No financial decision model (when does agency math work?), no three-path tree (solo+AI vs productize vs agency), no Valley of Death calculator (6-12 month transition with specific cash reserve formula), no "when NOT to do this" guidance (all existing content pro-agency), no 2026 AI context (can you scale solo with automation instead?). ALL existing content = tactics (how to hire) or inspiration (success stories) - ZERO strategic decision frameworks for the transformation itself.
 - **2026-03-01:** File created. 11 briefs cataloged.
 - **2026-03-03:** Added brief #13 - Solo consultant first hire decision (new cluster: Team Building/Hiring).
 - **2026-03-04:** Added brief #14 - Developer disappeared code rescue (new cluster: Technical Debt/Code Ownership).
