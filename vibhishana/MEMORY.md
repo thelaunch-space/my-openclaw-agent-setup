@@ -17,6 +17,8 @@ Durable truths that don't change often.
 
 **Service Business Owners (CORE):**
 - r/consulting - Consultants going independent (~150k members, operations/growth focus)
+- r/solopreneur - 250k+ solo entrepreneurs building/scaling independently. Ops hacks, VA hiring, workflow automation, revenue systems. Core ICP fit. (added 2026-03-30)
+- r/agency - 50k+ digital agency owners, freelancers, service entrepreneurs. Scaling service businesses, hiring, pricing, operations. Strong ops discussions. (added 2026-03-30)
 
 **Domain-Specific Practice Owners (VERTICALS):**
 - r/lawfirm - Solo/small firm practice management, operations, scaling (added 2026-03-02)
@@ -43,11 +45,14 @@ Durable truths that don't change often.
 - **ICF Engage** - Online platform for ICF members with anytime discussions, peer insights, relationship-building. 140+ global chapters for in-person networking. Converge 2025 On Demand available through Nov 2026. (added 2026-03-09)
 - **Fractionals United** - 8,000+ members Slack for fractional leaders and consultants. Collaboration, business resources, networking. $10/month after trial. Application at bit.ly/frunapp. (added 2026-03-09)
 - **Coach Office Club** - Experimentation space for coaches building businesses. Clarity on funnels/systems, templates, peer support (added 2026-02-25)
+- **Online Geniuses** - 18k+ members marketing Slack for consultants, coaches, freelancers, agency owners, VPs, CMOs. High activity on trends, networking, strategies. Free with optional $25 for instant access. (added 2026-03-30)
+- **Pavilion** - 5,000+ GTM/revenue executives (CROs, CMOs, RevOps). Private membership community, events like CRO Summit and GTM2026 conference. High-value peer networking, resources without vendor pitches. Target: in-seat leaders (80% run teams). (added 2026-03-30)
 
 **Vertical-Specific (Domain Experts):**
 - **Education:** Founders Network EdTech Initiative (600+ global EdTech founders), Future of Higher Education Slack (3.5k+ EdTech innovation) (added 2026-02-09)
   - **IECA (Independent Educational Consultants Association)** - Verified network for IECs, IECA Talk List (active listserv for sharing college/financial aid advice), 2k+ member vetted Facebook group, annual conferences. Gold standard credential for education consultants. (added 2026-03-16)
   - **HECA (Higher Education Consultants Association)** - College admissions consultants, higher ed specialists. Conferences, forums, member directory. More niche than IECA but strong for college counseling vertical. (added 2026-03-16)
+  - **AESA Consultant Network** - National virtual community for K-12 professional development consultants, instructional coaches, school improvement specialists. Monthly sessions (e.g., Feb 12, 2026), tools/frameworks sharing, peer benchmarking. Strong education vertical. (added 2026-03-30)
 - **Healthcare:** Health Tech Nerds Slack (6k members, vetted $20/mo), MGMA (operations focus), Sermo (physician-owned practice network), Tracy Cherpeski's communities (masterminds + CoPs for independent practice owners) (added 2026-02-25)
   - **Thriving Practice Community** - Global online community for independent healthcare practice owners (physicians, physical therapists, naturopaths, psychologists). 24/7 platform, twice-monthly group sessions, searchable resource library. Focus on scaling sustainably without burnout. (added 2026-03-09)
   - **PCMH Forum** - Nationwide Slack for Patient-Centered Medical Home topics, resources, Q&A among certified healthcare orgs. (added 2026-03-09)
@@ -74,6 +79,8 @@ Durable truths that don't change often.
 - **Accounting/CPA Practice Owners:**
   - **Future Firm Accelerate** - Community for CPA/accounting firm owners focused on scaling practices. Training, peer support, automation strategies, hiring playbooks. Targets solo practitioners to small firm owners scaling operations. (added 2026-03-23)
   - **AccountantForums.com** - Forum for accounting professionals including solo practitioners. Discussions on client management, technology adoption, and practice growth. (added 2026-03-23)
+- **Professional Services (Mid-Market):**
+  - **Collective 54** - First mastermind exclusively for founders/owners of NAICS 54 professional services firms ($5M-$100M revenue). Curated national peer network, weekly virtual sessions, coaching, hybrid events. Founded by Greg Alexander (sold SBI for $162M). 50+ member exits since 2020 generating ~$3B in wealth. Strict criteria: exec team, North America HQ, high ethics. (added 2026-03-30)
 - **Therapists/Private Practice:**
   - **Practice of the Practice Community** - Resources and community for therapists scaling group practices. Podcast + community + consulting. (added 2026-03-02)
   - **The Group Practice Exchange** - Community for therapists growing group practices. Facebook group + resources + trainings. (added 2026-03-02)
@@ -230,6 +237,13 @@ Krishna's stated choices for my work.
 ## Setup Log
 
 Chronological history.
+
+### 2026-03-30
+- **Weekly Community Discovery** - Found and added 6 new communities:
+  - **Subreddits (2):** r/solopreneur (250k+ solo entrepreneurs, ops hacks, revenue systems), r/agency (50k+ digital agency owners, scaling service businesses)
+  - **Service Business Communities (3):** Online Geniuses (18k+ marketing Slack for consultants/coaches/freelancers), Pavilion (5k+ GTM/revenue executives, CROs/CMOs), Collective 54 (mastermind for $5M-$100M professional services firms)
+  - **Education (1):** AESA Consultant Network (K-12 professional development consultants, instructional coaches)
+- All additions focus on service business owners with growth/scaling pain - continuing ICP alignment
 
 ### 2026-03-23
 - **Weekly Community Discovery** - Found and added 6 new communities across 4 verticals:
