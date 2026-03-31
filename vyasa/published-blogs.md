@@ -53,6 +53,7 @@ Blogs about founder decision-making, validation, growth.
 | 28 | Your Lead Gen Channel Just Died | /blogs/founder-advice/lead-gen-channel-died | lead generation channel pivot service business |
 | 29 | Your Clients Won't Commit to Retainers. Now What? | /blogs/founder-advice/2026-03-08-break-fix-to-retainer-service-business | service business retainer model transition |
 | 30 | When to Invest in Dispatch Scheduling Software | /blogs/founder-advice/service-crew-dispatch-scheduling-investment-decision | when to invest in dispatch scheduling software |
+| 31 | Your Projects Look Profitable On Paper — Why Are You Barely Breaking Even? | /blogs/founder-advice/scope-creep-profitability-diagnostic | scope creep profitability consulting |
 
 ### Cluster: AI Tools & Automation (4 blogs)
 Blogs about AI products, automation, AI for non-technical founders.
