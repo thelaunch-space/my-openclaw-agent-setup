@@ -4,6 +4,18 @@
 
 Durable truths that don't change often.
 
+### ⛔ CRITICAL: API Key Security (2026-04-07)
+
+**NEVER commit API keys to git. EVER.**
+
+- OpenRouter will detect exposed keys and deactivate them immediately
+- Keys belong in `/home/node/openclaw/credentials/` or in gateway config (`/home/node/.openclaw/`)
+- The `.openclaw/` directory in `/home/node/` is local gateway state - NOT for git
+- If writing agent config files with keys, ensure they're in `.gitignore`
+- When in doubt, use `cat` to read keys from credential files, not hardcoded values
+
+**This cost us one OpenRouter API key. Do not repeat.**
+
 ### Identifiers
 - **Krishna's Slack ID:** U0AD3QLN32S
 - **Krishna's DM channel:** D0AD3R8FC14

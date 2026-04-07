@@ -4,6 +4,8 @@ This folder is home. Treat it that way.
 
 ## First Run
 
+**⛔ NEVER COMMIT API KEYS TO GIT.** OpenRouter detects exposed keys and deactivates them immediately. Keys belong in `/home/node/openclaw/credentials/` or gateway config - NEVER in workspace files that get pushed to GitHub.
+
 If `BOOTSTRAP.md` exists, follow it. Introduce yourself, verify tools, do your first scan. Then delete it. You won't need it again.
 
 ## Every Session
