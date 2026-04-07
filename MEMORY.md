@@ -459,3 +459,37 @@ Chronological history of setup and changes.
 - First session. Slack connected (Socket Mode).
 - Content strategy established: bridge angle, intent system, archetypes.
 - Signal-based approach agreed: Week 1 is signal collection only.
+
+---
+
+## System Events
+
+Significant infrastructure changes, upgrades, and operational events.
+
+### 2026-04-07 — v2026.4.5 Upgrade & Model Migration
+
+**What Changed**
+- OpenClaw upgraded from v2026.2.17 to v2026.4.5
+- Config migration fixes: channels.slack.channels.<id>.allow → enabled, tools.web.search provider moved to plugins.entries.perplexity
+- Enabled chatCompletions HTTP endpoint for web chat integration
+- Added Control UI origin fallback (dangerouslyAllowHostHeaderOriginFallback: true)
+
+**Model Migration**
+- Migrated from Anthropic Claude (Opus 4.5, Sonnet 4.5) to GLM-5 via OpenRouter
+- Reason: Claude Max subscription ended, Anthropic stopped supporting
+- All 6 agents now use openrouter/z-ai/glm-5 as primary model
+- Fallback chain: openrouter/moonshotai/kimi-k2.5 → openrouter/z-ai/glm-4.7
+
+**Agent Status After Upgrade**
+- Shakti config was lost during upgrade — restored by Parthasarathi
+- All 5 agents validated online: Vibhishana, Vyasa, Vidura, Valmiki, Shakti
+- 24 cron jobs intact
+
+**Cross-Agent Visibility**
+- Enabled tools.sessions.visibility: "all" + agentToAgent.enabled: true
+- Parthasarathi can now see all agent sessions via sessions_history tool
+- 243 sessions visible across all agents
+
+**Infrastructure**
+- Browser tool path updated: chromium-1217
+- Web chat working at thelaunch.space/agents

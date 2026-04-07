@@ -50,41 +50,19 @@ I am Parthasarathi, the main orchestrator. I manage configuration and coordinate
 - **Role:** Find ICP leads, research prospects, detect buying signals
 - **Workspace:** `/home/node/openclaw/sanjaya/`
 
-### Valmiki (LinkedIn Growth Engine) — ✅ ACTIVE
-- **Status:** ACTIVE - Workflow pivoted 2026-02-25 from brainstorm-driven to extraction-driven
+### Valmiki (LinkedIn Growth Engine) — ⏸️ PAUSED
+- **Status:** PAUSED - Business pivot, outputs not being used
 - **Channel:** #valmiki-content (C0AD3SHGV2A)
-- **Model:** Sonnet 4.5
-- **Role:** LinkedIn extraction engine - mine published blogs for standalone insights, draft posts with named labels and value-exchange CTAs
-- **Work Style:** Extractive, diagnostic, ICP-obsessed. Every post earns its CTA.
-- **KRAs:** 4-5 posts/week (zero gaps), ICP engagement (saves/comments from services founders), 1+ DM or inquiry/week, decreasing edit time
-- **Schedule (Updated 2026-02-25):**
-  - 7:00 PM IST - LinkedIn Extraction (extract insights from next Published blog, filter ICP, draft 1-2 posts, present to Krishna)
-  - 10:00 AM IST Saturday - Weekly Performance Review
-  - 8:30 AM next day - Krishna posts manually
-- **Data Source:** Convex-first (linkedinPosts table) — metrics, performance tracking, post status all in Convex. Sheets is archive/fallback only.
-- **Named Insights:** Every insight gets a 2-5 word label ("The Invisible Labor Trap", "The $3,000 Mistake")
-- **Backlog:** 18 published blogs = 54-90 potential posts = 11-22 weeks of content
-- **Desired Outcomes:** Consistent LinkedIn presence, ICP engagement (not devs), warm leads, named insights that become quotable
+- **Model:** GLM-5 (primary), GLM-4.7 (fallback)
+- **Note:** All cron jobs removed. Configs intact for potential reactivation.
 - **Workspace:** `/home/node/openclaw/valmiki/`
-- **Helper Script:** `node /home/node/openclaw/scripts/linkedin-pipeline-helper.js` (Convex-first)
-- **What Valmiki does NOT do:** Post directly, mention source blogs in posts, handle comments/DMs, write X posts, touch agent configs
 
-### Vibhishana (SEO Research)
+### Vibhishana (SEO Research) — ⏸️ PAUSED
+- **Status:** PAUSED - Krishna rethinking workflow (keyword/API-first instead of Reddit-driven)
 - **Channel:** #vibhishana-seo (C0AEFPRRV08)
-- **Model:** Sonnet 4.5 (briefs), Opus 4.5 (scans/reports)
-- **Role:** Reddit question mining, SEO keyword research, research briefs for Vyasa
-- **Work Style:** Methodical, data-driven, SEO-native thinking
-- **KRAs:** Question quality (ICP-relevant, bookmark-worthy), keyword research depth, brief completeness, community discovery
-- **Schedule (Updated 2026-02-19):**
-  - 9:00 AM IST - Morning Reddit Scan
-  - 11:00 AM IST - SEO Brief (1 brief/day)
-  - 6:00 PM IST - Evening Report
-  - 10:00 AM IST Monday - Weekly Community Discovery
-- **Note:** Reduced to 1 brief/day on 2026-02-19 because Krishna can't review 3 briefs/day. Will increase when review backlog clears.
-- **Desired Outcomes:** Surface ICP questions, create thorough research briefs, expand community coverage
-- **Sheet:** https://docs.google.com/spreadsheets/d/1xmeU8Iu7f540yl4iPp0KaCxVSfwfA_pciE8o1-jKD2g/edit
+- **Model:** GLM-5 (primary), GLM-4.7 (fallback)
+- **Note:** All cron jobs removed. Configs intact for potential reactivation.
 - **Workspace:** `/home/node/openclaw/vibhishana/`
-- **Scanner Script:** `node /home/node/openclaw/scripts/reddit-scanner.js`
 
 ### Vyasa (Blog Writer)
 - **Channel:** #vyasa-blogs (C0ADUM2TLEQ)
@@ -92,49 +70,26 @@ I am Parthasarathi, the main orchestrator. I manage configuration and coordinate
 - **Role:** Write and publish blog posts from Vibhishana's research briefs
 - **Work Style:** Thoughtful, thorough, quality-obsessed. Reference-worthy content.
 - **KRAs:** Bookmark-worthy posts, AI citation potential, ICP resonance, voice accuracy
-- **Schedule (Updated 2026-02-18):**
-  - 11:00 AM IST - Daily Blog Run (moved from 4 PM)
-  - 3:00 PM IST - Citation Enrichment #1
-  - 5:00 PM IST - Citation Enrichment #2
-  - 8:00 PM IST - Citation Enrichment #3
+- **Schedule (Updated 2026-04-07):**
+  - 11:00 AM IST - Daily Blog Run
+  - 5:00 PM IST - Citation Enrichment (consolidated from 3 runs to 1)
 - **Desired Outcomes:** Published blogs that get bookmarked, cited by AI search, demonstrate agent capabilities, bring ICP to Launch Control
 - **Data Source:** Convex-first (blogs table) — enrichment reads, blog status, metadata all in Convex. Sheets is archive/fallback only.
 - **Workspace:** `/home/node/openclaw/vyasa/`
 
-### Vidura (SEO Intelligence)
+### Vidura (SEO Intelligence) — ⏸️ PAUSED
+- **Status:** PAUSED - Business pivot, outputs not being used
 - **Channel:** #vidura-seo-strategy (C0AFTEV7Q6Q)
-- **Model:** Sonnet 4.5
-- **Role:** SEO strategy advisor — topic clustering, strategic topics, free tool identification, LLM citation monitoring. Posts recommendations to #vidura-seo-strategy. Krishna approves before anything changes.
-- **Work Style:** Analytical, data-driven. Reports insights and recommendations, not raw data.
-- **KRAs:** Cluster completeness, LLM citation improvement, strategic topic quality, tool opportunity identification
-- **Schedule:**
-  - 9:30 AM IST - Morning Analysis (daily)
-  - 10:30 AM IST - Topic Cluster Mapping (Monday only)
-  - 10:30 AM IST - Strategic Topic Generation (Wednesday only)
-  - 10:30 AM IST - Tool Opportunity Scan (Friday only)
-  - 2:30 PM IST - Midday Strategy (daily)
-  - 7:30 PM IST - Evening Review (daily)
-- **Desired Outcomes:** Clustered authority building, LLM citation growth, data-driven content strategy
-- **Sheet:** Same as Vibhishana/Vyasa (+ topic-clusters and tool-opportunities tabs)
+- **Model:** GLM-5 (primary), GLM-4.7 (fallback)
+- **Note:** All cron jobs removed. Configs intact for potential reactivation.
 - **Workspace:** `/home/node/openclaw/vidura/`
 
-### Shakti (Personal Assistant / Daily Planner) — ✅ ACTIVE
-- **Status:** ACTIVE - New agent, launched 2026-02-28
+### Shakti (Personal Assistant / Daily Planner) — ⏸️ PAUSED
+- **Status:** PAUSED - Business pivot, outputs not being used
 - **Channel:** #shakti-ops (C0AJKV6H2G0)
-- **Model:** Sonnet 4.5
-- **Role:** Daily planning and task orchestration across three work streams (Beacon House, EduTechPlus, thelaunch.space)
-- **Work Style:** Calm, precise, anticipatory. Surfaces flags before they become fires.
-- **KRAs:** Deadline awareness, pace model accuracy, cognitive load reduction, blocking-task surfacing
-- **Schedule:**
-  - 7:00 AM IST - Morning Ops Brief (daily)
-  - 4:30 PM IST - Afternoon Progress Check (daily)
-  - 9:30 PM IST - Evening Consolidation (daily)
-  - 10:00 AM IST Sunday - Weekly Digest
-- **Data Source:** Convex (tasks, clients, projects) — not Google Sheets
-- **Desired Outcomes:** Krishna never misses a deadline, pace estimates improve over time, smooth context-switching between work streams
+- **Model:** GLM-5 (primary), GLM-4.7 (fallback)
+- **Note:** All cron jobs removed. Configs intact for potential reactivation.
 - **Workspace:** `/home/node/openclaw/shakti/`
-- **Key Files:** `pace-model.md`, `clients/*.md`
-- **What Shakti does NOT do:** Create tasks without explicit request, post in other agent channels, manage SEO or content work
 
 ## How I Orchestrate the Team
 
