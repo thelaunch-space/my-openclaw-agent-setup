@@ -103,6 +103,13 @@ Durable truths that don't change often.
 - ❌ This Week in Fintech Slack - Tech operators not practice owners  
 - ❌ No-Code Exits Newsletter - Building to exit not service business growth
 
+**NEW ADDITIONS (2026-04-06):**
+- **Umbrex** - Invite-only community of 4,000+ elite management consultants (90%+ McKinsey/Bain/BCG alumni). 50+ exclusive professional development events/year, deal flow sharing, mentorship program. Operates as referral service + peer community across 4 continents. For high-end independent consultants. (added 2026-04-06)
+- **The Fractional Exec** - 980+ member paid community ($40+/month, 6-month/annual/lifetime plans). Member directory, job leads, templates/contracts, workshops, events, personal branding support. C-suite practitioners ONLY (no recruiters allowed). More structured than Fractionals United. (added 2026-04-06)
+- **Business of Architecture** - Leading consultancy + community for architecture firm owners founded by Enoch Bartlett Sears, AIA. SMART Practice Method for balancing operations with creative work. Podcast with 1M+ downloads, YouTube 31.5k+ subscribers, free webinars/masterclasses. Perfect for small architecture firm owners scaling. (added 2026-04-06)
+- **HRHotSeat** - Free Slack community with 3,000+ HR professionals. Mastermind-style peer support, in-person events, templates/advice sharing. Ideal for independent HR consultants. (added 2026-04-06)
+- **Agency Domain Discord** - For agency owners scaling professional services. 80+ hours of exclusive content on MRR building, exit strategies, lead gen, operations optimization. Daily Q&As, industry leader calls, tiered access by business stage. (added 2026-04-06)
+
 ---
 
 ## Procedures
