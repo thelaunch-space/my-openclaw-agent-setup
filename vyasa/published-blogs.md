@@ -38,7 +38,7 @@ Blogs about founder decision-making, validation, growth.
 | 13 | Do Solo Lawyers Really Need Case Management Software? | /blogs/founder-advice/solo-lawyer-case-management-decision | case management software solo lawyer |
 | 14 | Why Your Landing Page Gets Zero Signups | /blogs/founder-advice/landing-page-zero-signups-distribution | landing page zero conversions |
 | 15 | Zero Signups After Launch? Here's What Actually Works | /blogs/founder-advice/zero-signups-participation-shift | how to get first customers after launch |
-| 16 | I Validated the Problem. Why Won't Anyone Pay? | /blogs/founder-advice/validated-problem-wont-pay | validated problem no paying customers |
+| 16 | I Validated the Problem. Why Won't Anyone Pay? | /blogs/founder-advice/validated-problem-wont-pay | validated problem no paying customers | (Enriched x2) |
 | 17 | Developer Disappeared Mid-Project? Here's Your Recovery Plan | /blogs/founder-advice/dev-disappeared | developer disappeared halfway through project |
 | 18 | How to Handle Customer Feature Requests (When You're Not a PM) | /blogs/founder-advice/feature-request-overwhelm | customer feature requests |
 | 19 | Post-MVP Doubt: Should You Keep Going or Quit? | /blogs/founder-advice/post-mvp-doubt-should-you-keep-going | post-MVP doubt |
